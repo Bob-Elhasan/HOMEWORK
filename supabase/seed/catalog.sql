@@ -324,6 +324,33 @@ select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (11, 'D3-A4-C2', 'المحور الرابع: التواصل (الروابط) | Term 2', 'التواصل بين البشر', 'Communication between people'),
     (12, 'D3-A4-C3', 'المحور الرابع: التواصل (الروابط) | Term 2', 'التواصل الاجتماعي', 'Social communication')
   ) as v(ordinal, code, strand, title, title_en);
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe-textbooks', 'arabic', 5, 5, 'Arabic Language (اللغة العربية), Primary 5, Term 1', 1, '2026/2027', 'https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026_2027/Primary/Primary5/Term1/StudentBook/Arabic_langugae_prim5_t1.pdf') returning id)
+insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
+select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
+    (1, 'AR5-T1-U1-L1', 'الوحدة الأولى: نيلنا أمانة', 'الاستماع: سر الحياة', 'Listening: The secret of life'),
+    (2, 'AR5-T1-U1-L2-R', 'الوحدة الأولى: نيلنا أمانة', 'القراءة: لم ألوث ماء النهر', 'Reading: I did not pollute the river''s water'),
+    (3, 'AR5-T1-U1-L2-G', 'الوحدة الأولى: نيلنا أمانة', 'القواعد النحوية: المفعول به', 'Grammar: the direct object'),
+    (4, 'AR5-T1-U1-L2-S', 'الوحدة الأولى: نيلنا أمانة', 'القواعد الإملائية: همزة القطع وألف الوصل', 'Spelling: hamzat al-qat'' and alif al-wasl'),
+    (5, 'AR5-T1-U1-L2-W', 'الوحدة الأولى: نيلنا أمانة', 'الكتابة: رسالة رسمية', 'Writing: a formal letter'),
+    (6, 'AR5-T1-U1-L3-R', 'الوحدة الأولى: نيلنا أمانة', 'القراءة: بطل حل المشكلات', 'Reading: The problem-solving hero'),
+    (7, 'AR5-T1-U1-L3-G', 'الوحدة الأولى: نيلنا أمانة', 'القواعد النحوية: المفعول به (المفرد وجمع التكسير)', 'Grammar: the direct object (singular and broken plural)'),
+    (8, 'AR5-T1-U1-L4', 'الوحدة الأولى: نيلنا أمانة', 'النص الشعري: حكاية عطاء', 'Poem: A tale of giving'),
+    (9, 'AR5-T1-U2-L1', 'الوحدة الثانية: فن التواصل', 'الاستماع: جسر التواصل', 'Listening: A bridge of communication'),
+    (10, 'AR5-T1-U2-L2-R', 'الوحدة الثانية: فن التواصل', 'القراءة: لغة النصر', 'Reading: The language of victory'),
+    (11, 'AR5-T1-U2-L2-G', 'الوحدة الثانية: فن التواصل', 'القواعد النحوية: إعراب المفعول به (جمع المؤنث السالم)', 'Grammar: parsing the direct object (sound feminine plural)'),
+    (12, 'AR5-T1-U2-L2-S', 'الوحدة الثانية: فن التواصل', 'القواعد الإملائية: الهمزة المتطرفة على السطر', 'Spelling: final hamza on the line'),
+    (13, 'AR5-T1-U2-L2-W', 'الوحدة الثانية: فن التواصل', 'الكتابة: اكتب يومياتك', 'Writing: keep a diary'),
+    (14, 'AR5-T1-U2-L3-R', 'الوحدة الثانية: فن التواصل', 'القراءة: الرسالة عبر الزمن', 'Reading: Messages through time'),
+    (15, 'AR5-T1-U2-L3-G', 'الوحدة الثانية: فن التواصل', 'القواعد النحوية: المفعول به (المثنى وجمع المذكر السالم)', 'Grammar: the direct object (dual and sound masculine plural)'),
+    (16, 'AR5-T1-U2-L4', 'الوحدة الثانية: فن التواصل', 'النص الشعري: أخي الإنسان', 'Poem: My fellow human'),
+    (17, 'AR5-T1-U3-L1', 'الوحدة الثالثة: جمال الاختلاف', 'الاستماع: التنوع حياة', 'Listening: Diversity is life'),
+    (18, 'AR5-T1-U3-L2-R', 'الوحدة الثالثة: جمال الاختلاف', 'القراءة: كيف يصبح العالم أجمل؟', 'Reading: How does the world become more beautiful?'),
+    (19, 'AR5-T1-U3-L2-G', 'الوحدة الثالثة: جمال الاختلاف', 'القواعد النحوية: المفعول لأجله', 'Grammar: the object of purpose'),
+    (20, 'AR5-T1-U3-L2-S', 'الوحدة الثالثة: جمال الاختلاف', 'القواعد الإملائية: الهمزة المتطرفة على الألف', 'Spelling: final hamza on alif'),
+    (21, 'AR5-T1-U3-L3-R', 'الوحدة الثالثة: جمال الاختلاف', 'القراءة: حائر أمام بائع الزهور', 'Reading: Puzzled at the flower seller'),
+    (22, 'AR5-T1-U3-L3-G', 'الوحدة الثالثة: جمال الاختلاف', 'القواعد النحوية: إعراب ظرفي الزمان والمكان', 'Grammar: parsing adverbs of time and place'),
+    (23, 'AR5-T1-U3-L4', 'الوحدة الثالثة: جمال الاختلاف', 'النص الشعري: جمال التنوع', 'Poem: The beauty of diversity')
+  ) as v(ordinal, code, strand, title, title_en);
 with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe-textbooks', 'social-studies', 5, 5, 'Social Studies (الدراسات الاجتماعية), Primary 5, Term 1', 1, '2026/2027', 'https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026_2027/Primary/Primary5/Term1/StudentBook/Social_studies_prim5_t1.pdf') returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
@@ -401,17 +428,6 @@ select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (7, 'AR-WR', 'Writing', 'التعبير', 'Composition')
   ) as v(ordinal, code, strand, title, title_en);
 with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe', 'arabic', 4, 4, 'Arabic Language (اللغة العربية), Primary 4', NULL, NULL, NULL) returning id)
-insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
-select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
-    (1, 'AR-LS', 'Language skills', 'الاستماع والتحدث', 'Listening and speaking'),
-    (2, 'AR-RD', 'Language skills', 'القراءة والفهم', 'Reading and comprehension'),
-    (3, 'AR-TX', 'Literature', 'النصوص والمحفوظات', 'Texts and recitation'),
-    (4, 'AR-GR', 'Language structure', 'النحو والصرف', 'Grammar and morphology'),
-    (5, 'AR-SP', 'Language structure', 'الإملاء', 'Spelling'),
-    (6, 'AR-HW', 'Writing', 'الخط', 'Handwriting'),
-    (7, 'AR-WR', 'Writing', 'التعبير', 'Composition')
-  ) as v(ordinal, code, strand, title, title_en);
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe', 'arabic', 5, 5, 'Arabic Language (اللغة العربية), Primary 5', NULL, NULL, NULL) returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (1, 'AR-LS', 'Language skills', 'الاستماع والتحدث', 'Listening and speaking'),

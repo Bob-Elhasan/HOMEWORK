@@ -81,6 +81,10 @@ const ar8 = await one(`select count(*)::int as n from curriculum_topics_by_grade
                        where system_code = 'national' and year = 8 and subject_code = 'arabic' and curriculum_code = 'eg-moe-textbooks'`);
 check(ar8.n === 24, `national grade 8 Arabic has the book's 24 topics (got ${ar8.n})`);
 
+const ar5 = await one(`select count(*)::int as n, min(academic_year) as y from curriculum_topics_by_grade
+                       where system_code = 'national' and year = 5 and subject_code = 'arabic'`);
+check(ar5.n === 23 && ar5.y === '2026/2027', `national grade 5 Arabic has the 2026/2027 book's 23 topics (got ${ar5.n})`);
+
 const d3 = await one(`select count(*)::int as n from curriculum_topics_by_grade where year = 3 and subject_code = 'discover'`);
 check(d3.n === 12, `national grade 3 Discover has 12 chapters (got ${d3.n})`);
 

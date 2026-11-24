@@ -12,10 +12,20 @@
         "source": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/",
         "method": "Read from the contents page of each linked Ministry student book; cover checked for Ministry branding, grade, and academic year."
       },
-      "grade_labels": {"2": "Primary 2", "3": "Primary 3", "4": "Primary 4", "5": "Primary 5", "6": "Primary 6", "7": "Preparatory 1", "8": "Preparatory 2"},
+      "grade_labels": {
+        "2": "Primary 2",
+        "3": "Primary 3",
+        "4": "Primary 4",
+        "5": "Primary 5",
+        "6": "Primary 6",
+        "7": "Preparatory 1",
+        "8": "Preparatory 2"
+      },
       "syllabi": [
         {
-          "subject": "discover", "grade_min": 3, "grade_max": 3,
+          "subject": "discover",
+          "grade_min": 3,
+          "grade_max": 3,
           "name": "Discover (اكتشف), Primary 3",
           "academic_year": "2025/2026",
           "source_url": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary3/Term1/StudentBook/Discovery_AR_prim3_TR1_2.pdf",
@@ -35,9 +45,46 @@
           ]
         },
         {
-          "subject": "social-studies", "grade_min": 5, "grade_max": 5,
+          "subject": "arabic",
+          "grade_min": 5,
+          "grade_max": 5,
+          "name": "Arabic Language (اللغة العربية), Primary 5, Term 1",
+          "term": 1,
+          "academic_year": "2026/2027",
+          "source_url": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026_2027/Primary/Primary5/Term1/StudentBook/Arabic_langugae_prim5_t1.pdf",
+          "topics": [
+            ["AR5-T1-U1-L1", "الوحدة الأولى: نيلنا أمانة", "الاستماع: سر الحياة", "Listening: The secret of life"],
+            ["AR5-T1-U1-L2-R", "الوحدة الأولى: نيلنا أمانة", "القراءة: لم ألوث ماء النهر", "Reading: I did not pollute the river's water"],
+            ["AR5-T1-U1-L2-G", "الوحدة الأولى: نيلنا أمانة", "القواعد النحوية: المفعول به", "Grammar: the direct object"],
+            ["AR5-T1-U1-L2-S", "الوحدة الأولى: نيلنا أمانة", "القواعد الإملائية: همزة القطع وألف الوصل", "Spelling: hamzat al-qat' and alif al-wasl"],
+            ["AR5-T1-U1-L2-W", "الوحدة الأولى: نيلنا أمانة", "الكتابة: رسالة رسمية", "Writing: a formal letter"],
+            ["AR5-T1-U1-L3-R", "الوحدة الأولى: نيلنا أمانة", "القراءة: بطل حل المشكلات", "Reading: The problem-solving hero"],
+            ["AR5-T1-U1-L3-G", "الوحدة الأولى: نيلنا أمانة", "القواعد النحوية: المفعول به (المفرد وجمع التكسير)", "Grammar: the direct object (singular and broken plural)"],
+            ["AR5-T1-U1-L4", "الوحدة الأولى: نيلنا أمانة", "النص الشعري: حكاية عطاء", "Poem: A tale of giving"],
+            ["AR5-T1-U2-L1", "الوحدة الثانية: فن التواصل", "الاستماع: جسر التواصل", "Listening: A bridge of communication"],
+            ["AR5-T1-U2-L2-R", "الوحدة الثانية: فن التواصل", "القراءة: لغة النصر", "Reading: The language of victory"],
+            ["AR5-T1-U2-L2-G", "الوحدة الثانية: فن التواصل", "القواعد النحوية: إعراب المفعول به (جمع المؤنث السالم)", "Grammar: parsing the direct object (sound feminine plural)"],
+            ["AR5-T1-U2-L2-S", "الوحدة الثانية: فن التواصل", "القواعد الإملائية: الهمزة المتطرفة على السطر", "Spelling: final hamza on the line"],
+            ["AR5-T1-U2-L2-W", "الوحدة الثانية: فن التواصل", "الكتابة: اكتب يومياتك", "Writing: keep a diary"],
+            ["AR5-T1-U2-L3-R", "الوحدة الثانية: فن التواصل", "القراءة: الرسالة عبر الزمن", "Reading: Messages through time"],
+            ["AR5-T1-U2-L3-G", "الوحدة الثانية: فن التواصل", "القواعد النحوية: المفعول به (المثنى وجمع المذكر السالم)", "Grammar: the direct object (dual and sound masculine plural)"],
+            ["AR5-T1-U2-L4", "الوحدة الثانية: فن التواصل", "النص الشعري: أخي الإنسان", "Poem: My fellow human"],
+            ["AR5-T1-U3-L1", "الوحدة الثالثة: جمال الاختلاف", "الاستماع: التنوع حياة", "Listening: Diversity is life"],
+            ["AR5-T1-U3-L2-R", "الوحدة الثالثة: جمال الاختلاف", "القراءة: كيف يصبح العالم أجمل؟", "Reading: How does the world become more beautiful?"],
+            ["AR5-T1-U3-L2-G", "الوحدة الثالثة: جمال الاختلاف", "القواعد النحوية: المفعول لأجله", "Grammar: the object of purpose"],
+            ["AR5-T1-U3-L2-S", "الوحدة الثالثة: جمال الاختلاف", "القواعد الإملائية: الهمزة المتطرفة على الألف", "Spelling: final hamza on alif"],
+            ["AR5-T1-U3-L3-R", "الوحدة الثالثة: جمال الاختلاف", "القراءة: حائر أمام بائع الزهور", "Reading: Puzzled at the flower seller"],
+            ["AR5-T1-U3-L3-G", "الوحدة الثالثة: جمال الاختلاف", "القواعد النحوية: إعراب ظرفي الزمان والمكان", "Grammar: parsing adverbs of time and place"],
+            ["AR5-T1-U3-L4", "الوحدة الثالثة: جمال الاختلاف", "النص الشعري: جمال التنوع", "Poem: The beauty of diversity"]
+          ]
+        },
+        {
+          "subject": "social-studies",
+          "grade_min": 5,
+          "grade_max": 5,
           "name": "Social Studies (الدراسات الاجتماعية), Primary 5, Term 1",
-          "term": 1, "academic_year": "2026/2027",
+          "term": 1,
+          "academic_year": "2026/2027",
           "source_url": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026_2027/Primary/Primary5/Term1/StudentBook/Social_studies_prim5_t1.pdf",
           "topics": [
             ["SS5-T1-U1-L1", "الوحدة الأولى: مصر موقع متميز وطبيعة متنوعة", "موقع مصر الفلكي", "Egypt's astronomical location (latitude and longitude)"],
@@ -54,9 +101,12 @@
           ]
         },
         {
-          "subject": "arabic", "grade_min": 8, "grade_max": 8,
+          "subject": "arabic",
+          "grade_min": 8,
+          "grade_max": 8,
           "name": "Arabic Language (اللغة العربية), Preparatory 2, Term 1",
-          "term": 1, "academic_year": "2025/2026",
+          "term": 1,
+          "academic_year": "2025/2026",
           "source_url": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory2/Term1/StudentBook/Arabic_Prep2_SB_T1.pdf",
           "topics": [
             ["AR8-T1-U1-L1", "الوحدة الأولى: انتمائي قوتي", "نص استماع: سيدة المقاومة المصرية «أمنة دهشان»", "Listening text: Lady of the Egyptian resistance, Amna Dahshan"],
@@ -93,10 +143,20 @@
       "source_url": "https://moe.gov.eg/",
       "confidence": "low",
       "note": "Strand-level placeholders for grades whose Ministry student books have not been read yet. Replace each with an eg-moe-textbooks syllabus once its book is sourced.",
-      "grade_labels": {"2": "Primary 2", "3": "Primary 3", "4": "Primary 4", "5": "Primary 5", "6": "Primary 6", "7": "Preparatory 1", "8": "Preparatory 2"},
+      "grade_labels": {
+        "2": "Primary 2",
+        "3": "Primary 3",
+        "4": "Primary 4",
+        "5": "Primary 5",
+        "6": "Primary 6",
+        "7": "Preparatory 1",
+        "8": "Preparatory 2"
+      },
       "per_grade_syllabi": [
         {
-          "subject": "arabic", "grades": [2, 3, 4, 5, 6, 7], "name_template": "Arabic Language (اللغة العربية), {label}",
+          "subject": "arabic",
+          "grades": [2, 3, 4, 6, 7],
+          "name_template": "Arabic Language (اللغة العربية), {label}",
           "topics": [
             ["AR-LS", "Language skills", "الاستماع والتحدث", "Listening and speaking"],
             ["AR-RD", "Language skills", "القراءة والفهم", "Reading and comprehension"],
@@ -108,14 +168,18 @@
           ]
         },
         {
-          "subject": "discover", "grades": [2], "name_template": "Discover (اكتشف), {label}",
+          "subject": "discover",
+          "grades": [2],
+          "name_template": "Discover (اكتشف), {label}",
           "topics": [
             ["D-ME", "Discover", "أنا ومجتمعي", "Me and my community"],
             ["D-EG", "Discover", "بلدي مصر", "My country, Egypt"]
           ]
         },
         {
-          "subject": "social-studies", "grades": [4, 6, 7, 8], "name_template": "Social Studies (الدراسات الاجتماعية), {label}",
+          "subject": "social-studies",
+          "grades": [4, 6, 7, 8],
+          "name_template": "Social Studies (الدراسات الاجتماعية), {label}",
           "topics": [
             ["SS-GE", "Social studies", "الجغرافيا", "Geography"],
             ["SS-HI", "Social studies", "التاريخ", "History"],
