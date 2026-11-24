@@ -2,7 +2,9 @@
 
 An immersive AI tutor for students in grades 2-8. The tutor talks with the child, listens, interrupts when needed, and shows ideas on a whiteboard, with real images and interactive demos. It never hands over answers. It asks, hints, and checks reasoning.
 
-Current status: **Phase 0 (foundations)**. See the approved plan for the full roadmap.
+Current status: **Phase 0 (foundations)**. The full roadmap is in [`docs/product-plan.md`](docs/product-plan.md).
+
+The team is twelve Claude Code agents, from tech lead to QA. See [`docs/team/README.md`](docs/team/README.md) for the roster, ownership, and how work flows between them.
 
 ## Stack
 
