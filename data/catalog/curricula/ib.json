@@ -1,0 +1,73 @@
+{
+  "system": "ib",
+  "curricula": [
+    {
+      "code": "ib-pyp",
+      "name": "IB Primary Years Programme (PYP)",
+      "source_url": "https://www.ibo.org/programmes/primary-years-programme/",
+      "confidence": "medium",
+      "note": "PYP covers ages 3-12. IB sets strands and the six transdisciplinary themes, not a fixed topic list. Each school writes its own programme of inquiry, so actual units differ by school. Strands follow the PYP scope and sequence documents; check against the current IB release.",
+      "kind": "framework",
+      "syllabi": [
+        {
+          "subject": "math", "grade_min": 2, "grade_max": 5, "name": "PYP Mathematics scope and sequence",
+          "topics": [
+            ["PYP-MA-DH", "Strand", "Data handling"],
+            ["PYP-MA-ME", "Strand", "Measurement"],
+            ["PYP-MA-SS", "Strand", "Shape and space"],
+            ["PYP-MA-PF", "Strand", "Pattern and function"],
+            ["PYP-MA-NU", "Strand", "Number"]
+          ]
+        },
+        {
+          "subject": "science", "grade_min": 2, "grade_max": 5, "name": "PYP Science scope and sequence",
+          "topics": [
+            ["PYP-SC-LT", "Strand", "Living things"],
+            ["PYP-SC-ES", "Strand", "Earth and space"],
+            ["PYP-SC-MM", "Strand", "Materials and matter"],
+            ["PYP-SC-FE", "Strand", "Forces and energy"]
+          ]
+        },
+        {
+          "subject": "transdisciplinary", "grade_min": 2, "grade_max": 5, "name": "PYP transdisciplinary themes (programme of inquiry)",
+          "topics": [
+            ["PYP-TT-1", "Transdisciplinary theme", "Who we are"],
+            ["PYP-TT-2", "Transdisciplinary theme", "Where we are in place and time"],
+            ["PYP-TT-3", "Transdisciplinary theme", "How we express ourselves"],
+            ["PYP-TT-4", "Transdisciplinary theme", "How the world works"],
+            ["PYP-TT-5", "Transdisciplinary theme", "How we organize ourselves"],
+            ["PYP-TT-6", "Transdisciplinary theme", "Sharing the planet"]
+          ]
+        }
+      ]
+    },
+    {
+      "code": "ib-myp",
+      "name": "IB Middle Years Programme (MYP), Years 1-3",
+      "source_url": "https://www.ibo.org/programmes/middle-years-programme/",
+      "confidence": "medium",
+      "note": "MYP covers ages 11-16. Years 1-3 are mapped here to grades 6-8. MYP Mathematics names branches. MYP Sciences sets assessment objectives, not content, so each school chooses its topics.",
+      "kind": "framework",
+      "syllabi": [
+        {
+          "subject": "math", "grade_min": 6, "grade_max": 8, "name": "MYP Mathematics, Years 1-3",
+          "topics": [
+            ["MYP-MA-NU", "Branch", "Number"],
+            ["MYP-MA-AL", "Branch", "Algebra"],
+            ["MYP-MA-GT", "Branch", "Geometry and trigonometry"],
+            ["MYP-MA-SP", "Branch", "Statistics and probability"]
+          ]
+        },
+        {
+          "subject": "science", "grade_min": 6, "grade_max": 8, "name": "MYP Sciences, Years 1-3",
+          "topics": [
+            ["MYP-SC-A", "Assessment objective", "Knowing and understanding"],
+            ["MYP-SC-B", "Assessment objective", "Inquiring and designing"],
+            ["MYP-SC-C", "Assessment objective", "Processing and evaluating"],
+            ["MYP-SC-D", "Assessment objective", "Reflecting on the impacts of science"]
+          ]
+        }
+      ]
+    }
+  ]
+}

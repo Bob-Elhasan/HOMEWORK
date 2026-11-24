@@ -10,7 +10,9 @@
     "typecheck": "tsc --noEmit",
     "lint": "expo lint",
     "validate:content": "node scripts/validate-content.mjs",
-    "test": "jest"
+    "test": "jest",
+    "build:catalog": "node scripts/build-catalog.mjs",
+    "test:catalog": "node scripts/build-catalog.mjs --check && node scripts/test-catalog.mjs"
   },
   "dependencies": {
     "expo": "~52.0.0",
@@ -26,6 +28,7 @@
     "react-native-screens": "~4.4.0"
   },
   "devDependencies": {
+    "@electric-sql/pglite": "^0.6.0",
     "@types/react": "~18.3.12",
     "typescript": "~5.3.3"
   }

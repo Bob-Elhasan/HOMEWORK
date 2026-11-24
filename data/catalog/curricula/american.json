@@ -1,0 +1,191 @@
+{
+  "system": "american",
+  "curricula": [
+    {
+      "code": "us-ccss-math",
+      "name": "Common Core State Standards for Mathematics",
+      "source_url": "https://www.thecorestandards.org/Math/",
+      "confidence": "high",
+      "note": "Topics are the CCSS clusters; strand is the CCSS domain. Code format follows CCSS.MATH.CONTENT.<grade>.<domain>.<cluster>.",
+      "syllabi": [
+        {
+          "subject": "math", "grade_min": 2, "grade_max": 2, "name": "CCSS Mathematics, Grade 2",
+          "topics": [
+            ["2.OA.A", "Operations and Algebraic Thinking", "Represent and solve problems involving addition and subtraction"],
+            ["2.OA.B", "Operations and Algebraic Thinking", "Add and subtract within 20"],
+            ["2.OA.C", "Operations and Algebraic Thinking", "Work with equal groups of objects to gain foundations for multiplication"],
+            ["2.NBT.A", "Number and Operations in Base Ten", "Understand place value"],
+            ["2.NBT.B", "Number and Operations in Base Ten", "Use place value understanding and properties of operations to add and subtract"],
+            ["2.MD.A", "Measurement and Data", "Measure and estimate lengths in standard units"],
+            ["2.MD.B", "Measurement and Data", "Relate addition and subtraction to length"],
+            ["2.MD.C", "Measurement and Data", "Work with time and money"],
+            ["2.MD.D", "Measurement and Data", "Represent and interpret data"],
+            ["2.G.A", "Geometry", "Reason with shapes and their attributes"]
+          ]
+        },
+        {
+          "subject": "math", "grade_min": 3, "grade_max": 3, "name": "CCSS Mathematics, Grade 3",
+          "topics": [
+            ["3.OA.A", "Operations and Algebraic Thinking", "Represent and solve problems involving multiplication and division"],
+            ["3.OA.B", "Operations and Algebraic Thinking", "Understand properties of multiplication and the relationship between multiplication and division"],
+            ["3.OA.C", "Operations and Algebraic Thinking", "Multiply and divide within 100"],
+            ["3.OA.D", "Operations and Algebraic Thinking", "Solve problems involving the four operations, and identify and explain patterns in arithmetic"],
+            ["3.NBT.A", "Number and Operations in Base Ten", "Use place value understanding and properties of operations to perform multi-digit arithmetic"],
+            ["3.NF.A", "Number and Operations: Fractions", "Develop understanding of fractions as numbers"],
+            ["3.MD.A", "Measurement and Data", "Solve problems involving measurement and estimation of intervals of time, liquid volumes, and masses of objects"],
+            ["3.MD.B", "Measurement and Data", "Represent and interpret data"],
+            ["3.MD.C", "Measurement and Data", "Geometric measurement: understand concepts of area and relate area to multiplication and to addition"],
+            ["3.MD.D", "Measurement and Data", "Geometric measurement: recognize perimeter as an attribute of plane figures and distinguish between linear and area measures"],
+            ["3.G.A", "Geometry", "Reason with shapes and their attributes"]
+          ]
+        },
+        {
+          "subject": "math", "grade_min": 4, "grade_max": 4, "name": "CCSS Mathematics, Grade 4",
+          "topics": [
+            ["4.OA.A", "Operations and Algebraic Thinking", "Use the four operations with whole numbers to solve problems"],
+            ["4.OA.B", "Operations and Algebraic Thinking", "Gain familiarity with factors and multiples"],
+            ["4.OA.C", "Operations and Algebraic Thinking", "Generate and analyze patterns"],
+            ["4.NBT.A", "Number and Operations in Base Ten", "Generalize place value understanding for multi-digit whole numbers"],
+            ["4.NBT.B", "Number and Operations in Base Ten", "Use place value understanding and properties of operations to perform multi-digit arithmetic"],
+            ["4.NF.A", "Number and Operations: Fractions", "Extend understanding of fraction equivalence and ordering"],
+            ["4.NF.B", "Number and Operations: Fractions", "Build fractions from unit fractions by applying and extending previous understandings of operations on whole numbers"],
+            ["4.NF.C", "Number and Operations: Fractions", "Understand decimal notation for fractions, and compare decimal fractions"],
+            ["4.MD.A", "Measurement and Data", "Solve problems involving measurement and conversion of measurements from a larger unit to a smaller unit"],
+            ["4.MD.B", "Measurement and Data", "Represent and interpret data"],
+            ["4.MD.C", "Measurement and Data", "Geometric measurement: understand concepts of angle and measure angles"],
+            ["4.G.A", "Geometry", "Draw and identify lines and angles, and classify shapes by properties of their lines and angles"]
+          ]
+        },
+        {
+          "subject": "math", "grade_min": 5, "grade_max": 5, "name": "CCSS Mathematics, Grade 5",
+          "topics": [
+            ["5.OA.A", "Operations and Algebraic Thinking", "Write and interpret numerical expressions"],
+            ["5.OA.B", "Operations and Algebraic Thinking", "Analyze patterns and relationships"],
+            ["5.NBT.A", "Number and Operations in Base Ten", "Understand the place value system"],
+            ["5.NBT.B", "Number and Operations in Base Ten", "Perform operations with multi-digit whole numbers and with decimals to hundredths"],
+            ["5.NF.A", "Number and Operations: Fractions", "Use equivalent fractions as a strategy to add and subtract fractions"],
+            ["5.NF.B", "Number and Operations: Fractions", "Apply and extend previous understandings of multiplication and division to multiply and divide fractions"],
+            ["5.MD.A", "Measurement and Data", "Convert like measurement units within a given measurement system"],
+            ["5.MD.B", "Measurement and Data", "Represent and interpret data"],
+            ["5.MD.C", "Measurement and Data", "Geometric measurement: understand concepts of volume and relate volume to multiplication and to addition"],
+            ["5.G.A", "Geometry", "Graph points on the coordinate plane to solve real-world and mathematical problems"],
+            ["5.G.B", "Geometry", "Classify two-dimensional figures into categories based on their properties"]
+          ]
+        },
+        {
+          "subject": "math", "grade_min": 6, "grade_max": 6, "name": "CCSS Mathematics, Grade 6",
+          "topics": [
+            ["6.RP.A", "Ratios and Proportional Relationships", "Understand ratio concepts and use ratio reasoning to solve problems"],
+            ["6.NS.A", "The Number System", "Apply and extend previous understandings of multiplication and division to divide fractions by fractions"],
+            ["6.NS.B", "The Number System", "Compute fluently with multi-digit numbers and find common factors and multiples"],
+            ["6.NS.C", "The Number System", "Apply and extend previous understandings of numbers to the system of rational numbers"],
+            ["6.EE.A", "Expressions and Equations", "Apply and extend previous understandings of arithmetic to algebraic expressions"],
+            ["6.EE.B", "Expressions and Equations", "Reason about and solve one-variable equations and inequalities"],
+            ["6.EE.C", "Expressions and Equations", "Represent and analyze quantitative relationships between dependent and independent variables"],
+            ["6.G.A", "Geometry", "Solve real-world and mathematical problems involving area, surface area, and volume"],
+            ["6.SP.A", "Statistics and Probability", "Develop understanding of statistical variability"],
+            ["6.SP.B", "Statistics and Probability", "Summarize and describe distributions"]
+          ]
+        },
+        {
+          "subject": "math", "grade_min": 7, "grade_max": 7, "name": "CCSS Mathematics, Grade 7",
+          "topics": [
+            ["7.RP.A", "Ratios and Proportional Relationships", "Analyze proportional relationships and use them to solve real-world and mathematical problems"],
+            ["7.NS.A", "The Number System", "Apply and extend previous understandings of operations with fractions to add, subtract, multiply, and divide rational numbers"],
+            ["7.EE.A", "Expressions and Equations", "Use properties of operations to generate equivalent expressions"],
+            ["7.EE.B", "Expressions and Equations", "Solve real-life and mathematical problems using numerical and algebraic expressions and equations"],
+            ["7.G.A", "Geometry", "Draw, construct, and describe geometrical figures and describe the relationships between them"],
+            ["7.G.B", "Geometry", "Solve real-life and mathematical problems involving angle measure, area, surface area, and volume"],
+            ["7.SP.A", "Statistics and Probability", "Use random sampling to draw inferences about a population"],
+            ["7.SP.B", "Statistics and Probability", "Draw informal comparative inferences about two populations"],
+            ["7.SP.C", "Statistics and Probability", "Investigate chance processes and develop, use, and evaluate probability models"]
+          ]
+        },
+        {
+          "subject": "math", "grade_min": 8, "grade_max": 8, "name": "CCSS Mathematics, Grade 8",
+          "topics": [
+            ["8.NS.A", "The Number System", "Know that there are numbers that are not rational, and approximate them by rational numbers"],
+            ["8.EE.A", "Expressions and Equations", "Work with radicals and integer exponents"],
+            ["8.EE.B", "Expressions and Equations", "Understand the connections between proportional relationships, lines, and linear equations"],
+            ["8.EE.C", "Expressions and Equations", "Analyze and solve linear equations and pairs of simultaneous linear equations"],
+            ["8.F.A", "Functions", "Define, evaluate, and compare functions"],
+            ["8.F.B", "Functions", "Use functions to model relationships between quantities"],
+            ["8.G.A", "Geometry", "Understand congruence and similarity using physical models, transparencies, or geometry software"],
+            ["8.G.B", "Geometry", "Understand and apply the Pythagorean Theorem"],
+            ["8.G.C", "Geometry", "Solve real-world and mathematical problems involving volume of cylinders, cones, and spheres"],
+            ["8.SP.A", "Statistics and Probability", "Investigate patterns of association in bivariate data"]
+          ]
+        }
+      ]
+    },
+    {
+      "code": "us-ngss",
+      "name": "Next Generation Science Standards",
+      "source_url": "https://www.nextgenscience.org/",
+      "confidence": "high",
+      "note": "Topics follow the NGSS topic arrangement. Grades 2-5 are set per grade. Middle school is a 6-8 band, and each school decides which grade teaches which topic.",
+      "syllabi": [
+        {
+          "subject": "science", "grade_min": 2, "grade_max": 2, "name": "NGSS Grade 2",
+          "topics": [
+            ["2-PS1", "Physical Science", "Structure and Properties of Matter"],
+            ["2-LS2, 2-LS4", "Life Science", "Interdependent Relationships in Ecosystems"],
+            ["2-ESS1, 2-ESS2", "Earth and Space Science", "Earth's Systems: Processes that Shape the Earth"],
+            ["K-2-ETS1", "Engineering Design", "Engineering Design"]
+          ]
+        },
+        {
+          "subject": "science", "grade_min": 3, "grade_max": 3, "name": "NGSS Grade 3",
+          "topics": [
+            ["3-PS2", "Physical Science", "Forces and Interactions"],
+            ["3-LS2, 3-LS4", "Life Science", "Interdependent Relationships in Ecosystems"],
+            ["3-LS1, 3-LS3, 3-LS4", "Life Science", "Inheritance and Variation of Traits: Life Cycles and Traits"],
+            ["3-ESS2, 3-ESS3", "Earth and Space Science", "Weather and Climate"],
+            ["3-5-ETS1", "Engineering Design", "Engineering Design"]
+          ]
+        },
+        {
+          "subject": "science", "grade_min": 4, "grade_max": 4, "name": "NGSS Grade 4",
+          "topics": [
+            ["4-PS3, 4-ESS3", "Physical Science", "Energy"],
+            ["4-PS4", "Physical Science", "Waves: Waves and Information"],
+            ["4-LS1, 4-PS4", "Life Science", "Structure, Function, and Information Processing"],
+            ["4-ESS1, 4-ESS2, 4-ESS3", "Earth and Space Science", "Earth's Systems: Processes that Shape the Earth"],
+            ["3-5-ETS1", "Engineering Design", "Engineering Design"]
+          ]
+        },
+        {
+          "subject": "science", "grade_min": 5, "grade_max": 5, "name": "NGSS Grade 5",
+          "topics": [
+            ["5-PS1", "Physical Science", "Structure and Properties of Matter"],
+            ["5-PS3, 5-LS1, 5-LS2", "Life Science", "Matter and Energy in Organisms and Ecosystems"],
+            ["5-ESS2, 5-ESS3", "Earth and Space Science", "Earth's Systems"],
+            ["5-PS2, 5-ESS1", "Earth and Space Science", "Space Systems: Stars and the Solar System"],
+            ["3-5-ETS1", "Engineering Design", "Engineering Design"]
+          ]
+        },
+        {
+          "subject": "science", "grade_min": 6, "grade_max": 8, "name": "NGSS Middle School (Grades 6-8 band)",
+          "topics": [
+            ["MS-PS1", "Physical Science", "Structure and Properties of Matter"],
+            ["MS-PS1", "Physical Science", "Chemical Reactions"],
+            ["MS-PS2", "Physical Science", "Forces and Interactions"],
+            ["MS-PS3", "Physical Science", "Energy"],
+            ["MS-PS4", "Physical Science", "Waves and Electromagnetic Radiation"],
+            ["MS-LS1", "Life Science", "Structure, Function, and Information Processing"],
+            ["MS-LS1, MS-LS2", "Life Science", "Matter and Energy in Organisms and Ecosystems"],
+            ["MS-LS2", "Life Science", "Interdependent Relationships in Ecosystems"],
+            ["MS-LS1, MS-LS3, MS-LS4", "Life Science", "Growth, Development, and Reproduction of Organisms"],
+            ["MS-LS4", "Life Science", "Natural Selection and Adaptations"],
+            ["MS-ESS1", "Earth and Space Science", "Space Systems"],
+            ["MS-ESS1, MS-ESS2", "Earth and Space Science", "History of Earth"],
+            ["MS-ESS2, MS-ESS3", "Earth and Space Science", "Earth's Systems"],
+            ["MS-ESS2, MS-ESS3", "Earth and Space Science", "Weather and Climate"],
+            ["MS-ESS3", "Earth and Space Science", "Human Impacts"],
+            ["MS-ETS1", "Engineering Design", "Engineering Design"]
+          ]
+        }
+      ]
+    }
+  ]
+}

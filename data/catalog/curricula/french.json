@@ -1,0 +1,74 @@
+{
+  "system": "french",
+  "curricula": [
+    {
+      "code": "fr-programmes",
+      "name": "Programmes de l'Éducation nationale (cycles 2, 3, 4)",
+      "source_url": "https://eduscol.education.fr/",
+      "confidence": "medium",
+      "note": "France sets programmes per cycle: cycle 2 = CP-CE2, cycle 3 = CM1-6e, cycle 4 = 5e-3e. Mapped here as grade 2 = CE1, 3 = CE2, 4 = CM1, 5 = CM2, 6 = 6e, 7 = 5e, 8 = 4e. Topics are the programme domains (themes). Mathematics programmes were revised from the 2025 school year onward, so confirm domains against the current Bulletin officiel before use.",
+      "grade_labels": {"2": "CE1", "3": "CE2", "4": "CM1", "5": "CM2", "6": "6e", "7": "5e", "8": "4e"},
+      "syllabi": [
+        {
+          "subject": "math", "grade_min": 2, "grade_max": 3, "name": "Mathématiques, cycle 2 (CE1-CE2)",
+          "topics": [
+            ["C2-MA-1", "Mathématiques", "Nombres et calculs", "Numbers and calculation"],
+            ["C2-MA-2", "Mathématiques", "Grandeurs et mesures", "Quantities and measurement"],
+            ["C2-MA-3", "Mathématiques", "Espace et géométrie", "Space and geometry"]
+          ]
+        },
+        {
+          "subject": "science", "grade_min": 2, "grade_max": 3, "name": "Questionner le monde, cycle 2 (CE1-CE2)",
+          "topics": [
+            ["C2-QM-1", "Questionner le monde du vivant, de la matière et des objets", "Qu'est-ce que la matière ?", "What is matter?"],
+            ["C2-QM-2", "Questionner le monde du vivant, de la matière et des objets", "Comment reconnaître le monde vivant ?", "How do we recognise the living world?"],
+            ["C2-QM-3", "Questionner le monde du vivant, de la matière et des objets", "Les objets techniques : qu'est-ce que c'est ? À quels besoins répondent-ils ? Comment fonctionnent-ils ?", "Technical objects: what they are, what needs they meet, how they work"]
+          ]
+        },
+        {
+          "subject": "math", "grade_min": 4, "grade_max": 6, "name": "Mathématiques, cycle 3 (CM1-CM2-6e)",
+          "topics": [
+            ["C3-MA-1", "Mathématiques", "Nombres et calculs", "Numbers and calculation"],
+            ["C3-MA-2", "Mathématiques", "Grandeurs et mesures", "Quantities and measurement"],
+            ["C3-MA-3", "Mathématiques", "Espace et géométrie", "Space and geometry"]
+          ]
+        },
+        {
+          "subject": "science", "grade_min": 4, "grade_max": 6, "name": "Sciences et technologie, cycle 3 (CM1-CM2-6e)",
+          "topics": [
+            ["C3-ST-1", "Sciences et technologie", "Matière, mouvement, énergie, information", "Matter, motion, energy, information"],
+            ["C3-ST-2", "Sciences et technologie", "Le vivant, sa diversité et les fonctions qui le caractérisent", "Living things, their diversity and functions"],
+            ["C3-ST-3", "Sciences et technologie", "Matériaux et objets techniques", "Materials and technical objects"],
+            ["C3-ST-4", "Sciences et technologie", "La planète Terre. Les êtres vivants dans leur environnement", "Planet Earth. Living things in their environment"]
+          ]
+        },
+        {
+          "subject": "math", "grade_min": 7, "grade_max": 8, "name": "Mathématiques, cycle 4 (5e-4e)",
+          "topics": [
+            ["C4-MA-1", "Mathématiques", "Nombres et calculs", "Numbers and calculation"],
+            ["C4-MA-2", "Mathématiques", "Organisation et gestion de données, fonctions", "Data handling and functions"],
+            ["C4-MA-3", "Mathématiques", "Grandeurs et mesures", "Quantities and measurement"],
+            ["C4-MA-4", "Mathématiques", "Espace et géométrie", "Space and geometry"],
+            ["C4-MA-5", "Mathématiques", "Algorithmique et programmation", "Algorithms and programming"]
+          ]
+        },
+        {
+          "subject": "science", "grade_min": 7, "grade_max": 8, "name": "Sciences, cycle 4 (5e-4e): physique-chimie, SVT, technologie",
+          "topics": [
+            ["C4-PC-1", "Physique-chimie", "Organisation et transformations de la matière", "Organisation and transformations of matter"],
+            ["C4-PC-2", "Physique-chimie", "Mouvement et interactions", "Motion and interactions"],
+            ["C4-PC-3", "Physique-chimie", "L'énergie et ses conversions", "Energy and its conversions"],
+            ["C4-PC-4", "Physique-chimie", "Des signaux pour observer et communiquer", "Signals for observing and communicating"],
+            ["C4-SVT-1", "Sciences de la vie et de la Terre", "La planète Terre, l'environnement et l'action humaine", "Planet Earth, the environment and human action"],
+            ["C4-SVT-2", "Sciences de la vie et de la Terre", "Le vivant et son évolution", "Living things and evolution"],
+            ["C4-SVT-3", "Sciences de la vie et de la Terre", "Le corps humain et la santé", "The human body and health"],
+            ["C4-TE-1", "Technologie", "Design, innovation et créativité", "Design, innovation and creativity"],
+            ["C4-TE-2", "Technologie", "Les objets techniques, les services et les changements induits dans la société", "Technical objects, services and changes in society"],
+            ["C4-TE-3", "Technologie", "La modélisation et la simulation des objets et systèmes techniques", "Modelling and simulating technical systems"],
+            ["C4-TE-4", "Technologie", "L'informatique et la programmation", "Computing and programming"]
+          ]
+        }
+      ]
+    }
+  ]
+}

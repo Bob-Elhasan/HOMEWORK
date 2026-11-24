@@ -36,6 +36,21 @@ Lessons with `"status": "published"` also need `teacher_review` with a reviewer 
 
 Migrations live in `supabase/migrations/`. `0001_init.sql` creates families, parents, and children, with Row Level Security so one family cannot read another's data.
 
+## Curriculum catalog
+
+A database of year (grade 2-8), school, system, curriculum, subject, syllabus, and topics for four systems: American, IB, Egyptian National, and French.
+
+- Source data: `data/catalog/schools.json` (44 Cairo schools from the International Schools Database American filter) and `data/catalog/curricula/*.json`
+- Schema: `supabase/migrations/0002_curriculum_catalog.sql`. The flat table is the view `school_curriculum_topics`, and `curriculum_topics_by_grade` is the same without schools.
+- Generated: `supabase/seed/catalog.sql` and CSV exports in `data/catalog/export/`
+
+```bash
+npm run build:catalog   # validate data, regenerate seed SQL and CSVs
+npm run test:catalog    # load migration + seed into PGlite and check it
+```
+
+Each curriculum has a `confidence` value. American (CCSS, NGSS) is high. IB and French are medium. IB defines strands, not topics, and the French programmes were revised from 2025. Egyptian National is low, entered at strand level until the MOE textbook units are filled in.
+
 ## Curricula
 
 - Arabic and Social Studies: Egyptian MOE outcomes (`moe-eg`)

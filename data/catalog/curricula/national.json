@@ -1,0 +1,42 @@
+{
+  "system": "national",
+  "curricula": [
+    {
+      "code": "eg-moe",
+      "name": "Egyptian Ministry of Education national curriculum (Arabic and Social Studies)",
+      "source_url": "https://moe.gov.eg/",
+      "confidence": "low",
+      "note": "Strand-level placeholders, not unit lists. Arabic and Social Studies are required national subjects in Egyptian schools, including international schools. The per-grade units must be filled from the current MOE textbooks and teacher guides before content is written. Grades 2-3 social studies is believed to sit inside the integrated 'Discover' (اكتشف) programme under Education 2.0; verify.",
+      "grade_labels": {"2": "Primary 2", "3": "Primary 3", "4": "Primary 4", "5": "Primary 5", "6": "Primary 6", "7": "Preparatory 1", "8": "Preparatory 2"},
+      "per_grade_syllabi": [
+        {
+          "subject": "arabic", "grades": [2, 3, 4, 5, 6, 7, 8], "name_template": "Arabic Language (اللغة العربية), {label}",
+          "topics": [
+            ["AR-LS", "Language skills", "الاستماع والتحدث", "Listening and speaking"],
+            ["AR-RD", "Language skills", "القراءة والفهم", "Reading and comprehension"],
+            ["AR-TX", "Literature", "النصوص والمحفوظات", "Texts and recitation"],
+            ["AR-GR", "Language structure", "النحو والصرف", "Grammar and morphology"],
+            ["AR-SP", "Language structure", "الإملاء", "Spelling"],
+            ["AR-HW", "Writing", "الخط", "Handwriting"],
+            ["AR-WR", "Writing", "التعبير", "Composition"]
+          ]
+        },
+        {
+          "subject": "social-studies", "grades": [2, 3], "name_template": "Discover (اكتشف), social studies strand, {label}",
+          "topics": [
+            ["SS-ME", "Social studies", "أنا ومجتمعي", "Me and my community"],
+            ["SS-EG", "Social studies", "بلدي مصر", "My country, Egypt"]
+          ]
+        },
+        {
+          "subject": "social-studies", "grades": [4, 5, 6, 7, 8], "name_template": "Social Studies (الدراسات الاجتماعية), {label}",
+          "topics": [
+            ["SS-GE", "Social studies", "الجغرافيا", "Geography"],
+            ["SS-HI", "Social studies", "التاريخ", "History"],
+            ["SS-CI", "Social studies", "التربية الوطنية والمواطنة", "Civics and citizenship"]
+          ]
+        }
+      ]
+    }
+  ]
+}

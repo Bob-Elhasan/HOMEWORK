@@ -1,0 +1,540 @@
+{
+  "source": "https://www.international-schools-database.com/in/cairo?curriculum%5B%5D=American&filter=on",
+  "retrieved": "2026-11-24",
+  "note": "Curriculum labels as listed by the directory. Egyptian national Arabic and Social Studies are added to every school as mandatory subjects.",
+  "schools": [
+    {
+      "slug": "majesty-international-schools-cairo",
+      "name": "Majesty International Schools",
+      "city": "Cairo",
+      "listed_curricula": [
+        "British",
+        "American"
+      ],
+      "age_min": 3,
+      "age_max": 18,
+      "source_url": "https://www.international-schools-database.com/in/cairo/majesty-international-schools-cairo"
+    },
+    {
+      "slug": "city-international-schools-cairo",
+      "name": "City International Schools",
+      "city": "Cairo",
+      "listed_curricula": [
+        "British",
+        "American"
+      ],
+      "age_min": 3,
+      "age_max": 18,
+      "source_url": "https://www.international-schools-database.com/in/cairo/city-international-schools-cairo"
+    },
+    {
+      "slug": "cairo-american-college",
+      "name": "Cairo American College",
+      "city": "Cairo",
+      "listed_curricula": [
+        "IB",
+        "American"
+      ],
+      "age_min": 3,
+      "age_max": 18,
+      "source_url": "https://www.international-schools-database.com/in/cairo/cairo-american-college"
+    },
+    {
+      "slug": "the-international-school-of-elite-education-cairo",
+      "name": "The International School of Elite Education",
+      "city": "Cairo",
+      "listed_curricula": [
+        "British",
+        "IB",
+        "American"
+      ],
+      "age_min": 3,
+      "age_max": 18,
+      "source_url": "https://www.international-schools-database.com/in/cairo/the-international-school-of-elite-education-cairo"
+    },
+    {
+      "slug": "new-vision-international-school-cairo",
+      "name": "New Vision International School",
+      "city": "Cairo",
+      "listed_curricula": [
+        "IB",
+        "American"
+      ],
+      "age_min": 3,
+      "age_max": 18,
+      "source_url": "https://www.international-schools-database.com/in/cairo/new-vision-international-school-cairo"
+    },
+    {
+      "slug": "gems-international-school-cairo",
+      "name": "GEMS International School Cairo",
+      "city": "Cairo",
+      "listed_curricula": [
+        "American"
+      ],
+      "age_min": 3,
+      "age_max": 18,
+      "source_url": "https://www.international-schools-database.com/in/cairo/gems-international-school-cairo"
+    },
+    {
+      "slug": "salahaldin-international-school-cairo",
+      "name": "Salahaldin International School",
+      "city": "Cairo",
+      "listed_curricula": [
+        "IB",
+        "American"
+      ],
+      "age_min": 4,
+      "age_max": 18,
+      "source_url": "https://www.international-schools-database.com/in/cairo/salahaldin-international-school-cairo"
+    },
+    {
+      "slug": "hayah-international-academy-cairo",
+      "name": "Hayah International Academy",
+      "city": "Cairo",
+      "listed_curricula": [
+        "IB",
+        "American"
+      ],
+      "age_min": 3,
+      "age_max": 18,
+      "source_url": "https://www.international-schools-database.com/in/cairo/hayah-international-academy-cairo"
+    },
+    {
+      "slug": "hayah-international-academy-west-cairo",
+      "name": "Hayah International Academy West",
+      "city": "Cairo",
+      "listed_curricula": [
+        "IB",
+        "American"
+      ],
+      "age_min": 3,
+      "age_max": 18,
+      "source_url": "https://www.international-schools-database.com/in/cairo/hayah-international-academy-west-cairo"
+    },
+    {
+      "slug": "modern-education-schools-cairo",
+      "name": "Modern Education Schools",
+      "city": "Cairo",
+      "listed_curricula": [
+        "British",
+        "American",
+        "Egyptian"
+      ],
+      "age_min": 3,
+      "age_max": 18,
+      "source_url": "https://www.international-schools-database.com/in/cairo/modern-education-schools-cairo"
+    },
+    {
+      "slug": "bedayia-international-school-cairo",
+      "name": "Bedayia International School",
+      "city": "Cairo",
+      "listed_curricula": [
+        "IB",
+        "American"
+      ],
+      "age_min": 3,
+      "age_max": 18,
+      "source_url": "https://www.international-schools-database.com/in/cairo/bedayia-international-school-cairo"
+    },
+    {
+      "slug": "global-paradigm-international-school-cairo",
+      "name": "Global Paradigm International School",
+      "city": "Cairo",
+      "listed_curricula": [
+        "American"
+      ],
+      "age_min": 2,
+      "age_max": 18,
+      "source_url": "https://www.international-schools-database.com/in/cairo/global-paradigm-international-school-cairo"
+    },
+    {
+      "slug": "modern-school-of-egypt-2000-cairo",
+      "name": "Modern School of Egypt 2000",
+      "city": "Cairo",
+      "listed_curricula": [
+        "British",
+        "American",
+        "French"
+      ],
+      "age_min": 3,
+      "age_max": 18,
+      "source_url": "https://www.international-schools-database.com/in/cairo/modern-school-of-egypt-2000-cairo"
+    },
+    {
+      "slug": "nis-schools-cairo",
+      "name": "NIS Schools",
+      "city": "Cairo",
+      "listed_curricula": [
+        "British",
+        "IB",
+        "American",
+        "French"
+      ],
+      "age_min": 3,
+      "age_max": 18,
+      "source_url": "https://www.international-schools-database.com/in/cairo/nis-schools-cairo"
+    },
+    {
+      "slug": "silicon-valley-international-school-cairo",
+      "name": "Silicon Valley International School",
+      "city": "Cairo",
+      "listed_curricula": [
+        "British",
+        "American"
+      ],
+      "age_min": 3,
+      "age_max": 18,
+      "source_url": "https://www.international-schools-database.com/in/cairo/silicon-valley-international-school-cairo"
+    },
+    {
+      "slug": "nefertari-international-school-cairo",
+      "name": "Nefertari International School",
+      "city": "Cairo",
+      "listed_curricula": [
+        "IB",
+        "American",
+        "British",
+        "German"
+      ],
+      "age_min": 3,
+      "age_max": 18,
+      "source_url": "https://www.international-schools-database.com/in/cairo/nefertari-international-school-cairo"
+    },
+    {
+      "slug": "continental-palace-international-school-cairo",
+      "name": "Continental Palace International School",
+      "city": "Cairo",
+      "listed_curricula": [
+        "British",
+        "American"
+      ],
+      "age_min": 3,
+      "age_max": 18,
+      "source_url": "https://www.international-schools-database.com/in/cairo/continental-palace-international-school-cairo"
+    },
+    {
+      "slug": "nile-international-college-cairo",
+      "name": "Nile International College",
+      "city": "Cairo",
+      "listed_curricula": [
+        "IB",
+        "American"
+      ],
+      "age_min": 3,
+      "age_max": 18,
+      "source_url": "https://www.international-schools-database.com/in/cairo/nile-international-college-cairo"
+    },
+    {
+      "slug": "dwight-school-cairo",
+      "name": "Dwight School Cairo",
+      "city": "Cairo",
+      "listed_curricula": [
+        "American"
+      ],
+      "age_min": 3,
+      "age_max": 11,
+      "source_url": "https://www.international-schools-database.com/in/cairo/dwight-school-cairo"
+    },
+    {
+      "slug": "el-alsson-british-and-american-international-school-cairo",
+      "name": "El Alsson British and American International Schools NewGiza",
+      "city": "Cairo",
+      "listed_curricula": [
+        "British",
+        "IB",
+        "American"
+      ],
+      "age_min": 3,
+      "age_max": 18,
+      "source_url": "https://www.international-schools-database.com/in/cairo/el-alsson-british-and-american-international-school-cairo"
+    },
+    {
+      "slug": "the-international-school-of-choueifat-cairo",
+      "name": "The International School of Choueifat - Cairo",
+      "city": "Cairo",
+      "listed_curricula": [
+        "British",
+        "American"
+      ],
+      "age_min": 3,
+      "age_max": 18,
+      "source_url": "https://www.international-schools-database.com/in/cairo/the-international-school-of-choueifat-cairo"
+    },
+    {
+      "slug": "st-fatima-school-cairo",
+      "name": "St. Fatima School",
+      "city": "Cairo",
+      "listed_curricula": [
+        "British",
+        "American"
+      ],
+      "age_min": 3,
+      "age_max": 18,
+      "source_url": "https://www.international-schools-database.com/in/cairo/st-fatima-school-cairo"
+    },
+    {
+      "slug": "capital-international-schools-cairo",
+      "name": "Capital International Schools",
+      "city": "Cairo",
+      "listed_curricula": [
+        "British",
+        "American"
+      ],
+      "age_min": 3,
+      "age_max": 18,
+      "source_url": "https://www.international-schools-database.com/in/cairo/capital-international-schools-cairo"
+    },
+    {
+      "slug": "modern-english-school-cairo",
+      "name": "Modern English School Cairo",
+      "city": "Cairo",
+      "listed_curricula": [
+        "British",
+        "IB",
+        "American"
+      ],
+      "age_min": 3,
+      "age_max": 18,
+      "source_url": "https://www.international-schools-database.com/in/cairo/modern-english-school-cairo"
+    },
+    {
+      "slug": "regent-international-school-west-cairo",
+      "name": "Regent International School West",
+      "city": "Cairo",
+      "listed_curricula": [
+        "British",
+        "American"
+      ],
+      "age_min": 3,
+      "age_max": 15,
+      "source_url": "https://www.international-schools-database.com/in/cairo/regent-international-school-west-cairo"
+    },
+    {
+      "slug": "new-generation-international-school-cairo",
+      "name": "New Generation International School",
+      "city": "Cairo",
+      "listed_curricula": [
+        "American"
+      ],
+      "age_min": 3,
+      "age_max": 18,
+      "source_url": "https://www.international-schools-database.com/in/cairo/new-generation-international-school-cairo"
+    },
+    {
+      "slug": "the-international-school-of-choueifat-city-of-6-october-cairo",
+      "name": "The International School of Choueifat - City of 6 October",
+      "city": "Cairo",
+      "listed_curricula": [
+        "British",
+        "American"
+      ],
+      "age_min": 3,
+      "age_max": 18,
+      "source_url": "https://www.international-schools-database.com/in/cairo/the-international-school-of-choueifat-city-of-6-october-cairo"
+    },
+    {
+      "slug": "metropolitan-school-cairo",
+      "name": "Metropolitan School",
+      "city": "Cairo",
+      "listed_curricula": [
+        "American"
+      ],
+      "age_min": 3,
+      "age_max": 18,
+      "source_url": "https://www.international-schools-database.com/in/cairo/metropolitan-school-cairo"
+    },
+    {
+      "slug": "dover-american-international-school-cairo",
+      "name": "Dover American International School",
+      "city": "Cairo",
+      "listed_curricula": [
+        "American"
+      ],
+      "age_min": 4,
+      "age_max": 18,
+      "source_url": "https://www.international-schools-database.com/in/cairo/dover-american-international-school-cairo"
+    },
+    {
+      "slug": "leaders-international-college-cairo",
+      "name": "Leaders International College",
+      "city": "Cairo",
+      "listed_curricula": [
+        "British",
+        "IB",
+        "American"
+      ],
+      "age_min": 3,
+      "age_max": 18,
+      "source_url": "https://www.international-schools-database.com/in/cairo/leaders-international-college-cairo"
+    },
+    {
+      "slug": "sama-american-school-cairo",
+      "name": "Sama American School",
+      "city": "Cairo",
+      "listed_curricula": [
+        "American"
+      ],
+      "age_min": 3,
+      "age_max": 18,
+      "source_url": "https://www.international-schools-database.com/in/cairo/sama-american-school-cairo"
+    },
+    {
+      "slug": "narmer-international-college-cairo",
+      "name": "Narmer International College",
+      "city": "Cairo",
+      "listed_curricula": [
+        "British",
+        "IB",
+        "American"
+      ],
+      "age_min": 3,
+      "age_max": 18,
+      "source_url": "https://www.international-schools-database.com/in/cairo/narmer-international-college-cairo"
+    },
+    {
+      "slug": "carleton-college-cairo",
+      "name": "Carleton College",
+      "city": "Cairo",
+      "listed_curricula": [
+        "IB",
+        "American"
+      ],
+      "age_min": 3,
+      "age_max": 18,
+      "source_url": "https://www.international-schools-database.com/in/cairo/carleton-college-cairo"
+    },
+    {
+      "slug": "stanford-international-school-cairo",
+      "name": "Stanford International School",
+      "city": "Cairo",
+      "listed_curricula": [
+        "British",
+        "American"
+      ],
+      "age_min": 6,
+      "age_max": 18,
+      "source_url": "https://www.international-schools-database.com/in/cairo/stanford-international-school-cairo"
+    },
+    {
+      "slug": "american-school-beverly-hills-cairo",
+      "name": "American School Beverly Hills Cairo",
+      "city": "Cairo",
+      "listed_curricula": [
+        "American"
+      ],
+      "age_min": 3,
+      "age_max": 18,
+      "source_url": "https://www.international-schools-database.com/in/cairo/american-school-beverly-hills-cairo"
+    },
+    {
+      "slug": "manor-house-school-october-language-cairo",
+      "name": "Manor House School - October Language",
+      "city": "Cairo",
+      "listed_curricula": [
+        "British",
+        "American"
+      ],
+      "age_min": 4,
+      "age_max": 18,
+      "source_url": "https://www.international-schools-database.com/in/cairo/manor-house-school-october-language-cairo"
+    },
+    {
+      "slug": "american-international-school-in-egypt-cairo",
+      "name": "American International School in Egypt, Main Campus",
+      "city": "Cairo",
+      "listed_curricula": [
+        "IB",
+        "American"
+      ],
+      "age_min": 4,
+      "age_max": 18,
+      "source_url": "https://www.international-schools-database.com/in/cairo/american-international-school-in-egypt-cairo"
+    },
+    {
+      "slug": "gateway-international-montessori-school-cairo",
+      "name": "Gateway International Montessori School",
+      "city": "Cairo",
+      "listed_curricula": [
+        "IB",
+        "American",
+        "Montessori"
+      ],
+      "age_min": 3,
+      "age_max": 18,
+      "source_url": "https://www.international-schools-database.com/in/cairo/gateway-international-montessori-school-cairo"
+    },
+    {
+      "slug": "american-international-school-in-egypt-west-campus-cairo",
+      "name": "American International School in Egypt, West Campus",
+      "city": "Cairo",
+      "listed_curricula": [
+        "IB",
+        "American"
+      ],
+      "age_min": 4,
+      "age_max": 18,
+      "source_url": "https://www.international-schools-database.com/in/cairo/american-international-school-in-egypt-west-campus-cairo"
+    },
+    {
+      "slug": "dream-international-school-cairo",
+      "name": "Dream International School",
+      "city": "Cairo",
+      "listed_curricula": [
+        "American"
+      ],
+      "age_min": 3,
+      "age_max": 18,
+      "source_url": "https://www.international-schools-database.com/in/cairo/dream-international-school-cairo"
+    },
+    {
+      "slug": "genesis-international-school-cairo",
+      "name": "Genesis International School",
+      "city": "Cairo",
+      "listed_curricula": [
+        "American",
+        "Egyptian"
+      ],
+      "age_min": 6,
+      "age_max": 18,
+      "source_url": "https://www.international-schools-database.com/in/cairo/genesis-international-school-cairo"
+    },
+    {
+      "slug": "the-international-school-of-egypt-cairo",
+      "name": "The International School of Egypt",
+      "city": "Cairo",
+      "listed_curricula": [
+        "IB",
+        "American"
+      ],
+      "age_min": 3,
+      "age_max": 18,
+      "source_url": "https://www.international-schools-database.com/in/cairo/the-international-school-of-egypt-cairo"
+    },
+    {
+      "slug": "skills-cairo",
+      "name": "SKILLS",
+      "city": "Cairo",
+      "listed_curricula": [
+        "American",
+        "British",
+        "German"
+      ],
+      "age_min": 3,
+      "age_max": 18,
+      "source_url": "https://www.international-schools-database.com/in/cairo/skills-cairo"
+    },
+    {
+      "slug": "westcliff-international-school-cairo",
+      "name": "Westcliff International School",
+      "city": "Cairo",
+      "listed_curricula": [
+        "British",
+        "American",
+        "Canadian"
+      ],
+      "age_min": 3,
+      "age_max": 18,
+      "source_url": "https://www.international-schools-database.com/in/cairo/westcliff-international-school-cairo"
+    }
+  ]
+}
