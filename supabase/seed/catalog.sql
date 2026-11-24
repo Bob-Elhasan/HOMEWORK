@@ -20,11 +20,12 @@ insert into public.subjects (code, name) values
   ('science', 'Science'),
   ('arabic', 'Arabic Language'),
   ('social-studies', 'Social Studies'),
-  ('transdisciplinary', 'Transdisciplinary (IB PYP)');
+  ('transdisciplinary', 'Transdisciplinary (IB PYP)'),
+  ('discover', 'Discover (اكتشف), integrated (Egypt MOE)');
 
 -- us-ccss-math
 insert into public.curricula (code, system_code, name, kind, confidence, source_url, note, verified_on, verified_source, verification_method) values ('us-ccss-math', 'american', 'Common Core State Standards for Mathematics', 'standard', 'high', 'https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf', 'Topics are the CCSS clusters; strand is the CCSS domain. Code format follows CCSS.MATH.CONTENT.<grade>.<domain>.<cluster>.', '2026-11-24', 'https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf', 'All 73 grade 2-8 cluster codes matched the domain pages on thecorestandards.org, and every cluster heading appears verbatim in the official standards PDF.');
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name) values ('us-ccss-math', 'math', 2, 2, 'CCSS Mathematics, Grade 2') returning id)
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('us-ccss-math', 'math', 2, 2, 'CCSS Mathematics, Grade 2', NULL, NULL, NULL) returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (1, '2.OA.A', 'Operations and Algebraic Thinking', 'Represent and solve problems involving addition and subtraction', NULL),
@@ -38,7 +39,7 @@ select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (9, '2.MD.D', 'Measurement and Data', 'Represent and interpret data', NULL),
     (10, '2.G.A', 'Geometry', 'Reason with shapes and their attributes', NULL)
   ) as v(ordinal, code, strand, title, title_en);
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name) values ('us-ccss-math', 'math', 3, 3, 'CCSS Mathematics, Grade 3') returning id)
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('us-ccss-math', 'math', 3, 3, 'CCSS Mathematics, Grade 3', NULL, NULL, NULL) returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (1, '3.OA.A', 'Operations and Algebraic Thinking', 'Represent and solve problems involving multiplication and division', NULL),
@@ -53,7 +54,7 @@ select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (10, '3.MD.D', 'Measurement and Data', 'Geometric measurement: recognize perimeter as an attribute of plane figures and distinguish between linear and area measures', NULL),
     (11, '3.G.A', 'Geometry', 'Reason with shapes and their attributes', NULL)
   ) as v(ordinal, code, strand, title, title_en);
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name) values ('us-ccss-math', 'math', 4, 4, 'CCSS Mathematics, Grade 4') returning id)
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('us-ccss-math', 'math', 4, 4, 'CCSS Mathematics, Grade 4', NULL, NULL, NULL) returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (1, '4.OA.A', 'Operations and Algebraic Thinking', 'Use the four operations with whole numbers to solve problems', NULL),
@@ -69,7 +70,7 @@ select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (11, '4.MD.C', 'Measurement and Data', 'Geometric measurement: understand concepts of angle and measure angles', NULL),
     (12, '4.G.A', 'Geometry', 'Draw and identify lines and angles, and classify shapes by properties of their lines and angles', NULL)
   ) as v(ordinal, code, strand, title, title_en);
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name) values ('us-ccss-math', 'math', 5, 5, 'CCSS Mathematics, Grade 5') returning id)
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('us-ccss-math', 'math', 5, 5, 'CCSS Mathematics, Grade 5', NULL, NULL, NULL) returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (1, '5.OA.A', 'Operations and Algebraic Thinking', 'Write and interpret numerical expressions', NULL),
@@ -84,7 +85,7 @@ select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (10, '5.G.A', 'Geometry', 'Graph points on the coordinate plane to solve real-world and mathematical problems', NULL),
     (11, '5.G.B', 'Geometry', 'Classify two-dimensional figures into categories based on their properties', NULL)
   ) as v(ordinal, code, strand, title, title_en);
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name) values ('us-ccss-math', 'math', 6, 6, 'CCSS Mathematics, Grade 6') returning id)
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('us-ccss-math', 'math', 6, 6, 'CCSS Mathematics, Grade 6', NULL, NULL, NULL) returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (1, '6.RP.A', 'Ratios and Proportional Relationships', 'Understand ratio concepts and use ratio reasoning to solve problems', NULL),
@@ -98,7 +99,7 @@ select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (9, '6.SP.A', 'Statistics and Probability', 'Develop understanding of statistical variability', NULL),
     (10, '6.SP.B', 'Statistics and Probability', 'Summarize and describe distributions', NULL)
   ) as v(ordinal, code, strand, title, title_en);
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name) values ('us-ccss-math', 'math', 7, 7, 'CCSS Mathematics, Grade 7') returning id)
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('us-ccss-math', 'math', 7, 7, 'CCSS Mathematics, Grade 7', NULL, NULL, NULL) returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (1, '7.RP.A', 'Ratios and Proportional Relationships', 'Analyze proportional relationships and use them to solve real-world and mathematical problems', NULL),
@@ -111,7 +112,7 @@ select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (8, '7.SP.B', 'Statistics and Probability', 'Draw informal comparative inferences about two populations', NULL),
     (9, '7.SP.C', 'Statistics and Probability', 'Investigate chance processes and develop, use, and evaluate probability models', NULL)
   ) as v(ordinal, code, strand, title, title_en);
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name) values ('us-ccss-math', 'math', 8, 8, 'CCSS Mathematics, Grade 8') returning id)
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('us-ccss-math', 'math', 8, 8, 'CCSS Mathematics, Grade 8', NULL, NULL, NULL) returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (1, '8.NS.A', 'The Number System', 'Know that there are numbers that are not rational, and approximate them by rational numbers', NULL),
@@ -128,7 +129,7 @@ select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
 
 -- us-ngss
 insert into public.curricula (code, system_code, name, kind, confidence, source_url, note, verified_on, verified_source, verification_method) values ('us-ngss', 'american', 'Next Generation Science Standards', 'standard', 'high', 'https://www.nextgenscience.org/overview-topics', 'Topics follow the NGSS topic arrangement. Grades 2-5 are set per grade. Middle school is a 6-8 band, and each school decides which grade teaches which topic.', '2026-11-24', 'https://www.nextgenscience.org/overview-topics', 'Topic names and performance-expectation codes for grades 2-5 and middle school matched the official NGSS topic-arrangement pages.');
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name) values ('us-ngss', 'science', 2, 2, 'NGSS Grade 2') returning id)
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('us-ngss', 'science', 2, 2, 'NGSS Grade 2', NULL, NULL, NULL) returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (1, '2-PS1', 'Physical Science', 'Structure and Properties of Matter', NULL),
@@ -136,7 +137,7 @@ select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (3, '2-ESS1, 2-ESS2', 'Earth and Space Science', 'Earth''s Systems: Processes that Shape the Earth', NULL),
     (4, 'K-2-ETS1', 'Engineering Design', 'Engineering Design', NULL)
   ) as v(ordinal, code, strand, title, title_en);
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name) values ('us-ngss', 'science', 3, 3, 'NGSS Grade 3') returning id)
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('us-ngss', 'science', 3, 3, 'NGSS Grade 3', NULL, NULL, NULL) returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (1, '3-PS2', 'Physical Science', 'Forces and Interactions', NULL),
@@ -145,7 +146,7 @@ select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (4, '3-ESS2, 3-ESS3', 'Earth and Space Science', 'Weather and Climate', NULL),
     (5, '3-5-ETS1', 'Engineering Design', 'Engineering Design', NULL)
   ) as v(ordinal, code, strand, title, title_en);
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name) values ('us-ngss', 'science', 4, 4, 'NGSS Grade 4') returning id)
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('us-ngss', 'science', 4, 4, 'NGSS Grade 4', NULL, NULL, NULL) returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (1, '4-ESS3, 4-PS3', 'Physical Science', 'Energy', NULL),
@@ -154,7 +155,7 @@ select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (4, '4-ESS1, 4-ESS2, 4-ESS3', 'Earth and Space Science', 'Earth''s Systems: Processes that Shape the Earth', NULL),
     (5, '3-5-ETS1', 'Engineering Design', 'Engineering Design', NULL)
   ) as v(ordinal, code, strand, title, title_en);
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name) values ('us-ngss', 'science', 5, 5, 'NGSS Grade 5') returning id)
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('us-ngss', 'science', 5, 5, 'NGSS Grade 5', NULL, NULL, NULL) returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (1, '5-PS1', 'Physical Science', 'Structure and Properties of Matter', NULL),
@@ -163,7 +164,7 @@ select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (4, '5-PS2, 5-ESS1', 'Earth and Space Science', 'Space Systems: Stars and the Solar System', NULL),
     (5, '3-5-ETS1', 'Engineering Design', 'Engineering Design', NULL)
   ) as v(ordinal, code, strand, title, title_en);
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name) values ('us-ngss', 'science', 6, 8, 'NGSS Middle School (Grades 6-8 band)') returning id)
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('us-ngss', 'science', 6, 8, 'NGSS Middle School (Grades 6-8 band)', NULL, NULL, NULL) returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (1, 'MS-PS1', 'Physical Science', 'Structure and Properties of Matter', NULL),
@@ -194,28 +195,28 @@ insert into public.grade_labels (curriculum_code, grade, label) values
   ('fr-programmes', 6, '6e'),
   ('fr-programmes', 7, '5e'),
   ('fr-programmes', 8, '4e');
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name) values ('fr-programmes', 'math', 2, 3, 'Mathématiques, cycle 2 (CE1-CE2)') returning id)
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('fr-programmes', 'math', 2, 3, 'Mathématiques, cycle 2 (CE1-CE2)', NULL, NULL, NULL) returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (1, 'C2-MA-1', 'Mathématiques', 'Nombres et calculs', 'Numbers and calculation'),
     (2, 'C2-MA-2', 'Mathématiques', 'Grandeurs et mesures', 'Quantities and measurement'),
     (3, 'C2-MA-3', 'Mathématiques', 'Espace et géométrie', 'Space and geometry')
   ) as v(ordinal, code, strand, title, title_en);
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name) values ('fr-programmes', 'science', 2, 3, 'Questionner le monde, cycle 2 (CE1-CE2)') returning id)
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('fr-programmes', 'science', 2, 3, 'Questionner le monde, cycle 2 (CE1-CE2)', NULL, NULL, NULL) returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (1, 'C2-QM-1', 'Questionner le monde du vivant, de la matière et des objets', 'Qu''est-ce que la matière ?', 'What is matter?'),
     (2, 'C2-QM-2', 'Questionner le monde du vivant, de la matière et des objets', 'Comment reconnaître le monde vivant ?', 'How do we recognise the living world?'),
     (3, 'C2-QM-3', 'Questionner le monde du vivant, de la matière et des objets', 'Les objets techniques : qu''est-ce que c''est ? À quels besoins répondent-ils ? Comment fonctionnent-ils ?', 'Technical objects: what they are, what needs they meet, how they work')
   ) as v(ordinal, code, strand, title, title_en);
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name) values ('fr-programmes', 'math', 4, 6, 'Mathématiques, cycle 3 (CM1-CM2-6e)') returning id)
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('fr-programmes', 'math', 4, 6, 'Mathématiques, cycle 3 (CM1-CM2-6e)', NULL, NULL, NULL) returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (1, 'C3-MA-1', 'Mathématiques', 'Nombres et calculs', 'Numbers and calculation'),
     (2, 'C3-MA-2', 'Mathématiques', 'Grandeurs et mesures', 'Quantities and measurement'),
     (3, 'C3-MA-3', 'Mathématiques', 'Espace et géométrie', 'Space and geometry')
   ) as v(ordinal, code, strand, title, title_en);
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name) values ('fr-programmes', 'science', 4, 6, 'Sciences et technologie, cycle 3 (CM1-CM2-6e)') returning id)
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('fr-programmes', 'science', 4, 6, 'Sciences et technologie, cycle 3 (CM1-CM2-6e)', NULL, NULL, NULL) returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (1, 'C3-ST-1', 'Sciences et technologie', 'Matière, mouvement, énergie, information', 'Matter, motion, energy, information'),
@@ -223,7 +224,7 @@ select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (3, 'C3-ST-3', 'Sciences et technologie', 'Matériaux et objets techniques', 'Materials and technical objects'),
     (4, 'C3-ST-4', 'Sciences et technologie', 'La planète Terre. Les êtres vivants dans leur environnement', 'Planet Earth. Living things in their environment')
   ) as v(ordinal, code, strand, title, title_en);
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name) values ('fr-programmes', 'math', 7, 8, 'Mathématiques, cycle 4 (5e-4e)') returning id)
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('fr-programmes', 'math', 7, 8, 'Mathématiques, cycle 4 (5e-4e)', NULL, NULL, NULL) returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (1, 'C4-MA-1', 'Mathématiques', 'Nombres et calculs', 'Numbers and calculation'),
@@ -232,7 +233,7 @@ select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (4, 'C4-MA-4', 'Mathématiques', 'Espace et géométrie', 'Space and geometry'),
     (5, 'C4-MA-5', 'Mathématiques', 'Algorithmique et programmation', 'Algorithms and programming')
   ) as v(ordinal, code, strand, title, title_en);
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name) values ('fr-programmes', 'science', 7, 8, 'Sciences, cycle 4 (5e-4e): physique-chimie, SVT, technologie') returning id)
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('fr-programmes', 'science', 7, 8, 'Sciences, cycle 4 (5e-4e): physique-chimie, SVT, technologie', NULL, NULL, NULL) returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (1, 'C4-PC-1', 'Physique-chimie', 'Organisation et transformations de la matière', 'Organisation and transformations of matter'),
@@ -250,7 +251,7 @@ select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
 
 -- ib-pyp
 insert into public.curricula (code, system_code, name, kind, confidence, source_url, note, verified_on, verified_source, verification_method) values ('ib-pyp', 'ib', 'IB Primary Years Programme (PYP)', 'framework', 'medium', 'https://www.ibo.org/programmes/primary-years-programme/', 'PYP covers ages 3-12. IB sets strands and the six transdisciplinary themes, not a fixed topic list. Each school writes its own programme of inquiry, so actual units differ by school. Strands follow the PYP scope and sequence documents; check against the current IB release.', NULL, NULL, NULL);
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name) values ('ib-pyp', 'math', 2, 5, 'PYP Mathematics scope and sequence') returning id)
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('ib-pyp', 'math', 2, 5, 'PYP Mathematics scope and sequence', NULL, NULL, NULL) returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (1, 'PYP-MA-DH', 'Strand', 'Data handling', NULL),
@@ -259,7 +260,7 @@ select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (4, 'PYP-MA-PF', 'Strand', 'Pattern and function', NULL),
     (5, 'PYP-MA-NU', 'Strand', 'Number', NULL)
   ) as v(ordinal, code, strand, title, title_en);
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name) values ('ib-pyp', 'science', 2, 5, 'PYP Science scope and sequence') returning id)
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('ib-pyp', 'science', 2, 5, 'PYP Science scope and sequence', NULL, NULL, NULL) returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (1, 'PYP-SC-LT', 'Strand', 'Living things', NULL),
@@ -267,7 +268,7 @@ select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (3, 'PYP-SC-MM', 'Strand', 'Materials and matter', NULL),
     (4, 'PYP-SC-FE', 'Strand', 'Forces and energy', NULL)
   ) as v(ordinal, code, strand, title, title_en);
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name) values ('ib-pyp', 'transdisciplinary', 2, 5, 'PYP transdisciplinary themes (programme of inquiry)') returning id)
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('ib-pyp', 'transdisciplinary', 2, 5, 'PYP transdisciplinary themes (programme of inquiry)', NULL, NULL, NULL) returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (1, 'PYP-TT-1', 'Transdisciplinary theme', 'Who we are', NULL),
@@ -280,7 +281,7 @@ select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
 
 -- ib-myp
 insert into public.curricula (code, system_code, name, kind, confidence, source_url, note, verified_on, verified_source, verification_method) values ('ib-myp', 'ib', 'IB Middle Years Programme (MYP), Years 1-3', 'framework', 'medium', 'https://www.ibo.org/programmes/middle-years-programme/', 'MYP covers ages 11-16. Years 1-3 are mapped here to grades 6-8. MYP Mathematics names branches. MYP Sciences sets assessment objectives, not content, so each school chooses its topics.', NULL, NULL, NULL);
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name) values ('ib-myp', 'math', 6, 8, 'MYP Mathematics, Years 1-3') returning id)
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('ib-myp', 'math', 6, 8, 'MYP Mathematics, Years 1-3', NULL, NULL, NULL) returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (1, 'MYP-MA-NU', 'Branch', 'Number', NULL),
@@ -288,7 +289,7 @@ select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (3, 'MYP-MA-GT', 'Branch', 'Geometry and trigonometry', NULL),
     (4, 'MYP-MA-SP', 'Branch', 'Statistics and probability', NULL)
   ) as v(ordinal, code, strand, title, title_en);
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name) values ('ib-myp', 'science', 6, 8, 'MYP Sciences, Years 1-3') returning id)
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('ib-myp', 'science', 6, 8, 'MYP Sciences, Years 1-3', NULL, NULL, NULL) returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (1, 'MYP-SC-A', 'Assessment objective', 'Knowing and understanding', NULL),
@@ -297,8 +298,78 @@ select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (4, 'MYP-SC-D', 'Assessment objective', 'Reflecting on the impacts of science', NULL)
   ) as v(ordinal, code, strand, title, title_en);
 
+-- eg-moe-textbooks
+insert into public.curricula (code, system_code, name, kind, confidence, source_url, note, verified_on, verified_source, verification_method) values ('eg-moe-textbooks', 'national', 'Egyptian MOE national curriculum, from official student books', 'standard', 'high', 'https://elearnningcontent.blob.core.windows.net/elearnningcontent/', 'Units and lessons copied from the contents pages of Ministry of Education and Technical Education student books hosted on the Ministry''s e-learning storage. Topic titles are the book''s own headings; English titles are our translations. Generic items (speaking practice, lesson and unit assessments, reviews) are left out.', '2026-11-24', 'https://elearnningcontent.blob.core.windows.net/elearnningcontent/', 'Read from the contents page of each linked Ministry student book; cover checked for Ministry branding, grade, and academic year.');
+insert into public.grade_labels (curriculum_code, grade, label) values
+  ('eg-moe-textbooks', 2, 'Primary 2'),
+  ('eg-moe-textbooks', 3, 'Primary 3'),
+  ('eg-moe-textbooks', 4, 'Primary 4'),
+  ('eg-moe-textbooks', 5, 'Primary 5'),
+  ('eg-moe-textbooks', 6, 'Primary 6'),
+  ('eg-moe-textbooks', 7, 'Preparatory 1'),
+  ('eg-moe-textbooks', 8, 'Preparatory 2');
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe-textbooks', 'discover', 3, 3, 'Discover (اكتشف), Primary 3', NULL, '2025/2026', 'https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary3/Term1/StudentBook/Discovery_AR_prim3_TR1_2.pdf') returning id)
+insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
+select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
+    (1, 'D3-A1-C1', 'المحور الأول: من أكون؟ (حياة صحية) | Term 1', 'تنمية مهاراتي', 'Developing my skills'),
+    (2, 'D3-A1-C2', 'المحور الأول: من أكون؟ (حياة صحية) | Term 1', 'الحفاظ على صحة الجسم', 'Keeping the body healthy'),
+    (3, 'D3-A1-C3', 'المحور الأول: من أكون؟ (حياة صحية) | Term 1', 'الجسم السليم والطعام الصحي', 'A healthy body and healthy food'),
+    (4, 'D3-A2-C1', 'المحور الثاني: العالم من حولي (الاهتمام بعالمنا) | Term 1', 'التغيرات البيئية', 'Environmental changes'),
+    (5, 'D3-A2-C2', 'المحور الثاني: العالم من حولي (الاهتمام بعالمنا) | Term 1', 'المياه على كوكبنا', 'Water on our planet'),
+    (6, 'D3-A2-C3', 'المحور الثاني: العالم من حولي (الاهتمام بعالمنا) | Term 1', 'مساهمتي نحو بيئتي', 'My contribution to my environment'),
+    (7, 'D3-A3-C1', 'المحور الثالث: كيف يعمل العالم؟ (أصل الأشياء) | Term 2', 'أنماط التغير', 'Patterns of change'),
+    (8, 'D3-A3-C2', 'المحور الثالث: كيف يعمل العالم؟ (أصل الأشياء) | Term 2', 'نظرة على الفنون القديمة', 'A look at ancient arts'),
+    (9, 'D3-A3-C3', 'المحور الثالث: كيف يعمل العالم؟ (أصل الأشياء) | Term 2', 'أصول علم الطب', 'Origins of medicine'),
+    (10, 'D3-A4-C1', 'المحور الرابع: التواصل (الروابط) | Term 2', 'الربط بين القوى', 'Connecting forces'),
+    (11, 'D3-A4-C2', 'المحور الرابع: التواصل (الروابط) | Term 2', 'التواصل بين البشر', 'Communication between people'),
+    (12, 'D3-A4-C3', 'المحور الرابع: التواصل (الروابط) | Term 2', 'التواصل الاجتماعي', 'Social communication')
+  ) as v(ordinal, code, strand, title, title_en);
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe-textbooks', 'social-studies', 5, 5, 'Social Studies (الدراسات الاجتماعية), Primary 5, Term 1', 1, '2026/2027', 'https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026_2027/Primary/Primary5/Term1/StudentBook/Social_studies_prim5_t1.pdf') returning id)
+insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
+select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
+    (1, 'SS5-T1-U1-L1', 'الوحدة الأولى: مصر موقع متميز وطبيعة متنوعة', 'موقع مصر الفلكي', 'Egypt''s astronomical location (latitude and longitude)'),
+    (2, 'SS5-T1-U1-L2', 'الوحدة الأولى: مصر موقع متميز وطبيعة متنوعة', 'مظاهر سطح مصر', 'Egypt''s landforms'),
+    (3, 'SS5-T1-U1-L3', 'الوحدة الأولى: مصر موقع متميز وطبيعة متنوعة', 'مناخ مصر', 'Egypt''s climate'),
+    (4, 'SS5-T1-U1-L4', 'الوحدة الأولى: مصر موقع متميز وطبيعة متنوعة', 'النباتات الطبيعية والحيوانات البرية', 'Natural vegetation and wildlife'),
+    (5, 'SS5-T1-U2-L1', 'الوحدة الثانية: الحضارة المصرية القديمة', 'عوامل قيام الحضارة المصرية القديمة', 'Factors behind the rise of ancient Egyptian civilization'),
+    (6, 'SS5-T1-U2-L2', 'الوحدة الثانية: الحضارة المصرية القديمة', 'حياة المصري القديم «عصور ما قبل التاريخ»', 'Life of the ancient Egyptian: prehistoric eras'),
+    (7, 'SS5-T1-U2-L3', 'الوحدة الثانية: الحضارة المصرية القديمة', 'حياة المصري القديم «العصور التاريخية»', 'Life of the ancient Egyptian: historical eras'),
+    (8, 'SS5-T1-U2-L4', 'الوحدة الثانية: الحضارة المصرية القديمة', 'مصر في عصري البطالمة والرومان', 'Egypt under the Ptolemies and the Romans'),
+    (9, 'SS5-T1-U3-L1', 'الوحدة الثالثة: كنوز مصر', 'الثروة المعدنية ومصادر الطاقة', 'Mineral wealth and energy sources'),
+    (10, 'SS5-T1-U3-L2', 'الوحدة الثالثة: كنوز مصر', 'موارد المياه', 'Water resources'),
+    (11, 'SS5-T1-U3-L3', 'الوحدة الثالثة: كنوز مصر', 'المشروعات القومية (رؤية مصر للمستقبل)', 'National projects (Egypt''s vision for the future)')
+  ) as v(ordinal, code, strand, title, title_en);
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe-textbooks', 'arabic', 8, 8, 'Arabic Language (اللغة العربية), Preparatory 2, Term 1', 1, '2025/2026', 'https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory2/Term1/StudentBook/Arabic_Prep2_SB_T1.pdf') returning id)
+insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
+select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
+    (1, 'AR8-T1-U1-L1', 'الوحدة الأولى: انتمائي قوتي', 'نص استماع: سيدة المقاومة المصرية «أمنة دهشان»', 'Listening text: Lady of the Egyptian resistance, Amna Dahshan'),
+    (2, 'AR8-T1-U1-L2-R', 'الوحدة الأولى: انتمائي قوتي', 'نص قراءة: العبور إلى المستقبل «حرب أكتوبر»', 'Reading text: Crossing to the future (the October War)'),
+    (3, 'AR8-T1-U1-L2-G', 'الوحدة الأولى: انتمائي قوتي', 'القواعد النحوية: المعرب والمبني من الأسماء والحروف', 'Grammar: declinable and indeclinable nouns and particles'),
+    (4, 'AR8-T1-U1-L2-S', 'الوحدة الأولى: انتمائي قوتي', 'القواعد الإملائية: الألف اللينة في الأسماء', 'Spelling: alif layyina in nouns'),
+    (5, 'AR8-T1-U1-L2-W', 'الوحدة الأولى: انتمائي قوتي', 'التعبير الكتابي: كتابة مقال وصف مكان', 'Writing: an essay describing a place'),
+    (6, 'AR8-T1-U1-L3-R', 'الوحدة الأولى: انتمائي قوتي', 'نص قراءة: من صقور الوطنية «محمد مبروك»', 'Reading text: A patriotic hero, Mohamed Mabrouk'),
+    (7, 'AR8-T1-U1-L3-G', 'الوحدة الأولى: انتمائي قوتي', 'القواعد النحوية: المعرب والمبني من الأفعال', 'Grammar: declinable and indeclinable verbs'),
+    (8, 'AR8-T1-U1-L3-S', 'الوحدة الأولى: انتمائي قوتي', 'القواعد الإملائية: الألف اللينة في الأفعال', 'Spelling: alif layyina in verbs'),
+    (9, 'AR8-T1-U1-L4', 'الوحدة الأولى: انتمائي قوتي', 'نص شعري: مصر التي في خاطري (أحمد رامي)', 'Poem: Egypt in my heart (Ahmed Rami)'),
+    (10, 'AR8-T1-U2-L1', 'الوحدة الثانية: بيئتي مسؤوليتي', 'نص استماع: أقدم وديعة في يد المصري', 'Listening text: The oldest trust in the Egyptian''s hands'),
+    (11, 'AR8-T1-U2-L2-R', 'الوحدة الثانية: بيئتي مسؤوليتي', 'نص قراءة: من أجل غد', 'Reading text: For the sake of tomorrow'),
+    (12, 'AR8-T1-U2-L2-G', 'الوحدة الثانية: بيئتي مسؤوليتي', 'القواعد النحوية: الضمائر البارزة والمستترة', 'Grammar: explicit and implicit pronouns'),
+    (13, 'AR8-T1-U2-L2-S', 'الوحدة الثانية: بيئتي مسؤوليتي', 'القواعد الإملائية: الألف اللينة في الحروف', 'Spelling: alif layyina in particles'),
+    (14, 'AR8-T1-U2-L2-W', 'الوحدة الثانية: بيئتي مسؤوليتي', 'التعبير الكتابي: كتابة الخطبة الإقناعية', 'Writing: a persuasive speech'),
+    (15, 'AR8-T1-U2-L3-R', 'الوحدة الثانية: بيئتي مسؤوليتي', 'نص قراءة: واحة مصرية صديقة للبيئة: مدينة الخارجة', 'Reading text: An eco-friendly Egyptian oasis, Kharga'),
+    (16, 'AR8-T1-U2-L3-G', 'الوحدة الثانية: بيئتي مسؤوليتي', 'القواعد النحوية: أسلوب الشرط «أدوات الشرط الجازمة»', 'Grammar: conditional sentences with jussive particles'),
+    (17, 'AR8-T1-U2-L4', 'الوحدة الثانية: بيئتي مسؤوليتي', 'نص شعري: ريفنا المصري (محمود غنيم)', 'Poem: Our Egyptian countryside (Mahmoud Ghoneim)'),
+    (18, 'AR8-T1-U3-L1', 'الوحدة الثالثة: علم وقيم', 'نص استماع: إنسان أم ظل إنسان؟', 'Listening text: A human or the shadow of a human?'),
+    (19, 'AR8-T1-U3-L2-R', 'الوحدة الثالثة: علم وقيم', 'نص قراءة: عندما يصبح العلم رسالة «الخوارزمي»', 'Reading text: When science becomes a mission (al-Khwarizmi)'),
+    (20, 'AR8-T1-U3-L2-G', 'الوحدة الثالثة: علم وقيم', 'القواعد النحوية: أسلوب الشرط «أدوات الشرط غير الجازمة»', 'Grammar: conditional sentences with non-jussive particles'),
+    (21, 'AR8-T1-U3-L2-S', 'الوحدة الثالثة: علم وقيم', 'القواعد الإملائية: التاء المربوطة والتاء المفتوحة والهاء', 'Spelling: taa marbuta, open taa, and haa'),
+    (22, 'AR8-T1-U3-L3-R', 'الوحدة الثالثة: علم وقيم', 'نص قراءة: القراءة حياة (أحمد أمين)', 'Reading text: Reading is life (Ahmed Amin)'),
+    (23, 'AR8-T1-U3-L3-G', 'الوحدة الثالثة: علم وقيم', 'القواعد النحوية: مراجعة على دروس النحو المقررة', 'Grammar: review of the term''s grammar lessons'),
+    (24, 'AR8-T1-U3-L4', 'الوحدة الثالثة: علم وقيم', 'نص شعري: الكد سبيل المعالي (الإمام الشافعي)', 'Poem: Toil is the path to glory (Imam al-Shafi''i)')
+  ) as v(ordinal, code, strand, title, title_en);
+
 -- eg-moe
-insert into public.curricula (code, system_code, name, kind, confidence, source_url, note, verified_on, verified_source, verification_method) values ('eg-moe', 'national', 'Egyptian Ministry of Education national curriculum (Arabic and Social Studies)', 'strand_placeholder', 'low', 'https://moe.gov.eg/', 'Strand-level placeholders, not unit lists. Arabic and Social Studies are required national subjects in Egyptian schools, including international schools. The per-grade units must be filled from the current MOE textbooks and teacher guides before content is written. Grades 2-3 social studies is believed to sit inside the integrated ''Discover'' (اكتشف) programme under Education 2.0; verify.', NULL, NULL, NULL);
+insert into public.curricula (code, system_code, name, kind, confidence, source_url, note, verified_on, verified_source, verification_method) values ('eg-moe', 'national', 'Egyptian MOE national curriculum, strand placeholders (not yet sourced)', 'strand_placeholder', 'low', 'https://moe.gov.eg/', 'Strand-level placeholders for grades whose Ministry student books have not been read yet. Replace each with an eg-moe-textbooks syllabus once its book is sourced.', NULL, NULL, NULL);
 insert into public.grade_labels (curriculum_code, grade, label) values
   ('eg-moe', 2, 'Primary 2'),
   ('eg-moe', 3, 'Primary 3'),
@@ -307,7 +378,7 @@ insert into public.grade_labels (curriculum_code, grade, label) values
   ('eg-moe', 6, 'Primary 6'),
   ('eg-moe', 7, 'Preparatory 1'),
   ('eg-moe', 8, 'Preparatory 2');
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name) values ('eg-moe', 'arabic', 2, 2, 'Arabic Language (اللغة العربية), Primary 2') returning id)
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe', 'arabic', 2, 2, 'Arabic Language (اللغة العربية), Primary 2', NULL, NULL, NULL) returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (1, 'AR-LS', 'Language skills', 'الاستماع والتحدث', 'Listening and speaking'),
@@ -318,7 +389,7 @@ select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (6, 'AR-HW', 'Writing', 'الخط', 'Handwriting'),
     (7, 'AR-WR', 'Writing', 'التعبير', 'Composition')
   ) as v(ordinal, code, strand, title, title_en);
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name) values ('eg-moe', 'arabic', 3, 3, 'Arabic Language (اللغة العربية), Primary 3') returning id)
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe', 'arabic', 3, 3, 'Arabic Language (اللغة العربية), Primary 3', NULL, NULL, NULL) returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (1, 'AR-LS', 'Language skills', 'الاستماع والتحدث', 'Listening and speaking'),
@@ -329,7 +400,7 @@ select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (6, 'AR-HW', 'Writing', 'الخط', 'Handwriting'),
     (7, 'AR-WR', 'Writing', 'التعبير', 'Composition')
   ) as v(ordinal, code, strand, title, title_en);
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name) values ('eg-moe', 'arabic', 4, 4, 'Arabic Language (اللغة العربية), Primary 4') returning id)
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe', 'arabic', 4, 4, 'Arabic Language (اللغة العربية), Primary 4', NULL, NULL, NULL) returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (1, 'AR-LS', 'Language skills', 'الاستماع والتحدث', 'Listening and speaking'),
@@ -340,7 +411,7 @@ select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (6, 'AR-HW', 'Writing', 'الخط', 'Handwriting'),
     (7, 'AR-WR', 'Writing', 'التعبير', 'Composition')
   ) as v(ordinal, code, strand, title, title_en);
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name) values ('eg-moe', 'arabic', 5, 5, 'Arabic Language (اللغة العربية), Primary 5') returning id)
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe', 'arabic', 5, 5, 'Arabic Language (اللغة العربية), Primary 5', NULL, NULL, NULL) returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (1, 'AR-LS', 'Language skills', 'الاستماع والتحدث', 'Listening and speaking'),
@@ -351,7 +422,7 @@ select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (6, 'AR-HW', 'Writing', 'الخط', 'Handwriting'),
     (7, 'AR-WR', 'Writing', 'التعبير', 'Composition')
   ) as v(ordinal, code, strand, title, title_en);
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name) values ('eg-moe', 'arabic', 6, 6, 'Arabic Language (اللغة العربية), Primary 6') returning id)
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe', 'arabic', 6, 6, 'Arabic Language (اللغة العربية), Primary 6', NULL, NULL, NULL) returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (1, 'AR-LS', 'Language skills', 'الاستماع والتحدث', 'Listening and speaking'),
@@ -362,7 +433,7 @@ select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (6, 'AR-HW', 'Writing', 'الخط', 'Handwriting'),
     (7, 'AR-WR', 'Writing', 'التعبير', 'Composition')
   ) as v(ordinal, code, strand, title, title_en);
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name) values ('eg-moe', 'arabic', 7, 7, 'Arabic Language (اللغة العربية), Preparatory 1') returning id)
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe', 'arabic', 7, 7, 'Arabic Language (اللغة العربية), Preparatory 1', NULL, NULL, NULL) returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (1, 'AR-LS', 'Language skills', 'الاستماع والتحدث', 'Listening and speaking'),
@@ -373,58 +444,34 @@ select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (6, 'AR-HW', 'Writing', 'الخط', 'Handwriting'),
     (7, 'AR-WR', 'Writing', 'التعبير', 'Composition')
   ) as v(ordinal, code, strand, title, title_en);
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name) values ('eg-moe', 'arabic', 8, 8, 'Arabic Language (اللغة العربية), Preparatory 2') returning id)
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe', 'discover', 2, 2, 'Discover (اكتشف), Primary 2', NULL, NULL, NULL) returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
-    (1, 'AR-LS', 'Language skills', 'الاستماع والتحدث', 'Listening and speaking'),
-    (2, 'AR-RD', 'Language skills', 'القراءة والفهم', 'Reading and comprehension'),
-    (3, 'AR-TX', 'Literature', 'النصوص والمحفوظات', 'Texts and recitation'),
-    (4, 'AR-GR', 'Language structure', 'النحو والصرف', 'Grammar and morphology'),
-    (5, 'AR-SP', 'Language structure', 'الإملاء', 'Spelling'),
-    (6, 'AR-HW', 'Writing', 'الخط', 'Handwriting'),
-    (7, 'AR-WR', 'Writing', 'التعبير', 'Composition')
+    (1, 'D-ME', 'Discover', 'أنا ومجتمعي', 'Me and my community'),
+    (2, 'D-EG', 'Discover', 'بلدي مصر', 'My country, Egypt')
   ) as v(ordinal, code, strand, title, title_en);
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name) values ('eg-moe', 'social-studies', 2, 2, 'Discover (اكتشف), social studies strand, Primary 2') returning id)
-insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
-select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
-    (1, 'SS-ME', 'Social studies', 'أنا ومجتمعي', 'Me and my community'),
-    (2, 'SS-EG', 'Social studies', 'بلدي مصر', 'My country, Egypt')
-  ) as v(ordinal, code, strand, title, title_en);
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name) values ('eg-moe', 'social-studies', 3, 3, 'Discover (اكتشف), social studies strand, Primary 3') returning id)
-insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
-select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
-    (1, 'SS-ME', 'Social studies', 'أنا ومجتمعي', 'Me and my community'),
-    (2, 'SS-EG', 'Social studies', 'بلدي مصر', 'My country, Egypt')
-  ) as v(ordinal, code, strand, title, title_en);
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name) values ('eg-moe', 'social-studies', 4, 4, 'Social Studies (الدراسات الاجتماعية), Primary 4') returning id)
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe', 'social-studies', 4, 4, 'Social Studies (الدراسات الاجتماعية), Primary 4', NULL, NULL, NULL) returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (1, 'SS-GE', 'Social studies', 'الجغرافيا', 'Geography'),
     (2, 'SS-HI', 'Social studies', 'التاريخ', 'History'),
     (3, 'SS-CI', 'Social studies', 'التربية الوطنية والمواطنة', 'Civics and citizenship')
   ) as v(ordinal, code, strand, title, title_en);
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name) values ('eg-moe', 'social-studies', 5, 5, 'Social Studies (الدراسات الاجتماعية), Primary 5') returning id)
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe', 'social-studies', 6, 6, 'Social Studies (الدراسات الاجتماعية), Primary 6', NULL, NULL, NULL) returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (1, 'SS-GE', 'Social studies', 'الجغرافيا', 'Geography'),
     (2, 'SS-HI', 'Social studies', 'التاريخ', 'History'),
     (3, 'SS-CI', 'Social studies', 'التربية الوطنية والمواطنة', 'Civics and citizenship')
   ) as v(ordinal, code, strand, title, title_en);
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name) values ('eg-moe', 'social-studies', 6, 6, 'Social Studies (الدراسات الاجتماعية), Primary 6') returning id)
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe', 'social-studies', 7, 7, 'Social Studies (الدراسات الاجتماعية), Preparatory 1', NULL, NULL, NULL) returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (1, 'SS-GE', 'Social studies', 'الجغرافيا', 'Geography'),
     (2, 'SS-HI', 'Social studies', 'التاريخ', 'History'),
     (3, 'SS-CI', 'Social studies', 'التربية الوطنية والمواطنة', 'Civics and citizenship')
   ) as v(ordinal, code, strand, title, title_en);
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name) values ('eg-moe', 'social-studies', 7, 7, 'Social Studies (الدراسات الاجتماعية), Preparatory 1') returning id)
-insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
-select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
-    (1, 'SS-GE', 'Social studies', 'الجغرافيا', 'Geography'),
-    (2, 'SS-HI', 'Social studies', 'التاريخ', 'History'),
-    (3, 'SS-CI', 'Social studies', 'التربية الوطنية والمواطنة', 'Civics and citizenship')
-  ) as v(ordinal, code, strand, title, title_en);
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name) values ('eg-moe', 'social-studies', 8, 8, 'Social Studies (الدراسات الاجتماعية), Preparatory 2') returning id)
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe', 'social-studies', 8, 8, 'Social Studies (الدراسات الاجتماعية), Preparatory 2', NULL, NULL, NULL) returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (1, 'SS-GE', 'Social studies', 'الجغرافيا', 'Geography'),

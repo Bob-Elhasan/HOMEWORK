@@ -19,6 +19,7 @@ const db = new PGlite();
 await db.exec(`create role anon nologin; create role authenticated nologin;`);
 await db.exec(read('supabase/migrations/0002_curriculum_catalog.sql'));
 await db.exec(read('supabase/migrations/0003_catalog_verification.sql'));
+await db.exec(read('supabase/migrations/0004_syllabus_edition.sql'));
 // Supabase grants full table privileges to these roles by default, so RLS is the real guard.
 await db.exec(`grant usage on schema public to anon, authenticated;
                grant all on all tables in schema public to anon, authenticated;`);
@@ -63,7 +64,25 @@ const ms = await one(`select count(distinct year)::int as n from curriculum_topi
 check(ms.n === 3, 'NGSS middle-school band expands to years 6, 7, and 8');
 
 const verified = (await db.query(`select code from curricula where verified_on is not null order by code`)).rows.map((r) => r.code);
-check(JSON.stringify(verified) === JSON.stringify(['us-ccss-math', 'us-ngss']), `verified curricula: ${verified.join(', ') || 'none'}`);
+check(JSON.stringify(verified) === JSON.stringify(['eg-moe-textbooks', 'us-ccss-math', 'us-ngss']), `verified curricula: ${verified.join(', ') || 'none'}`);
+
+// National: real textbook syllabi replace placeholders, never duplicate them.
+const dup = await one(`select count(*)::int as n from (
+  select year, subject_code from curriculum_topics_by_grade where system_code = 'national'
+  group by year, subject_code having count(distinct curriculum_code) > 1) d`);
+check(dup.n === 0, 'national: no grade/subject has both textbook data and a placeholder');
+
+const ss5 = await one(`select topic, term, academic_year, source_url from curriculum_topics_by_grade
+                       where system_code = 'national' and year = 5 and topic_code = 'SS5-T1-U2-L1'`);
+check(ss5?.topic === 'عوامل قيام الحضارة المصرية القديمة' && ss5.term === 1 && ss5.academic_year === '2026/2027'
+      && ss5.source_url.endsWith('Social_studies_prim5_t1.pdf'), 'national grade 5 social studies comes from the 2026/2027 Ministry book');
+
+const ar8 = await one(`select count(*)::int as n from curriculum_topics_by_grade
+                       where system_code = 'national' and year = 8 and subject_code = 'arabic' and curriculum_code = 'eg-moe-textbooks'`);
+check(ar8.n === 24, `national grade 8 Arabic has the book's 24 topics (got ${ar8.n})`);
+
+const d3 = await one(`select count(*)::int as n from curriculum_topics_by_grade where year = 3 and subject_code = 'discover'`);
+check(d3.n === 12, `national grade 3 Discover has 12 chapters (got ${d3.n})`);
 
 const g3 = await one(`select topic from curriculum_topics_by_grade where year = 3 and topic_code = '3-LS2, 3-LS4'`);
 check(g3?.topic === 'Interdependent Relationships in Ecosystems: Environmental Impacts on Organisms', 'NGSS grade 3 topic uses the official name');

@@ -2,15 +2,101 @@
   "system": "national",
   "curricula": [
     {
+      "code": "eg-moe-textbooks",
+      "name": "Egyptian MOE national curriculum, from official student books",
+      "source_url": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/",
+      "confidence": "high",
+      "note": "Units and lessons copied from the contents pages of Ministry of Education and Technical Education student books hosted on the Ministry's e-learning storage. Topic titles are the book's own headings; English titles are our translations. Generic items (speaking practice, lesson and unit assessments, reviews) are left out.",
+      "verified": {
+        "on": "2026-11-24",
+        "source": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/",
+        "method": "Read from the contents page of each linked Ministry student book; cover checked for Ministry branding, grade, and academic year."
+      },
+      "grade_labels": {"2": "Primary 2", "3": "Primary 3", "4": "Primary 4", "5": "Primary 5", "6": "Primary 6", "7": "Preparatory 1", "8": "Preparatory 2"},
+      "syllabi": [
+        {
+          "subject": "discover", "grade_min": 3, "grade_max": 3,
+          "name": "Discover (اكتشف), Primary 3",
+          "academic_year": "2025/2026",
+          "source_url": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary3/Term1/StudentBook/Discovery_AR_prim3_TR1_2.pdf",
+          "topics": [
+            ["D3-A1-C1", "المحور الأول: من أكون؟ (حياة صحية) | Term 1", "تنمية مهاراتي", "Developing my skills"],
+            ["D3-A1-C2", "المحور الأول: من أكون؟ (حياة صحية) | Term 1", "الحفاظ على صحة الجسم", "Keeping the body healthy"],
+            ["D3-A1-C3", "المحور الأول: من أكون؟ (حياة صحية) | Term 1", "الجسم السليم والطعام الصحي", "A healthy body and healthy food"],
+            ["D3-A2-C1", "المحور الثاني: العالم من حولي (الاهتمام بعالمنا) | Term 1", "التغيرات البيئية", "Environmental changes"],
+            ["D3-A2-C2", "المحور الثاني: العالم من حولي (الاهتمام بعالمنا) | Term 1", "المياه على كوكبنا", "Water on our planet"],
+            ["D3-A2-C3", "المحور الثاني: العالم من حولي (الاهتمام بعالمنا) | Term 1", "مساهمتي نحو بيئتي", "My contribution to my environment"],
+            ["D3-A3-C1", "المحور الثالث: كيف يعمل العالم؟ (أصل الأشياء) | Term 2", "أنماط التغير", "Patterns of change"],
+            ["D3-A3-C2", "المحور الثالث: كيف يعمل العالم؟ (أصل الأشياء) | Term 2", "نظرة على الفنون القديمة", "A look at ancient arts"],
+            ["D3-A3-C3", "المحور الثالث: كيف يعمل العالم؟ (أصل الأشياء) | Term 2", "أصول علم الطب", "Origins of medicine"],
+            ["D3-A4-C1", "المحور الرابع: التواصل (الروابط) | Term 2", "الربط بين القوى", "Connecting forces"],
+            ["D3-A4-C2", "المحور الرابع: التواصل (الروابط) | Term 2", "التواصل بين البشر", "Communication between people"],
+            ["D3-A4-C3", "المحور الرابع: التواصل (الروابط) | Term 2", "التواصل الاجتماعي", "Social communication"]
+          ]
+        },
+        {
+          "subject": "social-studies", "grade_min": 5, "grade_max": 5,
+          "name": "Social Studies (الدراسات الاجتماعية), Primary 5, Term 1",
+          "term": 1, "academic_year": "2026/2027",
+          "source_url": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026_2027/Primary/Primary5/Term1/StudentBook/Social_studies_prim5_t1.pdf",
+          "topics": [
+            ["SS5-T1-U1-L1", "الوحدة الأولى: مصر موقع متميز وطبيعة متنوعة", "موقع مصر الفلكي", "Egypt's astronomical location (latitude and longitude)"],
+            ["SS5-T1-U1-L2", "الوحدة الأولى: مصر موقع متميز وطبيعة متنوعة", "مظاهر سطح مصر", "Egypt's landforms"],
+            ["SS5-T1-U1-L3", "الوحدة الأولى: مصر موقع متميز وطبيعة متنوعة", "مناخ مصر", "Egypt's climate"],
+            ["SS5-T1-U1-L4", "الوحدة الأولى: مصر موقع متميز وطبيعة متنوعة", "النباتات الطبيعية والحيوانات البرية", "Natural vegetation and wildlife"],
+            ["SS5-T1-U2-L1", "الوحدة الثانية: الحضارة المصرية القديمة", "عوامل قيام الحضارة المصرية القديمة", "Factors behind the rise of ancient Egyptian civilization"],
+            ["SS5-T1-U2-L2", "الوحدة الثانية: الحضارة المصرية القديمة", "حياة المصري القديم «عصور ما قبل التاريخ»", "Life of the ancient Egyptian: prehistoric eras"],
+            ["SS5-T1-U2-L3", "الوحدة الثانية: الحضارة المصرية القديمة", "حياة المصري القديم «العصور التاريخية»", "Life of the ancient Egyptian: historical eras"],
+            ["SS5-T1-U2-L4", "الوحدة الثانية: الحضارة المصرية القديمة", "مصر في عصري البطالمة والرومان", "Egypt under the Ptolemies and the Romans"],
+            ["SS5-T1-U3-L1", "الوحدة الثالثة: كنوز مصر", "الثروة المعدنية ومصادر الطاقة", "Mineral wealth and energy sources"],
+            ["SS5-T1-U3-L2", "الوحدة الثالثة: كنوز مصر", "موارد المياه", "Water resources"],
+            ["SS5-T1-U3-L3", "الوحدة الثالثة: كنوز مصر", "المشروعات القومية (رؤية مصر للمستقبل)", "National projects (Egypt's vision for the future)"]
+          ]
+        },
+        {
+          "subject": "arabic", "grade_min": 8, "grade_max": 8,
+          "name": "Arabic Language (اللغة العربية), Preparatory 2, Term 1",
+          "term": 1, "academic_year": "2025/2026",
+          "source_url": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory2/Term1/StudentBook/Arabic_Prep2_SB_T1.pdf",
+          "topics": [
+            ["AR8-T1-U1-L1", "الوحدة الأولى: انتمائي قوتي", "نص استماع: سيدة المقاومة المصرية «أمنة دهشان»", "Listening text: Lady of the Egyptian resistance, Amna Dahshan"],
+            ["AR8-T1-U1-L2-R", "الوحدة الأولى: انتمائي قوتي", "نص قراءة: العبور إلى المستقبل «حرب أكتوبر»", "Reading text: Crossing to the future (the October War)"],
+            ["AR8-T1-U1-L2-G", "الوحدة الأولى: انتمائي قوتي", "القواعد النحوية: المعرب والمبني من الأسماء والحروف", "Grammar: declinable and indeclinable nouns and particles"],
+            ["AR8-T1-U1-L2-S", "الوحدة الأولى: انتمائي قوتي", "القواعد الإملائية: الألف اللينة في الأسماء", "Spelling: alif layyina in nouns"],
+            ["AR8-T1-U1-L2-W", "الوحدة الأولى: انتمائي قوتي", "التعبير الكتابي: كتابة مقال وصف مكان", "Writing: an essay describing a place"],
+            ["AR8-T1-U1-L3-R", "الوحدة الأولى: انتمائي قوتي", "نص قراءة: من صقور الوطنية «محمد مبروك»", "Reading text: A patriotic hero, Mohamed Mabrouk"],
+            ["AR8-T1-U1-L3-G", "الوحدة الأولى: انتمائي قوتي", "القواعد النحوية: المعرب والمبني من الأفعال", "Grammar: declinable and indeclinable verbs"],
+            ["AR8-T1-U1-L3-S", "الوحدة الأولى: انتمائي قوتي", "القواعد الإملائية: الألف اللينة في الأفعال", "Spelling: alif layyina in verbs"],
+            ["AR8-T1-U1-L4", "الوحدة الأولى: انتمائي قوتي", "نص شعري: مصر التي في خاطري (أحمد رامي)", "Poem: Egypt in my heart (Ahmed Rami)"],
+            ["AR8-T1-U2-L1", "الوحدة الثانية: بيئتي مسؤوليتي", "نص استماع: أقدم وديعة في يد المصري", "Listening text: The oldest trust in the Egyptian's hands"],
+            ["AR8-T1-U2-L2-R", "الوحدة الثانية: بيئتي مسؤوليتي", "نص قراءة: من أجل غد", "Reading text: For the sake of tomorrow"],
+            ["AR8-T1-U2-L2-G", "الوحدة الثانية: بيئتي مسؤوليتي", "القواعد النحوية: الضمائر البارزة والمستترة", "Grammar: explicit and implicit pronouns"],
+            ["AR8-T1-U2-L2-S", "الوحدة الثانية: بيئتي مسؤوليتي", "القواعد الإملائية: الألف اللينة في الحروف", "Spelling: alif layyina in particles"],
+            ["AR8-T1-U2-L2-W", "الوحدة الثانية: بيئتي مسؤوليتي", "التعبير الكتابي: كتابة الخطبة الإقناعية", "Writing: a persuasive speech"],
+            ["AR8-T1-U2-L3-R", "الوحدة الثانية: بيئتي مسؤوليتي", "نص قراءة: واحة مصرية صديقة للبيئة: مدينة الخارجة", "Reading text: An eco-friendly Egyptian oasis, Kharga"],
+            ["AR8-T1-U2-L3-G", "الوحدة الثانية: بيئتي مسؤوليتي", "القواعد النحوية: أسلوب الشرط «أدوات الشرط الجازمة»", "Grammar: conditional sentences with jussive particles"],
+            ["AR8-T1-U2-L4", "الوحدة الثانية: بيئتي مسؤوليتي", "نص شعري: ريفنا المصري (محمود غنيم)", "Poem: Our Egyptian countryside (Mahmoud Ghoneim)"],
+            ["AR8-T1-U3-L1", "الوحدة الثالثة: علم وقيم", "نص استماع: إنسان أم ظل إنسان؟", "Listening text: A human or the shadow of a human?"],
+            ["AR8-T1-U3-L2-R", "الوحدة الثالثة: علم وقيم", "نص قراءة: عندما يصبح العلم رسالة «الخوارزمي»", "Reading text: When science becomes a mission (al-Khwarizmi)"],
+            ["AR8-T1-U3-L2-G", "الوحدة الثالثة: علم وقيم", "القواعد النحوية: أسلوب الشرط «أدوات الشرط غير الجازمة»", "Grammar: conditional sentences with non-jussive particles"],
+            ["AR8-T1-U3-L2-S", "الوحدة الثالثة: علم وقيم", "القواعد الإملائية: التاء المربوطة والتاء المفتوحة والهاء", "Spelling: taa marbuta, open taa, and haa"],
+            ["AR8-T1-U3-L3-R", "الوحدة الثالثة: علم وقيم", "نص قراءة: القراءة حياة (أحمد أمين)", "Reading text: Reading is life (Ahmed Amin)"],
+            ["AR8-T1-U3-L3-G", "الوحدة الثالثة: علم وقيم", "القواعد النحوية: مراجعة على دروس النحو المقررة", "Grammar: review of the term's grammar lessons"],
+            ["AR8-T1-U3-L4", "الوحدة الثالثة: علم وقيم", "نص شعري: الكد سبيل المعالي (الإمام الشافعي)", "Poem: Toil is the path to glory (Imam al-Shafi'i)"]
+          ]
+        }
+      ]
+    },
+    {
       "code": "eg-moe",
-      "name": "Egyptian Ministry of Education national curriculum (Arabic and Social Studies)",
+      "name": "Egyptian MOE national curriculum, strand placeholders (not yet sourced)",
       "source_url": "https://moe.gov.eg/",
       "confidence": "low",
-      "note": "Strand-level placeholders, not unit lists. Arabic and Social Studies are required national subjects in Egyptian schools, including international schools. The per-grade units must be filled from the current MOE textbooks and teacher guides before content is written. Grades 2-3 social studies is believed to sit inside the integrated 'Discover' (اكتشف) programme under Education 2.0; verify.",
+      "note": "Strand-level placeholders for grades whose Ministry student books have not been read yet. Replace each with an eg-moe-textbooks syllabus once its book is sourced.",
       "grade_labels": {"2": "Primary 2", "3": "Primary 3", "4": "Primary 4", "5": "Primary 5", "6": "Primary 6", "7": "Preparatory 1", "8": "Preparatory 2"},
       "per_grade_syllabi": [
         {
-          "subject": "arabic", "grades": [2, 3, 4, 5, 6, 7, 8], "name_template": "Arabic Language (اللغة العربية), {label}",
+          "subject": "arabic", "grades": [2, 3, 4, 5, 6, 7], "name_template": "Arabic Language (اللغة العربية), {label}",
           "topics": [
             ["AR-LS", "Language skills", "الاستماع والتحدث", "Listening and speaking"],
             ["AR-RD", "Language skills", "القراءة والفهم", "Reading and comprehension"],
@@ -22,14 +108,14 @@
           ]
         },
         {
-          "subject": "social-studies", "grades": [2, 3], "name_template": "Discover (اكتشف), social studies strand, {label}",
+          "subject": "discover", "grades": [2], "name_template": "Discover (اكتشف), {label}",
           "topics": [
-            ["SS-ME", "Social studies", "أنا ومجتمعي", "Me and my community"],
-            ["SS-EG", "Social studies", "بلدي مصر", "My country, Egypt"]
+            ["D-ME", "Discover", "أنا ومجتمعي", "Me and my community"],
+            ["D-EG", "Discover", "بلدي مصر", "My country, Egypt"]
           ]
         },
         {
-          "subject": "social-studies", "grades": [4, 5, 6, 7, 8], "name_template": "Social Studies (الدراسات الاجتماعية), {label}",
+          "subject": "social-studies", "grades": [4, 6, 7, 8], "name_template": "Social Studies (الدراسات الاجتماعية), {label}",
           "topics": [
             ["SS-GE", "Social studies", "الجغرافيا", "Geography"],
             ["SS-HI", "Social studies", "التاريخ", "History"],

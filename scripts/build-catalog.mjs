@@ -24,6 +24,7 @@ export const SUBJECTS = {
   arabic: 'Arabic Language',
   'social-studies': 'Social Studies',
   transdisciplinary: 'Transdisciplinary (IB PYP)',
+  discover: 'Discover (اكتشف), integrated (Egypt MOE)',
 };
 // Directory labels that map to a catalog system. Other labels (British, German,
 // Canadian, Montessori) stay in schools.listed_curricula only.
@@ -71,6 +72,7 @@ export function loadCatalog() {
           fail(`${sw}: grade_min/grade_max must be integers 0-13 with min <= max`);
         }
         if (!s.name) fail(`${sw}: name is required`);
+        if (s.term != null && s.term !== 1 && s.term !== 2) fail(`${sw}: term must be 1, 2, or omitted`);
         if (!Array.isArray(s.topics) || s.topics.length === 0) fail(`${sw}: needs at least one topic`);
         (s.topics ?? []).forEach((t, j) => {
           if (!Array.isArray(t) || t.length < 3 || t.slice(0, 3).some((v) => typeof v !== 'string' || !v.trim())) {
@@ -133,6 +135,9 @@ export function topicRowsByGrade(curricula) {
             topic: title,
             topic_en: titleEn ?? '',
             verified_on: c.verified?.on ?? '',
+            term: s.term ?? '',
+            academic_year: s.academic_year ?? '',
+            source_url: s.source_url ?? c.source_url ?? '',
           });
         });
       }
@@ -187,8 +192,8 @@ export function buildSeedSql({ schools, curricula, schoolsSource }) {
         .map(([code, strand, title, titleEn], i) => `(${i + 1}, ${sql(code)}, ${sql(strand)}, ${sql(title)}, ${sql(titleEn ?? null)})`)
         .join(',\n    ');
       out.push(
-        `with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name) values (${[
-          c.code, s.subject, s.grade_min, s.grade_max, s.name,
+        `with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values (${[
+          c.code, s.subject, s.grade_min, s.grade_max, s.name, s.term ?? null, s.academic_year ?? null, s.source_url ?? null,
         ].map(sql).join(', ')}) returning id)\n` +
           `insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)\n` +
           `select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values\n    ${values}\n  ) as v(ordinal, code, strand, title, title_en);`,
@@ -244,8 +249,8 @@ export function buildExports({ schools, curricula }) {
   }
   flat.sort((a, b) => a.school.localeCompare(b.school) || cmp(a, b));
 
-  const gradeCols = ['year', 'grade_label', 'system', 'curriculum', 'subject', 'syllabus', 'topic_code', 'strand', 'topic', 'topic_en', 'confidence', 'verified_on'];
-  const flatCols = ['year', 'grade_label', 'school', 'system', 'system_basis', 'curriculum', 'subject', 'syllabus', 'topic_code', 'strand', 'topic', 'topic_en', 'confidence', 'verified_on'];
+  const gradeCols = ['year', 'grade_label', 'system', 'curriculum', 'subject', 'syllabus', 'topic_code', 'strand', 'topic', 'topic_en', 'confidence', 'verified_on', 'term', 'academic_year', 'source_url'];
+  const flatCols = ['year', 'grade_label', 'school', 'system', 'system_basis', 'curriculum', 'subject', 'syllabus', 'topic_code', 'strand', 'topic', 'topic_en', 'confidence', 'verified_on', 'term', 'academic_year', 'source_url'];
   const schoolCols = ['school', 'american', 'ib', 'national', 'french', 'listed_curricula', 'age_range', 'source_url'];
   const schoolRows = [...schools]
     .sort((a, b) => a.name.localeCompare(b.name))
