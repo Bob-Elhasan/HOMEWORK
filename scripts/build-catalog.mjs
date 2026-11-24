@@ -87,6 +87,7 @@ export function loadCatalog() {
         confidence: c.confidence,
         source_url: c.source_url ?? null,
         note: c.note ?? null,
+        verified: c.verified ?? null,
         grade_labels: labels,
         syllabi,
       });
@@ -131,6 +132,7 @@ export function topicRowsByGrade(curricula) {
             strand,
             topic: title,
             topic_en: titleEn ?? '',
+            verified_on: c.verified?.on ?? '',
           });
         });
       }
@@ -170,8 +172,9 @@ export function buildSeedSql({ schools, curricula, schoolsSource }) {
   for (const c of curricula) {
     out.push(`-- ${c.code}`);
     out.push(
-      `insert into public.curricula (code, system_code, name, kind, confidence, source_url, note) values (${[
+      `insert into public.curricula (code, system_code, name, kind, confidence, source_url, note, verified_on, verified_source, verification_method) values (${[
         c.code, c.system, c.name, c.kind, c.confidence, c.source_url, c.note,
+        c.verified?.on ?? null, c.verified?.source ?? null, c.verified?.method ?? null,
       ].map(sql).join(', ')});`,
     );
     const labels = Object.entries(c.grade_labels);
@@ -241,8 +244,8 @@ export function buildExports({ schools, curricula }) {
   }
   flat.sort((a, b) => a.school.localeCompare(b.school) || cmp(a, b));
 
-  const gradeCols = ['year', 'grade_label', 'system', 'curriculum', 'subject', 'syllabus', 'topic_code', 'strand', 'topic', 'topic_en', 'confidence'];
-  const flatCols = ['year', 'grade_label', 'school', 'system', 'system_basis', 'curriculum', 'subject', 'syllabus', 'topic_code', 'strand', 'topic', 'topic_en', 'confidence'];
+  const gradeCols = ['year', 'grade_label', 'system', 'curriculum', 'subject', 'syllabus', 'topic_code', 'strand', 'topic', 'topic_en', 'confidence', 'verified_on'];
+  const flatCols = ['year', 'grade_label', 'school', 'system', 'system_basis', 'curriculum', 'subject', 'syllabus', 'topic_code', 'strand', 'topic', 'topic_en', 'confidence', 'verified_on'];
   const schoolCols = ['school', 'american', 'ib', 'national', 'french', 'listed_curricula', 'age_range', 'source_url'];
   const schoolRows = [...schools]
     .sort((a, b) => a.name.localeCompare(b.name))

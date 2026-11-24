@@ -18,6 +18,7 @@ const db = new PGlite();
 // Supabase roles the policies refer to.
 await db.exec(`create role anon nologin; create role authenticated nologin;`);
 await db.exec(read('supabase/migrations/0002_curriculum_catalog.sql'));
+await db.exec(read('supabase/migrations/0003_catalog_verification.sql'));
 // Supabase grants full table privileges to these roles by default, so RLS is the real guard.
 await db.exec(`grant usage on schema public to anon, authenticated;
                grant all on all tables in schema public to anon, authenticated;`);
@@ -60,6 +61,12 @@ check(!!sample, 'spot check: Cairo American College, year 4 math has CCSS 4.NF.B
 
 const ms = await one(`select count(distinct year)::int as n from curriculum_topics_by_grade where topic_code = 'MS-PS4'`);
 check(ms.n === 3, 'NGSS middle-school band expands to years 6, 7, and 8');
+
+const verified = (await db.query(`select code from curricula where verified_on is not null order by code`)).rows.map((r) => r.code);
+check(JSON.stringify(verified) === JSON.stringify(['us-ccss-math', 'us-ngss']), `verified curricula: ${verified.join(', ') || 'none'}`);
+
+const g3 = await one(`select topic from curriculum_topics_by_grade where year = 3 and topic_code = '3-LS2, 3-LS4'`);
+check(g3?.topic === 'Interdependent Relationships in Ecosystems: Environmental Impacts on Organisms', 'NGSS grade 3 topic uses the official name');
 
 const french = await one(`select grade_label from curriculum_topics_by_grade where system_code = 'french' and year = 4 limit 1`);
 check(french?.grade_label === 'CM1', 'French grade 4 is labelled CM1');

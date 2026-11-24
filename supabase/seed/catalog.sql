@@ -23,7 +23,7 @@ insert into public.subjects (code, name) values
   ('transdisciplinary', 'Transdisciplinary (IB PYP)');
 
 -- us-ccss-math
-insert into public.curricula (code, system_code, name, kind, confidence, source_url, note) values ('us-ccss-math', 'american', 'Common Core State Standards for Mathematics', 'standard', 'high', 'https://www.thecorestandards.org/Math/', 'Topics are the CCSS clusters; strand is the CCSS domain. Code format follows CCSS.MATH.CONTENT.<grade>.<domain>.<cluster>.');
+insert into public.curricula (code, system_code, name, kind, confidence, source_url, note, verified_on, verified_source, verification_method) values ('us-ccss-math', 'american', 'Common Core State Standards for Mathematics', 'standard', 'high', 'https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf', 'Topics are the CCSS clusters; strand is the CCSS domain. Code format follows CCSS.MATH.CONTENT.<grade>.<domain>.<cluster>.', '2026-11-24', 'https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf', 'All 73 grade 2-8 cluster codes matched the domain pages on thecorestandards.org, and every cluster heading appears verbatim in the official standards PDF.');
 with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name) values ('us-ccss-math', 'math', 2, 2, 'CCSS Mathematics, Grade 2') returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
@@ -127,7 +127,7 @@ select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
   ) as v(ordinal, code, strand, title, title_en);
 
 -- us-ngss
-insert into public.curricula (code, system_code, name, kind, confidence, source_url, note) values ('us-ngss', 'american', 'Next Generation Science Standards', 'standard', 'high', 'https://www.nextgenscience.org/', 'Topics follow the NGSS topic arrangement. Grades 2-5 are set per grade. Middle school is a 6-8 band, and each school decides which grade teaches which topic.');
+insert into public.curricula (code, system_code, name, kind, confidence, source_url, note, verified_on, verified_source, verification_method) values ('us-ngss', 'american', 'Next Generation Science Standards', 'standard', 'high', 'https://www.nextgenscience.org/overview-topics', 'Topics follow the NGSS topic arrangement. Grades 2-5 are set per grade. Middle school is a 6-8 band, and each school decides which grade teaches which topic.', '2026-11-24', 'https://www.nextgenscience.org/overview-topics', 'Topic names and performance-expectation codes for grades 2-5 and middle school matched the official NGSS topic-arrangement pages.');
 with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name) values ('us-ngss', 'science', 2, 2, 'NGSS Grade 2') returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
@@ -140,7 +140,7 @@ with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min,
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (1, '3-PS2', 'Physical Science', 'Forces and Interactions', NULL),
-    (2, '3-LS2, 3-LS4', 'Life Science', 'Interdependent Relationships in Ecosystems', NULL),
+    (2, '3-LS2, 3-LS4', 'Life Science', 'Interdependent Relationships in Ecosystems: Environmental Impacts on Organisms', NULL),
     (3, '3-LS1, 3-LS3, 3-LS4', 'Life Science', 'Inheritance and Variation of Traits: Life Cycles and Traits', NULL),
     (4, '3-ESS2, 3-ESS3', 'Earth and Space Science', 'Weather and Climate', NULL),
     (5, '3-5-ETS1', 'Engineering Design', 'Engineering Design', NULL)
@@ -148,8 +148,8 @@ select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
 with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name) values ('us-ngss', 'science', 4, 4, 'NGSS Grade 4') returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
-    (1, '4-PS3, 4-ESS3', 'Physical Science', 'Energy', NULL),
-    (2, '4-PS4', 'Physical Science', 'Waves: Waves and Information', NULL),
+    (1, '4-ESS3, 4-PS3', 'Physical Science', 'Energy', NULL),
+    (2, '4-PS4', 'Physical Science', 'Waves', NULL),
     (3, '4-LS1, 4-PS4', 'Life Science', 'Structure, Function, and Information Processing', NULL),
     (4, '4-ESS1, 4-ESS2, 4-ESS3', 'Earth and Space Science', 'Earth''s Systems: Processes that Shape the Earth', NULL),
     (5, '3-5-ETS1', 'Engineering Design', 'Engineering Design', NULL)
@@ -185,7 +185,7 @@ select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
   ) as v(ordinal, code, strand, title, title_en);
 
 -- fr-programmes
-insert into public.curricula (code, system_code, name, kind, confidence, source_url, note) values ('fr-programmes', 'french', 'Programmes de l''Éducation nationale (cycles 2, 3, 4)', 'standard', 'medium', 'https://eduscol.education.fr/', 'France sets programmes per cycle: cycle 2 = CP-CE2, cycle 3 = CM1-6e, cycle 4 = 5e-3e. Mapped here as grade 2 = CE1, 3 = CE2, 4 = CM1, 5 = CM2, 6 = 6e, 7 = 5e, 8 = 4e. Topics are the programme domains (themes). Mathematics programmes were revised from the 2025 school year onward, so confirm domains against the current Bulletin officiel before use.');
+insert into public.curricula (code, system_code, name, kind, confidence, source_url, note, verified_on, verified_source, verification_method) values ('fr-programmes', 'french', 'Programmes de l''Éducation nationale (cycles 2, 3, 4)', 'standard', 'medium', 'https://eduscol.education.fr/', 'France sets programmes per cycle: cycle 2 = CP-CE2, cycle 3 = CM1-6e, cycle 4 = 5e-3e. Mapped here as grade 2 = CE1, 3 = CE2, 4 = CM1, 5 = CM2, 6 = 6e, 7 = 5e, 8 = 4e. Topics are the programme domains (themes). Mathematics programmes were revised from the 2025 school year onward, so confirm domains against the current Bulletin officiel before use.', NULL, NULL, NULL);
 insert into public.grade_labels (curriculum_code, grade, label) values
   ('fr-programmes', 2, 'CE1'),
   ('fr-programmes', 3, 'CE2'),
@@ -249,7 +249,7 @@ select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
   ) as v(ordinal, code, strand, title, title_en);
 
 -- ib-pyp
-insert into public.curricula (code, system_code, name, kind, confidence, source_url, note) values ('ib-pyp', 'ib', 'IB Primary Years Programme (PYP)', 'framework', 'medium', 'https://www.ibo.org/programmes/primary-years-programme/', 'PYP covers ages 3-12. IB sets strands and the six transdisciplinary themes, not a fixed topic list. Each school writes its own programme of inquiry, so actual units differ by school. Strands follow the PYP scope and sequence documents; check against the current IB release.');
+insert into public.curricula (code, system_code, name, kind, confidence, source_url, note, verified_on, verified_source, verification_method) values ('ib-pyp', 'ib', 'IB Primary Years Programme (PYP)', 'framework', 'medium', 'https://www.ibo.org/programmes/primary-years-programme/', 'PYP covers ages 3-12. IB sets strands and the six transdisciplinary themes, not a fixed topic list. Each school writes its own programme of inquiry, so actual units differ by school. Strands follow the PYP scope and sequence documents; check against the current IB release.', NULL, NULL, NULL);
 with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name) values ('ib-pyp', 'math', 2, 5, 'PYP Mathematics scope and sequence') returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
@@ -279,7 +279,7 @@ select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
   ) as v(ordinal, code, strand, title, title_en);
 
 -- ib-myp
-insert into public.curricula (code, system_code, name, kind, confidence, source_url, note) values ('ib-myp', 'ib', 'IB Middle Years Programme (MYP), Years 1-3', 'framework', 'medium', 'https://www.ibo.org/programmes/middle-years-programme/', 'MYP covers ages 11-16. Years 1-3 are mapped here to grades 6-8. MYP Mathematics names branches. MYP Sciences sets assessment objectives, not content, so each school chooses its topics.');
+insert into public.curricula (code, system_code, name, kind, confidence, source_url, note, verified_on, verified_source, verification_method) values ('ib-myp', 'ib', 'IB Middle Years Programme (MYP), Years 1-3', 'framework', 'medium', 'https://www.ibo.org/programmes/middle-years-programme/', 'MYP covers ages 11-16. Years 1-3 are mapped here to grades 6-8. MYP Mathematics names branches. MYP Sciences sets assessment objectives, not content, so each school chooses its topics.', NULL, NULL, NULL);
 with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name) values ('ib-myp', 'math', 6, 8, 'MYP Mathematics, Years 1-3') returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
@@ -298,7 +298,7 @@ select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
   ) as v(ordinal, code, strand, title, title_en);
 
 -- eg-moe
-insert into public.curricula (code, system_code, name, kind, confidence, source_url, note) values ('eg-moe', 'national', 'Egyptian Ministry of Education national curriculum (Arabic and Social Studies)', 'strand_placeholder', 'low', 'https://moe.gov.eg/', 'Strand-level placeholders, not unit lists. Arabic and Social Studies are required national subjects in Egyptian schools, including international schools. The per-grade units must be filled from the current MOE textbooks and teacher guides before content is written. Grades 2-3 social studies is believed to sit inside the integrated ''Discover'' (اكتشف) programme under Education 2.0; verify.');
+insert into public.curricula (code, system_code, name, kind, confidence, source_url, note, verified_on, verified_source, verification_method) values ('eg-moe', 'national', 'Egyptian Ministry of Education national curriculum (Arabic and Social Studies)', 'strand_placeholder', 'low', 'https://moe.gov.eg/', 'Strand-level placeholders, not unit lists. Arabic and Social Studies are required national subjects in Egyptian schools, including international schools. The per-grade units must be filled from the current MOE textbooks and teacher guides before content is written. Grades 2-3 social studies is believed to sit inside the integrated ''Discover'' (اكتشف) programme under Education 2.0; verify.', NULL, NULL, NULL);
 insert into public.grade_labels (curriculum_code, grade, label) values
   ('eg-moe', 2, 'Primary 2'),
   ('eg-moe', 3, 'Primary 3'),
