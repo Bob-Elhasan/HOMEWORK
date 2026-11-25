@@ -214,9 +214,16 @@ def read_registry():
     return list(csv.DictReader(open(REGISTRY, encoding='utf-8-sig')))
 
 
+def registry_sort_key(r):
+    """Rows read from CSV hold strings; rows built from new links may hold ints. Compare as strings."""
+    g = str(r.get('grade', '')).strip()
+    return (int(g) if g else 99, str(r.get('term', '')), str(r.get('subject_guess', '')),
+            str(r.get('folder_year', '')), str(r.get('file', '')))
+
+
 def write_registry(rows):
     cols = ['grade', 'stage_label', 'term', 'folder_year', 'kind', 'subject_guess', 'file', 'url', 'status', 'published_in']
-    rows.sort(key=lambda r: (int(r['grade']) if r.get('grade') else 99, r.get('term', ''), r.get('subject_guess', ''), r.get('folder_year', ''), r.get('file', '')))
+    rows.sort(key=registry_sort_key)
     with open(REGISTRY, 'w', newline='', encoding='utf-8-sig') as f:
         w = csv.DictWriter(f, fieldnames=cols)
         w.writeheader()

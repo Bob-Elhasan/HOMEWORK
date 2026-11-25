@@ -80,5 +80,14 @@ class Candidates(unittest.TestCase):
         self.assertEqual([u.rsplit('/', 1)[-1] for u in rc.candidates_for(syl, rows)], ['Discovery_AR_prim2_TR1.pdf'])
 
 
+class Registry(unittest.TestCase):
+    def test_sorting_mixes_csv_strings_and_new_int_rows(self):
+        rows = [dict(grade='5', term='1', subject_guess='arabic', folder_year='2026', file='a.pdf'),
+                rc.registry_row(S + '2026_2027/Primary/Primary4/Term1/StudentBook/Social_studies_prim4_t1.pdf', 'ok', 'test'),
+                dict(grade='', term='', subject_guess='other', folder_year='', file='z.pdf')]
+        rows.sort(key=rc.registry_sort_key)  # regression: this used to raise TypeError
+        self.assertEqual([str(r['grade']) for r in rows], ['4', '5', ''])
+
+
 if __name__ == '__main__':
     unittest.main()

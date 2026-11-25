@@ -122,13 +122,13 @@ check(french?.grade_label === 'CM1', 'French grade 4 is labelled CM1');
   const before = (await one('select count(*)::int as n from curriculum_topics_by_grade')).n;
   await db.exec(`insert into syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url, edition_status)
                  select curriculum_code, subject_code, grade_min, grade_max, name, term, '2024/2025', source_url, 'superseded'
-                 from syllabi where curriculum_code = 'eg-moe-textbooks' and subject_code = 'social-studies' and grade_min = 5 and term = 1`);
+                 from syllabi where curriculum_code = 'eg-moe-textbooks' and subject_code = 'social-studies' and grade_min = 5 and term = 1 and edition_status = 'current'`);
   await db.exec(`insert into topics (syllabus_id, ordinal, code, strand, title, title_en)
                  select (select id from syllabi where academic_year = '2024/2025' and edition_status = 'superseded' limit 1), ordinal, code, strand, title, title_en
                  from topics where syllabus_id = (select id from syllabi where curriculum_code = 'eg-moe-textbooks' and subject_code = 'social-studies' and grade_min = 5 and term = 1 and edition_status = 'current')`);
   const after = (await one('select count(*)::int as n from curriculum_topics_by_grade')).n;
-  const eds = (await one(`select count(*)::int as n from syllabus_editions where subject_code = 'social-studies' and grade_min = 5 and term = 1`)).n;
-  check(after === before && eds === 2, `superseded editions are kept (${eds} editions) but hidden from catalog views (${before} rows before and after)`);
+  const eds = (await one(`select count(*)::int as n from syllabus_editions where subject_code = 'social-studies' and grade_min = 5 and term = 1 and academic_year = '2024/2025'`)).n;
+  check(after === before && eds === 1, `superseded editions are kept but hidden from catalog views (${before} rows before and after)`);
   let dupBlocked = false;
   try {
     await db.exec(`insert into syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, edition_status)
