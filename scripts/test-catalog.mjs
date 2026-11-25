@@ -96,6 +96,13 @@ check(rel.length === 2 && rel.every((r) => r.y.length >= 5), `religion: both Isl
 const noUrl = await one(`select count(*)::int as n from syllabi where curriculum_code = 'eg-moe-textbooks' and (source_url is null or source_url not like 'https://elearnningcontent.blob.core.windows.net/%')`);
 check(noUrl.n === 0, 'every national textbook syllabus links to its Ministry book');
 
+const natLow = await one(`select count(*)::int as n from curricula where system_code = 'national' and confidence <> 'high'`);
+check(natLow.n === 0, 'national: no placeholder or low-confidence curricula remain');
+
+const ssYears = (await db.query(`select distinct year from curriculum_topics_by_grade
+                                  where system_code = 'national' and subject_code in ('social-studies', 'discover') order by year`)).rows.map((r) => r.year);
+check(JSON.stringify(ssYears) === JSON.stringify([2, 3, 4, 5, 6, 7, 8]), `national social studies (or Discover) covers every year 2-8 (has ${ssYears.join(',')})`);
+
 const d3 = await one(`select count(*)::int as n from curriculum_topics_by_grade where year = 3 and subject_code = 'discover'`);
 check(d3.n === 12, `national grade 3 Discover has 12 chapters (got ${d3.n})`);
 

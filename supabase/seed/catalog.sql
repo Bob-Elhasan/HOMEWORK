@@ -374,6 +374,31 @@ select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (17, 'RC2-T2-U3-L5', 'الوحدة الثالثة: الرب يسمعنا', 'شخصيات تاريخية: طابيثا', 'Historical figures: Tabitha'),
     (18, 'RC2-T2-U3-L6', 'الوحدة الثالثة: الرب يسمعنا', 'القيم والأخلاق: الصلاة من اجل الأخرين - بولس وسيلا في السجن', 'Values and ethics: Praying for others - Paul and Silas in prison')
   ) as v(ordinal, code, strand, title, title_en);
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe-textbooks', 'religion-islamic', 2, 2, 'Islamic Religious Education (التربية الإسلامية), Primary 2, Term 1', 1, '2026/2027', 'https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026_2027/Primary/Primary2/Term1/StudentBook/Islamic_religion_prim2_t1.pdf') returning id)
+insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
+select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
+    (1, 'RI2-T1-U1-L1', 'الوحدة الأولى: التوكل على الله (تعالى)', 'الله تعالى (السميع)', '[Doctrine] God Almighty, the All-Hearing (al-Sami'')'),
+    (2, 'RI2-T1-U1-L2', 'الوحدة الأولى: التوكل على الله (تعالى)', 'سورة القدر (تلاوة وحفظ وتفسير)', '[Quran and tafsir] Surat Al-Qadr (recitation, memorisation and explanation)'),
+    (3, 'RI2-T1-U1-L3', 'الوحدة الأولى: التوكل على الله (تعالى)', 'من سور التلاوة والحفظ (سورة البينة)', '[Quran and tafsir] Recitation and memorisation: Surat Al-Bayyinah'),
+    (4, 'RI2-T1-U1-L4', 'الوحدة الأولى: التوكل على الله (تعالى)', 'الأذان', '[Acts of worship] The call to prayer (adhan)'),
+    (5, 'RI2-T1-U1-L5', 'الوحدة الأولى: التوكل على الله (تعالى)', 'نزول الوحي على النبي ﷺ', '[Seerah and figures] The revelation coming down to the Prophet (peace be upon him)'),
+    (6, 'RI2-T1-U1-L6', 'الوحدة الأولى: التوكل على الله (تعالى)', 'نبي الله شعيب عليه السلام', '[Seerah and figures] The Prophet Shu''ayb (peace be upon him)'),
+    (7, 'RI2-T1-U1-L7', 'الوحدة الأولى: التوكل على الله (تعالى)', 'التوكل على الله (تعالى)', '[Values and morals] Trusting in God Almighty'),
+    (8, 'RI2-T1-U2-L1', 'الوحدة الثانية: من نعم الله (تعالى)', 'الله تعالى (البصير)', '[Doctrine] God Almighty, the All-Seeing (al-Basir)'),
+    (9, 'RI2-T1-U2-L2', 'الوحدة الثانية: من نعم الله (تعالى)', 'سورة التين (تلاوة وحفظ وتفسير)', '[Quran and tafsir] Surat At-Tin (recitation, memorisation and explanation)'),
+    (10, 'RI2-T1-U2-L3', 'الوحدة الثانية: من نعم الله (تعالى)', 'من سور التلاوة والحفظ (سورة العلق)', '[Quran and tafsir] Recitation and memorisation: Surat Al-''Alaq'),
+    (11, 'RI2-T1-U2-L4', 'الوحدة الثانية: من نعم الله (تعالى)', 'الإقامة', '[Acts of worship] The call to begin prayer (iqamah)'),
+    (12, 'RI2-T1-U2-L5', 'الوحدة الثانية: من نعم الله (تعالى)', 'بداية الدعوة (الدعوة السرية)', '[Seerah and figures] The beginning of the call (the secret call)'),
+    (13, 'RI2-T1-U2-L6', 'الوحدة الثانية: من نعم الله (تعالى)', 'نبي الله موسى عليه السلام', '[Seerah and figures] The Prophet Musa (peace be upon him)'),
+    (14, 'RI2-T1-U2-L7', 'الوحدة الثانية: من نعم الله (تعالى)', 'قصة (الأمانة في الحفاظ على الجسم والعقل)', '[Values and morals] Story: trustworthiness in caring for body and mind'),
+    (15, 'RI2-T1-U3-L1', 'الوحدة الثالثة: الشكر لله (تعالى)', 'الله تعالى (الشكور)', '[Doctrine] God Almighty, the Most Appreciative (ash-Shakur)'),
+    (16, 'RI2-T1-U3-L2', 'الوحدة الثالثة: الشكر لله (تعالى)', 'سورة الشرح (تلاوة وحفظ وتفسير)', '[Quran and tafsir] Surat Ash-Sharh (recitation, memorisation and explanation)'),
+    (17, 'RI2-T1-U3-L3', 'الوحدة الثالثة: الشكر لله (تعالى)', 'من سور التلاوة والحفظ (سورة الضحى)', '[Quran and tafsir] Recitation and memorisation: Surat Ad-Duha'),
+    (18, 'RI2-T1-U3-L4', 'الوحدة الثالثة: الشكر لله (تعالى)', 'صلاة الجماعة', '[Acts of worship] Congregational prayer'),
+    (19, 'RI2-T1-U3-L5', 'الوحدة الثالثة: الشكر لله (تعالى)', 'الدعوة الجهرية', '[Seerah and figures] The public call'),
+    (20, 'RI2-T1-U3-L6', 'الوحدة الثالثة: الشكر لله (تعالى)', 'نبي الله داود عليه السلام', '[Seerah and figures] The Prophet Dawud (peace be upon him)'),
+    (21, 'RI2-T1-U3-L7', 'الوحدة الثالثة: الشكر لله (تعالى)', 'قصة (في السراء والضراء)', '[Values and morals] Story: in good times and bad')
+  ) as v(ordinal, code, strand, title, title_en);
 with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe-textbooks', 'religion-islamic', 2, 2, 'Islamic Religious Education (التربية الإسلامية), Primary 2, Term 2', 2, '2025/2026', 'https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary2/Term2/StudentBook/islamic_prim2_tr2.pdf') returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
@@ -441,6 +466,28 @@ select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (10, 'D3-A4-C1', 'المحور الرابع: التواصل (الروابط) | Term 2', 'الربط بين القوى', 'Connecting forces'),
     (11, 'D3-A4-C2', 'المحور الرابع: التواصل (الروابط) | Term 2', 'التواصل بين البشر', 'Communication between people'),
     (12, 'D3-A4-C3', 'المحور الرابع: التواصل (الروابط) | Term 2', 'التواصل الاجتماعي', 'Social communication')
+  ) as v(ordinal, code, strand, title, title_en);
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe-textbooks', 'religion-christian', 3, 3, 'Christian Religious Education (التربية المسيحية), Primary 3, Term 1', 1, '2026/2027', 'https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026_2027/Primary/Primary3/Term1/StudentBook/Cristian_religion_prim3_t1.pdf') returning id)
+insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
+select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
+    (1, 'RC3-T1-U1-L1', 'الوحدة الأولى: تدبير الله لنا', 'العقيدة: آدم وحواء', 'Doctrine: Adam and Eve'),
+    (2, 'RC3-T1-U1-L2', 'الوحدة الأولى: تدبير الله لنا', 'المحفوظات: بعض الآيات الذهبية', 'Memorisation: some golden verses'),
+    (3, 'RC3-T1-U1-L3', 'الوحدة الأولى: تدبير الله لنا', 'العبادة: التناول - خميس العهد', 'Worship: Communion, Maundy Thursday'),
+    (4, 'RC3-T1-U1-L4', 'الوحدة الأولى: تدبير الله لنا', 'شخصيات كتابية: حياة يوسف الصديق (١) - (الطفولة)', 'Biblical figures: the life of Joseph the Righteous (1), childhood'),
+    (5, 'RC3-T1-U1-L5', 'الوحدة الأولى: تدبير الله لنا', 'شخصيات تاريخية: الرعاة والمجوس', 'Historical figures: the shepherds and the Magi'),
+    (6, 'RC3-T1-U1-L6', 'الوحدة الأولى: تدبير الله لنا', 'القيم والأخلاق: الثقة بالله - دانيال في جب الأسود', 'Values and morals: trust in God, Daniel in the lions'' den'),
+    (7, 'RC3-T1-U2-L1', 'الوحدة الثانية: الرب يسوع على أرضنا', 'العقيدة: سلطان الرب يسوع على الأمراض - شفاء مريض بيت حسدا', 'Doctrine: the Lord Jesus''s authority over illness, healing the sick man at Bethesda'),
+    (8, 'RC3-T1-U2-L2', 'الوحدة الثانية: الرب يسوع على أرضنا', 'المحفوظات: بعض الآيات الذهبية', 'Memorisation: some golden verses'),
+    (9, 'RC3-T1-U2-L3', 'الوحدة الثانية: الرب يسوع على أرضنا', 'العبادة: الصوم - دانيال والفتية الثلاثة', 'Worship: fasting, Daniel and the three young men'),
+    (10, 'RC3-T1-U2-L4', 'الوحدة الثانية: الرب يسوع على أرضنا', 'شخصيات كتابية: حياة يوسف الصديق (٢) - (في السجن)', 'Biblical figures: the life of Joseph the Righteous (2), in prison'),
+    (11, 'RC3-T1-U2-L5', 'الوحدة الثانية: الرب يسوع على أرضنا', 'شخصيات تاريخية: العائلة المقدسة في مصر', 'Historical figures: the Holy Family in Egypt'),
+    (12, 'RC3-T1-U2-L6', 'الوحدة الثانية: الرب يسوع على أرضنا', 'القيم والأخلاق: المحبة - عنقود العنب', 'Values and morals: love, the bunch of grapes'),
+    (13, 'RC3-T1-U3-L1', 'الوحدة الثالثة: المحبة والعطاء', 'العقيدة: سلطان الرب يسوع على الموت', 'Doctrine: the Lord Jesus''s authority over death'),
+    (14, 'RC3-T1-U3-L2', 'الوحدة الثالثة: المحبة والعطاء', 'المحفوظات: بعض الآيات الذهبية', 'Memorisation: some golden verses'),
+    (15, 'RC3-T1-U3-L3', 'الوحدة الثالثة: المحبة والعطاء', 'العبادة: محبة الله والقريب - السامري الصالح', 'Worship: love of God and neighbour, the Good Samaritan'),
+    (16, 'RC3-T1-U3-L4', 'الوحدة الثالثة: المحبة والعطاء', 'شخصيات كتابية: حياة يوسف الصديق (٣) - (في قصر فرعون)', 'Biblical figures: the life of Joseph the Righteous (3), in Pharaoh''s palace'),
+    (17, 'RC3-T1-U3-L5', 'الوحدة الثالثة: المحبة والعطاء', 'شخصيات تاريخية: القديس باخوميوس - الجندي الذي أحب المسيح', 'Historical figures: Saint Pachomius, the soldier who loved Christ'),
+    (18, 'RC3-T1-U3-L6', 'الوحدة الثالثة: المحبة والعطاء', 'القيم والأخلاق: الصداقة - داود ويوناثان', 'Values and morals: friendship, David and Jonathan')
   ) as v(ordinal, code, strand, title, title_en);
 with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe-textbooks', 'religion-islamic', 3, 3, 'Islamic Religious Education (التربية الإسلامية), Primary 3, Term 2', 2, '2025/2026', 'https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary3/Term2/StudentBook/Islamic_prim3_Tr2.pdf') returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
@@ -539,6 +586,24 @@ select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (19, 'RI4-T2-U3-L5', 'الوحدة الثالثة: حُبُّ الوطنِ في حياةِ المُسلمِ', 'غزوة الخندق (الأحزاب)', '[Seerah and figures] The Battle of the Trench (Al-Ahzab, the Confederates)'),
     (20, 'RI4-T2-U3-L6', 'الوحدة الثالثة: حُبُّ الوطنِ في حياةِ المُسلمِ', 'سلمان الفارسي رضي الله عنه', '[Seerah and figures] Salman Al-Farisi, may God be pleased with him'),
     (21, 'RI4-T2-U3-L7', 'الوحدة الثالثة: حُبُّ الوطنِ في حياةِ المُسلمِ', 'حب الوطن', '[Values and morals] Love of the homeland')
+  ) as v(ordinal, code, strand, title, title_en);
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe-textbooks', 'social-studies', 4, 4, 'Social Studies (الدراسات الاجتماعية), Primary 4, Term 1', 1, '2026/2027', 'https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026_2027/Primary/Primary4/Term1/StudentBook/Social_studies_prim4_t1.pdf') returning id)
+insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
+select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
+    (1, 'SS4-T1-U1-L1', 'الوحدة الأولى: اتجاهاتنا ترسم خطواتنا', 'الأماكن والاتجاهات من حولنا', 'Places and directions around us'),
+    (2, 'SS4-T1-U1-L2', 'الوحدة الأولى: اتجاهاتنا ترسم خطواتنا', 'الخريطة في حياتنا', 'Maps in our lives'),
+    (3, 'SS4-T1-U1-L3', 'الوحدة الأولى: اتجاهاتنا ترسم خطواتنا', 'تطور الخريطة', 'How maps developed'),
+    (4, 'SS4-T1-U1-L4', 'الوحدة الأولى: اتجاهاتنا ترسم خطواتنا', 'مصادر جمع المعلومات', 'Sources for gathering information'),
+    (5, 'SS4-T1-U2-L1', 'الوحدة الثانية: مدينتنا وحياتنا اليومية', 'كيف تبدو مدينتنا؟', 'What does our city look like?'),
+    (6, 'SS4-T1-U2-L2', 'الوحدة الثانية: مدينتنا وحياتنا اليومية', 'تطور مدينتنا', 'How our city developed'),
+    (7, 'SS4-T1-U2-L3', 'الوحدة الثانية: مدينتنا وحياتنا اليومية', 'الأماكن الخدمية في مدينتنا', 'Service places in our city'),
+    (8, 'SS4-T1-U2-L4', 'الوحدة الثانية: مدينتنا وحياتنا اليومية', 'مدينتنا في المستقبل', 'Our city in the future'),
+    (9, 'SS4-T1-U2-L5', 'الوحدة الثانية: مدينتنا وحياتنا اليومية', 'أين تقع محافظتي؟', 'Where is my governorate?'),
+    (10, 'SS4-T1-U3-L1', 'الوحدة الثالثة: مصر وطننا', 'علم وطننا مصر', 'The flag of our homeland, Egypt'),
+    (11, 'SS4-T1-U3-L2', 'الوحدة الثالثة: مصر وطننا', 'مصر على خريطة العالم', 'Egypt on the world map'),
+    (12, 'SS4-T1-U3-L3', 'الوحدة الثالثة: مصر وطننا', 'تضاريس أرضنا الجميلة', 'The landforms of our beautiful land'),
+    (13, 'SS4-T1-U3-L4', 'الوحدة الثالثة: مصر وطننا', 'ثروات مصر الطبيعية والبشرية', 'Egypt''s natural and human resources'),
+    (14, 'SS4-T1-U3-L5', 'الوحدة الثالثة: مصر وطننا', 'المعالم التاريخية في مصر', 'Historical landmarks in Egypt')
   ) as v(ordinal, code, strand, title, title_en);
 with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe-textbooks', 'arabic', 5, 5, 'Arabic Language (اللغة العربية), Primary 5, Term 1', 1, '2026/2027', 'https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026_2027/Primary/Primary5/Term1/StudentBook/Arabic_langugae_prim5_t1.pdf') returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
@@ -727,6 +792,22 @@ select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (19, 'RI6-T2-U3-L5', 'الوحدة الثالثة: أثرُ العبادةِ في سلوكِ المسلمِ', 'الإمام أحمد بن حنبل رحمه الله', '[Seerah and figures] Imam Ahmad ibn Hanbal, may God have mercy on him'),
     (20, 'RI6-T2-U3-L6', 'الوحدة الثالثة: أثرُ العبادةِ في سلوكِ المسلمِ', 'التنافس في الخيرات', '[Values and morals] Competing in good deeds')
   ) as v(ordinal, code, strand, title, title_en);
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe-textbooks', 'social-studies', 6, 6, 'Social Studies (الدراسات الاجتماعية), Primary 6, Term 1', 1, '2026/2027', 'https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026_2027/Primary/Primary6/Term1/StudentBook/Social_Studies_Primary6_T1.pdf') returning id)
+insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
+select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
+    (1, 'SS6-T1-U1-L1', 'الوحدة الأولى: وطننا العربي (خصائص وتحديات)', 'وطننا العربي (الموقع - الأهمية)', 'Our Arab homeland (location and importance)'),
+    (2, 'SS6-T1-U1-L2', 'الوحدة الأولى: وطننا العربي (خصائص وتحديات)', 'تضاريس وطننا العربي', 'The landforms of our Arab homeland'),
+    (3, 'SS6-T1-U1-L3', 'الوحدة الأولى: وطننا العربي (خصائص وتحديات)', 'وطننا العربي (المناخ - النبات الطبيعي)', 'Our Arab homeland (climate and natural vegetation)'),
+    (4, 'SS6-T1-U1-L4', 'الوحدة الأولى: وطننا العربي (خصائص وتحديات)', 'التحديات البيئية في وطننا العربي', 'Environmental challenges in our Arab homeland'),
+    (5, 'SS6-T1-U2-L1', 'الوحدة الثانية: الدولة الإسلامية من النشأة إلى العالمية', 'شبه الجزيرة العربية (قبل وبعد ظهور الإسلام)', 'The Arabian Peninsula (before and after the rise of Islam)'),
+    (6, 'SS6-T1-U2-L2', 'الوحدة الثانية: الدولة الإسلامية من النشأة إلى العالمية', 'الهجرة وعالمية الدعوة', 'The Hijra and the spread of the call worldwide'),
+    (7, 'SS6-T1-U2-L3', 'الوحدة الثانية: الدولة الإسلامية من النشأة إلى العالمية', 'إنجازات الخلفاء الراشدين (رضي الله عنهم)', 'Achievements of the Rightly Guided Caliphs (may God be pleased with them)'),
+    (8, 'SS6-T1-U2-L4', 'الوحدة الثانية: الدولة الإسلامية من النشأة إلى العالمية', 'الدولة الإسلامية (الأمويون - العباسيون)', 'The Islamic state (Umayyads and Abbasids)'),
+    (9, 'SS6-T1-U3-L1', 'الوحدة الثالثة: وطننا العربي والتنمية الاقتصادية', 'النشاط الزراعي في وطننا العربي', 'Agriculture in our Arab homeland'),
+    (10, 'SS6-T1-U3-L2', 'الوحدة الثالثة: وطننا العربي والتنمية الاقتصادية', 'الثروة الحيوانية والسمكية في وطننا العربي', 'Livestock and fisheries in our Arab homeland'),
+    (11, 'SS6-T1-U3-L3', 'الوحدة الثالثة: وطننا العربي والتنمية الاقتصادية', 'المعادن ومصادر الطاقة في وطننا العربي', 'Minerals and energy sources in our Arab homeland'),
+    (12, 'SS6-T1-U3-L4', 'الوحدة الثالثة: وطننا العربي والتنمية الاقتصادية', 'النشاط السياحي في وطننا العربي', 'Tourism in our Arab homeland')
+  ) as v(ordinal, code, strand, title, title_en);
 with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe-textbooks', 'arabic', 7, 7, 'Arabic Language (اللغة العربية), Preparatory 1, Term 2', 2, '2025/2026', 'https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory1/Term2/StudentBook/Arabic_Prep1_SB_T2.pdf') returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
@@ -881,31 +962,6 @@ select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (9, 'SS8-T2-U3-L4', 'الوحدة الثالثة: الأنشطة الاقتصادية في قارتي آسيا وأوروبا', 'بعض المنظمات الإقليمية في قارتي آسيا وأوروبا', 'Some Regional Organizations in the Continents of Asia and Europe'),
     (10, 'SS8-T2-U4-L1', 'الوحدة الرابعة: مصر من الحكم العثماني حتى الحملة الفرنسية', 'مصر تحت الحكم العثماني', 'Egypt under Ottoman Rule'),
     (11, 'SS8-T2-U4-L2', 'الوحدة الرابعة: مصر من الحكم العثماني حتى الحملة الفرنسية', 'الحملة الفرنسية على مصر', 'The French Campaign on Egypt')
-  ) as v(ordinal, code, strand, title, title_en);
-
--- eg-moe
-insert into public.curricula (code, system_code, name, kind, confidence, source_url, note, verified_on, verified_source, verification_method) values ('eg-moe', 'national', 'Egyptian MOE national curriculum, strand placeholders (not yet sourced)', 'strand_placeholder', 'low', 'https://moe.gov.eg/', 'Strand-level placeholders for grades whose Ministry student books have not been read yet. Replace each with an eg-moe-textbooks syllabus once its book is sourced.', NULL, NULL, NULL);
-insert into public.grade_labels (curriculum_code, grade, label) values
-  ('eg-moe', 2, 'Primary 2'),
-  ('eg-moe', 3, 'Primary 3'),
-  ('eg-moe', 4, 'Primary 4'),
-  ('eg-moe', 5, 'Primary 5'),
-  ('eg-moe', 6, 'Primary 6'),
-  ('eg-moe', 7, 'Preparatory 1'),
-  ('eg-moe', 8, 'Preparatory 2');
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe', 'social-studies', 4, 4, 'Social Studies (الدراسات الاجتماعية), Primary 4', NULL, NULL, NULL) returning id)
-insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
-select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
-    (1, 'SS-GE', 'Social studies', 'الجغرافيا', 'Geography'),
-    (2, 'SS-HI', 'Social studies', 'التاريخ', 'History'),
-    (3, 'SS-CI', 'Social studies', 'التربية الوطنية والمواطنة', 'Civics and citizenship')
-  ) as v(ordinal, code, strand, title, title_en);
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe', 'social-studies', 6, 6, 'Social Studies (الدراسات الاجتماعية), Primary 6', NULL, NULL, NULL) returning id)
-insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
-select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
-    (1, 'SS-GE', 'Social studies', 'الجغرافيا', 'Geography'),
-    (2, 'SS-HI', 'Social studies', 'التاريخ', 'History'),
-    (3, 'SS-CI', 'Social studies', 'التربية الوطنية والمواطنة', 'Civics and citizenship')
   ) as v(ordinal, code, strand, title, title_en);
 
 insert into public.schools (slug, name, city, age_min, age_max, listed_curricula, source_url) values
