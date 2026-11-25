@@ -53,7 +53,8 @@
             ["AR2-T2-U3-L3-R", "الوحدة الثالثة: أماكن جميلة", "عش جميل", "A Beautiful Nest (reading)"],
             ["AR2-T2-U3-L3-G", "الوحدة الثالثة: أماكن جميلة", "حروف العطف (و - أو)", "Conjunctions (and, or)"],
             ["AR2-T2-U3-L4", "الوحدة الثالثة: أماكن جميلة", "رأيت في الحديقة", "I Saw in the Garden (song/poem)"]
-          ]
+          ],
+          "contents_pages": [4, 5]
         },
         {
           "subject": "discover",
@@ -75,7 +76,8 @@
             ["D2-A4-C1", "المحور الرابع: التواصل | Term 2", "التواصل في مجتمعنا", "Communication in Our Community"],
             ["D2-A4-C2", "المحور الرابع: التواصل | Term 2", "التعبير عن الثقافات", "Expressing Cultures"],
             ["D2-A4-C3", "المحور الرابع: التواصل | Term 2", "أدوات التواصل", "Communication Tools"]
-          ]
+          ],
+          "contents_pages": [4]
         },
         {
           "subject": "religion-christian",
@@ -104,7 +106,8 @@
             ["RC2-T2-U3-L4", "الوحدة الثالثة: الرب يسمعنا", "شخصيات كتابية: يعقوب : العودة إلى أبيه", "Biblical figures: Jacob: The return to his father"],
             ["RC2-T2-U3-L5", "الوحدة الثالثة: الرب يسمعنا", "شخصيات تاريخية: طابيثا", "Historical figures: Tabitha"],
             ["RC2-T2-U3-L6", "الوحدة الثالثة: الرب يسمعنا", "القيم والأخلاق: الصلاة من اجل الأخرين - بولس وسيلا في السجن", "Values and ethics: Praying for others - Paul and Silas in prison"]
-          ]
+          ],
+          "contents_pages": [5]
         },
         {
           "subject": "religion-islamic",
@@ -137,7 +140,8 @@
             ["RI2-T1-U3-L5", "الوحدة الثالثة: الشكر لله (تعالى)", "الدعوة الجهرية", "[Seerah and figures] The public call"],
             ["RI2-T1-U3-L6", "الوحدة الثالثة: الشكر لله (تعالى)", "نبي الله داود عليه السلام", "[Seerah and figures] The Prophet Dawud (peace be upon him)"],
             ["RI2-T1-U3-L7", "الوحدة الثالثة: الشكر لله (تعالى)", "قصة (في السراء والضراء)", "[Values and morals] Story: in good times and bad"]
-          ]
+          ],
+          "contents_pages": [5, 6]
         },
         {
           "subject": "religion-islamic",
@@ -169,7 +173,8 @@
             ["RI2-T2-U3-L5", "الوحدة الثالثة: الدعاء عبادة", "المقاطعة ورحلة الرسول ﷺ إلى الطائف", "[Seerah and figures] The boycott and the Messenger's (peace be upon him) journey to Ta'if"],
             ["RI2-T2-U3-L6", "الوحدة الثالثة: الدعاء عبادة", "سيدنا يونس عليه السلام", "[Seerah and figures] Prophet Yunus (Jonah), peace be upon him"],
             ["RI2-T2-U3-L7", "الوحدة الثالثة: الدعاء عبادة", "الدعاء", "[Values and morals] Supplication (du'a)"]
-          ]
+          ],
+          "contents_pages": [4, 5]
         },
         {
           "subject": "arabic",
@@ -203,7 +208,8 @@
             ["AR3-T2-U3-L3-R", "الوحدة الثالثة: كل منا له دور", "شكرًا معلمي.. شكرًا معلمتي", "Thank You, My Teacher (reading)"],
             ["AR3-T2-U3-L3-G", "الوحدة الثالثة: كل منا له دور", "الأسماء الموصولة", "Relative pronouns"],
             ["AR3-T2-U3-L4", "الوحدة الثالثة: كل منا له دور", "أبني وطني", "I Build My Homeland (song/poem)"]
-          ]
+          ],
+          "contents_pages": [4, 5]
         },
         {
           "subject": "discover",
@@ -225,7 +231,8 @@
             ["D3-A4-C1", "المحور الرابع: التواصل (الروابط) | Term 2", "الربط بين القوى", "Connecting forces"],
             ["D3-A4-C2", "المحور الرابع: التواصل (الروابط) | Term 2", "التواصل بين البشر", "Communication between people"],
             ["D3-A4-C3", "المحور الرابع: التواصل (الروابط) | Term 2", "التواصل الاجتماعي", "Social communication"]
-          ]
+          ],
+          "contents_pages": [4]
         },
         {
           "subject": "religion-christian",
@@ -255,7 +262,8 @@
             ["RC3-T1-U3-L4", "الوحدة الثالثة: المحبة والعطاء", "شخصيات كتابية: حياة يوسف الصديق (٣) - (في قصر فرعون)", "Biblical figures: the life of Joseph the Righteous (3), in Pharaoh's palace"],
             ["RC3-T1-U3-L5", "الوحدة الثالثة: المحبة والعطاء", "شخصيات تاريخية: القديس باخوميوس - الجندي الذي أحب المسيح", "Historical figures: Saint Pachomius, the soldier who loved Christ"],
             ["RC3-T1-U3-L6", "الوحدة الثالثة: المحبة والعطاء", "القيم والأخلاق: الصداقة - داود ويوناثان", "Values and morals: friendship, David and Jonathan"]
-          ]
+          ],
+          "contents_pages": [4]
         },
         {
           "subject": "religion-islamic",
@@ -286,7 +294,8 @@
             ["RI3-T2-U3-L4", "الوحدة الثالثة: إيمان وتضحية", "هجرة النبي ﷺ إلى المدينة المنورة", "[Seerah and figures] The Prophet's (peace be upon him) migration to Al-Madinah Al-Munawwarah"],
             ["RI3-T2-U3-L5", "الوحدة الثالثة: إيمان وتضحية", "أسماء بنت أبي بكر رضي الله عنهما", "[Seerah and figures] Asma bint Abi Bakr, may God be pleased with them both"],
             ["RI3-T2-U3-L6", "الوحدة الثالثة: إيمان وتضحية", "المساواة وعدم التمييز", "[Values and morals] Equality and non-discrimination"]
-          ]
+          ],
+          "contents_pages": [4, 5]
         },
         {
           "subject": "arabic",
@@ -320,7 +329,8 @@
             ["AR4-T2-U3-L3-G", "الوحدة الثالثة: نعيش في سلام", "الضمائر", "Pronouns"],
             ["AR4-T2-U3-L3-G2", "الوحدة الثالثة: نعيش في سلام", "الفاعل الضمير", "The pronoun as subject"],
             ["AR4-T2-U3-L4", "الوحدة الثالثة: نعيش في سلام", "للجميع", "For Everyone (poetic text)"]
-          ]
+          ],
+          "contents_pages": [4, 5]
         },
         {
           "subject": "religion-christian",
@@ -349,7 +359,8 @@
             ["RC4-T2-U3-L4", "الوحدة الثالثة: التضحية والعطاء", "شخصيات كتابية: شاولُ المَلِكُ", "Biblical figures: King Saul"],
             ["RC4-T2-U3-L5", "الوحدة الثالثة: التضحية والعطاء", "شخصيات تاريخية: القديسة دميانة", "Historical figures: Saint Demiana"],
             ["RC4-T2-U3-L6", "الوحدة الثالثة: التضحية والعطاء", "القيم والأخلاق: حب الوطن - أقباط في حب الوطن", "Values and ethics: Love of the homeland - Copts in love of the homeland"]
-          ]
+          ],
+          "contents_pages": [6]
         },
         {
           "subject": "religion-islamic",
@@ -381,7 +392,8 @@
             ["RI4-T2-U3-L5", "الوحدة الثالثة: حُبُّ الوطنِ في حياةِ المُسلمِ", "غزوة الخندق (الأحزاب)", "[Seerah and figures] The Battle of the Trench (Al-Ahzab, the Confederates)"],
             ["RI4-T2-U3-L6", "الوحدة الثالثة: حُبُّ الوطنِ في حياةِ المُسلمِ", "سلمان الفارسي رضي الله عنه", "[Seerah and figures] Salman Al-Farisi, may God be pleased with him"],
             ["RI4-T2-U3-L7", "الوحدة الثالثة: حُبُّ الوطنِ في حياةِ المُسلمِ", "حب الوطن", "[Values and morals] Love of the homeland"]
-          ]
+          ],
+          "contents_pages": [4, 5]
         },
         {
           "subject": "social-studies",
@@ -407,7 +419,8 @@
             ["SS4-T1-U3-L3", "الوحدة الثالثة: مصر وطننا", "تضاريس أرضنا الجميلة", "The landforms of our beautiful land"],
             ["SS4-T1-U3-L4", "الوحدة الثالثة: مصر وطننا", "ثروات مصر الطبيعية والبشرية", "Egypt's natural and human resources"],
             ["SS4-T1-U3-L5", "الوحدة الثالثة: مصر وطننا", "المعالم التاريخية في مصر", "Historical landmarks in Egypt"]
-          ]
+          ],
+          "contents_pages": [4]
         },
         {
           "subject": "arabic",
@@ -441,7 +454,8 @@
             ["AR5-T1-U3-L3-R", "الوحدة الثالثة: جمال الاختلاف", "القراءة: حائر أمام بائع الزهور", "Reading: Puzzled at the flower seller"],
             ["AR5-T1-U3-L3-G", "الوحدة الثالثة: جمال الاختلاف", "القواعد النحوية: إعراب ظرفي الزمان والمكان", "Grammar: parsing adverbs of time and place"],
             ["AR5-T1-U3-L4", "الوحدة الثالثة: جمال الاختلاف", "النص الشعري: جمال التنوع", "Poem: The beauty of diversity"]
-          ]
+          ],
+          "contents_pages": [5, 6]
         },
         {
           "subject": "arabic",
@@ -475,7 +489,8 @@
             ["AR5-T2-U3-L3-R", "الوحدة الثالثة: أنا وصورتي في أعين الآخرين", "هل أضفت شيئًا جيدًا لنفسك وللآخرين اليوم؟", "Did You Add Something Good for Yourself and Others Today? (reading)"],
             ["AR5-T2-U3-L3-G", "الوحدة الثالثة: أنا وصورتي في أعين الآخرين", "المضاف إليه (المثنى - جمع المذكر السالم)", "The genitive in idafa (dual, sound masculine plural)"],
             ["AR5-T2-U3-L4", "الوحدة الثالثة: أنا وصورتي في أعين الآخرين", "مسئوليتي أمانة", "My Responsibility Is a Trust (poetic text)"]
-          ]
+          ],
+          "contents_pages": [4, 5]
         },
         {
           "subject": "religion-christian",
@@ -504,7 +519,8 @@
             ["RC5-T2-U3-L4", "الوحدة الثالثة: الصليب والفرح", "شخصيات كتابية: رحبعام بن سليمان", "Biblical figures: Rehoboam son of Solomon"],
             ["RC5-T2-U3-L5", "الوحدة الثالثة: الصليب والفرح", "شخصيات تاريخية: سِرُّ الْمَلِكَةِ هِيلَانَة", "Historical figures: The secret of Queen Helena"],
             ["RC5-T2-U3-L6", "الوحدة الثالثة: الصليب والفرح", "القيم والأخلاق: الصَّبْرُ: القِدِّيسَة مَارِينَا – قَاهِرَة الشَّيْطَان", "Values and ethics: Patience: Saint Marina - Conqueror of the devil"]
-          ]
+          ],
+          "contents_pages": [6]
         },
         {
           "subject": "religion-islamic",
@@ -535,7 +551,8 @@
             ["RI5-T2-U3-L4", "الوحدة الثالثة: أثر الإيمان على سلوك المسلم", "فتح مكة", "[Seerah and figures] The conquest of Makkah"],
             ["RI5-T2-U3-L5", "الوحدة الثالثة: أثر الإيمان على سلوك المسلم", "بلال بن رباح رضي الله عنه", "[Seerah and figures] Bilal ibn Rabah, may God be pleased with him"],
             ["RI5-T2-U3-L6", "الوحدة الثالثة: أثر الإيمان على سلوك المسلم", "الصبر", "[Values and morals] Patience"]
-          ]
+          ],
+          "contents_pages": [4, 5]
         },
         {
           "subject": "social-studies",
@@ -557,7 +574,8 @@
             ["SS5-T1-U3-L1", "الوحدة الثالثة: كنوز مصر", "الثروة المعدنية ومصادر الطاقة", "Mineral wealth and energy sources"],
             ["SS5-T1-U3-L2", "الوحدة الثالثة: كنوز مصر", "موارد المياه", "Water resources"],
             ["SS5-T1-U3-L3", "الوحدة الثالثة: كنوز مصر", "المشروعات القومية (رؤية مصر للمستقبل)", "National projects (Egypt's vision for the future)"]
-          ]
+          ],
+          "contents_pages": [4]
         },
         {
           "subject": "arabic",
@@ -590,7 +608,8 @@
             ["AR6-T2-U3-L3-R", "الوحدة الثالثة: العلم يصنع المستقبل", "مستقبلي يبدأ من اليوم", "My Future Starts Today (reading)"],
             ["AR6-T2-U3-L3-G", "الوحدة الثالثة: العلم يصنع المستقبل", "الأفعال الخمسة", "The five verbs (al-af'al al-khamsa)"],
             ["AR6-T2-U3-L4", "الوحدة الثالثة: العلم يصنع المستقبل", "عليك بالعلم", "Hold Fast to Knowledge (poetic text)"]
-          ]
+          ],
+          "contents_pages": [4, 5]
         },
         {
           "subject": "religion-christian",
@@ -619,7 +638,8 @@
             ["RC6-T2-U3-L4", "الوحدة الثالثة: القيامة والعطاء", "شخصيات كتابية: نحميا", "Biblical figures: Nehemiah"],
             ["RC6-T2-U3-L5", "الوحدة الثالثة: القيامة والعطاء", "شخصيات تاريخية: نيقوديموس", "Historical figures: Nicodemus"],
             ["RC6-T2-U3-L6", "الوحدة الثالثة: القيامة والعطاء", "القيم والأخلاق: التنافس في الخير - عملاق العطاء إبراهيم الجوهري", "Values and ethics: Competing in doing good - The giant of giving, Ibrahim El-Gohary"]
-          ]
+          ],
+          "contents_pages": [6]
         },
         {
           "subject": "religion-islamic",
@@ -650,7 +670,8 @@
             ["RI6-T2-U3-L4", "الوحدة الثالثة: أثرُ العبادةِ في سلوكِ المسلمِ", "النبي ﷺ القدوة الحسنة", "[Seerah and figures] The Prophet (peace be upon him), the good example"],
             ["RI6-T2-U3-L5", "الوحدة الثالثة: أثرُ العبادةِ في سلوكِ المسلمِ", "الإمام أحمد بن حنبل رحمه الله", "[Seerah and figures] Imam Ahmad ibn Hanbal, may God have mercy on him"],
             ["RI6-T2-U3-L6", "الوحدة الثالثة: أثرُ العبادةِ في سلوكِ المسلمِ", "التنافس في الخيرات", "[Values and morals] Competing in good deeds"]
-          ]
+          ],
+          "contents_pages": [4, 5]
         },
         {
           "subject": "social-studies",
@@ -674,7 +695,8 @@
             ["SS6-T1-U3-L2", "الوحدة الثالثة: وطننا العربي والتنمية الاقتصادية", "الثروة الحيوانية والسمكية في وطننا العربي", "Livestock and fisheries in our Arab homeland"],
             ["SS6-T1-U3-L3", "الوحدة الثالثة: وطننا العربي والتنمية الاقتصادية", "المعادن ومصادر الطاقة في وطننا العربي", "Minerals and energy sources in our Arab homeland"],
             ["SS6-T1-U3-L4", "الوحدة الثالثة: وطننا العربي والتنمية الاقتصادية", "النشاط السياحي في وطننا العربي", "Tourism in our Arab homeland"]
-          ]
+          ],
+          "contents_pages": [4]
         },
         {
           "subject": "arabic",
@@ -706,7 +728,8 @@
             ["AR7-T2-U3-L2-G", "الوحدة الثالثة: عالمي الرقمي", "الحال شبه الجملة", "The circumstantial phrase (hal as a semi-sentence)"],
             ["AR7-T2-U3-L3-R", "الوحدة الثالثة: عالمي الرقمي", "تعلمت من وقت الفراغ", "I Learned from Free Time (reading, by al-Aqqad)"],
             ["AR7-T2-U3-L4", "الوحدة الثالثة: عالمي الرقمي", "العلم في الظلمات نور", "Knowledge Is Light in the Darkness (poetic text, by Maruf al-Rusafi)"]
-          ]
+          ],
+          "contents_pages": [5, 6]
         },
         {
           "subject": "religion-christian",
@@ -735,7 +758,8 @@
             ["RC7-T2-U3-L4", "الوحدة الثالثة: التوبة وخوف الله", "شخصيات كتابية: يُوسُفَ ابْنُ يَعْقُوبَ", "Biblical figures: Joseph son of Jacob"],
             ["RC7-T2-U3-L5", "الوحدة الثالثة: التوبة وخوف الله", "شخصيات تاريخية: مار مرقس ومدرسة الإسكندريّة", "Historical figures: Saint Mark and the School of Alexandria"],
             ["RC7-T2-U3-L6", "الوحدة الثالثة: التوبة وخوف الله", "القيم والأخلاق: مُرَاقَبَةُ اللهِ لِلسُّلُوك – القِدِّيسُ مَكَارِيُوسُ الكَبِير", "Values and ethics: God watching over our conduct - Saint Macarius the Great"]
-          ]
+          ],
+          "contents_pages": [6]
         },
         {
           "subject": "religion-islamic",
@@ -767,7 +791,8 @@
             ["RI7-T2-U3-L5", "الوحدة الثالثة: الإيمانُ ومراقبةُ اللَّهِ (تعالَى)", "السير والشخصيات: مواقف من سيرة الرسول ﷺ", "Seerah and figures: Episodes from the life of the Messenger (peace be upon him)"],
             ["RI7-T2-U3-L6", "الوحدة الثالثة: الإيمانُ ومراقبةُ اللَّهِ (تعالَى)", "قادة الفتح العظام من الصحابة", "[Seerah and figures] The great leaders of the conquests among the Companions"],
             ["RI7-T2-U3-L7", "الوحدة الثالثة: الإيمانُ ومراقبةُ اللَّهِ (تعالَى)", "القيم والأخلاق: مراقبة الله (تعالى)", "Values and morals: Being mindful that God (the Exalted) is watching"]
-          ]
+          ],
+          "contents_pages": [4]
         },
         {
           "subject": "social-studies",
@@ -788,7 +813,8 @@
             ["SS7-T2-U4-L1", "الوحدة الرابعة: استعمار إفريقيا ودور مصر الداعم لحركات التحرر", "التوسع الاستعماري الأوروبي في إفريقيا", "European Colonial Expansion in Africa"],
             ["SS7-T2-U4-L2", "الوحدة الرابعة: استعمار إفريقيا ودور مصر الداعم لحركات التحرر", "إفريقيا من الاستعمار إلى التحرر", "Africa from Colonialism to Liberation"],
             ["SS7-T2-U4-L3", "الوحدة الرابعة: استعمار إفريقيا ودور مصر الداعم لحركات التحرر", "مصر والمنظمات الإقليمية في إفريقيا", "Egypt and Regional Organizations in Africa"]
-          ]
+          ],
+          "contents_pages": [3]
         },
         {
           "subject": "arabic",
@@ -823,7 +849,8 @@
             ["AR8-T1-U3-L3-R", "الوحدة الثالثة: علم وقيم", "نص قراءة: القراءة حياة (أحمد أمين)", "Reading text: Reading is life (Ahmed Amin)"],
             ["AR8-T1-U3-L3-G", "الوحدة الثالثة: علم وقيم", "القواعد النحوية: مراجعة على دروس النحو المقررة", "Grammar: review of the term's grammar lessons"],
             ["AR8-T1-U3-L4", "الوحدة الثالثة: علم وقيم", "نص شعري: الكد سبيل المعالي (الإمام الشافعي)", "Poem: Toil is the path to glory (Imam al-Shafi'i)"]
-          ]
+          ],
+          "contents_pages": [5, 6]
         },
         {
           "subject": "arabic",
@@ -855,7 +882,8 @@
             ["AR8-T2-U3-L2-S", "الوحدة الثالثة: حقوقي وواجباتي", "حروف تكتب ولا تنطق", "Letters that are written but not pronounced"],
             ["AR8-T2-U3-L3-R", "الوحدة الثالثة: حقوقي وواجباتي", "قيم الرياضة: ممارسة وتشجيعا", "The Values of Sport: Practice and Support (reading)"],
             ["AR8-T2-U3-L4", "الوحدة الثالثة: حقوقي وواجباتي", "أخي", "My Brother (poetic text, by Ali Mahmoud Taha)"]
-          ]
+          ],
+          "contents_pages": [5, 6]
         },
         {
           "subject": "social-studies",
@@ -877,7 +905,8 @@
             ["SS8-T2-U3-L4", "الوحدة الثالثة: الأنشطة الاقتصادية في قارتي آسيا وأوروبا", "بعض المنظمات الإقليمية في قارتي آسيا وأوروبا", "Some Regional Organizations in the Continents of Asia and Europe"],
             ["SS8-T2-U4-L1", "الوحدة الرابعة: مصر من الحكم العثماني حتى الحملة الفرنسية", "مصر تحت الحكم العثماني", "Egypt under Ottoman Rule"],
             ["SS8-T2-U4-L2", "الوحدة الرابعة: مصر من الحكم العثماني حتى الحملة الفرنسية", "الحملة الفرنسية على مصر", "The French Campaign on Egypt"]
-          ]
+          ],
+          "contents_pages": [3]
         }
       ]
     }

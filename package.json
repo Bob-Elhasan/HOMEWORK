@@ -12,7 +12,9 @@
     "validate:content": "node scripts/validate-content.mjs",
     "test": "jest",
     "build:catalog": "node scripts/build-catalog.mjs",
-    "test:catalog": "node scripts/build-catalog.mjs --check && node scripts/test-catalog.mjs"
+    "test:catalog": "node scripts/build-catalog.mjs --check && node scripts/test-catalog.mjs",
+    "refresh:check": "python3 scripts/refresh_catalog.py check",
+    "test:refresh": "python3 -m unittest scripts/test_refresh_catalog.py"
   },
   "dependencies": {
     "expo": "~52.0.0",

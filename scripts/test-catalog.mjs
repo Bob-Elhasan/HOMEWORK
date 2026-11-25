@@ -20,6 +20,7 @@ await db.exec(`create role anon nologin; create role authenticated nologin;`);
 await db.exec(read('supabase/migrations/0002_curriculum_catalog.sql'));
 await db.exec(read('supabase/migrations/0003_catalog_verification.sql'));
 await db.exec(read('supabase/migrations/0004_syllabus_edition.sql'));
+await db.exec(read('supabase/migrations/0005_syllabus_editions.sql'));
 // Supabase grants full table privileges to these roles by default, so RLS is the real guard.
 await db.exec(`grant usage on schema public to anon, authenticated;
                grant all on all tables in schema public to anon, authenticated;`);
@@ -111,6 +112,27 @@ check(g3?.topic === 'Interdependent Relationships in Ecosystems: Environmental I
 
 const french = await one(`select grade_label from curriculum_topics_by_grade where system_code = 'french' and year = 4 limit 1`);
 check(french?.grade_label === 'CM1', 'French grade 4 is labelled CM1');
+
+// Editions: a superseded edition stays in syllabus_editions but never shows in the catalog views.
+{
+  const before = (await one('select count(*)::int as n from curriculum_topics_by_grade')).n;
+  await db.exec(`insert into syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url, edition_status)
+                 select curriculum_code, subject_code, grade_min, grade_max, name, term, '2024/2025', source_url, 'superseded'
+                 from syllabi where curriculum_code = 'eg-moe-textbooks' and subject_code = 'social-studies' and grade_min = 5 and term = 1`);
+  await db.exec(`insert into topics (syllabus_id, ordinal, code, strand, title, title_en)
+                 select (select id from syllabi where academic_year = '2024/2025' and edition_status = 'superseded' limit 1), ordinal, code, strand, title, title_en
+                 from topics where syllabus_id = (select id from syllabi where curriculum_code = 'eg-moe-textbooks' and subject_code = 'social-studies' and grade_min = 5 and term = 1 and edition_status = 'current')`);
+  const after = (await one('select count(*)::int as n from curriculum_topics_by_grade')).n;
+  const eds = (await one(`select count(*)::int as n from syllabus_editions where subject_code = 'social-studies' and grade_min = 5 and term = 1`)).n;
+  check(after === before && eds === 2, `superseded editions are kept (${eds} editions) but hidden from catalog views (${before} rows before and after)`);
+  let dupBlocked = false;
+  try {
+    await db.exec(`insert into syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, edition_status)
+                   select curriculum_code, subject_code, grade_min, grade_max, name, term, '2099/2100', 'current'
+                   from syllabi where curriculum_code = 'eg-moe-textbooks' and subject_code = 'social-studies' and grade_min = 5 and term = 1 and edition_status = 'current'`);
+  } catch { dupBlocked = true; }
+  check(dupBlocked, 'database refuses a second current edition of the same syllabus');
+}
 
 // Read-only for app roles: select works, writes are refused by RLS.
 await db.exec('set role anon');

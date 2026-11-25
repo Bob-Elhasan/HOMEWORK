@@ -75,6 +75,7 @@ export function loadCatalog() {
         }
         if (!s.name) fail(`${sw}: name is required`);
         if (s.term != null && s.term !== 1 && s.term !== 2) fail(`${sw}: term must be 1, 2, or omitted`);
+        if (s.edition_status != null && !['current', 'superseded'].includes(s.edition_status)) fail(`${sw}: edition_status must be current or superseded`);
         if (!Array.isArray(s.topics) || s.topics.length === 0) fail(`${sw}: needs at least one topic`);
         (s.topics ?? []).forEach((t, j) => {
           if (!Array.isArray(t) || t.length < 3 || t.slice(0, 3).some((v) => typeof v !== 'string' || !v.trim())) {
@@ -82,6 +83,14 @@ export function loadCatalog() {
           }
         });
       });
+
+      const slots = new Map();
+      for (const s of syllabi) {
+        if ((s.edition_status ?? 'current') !== 'current') continue;
+        const slot = [s.subject, s.grade_min, s.grade_max, s.term ?? 0, s.name].join('|');
+        if (slots.has(slot)) fail(`${where}: more than one current edition of "${s.name}"; mark older ones superseded`);
+        slots.set(slot, true);
+      }
 
       curricula.push({
         code: c.code,
@@ -120,6 +129,7 @@ export function topicRowsByGrade(curricula) {
   const rows = [];
   for (const c of curricula) {
     for (const s of c.syllabi) {
+      if ((s.edition_status ?? 'current') !== 'current') continue;
       for (let g = s.grade_min; g <= s.grade_max; g += 1) {
         s.topics.forEach(([code, strand, title, titleEn], i) => {
           rows.push({
@@ -194,8 +204,8 @@ export function buildSeedSql({ schools, curricula, schoolsSource }) {
         .map(([code, strand, title, titleEn], i) => `(${i + 1}, ${sql(code)}, ${sql(strand)}, ${sql(title)}, ${sql(titleEn ?? null)})`)
         .join(',\n    ');
       out.push(
-        `with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values (${[
-          c.code, s.subject, s.grade_min, s.grade_max, s.name, s.term ?? null, s.academic_year ?? null, s.source_url ?? null,
+        `with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url, edition_status) values (${[
+          c.code, s.subject, s.grade_min, s.grade_max, s.name, s.term ?? null, s.academic_year ?? null, s.source_url ?? null, s.edition_status ?? 'current',
         ].map(sql).join(', ')}) returning id)\n` +
           `insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)\n` +
           `select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values\n    ${values}\n  ) as v(ordinal, code, strand, title, title_en);`,
