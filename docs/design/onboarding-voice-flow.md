@@ -28,7 +28,7 @@ In the first minutes, the child meets Ibi by voice, picks a study companion from
 
 "Teens" in the council decision maps to the Older band in this spec (see Open question 3).
 
-Grade words always come from the school's list: grade 2 is Primary 2, grade 6 is **Primary 6**, grade 7 is Preparatory 1, grade 8 is Preparatory 2. Never "Prep school" for grade 6.
+Grade words always come from the school's list: grade 2 is Primary 2, grade 6 is **Primary 6**, grade 7 is Preparatory 1, grade 8 is Preparatory 2. Grade 6 is never called a preparatory year.
 
 ## Part 1: Parent setup (about 2 minutes, before the child)
 Collected from the parent, not the child. One question per screen. Buttons use verbs.
@@ -74,26 +74,27 @@ Grade check (all bands): "You're in {school grade word}, right?" with "Yes" and 
 ### 2.2 Meet the companion (voice check continues)
 | Band | Ibi says |
 |---|---|
-| Young | "Primary {n}! My little brother and little sister help kids in Primary {n}. Who do you want to study with? Say their name or tap a picture." |
+| Young | "Primary {n}! My little brother and little sister are computer helpers too. They help kids in Primary {n}. Pick who you want to study with. Say their name or tap a picture." |
 | Middle | "Primary {n}. Then I'll be your study helper. Let's get started." |
 | Older | "{School grade word}. My older brother and older sister work with students your age. Pick who you want to work with." |
 
 - Young and Older bands: the child picks by saying the companion's name or tapping a picture. Saying the name is the second part of the voice check. A misheard name gets the same tap retry and never counts as a miss.
 - The choice is the child's. It is stored only as "companion: A or B" and is never used as a gender signal or for anything other than which character appears.
 - The chosen companion introduces themselves in their own voice and keeps the honest identity: Young: "Hi {name}, I'm {companion}. I'm a computer helper too." Older: "Hey {name}, I'm {companion}. Same deal as Ibi: I'm an AI tutor, and I won't give you answers, I'll help you find them."
-- Middle band: Ibi stays the tutor. Ibi does not claim to be in the child's grade.
+- Middle band: Ibi stays the tutor. Ibi is a helper, not a classmate: no line may say or suggest that Ibi is in the child's grade, goes to school, or is a real child (ethics checklist H2).
+- No companion line claims feelings or wants ("wants to meet you", "so happy"); companions describe what they do, not what they feel (ethics checklist M4).
 - The companion grows up with the child: each new school year, their look and style mature a little. Older band siblings look about 17, not like cartoon children.
 
 ### 2.3 Day-one safety notice (every band, every child)
 Straight after the companion introduces themselves, the companion says a short, age-appropriate notice about who sees what. It is spoken and captioned, takes about 30 seconds, and cannot be skipped on day one. Afterwards it lives in a "Who sees what" screen the child can open any time.
 
-The script is **not written here**. It comes from `docs/safety/` (distress script and flag-review steps), which `child-development-specialist` and `ai-safety-red-teamer` are writing as a council blocker, reviewed by the grade heads. The notice must cover, in age-appropriate words:
+The script is **not written here**. It comes from [`docs/safety/distress-script.md`](../safety/distress-script.md) (day-one notice by age band) and [`docs/safety/flag-review.md`](../safety/flag-review.md), written by `child-development-specialist` and `ai-safety-red-teamer` as a council blocker and awaiting review by the grade heads. The notice must cover, in age-appropriate words:
 - parents see progress, never what the child said;
 - ordinary chats and venting stay private;
 - if something sounds like the child may not be safe, a trained person on our team checks it to help;
 - this is told to every child, in every band.
 
-Until `docs/safety/` exists, this step is a blocker for build, not a placeholder to fill with improvised copy.
+Until the grade heads approve that wording, this step stays a blocker for build; never fill it with improvised copy.
 
 ### 2.4 Interests (Middle and Older bands only, skippable)
 > **Middle:** "What are you into? Tap a few, or tell me."
@@ -105,20 +106,29 @@ Until `docs/safety/` exists, this step is a blocker for build, not a placeholder
 - Used **only** to choose examples ("a league table" for fractions). Stored as a few tags. Never shared, never used for ads, never shown to other children.
 - Young band: no interests step on day one, to keep the 8-minute cap. It moves to day two.
 
+### 2.5 Faith questions (every band, any point in onboarding)
+If a child asks a faith question (for example about prayer, God, or what is allowed), the companion gives no ruling, no opinion, and no comparison between religions or families, and points to the family:
+> **Young and Middle:** "That's a really good question for your family or your religion teacher. You could ask them later."
+> **Older:** "That's one to talk through with your family or your religion teacher. I don't give answers on faith."
+
+Then the companion goes back to the current step. The line is spoken and captioned, with no follow-up questions about the child's faith, and nothing about it is logged beyond "faith question redirected" (no text). Final guardrail wording: `ai-tutor-engineer` with `course-designer-ethics` (ethics checklist F3); Arabic wording by `arabic-language-specialist`.
+
 ## Part 3A: Grades 2 to 3 (Young band): placement first
-Target: the whole child part, from "Start" to the last screen, in **8 minutes or less**, with a parent nearby.
+Target: the whole child part, from "Start" to the last screen, in **8 minutes or less**, with a grown-up nearby (a parent, grandparent, nanny, or other carer).
 
 | Step | Time budget |
 |---|---|
 | Hello, name and voice check, grade check | about 1 minute |
 | Companion pick and introduction | about 1 minute |
 | Safety notice | about 30 seconds |
-| Picture game (placement) | about 4 minutes |
+| Picture check (placement) | about 4 minutes |
 | Things you figured out | about 1 minute |
 | Buffer | about 30 seconds |
 
-### The picture game (placement)
-> **Companion:** "Let's play a picture game. I'll show you something and ask about it. It's okay to say 'I don't know'."
+### The picture check (placement)
+> **Companion:** "Let's do a quick check with pictures, so I know where to start. I'll show you something and ask about it. It's okay to say 'I don't know'."
+
+It is described honestly as a check, never disguised as only a game (ethics checklist H7). It may look playful, but the words say what it is.
 
 Rules (detailed stop rules and item selection are in the placement spec from `assessment-specialist` with `learning-analytics-scientist`, a council blocker):
 - **At most 5 scored items**, all on one strand.
@@ -128,8 +138,9 @@ Rules (detailed stop rules and item selection are in the placement spec from `as
 - **Always ends on a win.** If the child misses the last item, the companion breaks it into a smaller step the child can do (a hint, never the answer) until the child gets a piece of it right. That guided step is logged as "with hints" and is not scored.
 - One question at a time, very short turns, every prompt read aloud with a picture. Answers by voice or by tapping large pictures.
 - Every answer gets warm, effort-focused feedback: "You looked carefully at the picture. That helps me a lot." No right or wrong sounds, no score, no stars for correctness.
-- Never called a test. Never compared with anyone.
-- Time guard: if the 8-minute cap is near, the game stops early after the next win. Fewer items is fine.
+- After a miss, the companion moves on without telling the answer, so the item can come back later as a lesson (ethics checklist N6).
+- Called "a quick check", never a test and never only a game. Never compared with anyone.
+- Time guard: if the 8-minute cap is near, the check stops early after the next win. Fewer items is fine.
 
 Output: a one-strand starting point (estimate), re-checked in sessions 2 and 3. Never a mastery mark.
 
@@ -168,6 +179,7 @@ Target: the child picks a topic **by minute 4**; the whole child part takes **15
 - **Scored by hint level:** each step is logged as done alone, hint 1, hint 2, or worked example.
 - Homework answer request: "I can't give you the answer, but we can get there together. What's the first thing the question asks?"
 - Off topic: a short friendly reply, then back. Anything worrying follows `docs/safety/`.
+- The topic picker never offers religion topics until Ministry-book religion lessons exist in `content/`.
 
 ### Check items
 Framing, Middle band: "A few quick questions so I know where to start you."
@@ -178,6 +190,7 @@ Rules (details in the placement spec):
 - **Start below grade.**
 - **Same guards as the young band:** two misses step down; always end on a win; a misheard answer is never a miss.
 - **Item-4 rule:** if the first three are right, item 4 is at or above grade.
+- After a miss, move on without telling the answer (ethics checklist N6).
 - Never called a test, never a score shown, never compared.
 - Time guard: if the 15-minute cap is near, checks stop after the next win.
 
@@ -191,6 +204,11 @@ When the parent chooses "Use tap and type only", or the microphone permission is
 - Placement and check items: large tap answers, and typing for the Older band.
 - Mini-lesson: tap and type answers, whiteboard and demos as usual.
 - Parent summary looks the same, with no note that voice was off.
+- Young band children may not read well yet, so for them the parent setup recommends keeping sound on in voice-off mode ("Sound lets the tutor read everything aloud to {name}"). If sound is off anyway, every prompt uses pictures and one or two words. Review by `inclusion-accessibility-specialist` (ethics checklist D7).
+
+## Language fairness
+- Every placement and check item exists in English and Arabic with the same quality, and the child answers in the language they think in.
+- Speech recognition for the name check, companion pick, and answers is tested on Egyptian Arabic, English, and mixed speech before launch (`voice-engineer`, with `arabic-nlp-engineer`). A child must never look weaker because of the language they speak (ethics checklist D5).
 
 ## Part 5: Ending (every band)
 
@@ -228,6 +246,10 @@ Template (draft):
 - The word "estimate" always appears with the level. No grade, percentage, or comparison with other children.
 - Parents see progress, **never transcripts**.
 
+### Notifications
+- Onboarding sends **no notifications to the child**, in any band.
+- The parent gets one summary after day one, at a sensible hour, with no pressure wording, and can turn summaries off. How often summaries come after that is Open question 9 and must pass ethics checklist M6.
+
 ### Safety flags (from the council decision)
 - Ordinary venting stays private.
 - A serious-risk flag goes first to a **named, trained human reviewer**.
@@ -257,7 +279,7 @@ Template (draft):
 | Companion pick | Picture placeholders | n/a | Images fail: names as large text buttons |
 | Safety notice | Caption first, audio when ready | n/a | Script not available: block onboarding for build; never show improvised copy |
 | Topic pick (4 to 8) | Chips shimmer | No validated topics for this term: offer the nearest validated strand with honest copy | "We couldn't load topics. Try again." Button "Try again" |
-| Picture game / check items | Item placeholder | n/a | Item fails to load: skip to the next item; never counted as a miss |
+| Picture check / check items | Item placeholder | n/a | Item fails to load: skip to the next item; never counted as a miss |
 | Mini-lesson | Whiteboard skeleton | n/a | Connection lost: "We lost the connection. Your progress is saved." Button "Reconnect" |
 | Things you figured out | Short shimmer | Nothing logged (rare): "You started today. Next time we'll pick up from here." | Show the screen from the local log if the server is unreachable |
 | Weekly goal (Older) | n/a | n/a | Saving fails: "We couldn't save your goal. Try again." Button "Try again" |
@@ -284,6 +306,7 @@ Accessibility: large targets (at least 56 by 56 points for the Young band), capt
 - "Things you figured out" replaces the old ending; streaks removed; Older band weekly goal with no break counter.
 - Parent summary built from logged events with done-alone and needed-hints separated; level is a labelled estimate.
 - Added: profile picker and "Ready, {name}?" handoff, push-to-talk in noise, equal voice-off flow, day-one safety notice, Older band tone and interests, screen states.
+- Ethics checklist fixes: Ibi is a helper, not a classmate (H2); no feeling or want claims in companion lines (M4); placement called "a quick check", not a game (H7); "a grown-up nearby" (F5); faith question line (F3); no answer shown after a miss (N6); notifications (M6); language fairness (D5); voice-off support for young non-readers (D7).
 
 ## Open questions
 1. Ibi's family: names, look, voices, and Ibi's own age; Older band siblings should look about 17 (`brand-illustration-designer`, `voice-engineer`, grade heads).
@@ -291,7 +314,7 @@ Accessibility: large targets (at least 56 by 56 points for the Young band), capt
 3. Does "teens" in the decision mean Primary 6 to Preparatory 2 (this spec's Older band) or Preparatory 1 and 2 only? It controls the identity line, the voice-check skip, and the weekly goal (chair, `grade-head-g8`, Primary 6 grade head).
 4. International school grade labels: should the child also hear their own school's label (for example "Year 7" or "6e") alongside the school words? (`international-curriculum-specialist`, grade heads).
 5. How we know "this week's book" pages for each grade and term, and what to show if the week is unknown (`curriculum-data-engineer`, `course-designer-chief`).
-6. Which strand the Young band picture game uses when the parent note does not suggest one (`assessment-specialist`).
+6. Which strand the Young band picture check uses when the parent note does not suggest one (`assessment-specialist`).
 7. Validated mini-lesson coverage: `content/` holds one lesson today (Primary 5 fractions). Topic pick needs one per grade and strand before launch (`course-designer-chief`).
 8. Children working above or below their school grade: which band and companion apply (grade heads, `child-development-specialist`).
 9. Parent summary after day one: how often, and on which channel (`product-manager`, `learning-analytics-scientist`).
@@ -299,7 +322,7 @@ Accessibility: large targets (at least 56 by 56 points for the Young band), capt
 11. Exact transcript retention period and redaction rules (`security-privacy-engineer`).
 
 ## Dependencies (council blockers and actions)
-- `docs/safety/` distress script and flag-review steps: `child-development-specialist` with `ai-safety-red-teamer`. Blocks Part 2.3.
+- `docs/safety/` distress script and flag-review steps: written by `child-development-specialist` with `ai-safety-red-teamer` (draft, 2026-11-25). Blocks Part 2.3 until the grade heads approve it.
 - `docs/school/ethics-checklist.md`: `course-designer-ethics`. This flow must pass it.
 - Placement spec (stop rules, item-4 rule, session 2 and 3 re-checks): `assessment-specialist` with `learning-analytics-scientist`. Blocks Parts 3A and 3B.
 - Testing with Primary 2 children before launch: `grade-head-g2`.
