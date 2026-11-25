@@ -1,5 +1,7 @@
 # Plan: Immersive AI Tutor for Students, Grades 2-8
 
+> **Status:** the original approved plan. Phases and scope are superseded by [`docs/roadmap.md`](roadmap.md). Council decisions override this file; streaks were removed for every grade by the council on 2026-11-25 ([minutes](school/council/2026-11-25-onboarding-voice-flow.md)).
+
 ## Context
 
 Students in grades 2-8 copy homework answers from ChatGPT and Gemini instead of studying. They finish tasks without understanding how an answer was reached, why an event happened, or what a concept means. The repo `/home/user/HOMEWORK` is empty (README and one commit), so this is a greenfield build.
@@ -19,7 +21,7 @@ The product is a **live AI tutor** that talks with the child, listens, interrupt
 - **Ages:** grades 2-8, every subject, in Phase 1.
 - **Tutor style:** strictly interactive. It asks, hints, checks reasoning, and makes the child produce the answer.
 - **Experience:** fully immersive. Voice conversation, a whiteboard that draws while the tutor talks, real images, and interactive demos. No pre-recorded video playback.
-- **Gamification:** levels, leaderboards, badges, achievements, streaks.
+- **Gamification:** levels, group leaderboards, badges, achievements. No streaks (council decision, 2026-11-25).
 - **Community:** class and group codes. Teachers or parents create a class or group and share a code.
 - **Course and learning design:** reviewed before any content is produced (see Phase 0.5).
 
@@ -30,7 +32,7 @@ The product is a **live AI tutor** that talks with the child, listens, interrupt
 3. **Show, then ask.** Ideas are shown visually (whiteboard, image, or demo) and then the child is asked to reason about them. Visual and verbal explanation go together.
 4. **Think first, then check.** The child attempts each question before a hint. The tutor responds to the reasoning, not only the final result.
 5. **Explain it back.** Concepts and causal chains are explained in the child's own words. A rubric scores the reasoning. Voice explanations count.
-6. **Earn progress by understanding.** XP and level-ups reward reasoning, persistence after hints, and delayed recall. Speed and tapping through earn little. Streak loss is forgiving. No paid loot boxes, no ads.
+6. **Earn progress by understanding.** XP and level-ups reward reasoning, persistence after hints, and delayed recall. Speed and tapping through earn little. No streaks or loss displays; children see "things you figured out". No paid loot boxes, no ads.
 7. **Child-safe by design.** No open messaging between kids. Community is structured (codes, leaderboards, challenges, badges). Leaderboards show a nickname and avatar only. Parents control groups and voice features.
 8. **Parents see the learning.** The dashboard shows skills mastered, reasoning quality, skipped steps, weak topics, and a weekly summary.
 
@@ -105,7 +107,7 @@ A validator (`scripts/validate-content.ts`) fails CI if a lesson lacks outcome l
 
 ### Gamification
 - **XP and levels:** from reasoning quality, persistence after hints, and delayed recall. Levels unlock units.
-- **Streaks:** daily, with two free streak freezes a month and a weekly grace day.
+- **No streaks:** "things you figured out" instead; teens may set their own weekly goal with no break counter and no reminders (council decision, 2026-11-25).
 - **Badges:** per skill and per unit ("Nile Delta Explorer").
 - **Achievements:** tied to learning, such as "explained 10 cause-and-effect chains" or "came back to a weak skill and passed."
 - **Leaderboards:** weekly, within a class or group only. Ranked by XP with a reasoning-score tie-break. Kids can opt out.
@@ -114,7 +116,7 @@ A validator (`scripts/validate-content.ts`) fails CI if a lesson lacks outcome l
 
 ### Feature set for MVP
 - **Parent:** sign up, up to 4 child profiles, curriculum and grade per child, voice on or off, dashboard, weekly summary, manage groups, pause or delete a child's data.
-- **Child:** home (today's review and next lesson), immersive lesson, review queue, levels, badges, achievements, streaks, group leaderboard.
+- **Child:** home (today's review and next lesson), immersive lesson, review queue, levels, badges, achievements, "things you figured out", group leaderboard.
 - **Teacher (minimal web):** create class and code, view class progress, approve content.
 - **Content:** Arabic (in Arabic), Social Studies, Math, and Science, grades 2-8, with whiteboard scenes, images, and demos for each lesson.
 
@@ -163,7 +165,7 @@ Content schema, scene and demo authoring guide, image licensing workflow, teache
 - Then build the lesson loop: voice session, whiteboard renderer, demo WebView, image cards, think-first flow, rubric grading, answer-leak filter, explain-back. Tutor and scene eval suites built here and gate release.
 
 **Phase 3: Gamification and community**
-XP engine, levels, badges, achievements, streaks with freezes, classes and groups with codes, leaderboards, weekly challenges, opt-outs, moderation controls.
+XP engine, levels, badges, achievements, self-set weekly goals (no streaks), classes and groups with codes, leaderboards, weekly challenges, opt-outs, moderation controls.
 
 **Phase 4: Review scheduler, parent dashboard, teacher console**
 Spaced review queue, weekly parent summary, dashboard with reasoning metrics and skipped-step flags, teacher console.
@@ -179,7 +181,7 @@ RevenueCat subscriptions and paywall, parental consent for voice, privacy policy
 - **Answer-leak tests:** about 100 scripted turns (spoken and typed), including "just tell me", pressure, and role-play tricks. Release blocked if any reply contains a final answer from the key, including on the whiteboard.
 - **Interruption tests:** scripted sessions where the child goes silent, heads to a misconception, gets frustrated, or talks over the tutor. Checks that the tutor responds within the latency target and respects rate limits.
 - **Scene and demo tests:** every scene spec validates against its schema, every demo loads in the sandbox with no network access, and scenes render at the target frame rate on a mid-range Android device.
-- **Unit tests:** XP rules and caps, streak freezes, SM-2 intervals, rubric mapping, group leaderboard ranking.
+- **Unit tests:** XP rules and caps, weekly-goal rules, SM-2 intervals, rubric mapping, group leaderboard ranking.
 - **RLS tests:** parents cannot read other families' children. Children cannot read parent data. Leaderboards expose only nickname and avatar, and only to group members.
 - **End to end (Maestro, Android emulator):** parent signs up, enables voice, adds a child. Child joins a group by code, runs a voice lesson with a whiteboard scene and a demo, completes it without receiving the answer, earns XP, appears on the group leaderboard. Parent sees the dashboard. Repeat for an Arabic lesson with RTL.
 - **Pilot signals:** share of questions answered before the first hint, explain-back completion, delayed-recall accuracy a week later, weekly return rate, and tutor interruptions the child found helpful (short in-app rating). Measures learning and retention, not only time spent.
