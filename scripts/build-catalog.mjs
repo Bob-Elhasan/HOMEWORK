@@ -25,6 +25,8 @@ export const SUBJECTS = {
   'social-studies': 'Social Studies',
   transdisciplinary: 'Transdisciplinary (IB PYP)',
   discover: 'Discover (اكتشف), integrated (Egypt MOE)',
+  'religion-islamic': 'Islamic Religious Education (Egypt MOE)',
+  'religion-christian': 'Christian Religious Education (Egypt MOE)',
 };
 // Directory labels that map to a catalog system. Other labels (British, German,
 // Canadian, Montessori) stay in schools.listed_curricula only.

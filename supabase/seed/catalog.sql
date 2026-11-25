@@ -21,7 +21,9 @@ insert into public.subjects (code, name) values
   ('arabic', 'Arabic Language'),
   ('social-studies', 'Social Studies'),
   ('transdisciplinary', 'Transdisciplinary (IB PYP)'),
-  ('discover', 'Discover (اكتشف), integrated (Egypt MOE)');
+  ('discover', 'Discover (اكتشف), integrated (Egypt MOE)'),
+  ('religion-islamic', 'Islamic Religious Education (Egypt MOE)'),
+  ('religion-christian', 'Christian Religious Education (Egypt MOE)');
 
 -- us-ccss-math
 insert into public.curricula (code, system_code, name, kind, confidence, source_url, note, verified_on, verified_source, verification_method) values ('us-ccss-math', 'american', 'Common Core State Standards for Mathematics', 'standard', 'high', 'https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf', 'Topics are the CCSS clusters; strand is the CCSS domain. Code format follows CCSS.MATH.CONTENT.<grade>.<domain>.<cluster>.', '2026-11-24', 'https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf', 'All 73 grade 2-8 cluster codes matched the domain pages on thecorestandards.org, and every cluster heading appears verbatim in the official standards PDF.');
