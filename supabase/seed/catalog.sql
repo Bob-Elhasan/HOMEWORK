@@ -187,68 +187,197 @@ select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (16, 'MS-ETS1', 'Engineering Design', 'Engineering Design', NULL)
   ) as v(ordinal, code, strand, title, title_en);
 
--- fr-programmes
-insert into public.curricula (code, system_code, name, kind, confidence, source_url, note, verified_on, verified_source, verification_method) values ('fr-programmes', 'french', 'Programmes de l''Éducation nationale (cycles 2, 3, 4)', 'standard', 'medium', 'https://eduscol.education.fr/', 'France sets programmes per cycle: cycle 2 = CP-CE2, cycle 3 = CM1-6e, cycle 4 = 5e-3e. Mapped here as grade 2 = CE1, 3 = CE2, 4 = CM1, 5 = CM2, 6 = 6e, 7 = 5e, 8 = 4e. Topics are the programme domains (themes). Mathematics programmes were revised from the 2025 school year onward, so confirm domains against the current Bulletin officiel before use.', NULL, NULL, NULL);
+-- fr-math
+insert into public.curricula (code, system_code, name, kind, confidence, source_url, note, verified_on, verified_source, verification_method) values ('fr-math', 'french', 'Programmes de mathématiques de l''Éducation nationale (in force 2026/2027)', 'standard', 'high', 'https://www.education.gouv.fr/bo', 'Programmes in force in the 2026/2027 school year, mapped as grade 2 = CE1, 3 = CE2, 4 = CM1, 5 = CM2, 6 = 6e, 7 = 5e, 8 = 4e. New programmes are written class by class, so each class has its own syllabus. Topics are the programme domains and main sub-headings in French, with English translations by us. Replaces the earlier unverified cycle-level entry (pre-2025 programmes). Re-check each September: maths 4e switches in 2027, science CE1, CE2, CM2 and 6e switch from 2027.', '2026-11-25', 'Official programme PDFs on education.gouv.fr and cache.media.education.gouv.fr (BO pages blocked from our servers)', 'Domain headings read from the official annexe texts for every class; spot-checked by heading counts in the cycle 2, 3 and 4 PDFs.');
 insert into public.grade_labels (curriculum_code, grade, label) values
-  ('fr-programmes', 2, 'CE1'),
-  ('fr-programmes', 3, 'CE2'),
-  ('fr-programmes', 4, 'CM1'),
-  ('fr-programmes', 5, 'CM2'),
-  ('fr-programmes', 6, '6e'),
-  ('fr-programmes', 7, '5e'),
-  ('fr-programmes', 8, '4e');
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url, edition_status) values ('fr-programmes', 'math', 2, 3, 'Mathématiques, cycle 2 (CE1-CE2)', NULL, NULL, NULL, 'current') returning id)
+  ('fr-math', 2, 'CE1'),
+  ('fr-math', 3, 'CE2'),
+  ('fr-math', 4, 'CM1'),
+  ('fr-math', 5, 'CM2'),
+  ('fr-math', 6, '6e'),
+  ('fr-math', 7, '5e'),
+  ('fr-math', 8, '4e');
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url, edition_status) values ('fr-math', 'math', 2, 2, 'Mathématiques, CE1', NULL, '2026/2027', 'https://www.education.gouv.fr/sites/default/files/document/Annexe%204%20%E2%80%93%20Programme%20de%20math%C3%A9matiques%20du%20cycle%202-403821.pdf', 'current') returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
-    (1, 'C2-MA-1', 'Mathématiques', 'Nombres et calculs', 'Numbers and calculation'),
-    (2, 'C2-MA-2', 'Mathématiques', 'Grandeurs et mesures', 'Quantities and measurement'),
-    (3, 'C2-MA-3', 'Mathématiques', 'Espace et géométrie', 'Space and geometry')
+    (1, 'FR-MA-CE1-1', 'Nombres, calcul et résolution de problèmes', 'Les nombres entiers', 'Whole numbers'),
+    (2, 'FR-MA-CE1-2', 'Nombres, calcul et résolution de problèmes', 'Les fractions', 'Fractions'),
+    (3, 'FR-MA-CE1-3', 'Nombres, calcul et résolution de problèmes', 'Les quatre opérations', 'The four operations'),
+    (4, 'FR-MA-CE1-4', 'Nombres, calcul et résolution de problèmes', 'Le calcul mental', 'Mental calculation'),
+    (5, 'FR-MA-CE1-5', 'Nombres, calcul et résolution de problèmes', 'La résolution de problèmes', 'Problem solving'),
+    (6, 'FR-MA-CE1-6', 'Grandeurs et mesures', 'Les longueurs et les masses', 'Lengths and masses'),
+    (7, 'FR-MA-CE1-7', 'Grandeurs et mesures', 'La monnaie', 'Money'),
+    (8, 'FR-MA-CE1-8', 'Grandeurs et mesures', 'Le repérage dans le temps et les durées', 'Locating in time and durations'),
+    (9, 'FR-MA-CE1-9', 'Espace et géométrie', 'Les solides', 'Solids'),
+    (10, 'FR-MA-CE1-10', 'Espace et géométrie', 'La géométrie plane', 'Plane geometry'),
+    (11, 'FR-MA-CE1-11', 'Espace et géométrie', 'Le repérage dans l’espace', 'Locating in space'),
+    (12, 'FR-MA-CE1-12', 'Organisation et gestion de données', 'Organisation et gestion de données', 'Organising and handling data')
   ) as v(ordinal, code, strand, title, title_en);
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url, edition_status) values ('fr-programmes', 'science', 2, 3, 'Questionner le monde, cycle 2 (CE1-CE2)', NULL, NULL, NULL, 'current') returning id)
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url, edition_status) values ('fr-math', 'math', 3, 3, 'Mathématiques, CE2', NULL, '2026/2027', 'https://www.education.gouv.fr/sites/default/files/document/Annexe%204%20%E2%80%93%20Programme%20de%20math%C3%A9matiques%20du%20cycle%202-403821.pdf', 'current') returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
-    (1, 'C2-QM-1', 'Questionner le monde du vivant, de la matière et des objets', 'Qu''est-ce que la matière ?', 'What is matter?'),
-    (2, 'C2-QM-2', 'Questionner le monde du vivant, de la matière et des objets', 'Comment reconnaître le monde vivant ?', 'How do we recognise the living world?'),
-    (3, 'C2-QM-3', 'Questionner le monde du vivant, de la matière et des objets', 'Les objets techniques : qu''est-ce que c''est ? À quels besoins répondent-ils ? Comment fonctionnent-ils ?', 'Technical objects: what they are, what needs they meet, how they work')
+    (1, 'FR-MA-CE2-1', 'Nombres, calcul et résolution de problèmes', 'Les nombres entiers', 'Whole numbers'),
+    (2, 'FR-MA-CE2-2', 'Nombres, calcul et résolution de problèmes', 'Les fractions', 'Fractions'),
+    (3, 'FR-MA-CE2-3', 'Nombres, calcul et résolution de problèmes', 'Les quatre opérations', 'The four operations'),
+    (4, 'FR-MA-CE2-4', 'Nombres, calcul et résolution de problèmes', 'Le calcul mental', 'Mental calculation'),
+    (5, 'FR-MA-CE2-5', 'Nombres, calcul et résolution de problèmes', 'La résolution de problèmes', 'Problem solving'),
+    (6, 'FR-MA-CE2-6', 'Grandeurs et mesures', 'Les longueurs, les masses et les contenances', 'Lengths, masses and capacities'),
+    (7, 'FR-MA-CE2-7', 'Grandeurs et mesures', 'La monnaie', 'Money'),
+    (8, 'FR-MA-CE2-8', 'Grandeurs et mesures', 'Le repérage dans le temps et les durées', 'Locating in time and durations'),
+    (9, 'FR-MA-CE2-9', 'Espace et géométrie', 'Les solides', 'Solids'),
+    (10, 'FR-MA-CE2-10', 'Espace et géométrie', 'La géométrie plane', 'Plane geometry'),
+    (11, 'FR-MA-CE2-11', 'Organisation et gestion de données', 'Organisation et gestion de données', 'Organising and handling data')
   ) as v(ordinal, code, strand, title, title_en);
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url, edition_status) values ('fr-programmes', 'math', 4, 6, 'Mathématiques, cycle 3 (CM1-CM2-6e)', NULL, NULL, NULL, 'current') returning id)
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url, edition_status) values ('fr-math', 'math', 4, 4, 'Mathématiques, CM1', NULL, '2026/2027', 'https://www.education.gouv.fr/sites/default/files/ensel620_annexe2-v2.pdf', 'current') returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
-    (1, 'C3-MA-1', 'Mathématiques', 'Nombres et calculs', 'Numbers and calculation'),
-    (2, 'C3-MA-2', 'Mathématiques', 'Grandeurs et mesures', 'Quantities and measurement'),
-    (3, 'C3-MA-3', 'Mathématiques', 'Espace et géométrie', 'Space and geometry')
+    (1, 'FR-MA-CM1-1', 'Nombres, calcul et résolution de problèmes', 'Les nombres entiers', 'Whole numbers'),
+    (2, 'FR-MA-CM1-2', 'Nombres, calcul et résolution de problèmes', 'Les fractions', 'Fractions'),
+    (3, 'FR-MA-CM1-3', 'Nombres, calcul et résolution de problèmes', 'Les nombres décimaux', 'Decimal numbers'),
+    (4, 'FR-MA-CM1-4', 'Nombres, calcul et résolution de problèmes', 'Le calcul mental', 'Mental calculation'),
+    (5, 'FR-MA-CM1-5', 'Nombres, calcul et résolution de problèmes', 'Les quatre opérations', 'The four operations'),
+    (6, 'FR-MA-CM1-6', 'Nombres, calcul et résolution de problèmes', 'La résolution de problèmes', 'Problem solving'),
+    (7, 'FR-MA-CM1-7', 'Nombres, calcul et résolution de problèmes', 'Algèbre', 'Algebra'),
+    (8, 'FR-MA-CM1-8', 'Grandeurs et mesures', 'Les longueurs', 'Lengths'),
+    (9, 'FR-MA-CM1-9', 'Grandeurs et mesures', 'Les masses', 'Masses'),
+    (10, 'FR-MA-CM1-10', 'Grandeurs et mesures', 'Les contenances', 'Capacities'),
+    (11, 'FR-MA-CM1-11', 'Grandeurs et mesures', 'Les aires', 'Areas'),
+    (12, 'FR-MA-CM1-12', 'Grandeurs et mesures', 'Les angles', 'Angles'),
+    (13, 'FR-MA-CM1-13', 'Grandeurs et mesures', 'Le repérage dans le temps et les durées', 'Locating in time and durations'),
+    (14, 'FR-MA-CM1-14', 'Espace et géométrie', 'La géométrie plane', 'Plane geometry'),
+    (15, 'FR-MA-CM1-15', 'Espace et géométrie', 'Les solides', 'Solids'),
+    (16, 'FR-MA-CM1-16', 'Espace et géométrie', 'Le repérage dans l’espace', 'Locating in space'),
+    (17, 'FR-MA-CM1-17', 'Organisation et gestion de données et probabilités', 'Organisation et gestion de données', 'Organising and handling data'),
+    (18, 'FR-MA-CM1-18', 'Organisation et gestion de données et probabilités', 'Les probabilités', 'Probability'),
+    (19, 'FR-MA-CM1-19', 'La proportionnalité', 'La proportionnalité', 'Proportionality'),
+    (20, 'FR-MA-CM1-20', 'Initiation à la pensée informatique', 'Initiation à la pensée informatique', 'Introduction to computational thinking')
   ) as v(ordinal, code, strand, title, title_en);
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url, edition_status) values ('fr-programmes', 'science', 4, 6, 'Sciences et technologie, cycle 3 (CM1-CM2-6e)', NULL, NULL, NULL, 'current') returning id)
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url, edition_status) values ('fr-math', 'math', 5, 5, 'Mathématiques, CM2', NULL, '2026/2027', 'https://www.education.gouv.fr/sites/default/files/ensel620_annexe2-v2.pdf', 'current') returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
-    (1, 'C3-ST-1', 'Sciences et technologie', 'Matière, mouvement, énergie, information', 'Matter, motion, energy, information'),
-    (2, 'C3-ST-2', 'Sciences et technologie', 'Le vivant, sa diversité et les fonctions qui le caractérisent', 'Living things, their diversity and functions'),
-    (3, 'C3-ST-3', 'Sciences et technologie', 'Matériaux et objets techniques', 'Materials and technical objects'),
-    (4, 'C3-ST-4', 'Sciences et technologie', 'La planète Terre. Les êtres vivants dans leur environnement', 'Planet Earth. Living things in their environment')
+    (1, 'FR-MA-CM2-1', 'Nombres, calcul et résolution de problèmes', 'Les nombres entiers', 'Whole numbers'),
+    (2, 'FR-MA-CM2-2', 'Nombres, calcul et résolution de problèmes', 'Les fractions', 'Fractions'),
+    (3, 'FR-MA-CM2-3', 'Nombres, calcul et résolution de problèmes', 'Les nombres décimaux', 'Decimal numbers'),
+    (4, 'FR-MA-CM2-4', 'Nombres, calcul et résolution de problèmes', 'Le calcul mental', 'Mental calculation'),
+    (5, 'FR-MA-CM2-5', 'Nombres, calcul et résolution de problèmes', 'Les quatre opérations', 'The four operations'),
+    (6, 'FR-MA-CM2-6', 'Nombres, calcul et résolution de problèmes', 'La résolution de problèmes', 'Problem solving'),
+    (7, 'FR-MA-CM2-7', 'Nombres, calcul et résolution de problèmes', 'Algèbre', 'Algebra'),
+    (8, 'FR-MA-CM2-8', 'Grandeurs et mesures', 'Les aires', 'Areas'),
+    (9, 'FR-MA-CM2-9', 'Grandeurs et mesures', 'Les angles', 'Angles'),
+    (10, 'FR-MA-CM2-10', 'Grandeurs et mesures', 'Le repérage dans le temps et les durées', 'Locating in time and durations'),
+    (11, 'FR-MA-CM2-11', 'Espace et géométrie', 'La géométrie plane', 'Plane geometry'),
+    (12, 'FR-MA-CM2-12', 'Espace et géométrie', 'Les solides', 'Solids'),
+    (13, 'FR-MA-CM2-13', 'Espace et géométrie', 'Déplacements dans l’espace', 'Movement in space'),
+    (14, 'FR-MA-CM2-14', 'Organisation et gestion de données et probabilités', 'Organisation et gestion de données', 'Organising and handling data'),
+    (15, 'FR-MA-CM2-15', 'Organisation et gestion de données et probabilités', 'Les probabilités', 'Probability'),
+    (16, 'FR-MA-CM2-16', 'La proportionnalité', 'La proportionnalité', 'Proportionality'),
+    (17, 'FR-MA-CM2-17', 'Initiation à la pensée informatique', 'Initiation à la pensée informatique', 'Introduction to computational thinking')
   ) as v(ordinal, code, strand, title, title_en);
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url, edition_status) values ('fr-programmes', 'math', 7, 8, 'Mathématiques, cycle 4 (5e-4e)', NULL, NULL, NULL, 'current') returning id)
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url, edition_status) values ('fr-math', 'math', 6, 6, 'Mathématiques, 6e', NULL, '2026/2027', 'https://www.education.gouv.fr/sites/default/files/ensel620_annexe2-v2.pdf', 'current') returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
-    (1, 'C4-MA-1', 'Mathématiques', 'Nombres et calculs', 'Numbers and calculation'),
-    (2, 'C4-MA-2', 'Mathématiques', 'Organisation et gestion de données, fonctions', 'Data handling and functions'),
-    (3, 'C4-MA-3', 'Mathématiques', 'Grandeurs et mesures', 'Quantities and measurement'),
-    (4, 'C4-MA-4', 'Mathématiques', 'Espace et géométrie', 'Space and geometry'),
-    (5, 'C4-MA-5', 'Mathématiques', 'Algorithmique et programmation', 'Algorithms and programming')
+    (1, 'FR-MA-6E-1', 'Nombres, calcul et résolution de problèmes', 'Les nombres entiers et décimaux', 'Whole and decimal numbers'),
+    (2, 'FR-MA-6E-2', 'Nombres, calcul et résolution de problèmes', 'Les fractions', 'Fractions'),
+    (3, 'FR-MA-6E-3', 'Nombres, calcul et résolution de problèmes', 'Algèbre', 'Algebra'),
+    (4, 'FR-MA-6E-4', 'Grandeurs et mesures', 'Les longueurs', 'Lengths'),
+    (5, 'FR-MA-6E-5', 'Grandeurs et mesures', 'Les aires', 'Areas'),
+    (6, 'FR-MA-6E-6', 'Grandeurs et mesures', 'Les volumes', 'Volumes'),
+    (7, 'FR-MA-6E-7', 'Grandeurs et mesures', 'Le repérage dans le temps et les durées', 'Locating in time and durations'),
+    (8, 'FR-MA-6E-8', 'Espace et géométrie', 'Étude de configurations planes', 'Study of plane figures'),
+    (9, 'FR-MA-6E-9', 'Espace et géométrie', 'La vision dans l’espace', 'Seeing in space'),
+    (10, 'FR-MA-6E-10', 'Organisation et gestion de données et probabilités', 'Organisation et gestion de données', 'Organising and handling data'),
+    (11, 'FR-MA-6E-11', 'Organisation et gestion de données et probabilités', 'Les probabilités', 'Probability'),
+    (12, 'FR-MA-6E-12', 'La proportionnalité', 'La proportionnalité', 'Proportionality'),
+    (13, 'FR-MA-6E-13', 'Initiation à la pensée informatique', 'Initiation à la pensée informatique', 'Introduction to computational thinking')
   ) as v(ordinal, code, strand, title, title_en);
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url, edition_status) values ('fr-programmes', 'science', 7, 8, 'Sciences, cycle 4 (5e-4e): physique-chimie, SVT, technologie', NULL, NULL, NULL, 'current') returning id)
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url, edition_status) values ('fr-math', 'math', 7, 7, 'Mathématiques, 5e', NULL, '2026/2027', 'https://sites.ac-corse.fr/maths/wp-content/uploads/sites/18/2026/03/Annexe-2-%E2%80%93-Programme-de-mathematiques-pour-le-cycle-4-480716-2.pdf', 'current') returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
-    (1, 'C4-PC-1', 'Physique-chimie', 'Organisation et transformations de la matière', 'Organisation and transformations of matter'),
-    (2, 'C4-PC-2', 'Physique-chimie', 'Mouvement et interactions', 'Motion and interactions'),
-    (3, 'C4-PC-3', 'Physique-chimie', 'L''énergie et ses conversions', 'Energy and its conversions'),
-    (4, 'C4-PC-4', 'Physique-chimie', 'Des signaux pour observer et communiquer', 'Signals for observing and communicating'),
-    (5, 'C4-SVT-1', 'Sciences de la vie et de la Terre', 'La planète Terre, l''environnement et l''action humaine', 'Planet Earth, the environment and human action'),
-    (6, 'C4-SVT-2', 'Sciences de la vie et de la Terre', 'Le vivant et son évolution', 'Living things and evolution'),
-    (7, 'C4-SVT-3', 'Sciences de la vie et de la Terre', 'Le corps humain et la santé', 'The human body and health'),
-    (8, 'C4-TE-1', 'Technologie', 'Design, innovation et créativité', 'Design, innovation and creativity'),
-    (9, 'C4-TE-2', 'Technologie', 'Les objets techniques, les services et les changements induits dans la société', 'Technical objects, services and changes in society'),
-    (10, 'C4-TE-3', 'Technologie', 'La modélisation et la simulation des objets et systèmes techniques', 'Modelling and simulating technical systems'),
-    (11, 'C4-TE-4', 'Technologie', 'L''informatique et la programmation', 'Computing and programming')
+    (1, 'FR-MA-5E-1', 'Nombres et calculs', 'Opérations', 'Operations'),
+    (2, 'FR-MA-5E-2', 'Nombres et calculs', 'Nombres relatifs', 'Signed (relative) numbers'),
+    (3, 'FR-MA-5E-3', 'Nombres et calculs', 'Nombres rationnels', 'Rational numbers'),
+    (4, 'FR-MA-5E-4', 'Nombres et calculs', 'Puissances', 'Powers'),
+    (5, 'FR-MA-5E-5', 'Nombres et calculs', 'Calcul littéral et algébrique', 'Literal and algebraic calculation'),
+    (6, 'FR-MA-5E-6', 'Espace et géométrie', 'Repérage sur une droite et dans le plan', 'Locating on a line and in the plane'),
+    (7, 'FR-MA-5E-7', 'Espace et géométrie', 'Représentation de l’espace', 'Representing space'),
+    (8, 'FR-MA-5E-8', 'Espace et géométrie', 'Transformations', 'Transformations'),
+    (9, 'FR-MA-5E-9', 'Espace et géométrie', 'Angles', 'Angles'),
+    (10, 'FR-MA-5E-10', 'Espace et géométrie', 'Triangles', 'Triangles'),
+    (11, 'FR-MA-5E-11', 'Espace et géométrie', 'Parallélogrammes', 'Parallelograms'),
+    (12, 'FR-MA-5E-12', 'Organisation et gestion de données et probabilités', 'Statistiques', 'Statistics'),
+    (13, 'FR-MA-5E-13', 'Organisation et gestion de données et probabilités', 'Probabilités', 'Probability'),
+    (14, 'FR-MA-5E-14', 'Proportionnalité, fonctions', 'Proportionnalité', 'Proportionality'),
+    (15, 'FR-MA-5E-15', 'Proportionnalité, fonctions', 'Fonctions', 'Functions'),
+    (16, 'FR-MA-5E-16', 'La pensée informatique', 'La pensée informatique', 'Computational thinking')
+  ) as v(ordinal, code, strand, title, title_en);
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url, edition_status) values ('fr-math', 'math', 8, 8, 'Mathématiques, 4e', NULL, '2026/2027', 'https://cache.media.education.gouv.fr/file/31/89/1/ensel714_annexe3_1312891.pdf', 'current') returning id)
+insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
+select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
+    (1, 'FR-MA-4E-1', 'Mathématiques', 'Thème A – Nombres et calculs', 'Numbers and calculation'),
+    (2, 'FR-MA-4E-2', 'Mathématiques', 'Thème B – Organisation et gestion de données, fonctions', 'Data handling and functions'),
+    (3, 'FR-MA-4E-3', 'Mathématiques', 'Thème C – Grandeurs et mesures', 'Quantities and measurement'),
+    (4, 'FR-MA-4E-4', 'Mathématiques', 'Thème D – Espace et géométrie', 'Space and geometry'),
+    (5, 'FR-MA-4E-5', 'Mathématiques', 'Thème E – Algorithmique et programmation', 'Algorithms and programming')
+  ) as v(ordinal, code, strand, title, title_en);
+
+-- fr-science
+insert into public.curricula (code, system_code, name, kind, confidence, source_url, note, verified_on, verified_source, verification_method) values ('fr-science', 'french', 'Programmes de sciences de l''Éducation nationale (in force 2026/2027)', 'standard', 'medium', 'https://www.education.gouv.fr/bo', 'Programmes in force in the 2026/2027 school year, mapped as grade 2 = CE1, 3 = CE2, 4 = CM1, 5 = CM2, 6 = 6e, 7 = 5e, 8 = 4e. New programmes are written class by class, so each class has its own syllabus. Topics are the programme domains and main sub-headings in French, with English translations by us. Replaces the earlier unverified cycle-level entry (pre-2025 programmes). Re-check each September: maths 4e switches in 2027, science CE1, CE2, CM2 and 6e switch from 2027. Science: CE1 and CE2 ''Questionner le monde'' read from an academy copy of the 2020 text, and 5e and 4e physique-chimie and SVT ''not replaced'' rests on finding no newer publication; treat both as medium confidence.', '2026-11-25', 'Official programme PDFs on education.gouv.fr and cache.media.education.gouv.fr (BO pages blocked from our servers)', 'CM1, CM2, 6e and technologie read from official texts; CE1, CE2 and cycle 4 physique-chimie and SVT from academy copies of official texts.');
+insert into public.grade_labels (curriculum_code, grade, label) values
+  ('fr-science', 2, 'CE1'),
+  ('fr-science', 3, 'CE2'),
+  ('fr-science', 4, 'CM1'),
+  ('fr-science', 5, 'CM2'),
+  ('fr-science', 6, '6e'),
+  ('fr-science', 7, '5e'),
+  ('fr-science', 8, '4e');
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url, edition_status) values ('fr-science', 'science', 2, 3, 'Sciences, CE1-CE2: Questionner le monde, cycle 2', NULL, '2026/2027', 'https://www.education.gouv.fr/sites/default/files/document/annexe-1-programme-de-sciences-et-technologie-du-cycle-2-517289.pdf', 'current') returning id)
+insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
+select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
+    (1, 'FR-SC-C2-1', 'Questionner le monde du vivant, de la matière et des objets', 'Qu’est-ce que la matière ?', 'What is matter?'),
+    (2, 'FR-SC-C2-2', 'Questionner le monde du vivant, de la matière et des objets', 'Comment reconnaître le monde vivant ?', 'How do we recognise the living world?'),
+    (3, 'FR-SC-C2-3', 'Questionner le monde du vivant, de la matière et des objets', 'Les objets techniques. Qu’est-ce que c’est ? À quels besoins répondent-ils ? Comment fonctionnent-ils ?', 'Technical objects: what they are, what needs they meet, how they work')
+  ) as v(ordinal, code, strand, title, title_en);
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url, edition_status) values ('fr-science', 'science', 4, 4, 'Sciences, CM1: sciences et technologie du cycle 3', NULL, '2026/2027', 'https://www.education.gouv.fr/sites/default/files/document/annexe-2-programme-de-sciences-et-technologie-du-cycle-3-519023.pdf', 'current') returning id)
+insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
+select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
+    (1, 'FR-SC-CM1-1', 'La matière, les mouvements et les signaux', 'États et constitution de la matière à l’échelle macroscopique', 'States and make-up of matter at the macroscopic scale'),
+    (2, 'FR-SC-CM1-2', 'La matière, les mouvements et les signaux', 'Différents types de mouvement', 'Different types of motion'),
+    (3, 'FR-SC-CM1-3', 'La matière, les mouvements et les signaux', 'Signaux', 'Signals'),
+    (4, 'FR-SC-CM1-4', 'Les êtres vivants dans leur environnement', 'Unité et diversité du vivant', 'Unity and diversity of living things'),
+    (5, 'FR-SC-CM1-5', 'Les êtres vivants dans leur environnement', 'Reproduction, croissance et développement', 'Reproduction, growth and development'),
+    (6, 'FR-SC-CM1-6', 'Les êtres vivants dans leur environnement', 'Les écosystèmes', 'Ecosystems'),
+    (7, 'FR-SC-CM1-7', 'Les êtres vivants dans leur environnement', 'La Terre, une planète active', 'Earth, an active planet'),
+    (8, 'FR-SC-CM1-8', 'Le corps humain et la santé', 'Le cerveau : introduction à quelques grandes fonctions', 'The brain: introduction to some major functions'),
+    (9, 'FR-SC-CM1-9', 'Le corps humain et la santé', 'Puberté et reproduction humaine', 'Puberty and human reproduction'),
+    (10, 'FR-SC-CM1-10', 'Les objets techniques au cœur de la société', 'Les objets techniques en réponse aux besoins des individus et de la société', 'Technical objects that meet the needs of people and society'),
+    (11, 'FR-SC-CM1-11', 'Les objets techniques au cœur de la société', 'Description du fonctionnement et de la constitution d’objets techniques', 'Describing how technical objects work and are made'),
+    (12, 'FR-SC-CM1-12', 'Les objets techniques au cœur de la société', 'Programmation d’objets techniques', 'Programming technical objects')
+  ) as v(ordinal, code, strand, title, title_en);
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url, edition_status) values ('fr-science', 'science', 5, 6, 'Sciences, CM2-6e: sciences et technologie du cycle 3', NULL, '2026/2027', 'https://education.gouv.fr/sites/default/files/ensel-101_annexe_ok.pdf', 'current') returning id)
+insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
+select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
+    (1, 'FR-SC-C3-1', 'Sciences et technologie', 'Matière, mouvement, énergie, information', 'Matter, motion, energy, information'),
+    (2, 'FR-SC-C3-2', 'Sciences et technologie', 'Le vivant, sa diversité et les fonctions qui le caractérisent', 'Living things, their diversity and the functions that define them'),
+    (3, 'FR-SC-C3-3', 'Sciences et technologie', 'Les objets techniques au cœur de la société', 'Technical objects at the heart of society'),
+    (4, 'FR-SC-C3-4', 'Sciences et technologie', 'La Terre, une planète peuplée par des êtres vivants', 'Earth, a planet inhabited by living things')
+  ) as v(ordinal, code, strand, title, title_en);
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url, edition_status) values ('fr-science', 'science', 7, 8, 'Sciences, 5e-4e: Physique-chimie et SVT, cycle 4', NULL, '2026/2027', 'https://cache.media.education.gouv.fr/file/31/89/1/ensel714_annexe3_1312891.pdf', 'current') returning id)
+insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
+select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
+    (1, 'FR-SC-C4-1', 'Physique-chimie', 'Organisation et transformations de la matière', 'Organisation and transformations of matter'),
+    (2, 'FR-SC-C4-2', 'Physique-chimie', 'Mouvement et interactions', 'Motion and interactions'),
+    (3, 'FR-SC-C4-3', 'Physique-chimie', 'L’énergie, ses transferts et ses conversions', 'Energy, its transfers and conversions'),
+    (4, 'FR-SC-C4-4', 'Physique-chimie', 'Des signaux pour observer et communiquer', 'Signals for observing and communicating'),
+    (5, 'FR-SC-C4-5', 'Sciences de la vie et de la Terre', 'La planète Terre, l’environnement et l’action humaine', 'Planet Earth, the environment and human action'),
+    (6, 'FR-SC-C4-6', 'Sciences de la vie et de la Terre', 'Le vivant et son évolution', 'Living things and evolution'),
+    (7, 'FR-SC-C4-7', 'Sciences de la vie et de la Terre', 'Le corps humain et la santé', 'The human body and health')
+  ) as v(ordinal, code, strand, title, title_en);
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url, edition_status) values ('fr-science', 'science', 7, 8, 'Sciences, 5e-4e: technologie du cycle 4', NULL, '2026/2027', 'https://www.education.gouv.fr/sites/default/files/ensel802_annexe.pdf', 'current') returning id)
+insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
+select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
+    (1, 'FR-SC-TE-1', 'Technologie', 'Les objets et les systèmes techniques : leurs usages et leurs interactions à découvrir et à analyser', 'Technical objects and systems: discovering and analysing their uses and interactions'),
+    (2, 'FR-SC-TE-2', 'Technologie', 'Structure, fonctionnement, comportement : des objets et des systèmes techniques à comprendre', 'Structure, operation, behaviour: understanding technical objects and systems'),
+    (3, 'FR-SC-TE-3', 'Technologie', 'Création, conception, réalisation, innovations : des objets à concevoir et à réaliser', 'Creation, design, making, innovation: objects to design and build')
   ) as v(ordinal, code, strand, title, title_en);
 
 -- ib-pyp

@@ -2,70 +2,302 @@
   "system": "french",
   "curricula": [
     {
-      "code": "fr-programmes",
-      "name": "Programmes de l'Éducation nationale (cycles 2, 3, 4)",
-      "source_url": "https://eduscol.education.fr/",
-      "confidence": "medium",
-      "note": "France sets programmes per cycle: cycle 2 = CP-CE2, cycle 3 = CM1-6e, cycle 4 = 5e-3e. Mapped here as grade 2 = CE1, 3 = CE2, 4 = CM1, 5 = CM2, 6 = 6e, 7 = 5e, 8 = 4e. Topics are the programme domains (themes). Mathematics programmes were revised from the 2025 school year onward, so confirm domains against the current Bulletin officiel before use.",
-      "grade_labels": {"2": "CE1", "3": "CE2", "4": "CM1", "5": "CM2", "6": "6e", "7": "5e", "8": "4e"},
+      "code": "fr-math",
+      "name": "Programmes de mathématiques de l'Éducation nationale (in force 2026/2027)",
+      "source_url": "https://www.education.gouv.fr/bo",
+      "confidence": "high",
+      "note": "Programmes in force in the 2026/2027 school year, mapped as grade 2 = CE1, 3 = CE2, 4 = CM1, 5 = CM2, 6 = 6e, 7 = 5e, 8 = 4e. New programmes are written class by class, so each class has its own syllabus. Topics are the programme domains and main sub-headings in French, with English translations by us. Replaces the earlier unverified cycle-level entry (pre-2025 programmes). Re-check each September: maths 4e switches in 2027, science CE1, CE2, CM2 and 6e switch from 2027.",
+      "verified": {
+        "on": "2026-11-25",
+        "source": "Official programme PDFs on education.gouv.fr and cache.media.education.gouv.fr (BO pages blocked from our servers)",
+        "method": "Domain headings read from the official annexe texts for every class; spot-checked by heading counts in the cycle 2, 3 and 4 PDFs."
+      },
+      "grade_labels": {
+        "2": "CE1",
+        "3": "CE2",
+        "4": "CM1",
+        "5": "CM2",
+        "6": "6e",
+        "7": "5e",
+        "8": "4e"
+      },
       "syllabi": [
         {
-          "subject": "math", "grade_min": 2, "grade_max": 3, "name": "Mathématiques, cycle 2 (CE1-CE2)",
+          "subject": "math",
+          "grade_min": 2,
+          "grade_max": 2,
+          "name": "Mathématiques, CE1",
+          "academic_year": "2026/2027",
+          "source_url": "https://www.education.gouv.fr/sites/default/files/document/Annexe%204%20%E2%80%93%20Programme%20de%20math%C3%A9matiques%20du%20cycle%202-403821.pdf",
+          "note": "Programme de mathématiques du cycle 2 (arrêté du 22 octobre 2024, BO n° 41 du 31 octobre 2024). New programme, in force from rentrée 2025. Official reference: Arrêté du 22 octobre 2024, BO n° 41 du 31 octobre 2024 (NOR MENE2415135A), annexe 4. Confidence high. Programme is written per class. Topics are the CE1 sub-headings from the official sommaire, with the domain as strand. 'Le calcul mental' is further split into: Mémoriser des faits numériques; Utiliser ses connaissances en numération pour calculer mentalement; Apprendre des procédures de calcul mental. 'Les longueurs et les masses' splits into Les longueurs, Les masses. 'Organisation et gestion de données' has no sub-heading. New domain vs old file: Organisation et gestion de données; old 'Nombres et calculs' is now 'Nombres, calcul et résolution de problèmes'. The text BO page itself was blocked; reference taken from search results and the ministry PDF.",
           "topics": [
-            ["C2-MA-1", "Mathématiques", "Nombres et calculs", "Numbers and calculation"],
-            ["C2-MA-2", "Mathématiques", "Grandeurs et mesures", "Quantities and measurement"],
-            ["C2-MA-3", "Mathématiques", "Espace et géométrie", "Space and geometry"]
+            ["FR-MA-CE1-1", "Nombres, calcul et résolution de problèmes", "Les nombres entiers", "Whole numbers"],
+            ["FR-MA-CE1-2", "Nombres, calcul et résolution de problèmes", "Les fractions", "Fractions"],
+            ["FR-MA-CE1-3", "Nombres, calcul et résolution de problèmes", "Les quatre opérations", "The four operations"],
+            ["FR-MA-CE1-4", "Nombres, calcul et résolution de problèmes", "Le calcul mental", "Mental calculation"],
+            ["FR-MA-CE1-5", "Nombres, calcul et résolution de problèmes", "La résolution de problèmes", "Problem solving"],
+            ["FR-MA-CE1-6", "Grandeurs et mesures", "Les longueurs et les masses", "Lengths and masses"],
+            ["FR-MA-CE1-7", "Grandeurs et mesures", "La monnaie", "Money"],
+            ["FR-MA-CE1-8", "Grandeurs et mesures", "Le repérage dans le temps et les durées", "Locating in time and durations"],
+            ["FR-MA-CE1-9", "Espace et géométrie", "Les solides", "Solids"],
+            ["FR-MA-CE1-10", "Espace et géométrie", "La géométrie plane", "Plane geometry"],
+            ["FR-MA-CE1-11", "Espace et géométrie", "Le repérage dans l’espace", "Locating in space"],
+            ["FR-MA-CE1-12", "Organisation et gestion de données", "Organisation et gestion de données", "Organising and handling data"]
           ]
         },
         {
-          "subject": "science", "grade_min": 2, "grade_max": 3, "name": "Questionner le monde, cycle 2 (CE1-CE2)",
+          "subject": "math",
+          "grade_min": 3,
+          "grade_max": 3,
+          "name": "Mathématiques, CE2",
+          "academic_year": "2026/2027",
+          "source_url": "https://www.education.gouv.fr/sites/default/files/document/Annexe%204%20%E2%80%93%20Programme%20de%20math%C3%A9matiques%20du%20cycle%202-403821.pdf",
+          "note": "Programme de mathématiques du cycle 2 (arrêté du 22 octobre 2024, BO n° 41 du 31 octobre 2024). New programme, in force from rentrée 2025. Official reference: Arrêté du 22 octobre 2024, BO n° 41 du 31 octobre 2024 (NOR MENE2415135A), annexe 4. Confidence high. Programme is written per class. CE2 has no 'Le repérage dans l’espace' sub-heading under Espace et géométrie, and adds contenances under Grandeurs et mesures. 'Les longueurs, les masses et les contenances' splits into Les longueurs, Les masses, Les contenances. Calcul mental sub-headings as for CE1.",
           "topics": [
-            ["C2-QM-1", "Questionner le monde du vivant, de la matière et des objets", "Qu'est-ce que la matière ?", "What is matter?"],
-            ["C2-QM-2", "Questionner le monde du vivant, de la matière et des objets", "Comment reconnaître le monde vivant ?", "How do we recognise the living world?"],
-            ["C2-QM-3", "Questionner le monde du vivant, de la matière et des objets", "Les objets techniques : qu'est-ce que c'est ? À quels besoins répondent-ils ? Comment fonctionnent-ils ?", "Technical objects: what they are, what needs they meet, how they work"]
+            ["FR-MA-CE2-1", "Nombres, calcul et résolution de problèmes", "Les nombres entiers", "Whole numbers"],
+            ["FR-MA-CE2-2", "Nombres, calcul et résolution de problèmes", "Les fractions", "Fractions"],
+            ["FR-MA-CE2-3", "Nombres, calcul et résolution de problèmes", "Les quatre opérations", "The four operations"],
+            ["FR-MA-CE2-4", "Nombres, calcul et résolution de problèmes", "Le calcul mental", "Mental calculation"],
+            ["FR-MA-CE2-5", "Nombres, calcul et résolution de problèmes", "La résolution de problèmes", "Problem solving"],
+            ["FR-MA-CE2-6", "Grandeurs et mesures", "Les longueurs, les masses et les contenances", "Lengths, masses and capacities"],
+            ["FR-MA-CE2-7", "Grandeurs et mesures", "La monnaie", "Money"],
+            ["FR-MA-CE2-8", "Grandeurs et mesures", "Le repérage dans le temps et les durées", "Locating in time and durations"],
+            ["FR-MA-CE2-9", "Espace et géométrie", "Les solides", "Solids"],
+            ["FR-MA-CE2-10", "Espace et géométrie", "La géométrie plane", "Plane geometry"],
+            ["FR-MA-CE2-11", "Organisation et gestion de données", "Organisation et gestion de données", "Organising and handling data"]
           ]
         },
         {
-          "subject": "math", "grade_min": 4, "grade_max": 6, "name": "Mathématiques, cycle 3 (CM1-CM2-6e)",
+          "subject": "math",
+          "grade_min": 4,
+          "grade_max": 4,
+          "name": "Mathématiques, CM1",
+          "academic_year": "2026/2027",
+          "source_url": "https://www.education.gouv.fr/sites/default/files/ensel620_annexe2-v2.pdf",
+          "note": "Programme de mathématiques du cycle 3 (BO n° 16 du 17 avril 2025). New programme, in force from rentrée 2025. Official reference: BO n° 16 du 17 avril 2025 (arrêté reported as 10 avril 2025, not verified in the official text). Confidence high. Programme is written per class (CM1 section). Six domains: Nombres, calcul et résolution de problèmes; Grandeurs et mesures; Espace et géométrie; Organisation et gestion de données et probabilités; La proportionnalité; Initiation à la pensée informatique (old file had three). La proportionnalité and Initiation à la pensée informatique have no sub-headings, so the domain title is used as the topic.",
           "topics": [
-            ["C3-MA-1", "Mathématiques", "Nombres et calculs", "Numbers and calculation"],
-            ["C3-MA-2", "Mathématiques", "Grandeurs et mesures", "Quantities and measurement"],
-            ["C3-MA-3", "Mathématiques", "Espace et géométrie", "Space and geometry"]
+            ["FR-MA-CM1-1", "Nombres, calcul et résolution de problèmes", "Les nombres entiers", "Whole numbers"],
+            ["FR-MA-CM1-2", "Nombres, calcul et résolution de problèmes", "Les fractions", "Fractions"],
+            ["FR-MA-CM1-3", "Nombres, calcul et résolution de problèmes", "Les nombres décimaux", "Decimal numbers"],
+            ["FR-MA-CM1-4", "Nombres, calcul et résolution de problèmes", "Le calcul mental", "Mental calculation"],
+            ["FR-MA-CM1-5", "Nombres, calcul et résolution de problèmes", "Les quatre opérations", "The four operations"],
+            ["FR-MA-CM1-6", "Nombres, calcul et résolution de problèmes", "La résolution de problèmes", "Problem solving"],
+            ["FR-MA-CM1-7", "Nombres, calcul et résolution de problèmes", "Algèbre", "Algebra"],
+            ["FR-MA-CM1-8", "Grandeurs et mesures", "Les longueurs", "Lengths"],
+            ["FR-MA-CM1-9", "Grandeurs et mesures", "Les masses", "Masses"],
+            ["FR-MA-CM1-10", "Grandeurs et mesures", "Les contenances", "Capacities"],
+            ["FR-MA-CM1-11", "Grandeurs et mesures", "Les aires", "Areas"],
+            ["FR-MA-CM1-12", "Grandeurs et mesures", "Les angles", "Angles"],
+            ["FR-MA-CM1-13", "Grandeurs et mesures", "Le repérage dans le temps et les durées", "Locating in time and durations"],
+            ["FR-MA-CM1-14", "Espace et géométrie", "La géométrie plane", "Plane geometry"],
+            ["FR-MA-CM1-15", "Espace et géométrie", "Les solides", "Solids"],
+            ["FR-MA-CM1-16", "Espace et géométrie", "Le repérage dans l’espace", "Locating in space"],
+            ["FR-MA-CM1-17", "Organisation et gestion de données et probabilités", "Organisation et gestion de données", "Organising and handling data"],
+            ["FR-MA-CM1-18", "Organisation et gestion de données et probabilités", "Les probabilités", "Probability"],
+            ["FR-MA-CM1-19", "La proportionnalité", "La proportionnalité", "Proportionality"],
+            ["FR-MA-CM1-20", "Initiation à la pensée informatique", "Initiation à la pensée informatique", "Introduction to computational thinking"]
           ]
         },
         {
-          "subject": "science", "grade_min": 4, "grade_max": 6, "name": "Sciences et technologie, cycle 3 (CM1-CM2-6e)",
+          "subject": "math",
+          "grade_min": 5,
+          "grade_max": 5,
+          "name": "Mathématiques, CM2",
+          "academic_year": "2026/2027",
+          "source_url": "https://www.education.gouv.fr/sites/default/files/ensel620_annexe2-v2.pdf",
+          "note": "Programme de mathématiques du cycle 3 (BO n° 16 du 17 avril 2025). New programme, in force from rentrée 2026. Official reference: BO n° 16 du 17 avril 2025 (arrêté reported as 10 avril 2025, not verified in the official text). Confidence high. Programme is written per class (CM2 section). In force for CM2 from rentrée 2026, so 2026/27 is its first year. Six domains: Nombres, calcul et résolution de problèmes; Grandeurs et mesures; Espace et géométrie; Organisation et gestion de données et probabilités; La proportionnalité; Initiation à la pensée informatique (old file had three). La proportionnalité and Initiation à la pensée informatique have no sub-headings, so the domain title is used as the topic.",
           "topics": [
-            ["C3-ST-1", "Sciences et technologie", "Matière, mouvement, énergie, information", "Matter, motion, energy, information"],
-            ["C3-ST-2", "Sciences et technologie", "Le vivant, sa diversité et les fonctions qui le caractérisent", "Living things, their diversity and functions"],
-            ["C3-ST-3", "Sciences et technologie", "Matériaux et objets techniques", "Materials and technical objects"],
-            ["C3-ST-4", "Sciences et technologie", "La planète Terre. Les êtres vivants dans leur environnement", "Planet Earth. Living things in their environment"]
+            ["FR-MA-CM2-1", "Nombres, calcul et résolution de problèmes", "Les nombres entiers", "Whole numbers"],
+            ["FR-MA-CM2-2", "Nombres, calcul et résolution de problèmes", "Les fractions", "Fractions"],
+            ["FR-MA-CM2-3", "Nombres, calcul et résolution de problèmes", "Les nombres décimaux", "Decimal numbers"],
+            ["FR-MA-CM2-4", "Nombres, calcul et résolution de problèmes", "Le calcul mental", "Mental calculation"],
+            ["FR-MA-CM2-5", "Nombres, calcul et résolution de problèmes", "Les quatre opérations", "The four operations"],
+            ["FR-MA-CM2-6", "Nombres, calcul et résolution de problèmes", "La résolution de problèmes", "Problem solving"],
+            ["FR-MA-CM2-7", "Nombres, calcul et résolution de problèmes", "Algèbre", "Algebra"],
+            ["FR-MA-CM2-8", "Grandeurs et mesures", "Les aires", "Areas"],
+            ["FR-MA-CM2-9", "Grandeurs et mesures", "Les angles", "Angles"],
+            ["FR-MA-CM2-10", "Grandeurs et mesures", "Le repérage dans le temps et les durées", "Locating in time and durations"],
+            ["FR-MA-CM2-11", "Espace et géométrie", "La géométrie plane", "Plane geometry"],
+            ["FR-MA-CM2-12", "Espace et géométrie", "Les solides", "Solids"],
+            ["FR-MA-CM2-13", "Espace et géométrie", "Déplacements dans l’espace", "Movement in space"],
+            ["FR-MA-CM2-14", "Organisation et gestion de données et probabilités", "Organisation et gestion de données", "Organising and handling data"],
+            ["FR-MA-CM2-15", "Organisation et gestion de données et probabilités", "Les probabilités", "Probability"],
+            ["FR-MA-CM2-16", "La proportionnalité", "La proportionnalité", "Proportionality"],
+            ["FR-MA-CM2-17", "Initiation à la pensée informatique", "Initiation à la pensée informatique", "Introduction to computational thinking"]
           ]
         },
         {
-          "subject": "math", "grade_min": 7, "grade_max": 8, "name": "Mathématiques, cycle 4 (5e-4e)",
+          "subject": "math",
+          "grade_min": 6,
+          "grade_max": 6,
+          "name": "Mathématiques, 6e",
+          "academic_year": "2026/2027",
+          "source_url": "https://www.education.gouv.fr/sites/default/files/ensel620_annexe2-v2.pdf",
+          "note": "Programme de mathématiques du cycle 3 (BO n° 16 du 17 avril 2025). New programme, in force from rentrée 2025. Official reference: BO n° 16 du 17 avril 2025 (arrêté reported as 10 avril 2025, not verified in the official text). Confidence high. Programme is written per class (Sixième section). Six domains: Nombres, calcul et résolution de problèmes; Grandeurs et mesures; Espace et géométrie; Organisation et gestion de données et probabilités; La proportionnalité; Initiation à la pensée informatique (old file had three). La proportionnalité and Initiation à la pensée informatique have no sub-headings, so the domain title is used as the topic.",
           "topics": [
-            ["C4-MA-1", "Mathématiques", "Nombres et calculs", "Numbers and calculation"],
-            ["C4-MA-2", "Mathématiques", "Organisation et gestion de données, fonctions", "Data handling and functions"],
-            ["C4-MA-3", "Mathématiques", "Grandeurs et mesures", "Quantities and measurement"],
-            ["C4-MA-4", "Mathématiques", "Espace et géométrie", "Space and geometry"],
-            ["C4-MA-5", "Mathématiques", "Algorithmique et programmation", "Algorithms and programming"]
+            ["FR-MA-6E-1", "Nombres, calcul et résolution de problèmes", "Les nombres entiers et décimaux", "Whole and decimal numbers"],
+            ["FR-MA-6E-2", "Nombres, calcul et résolution de problèmes", "Les fractions", "Fractions"],
+            ["FR-MA-6E-3", "Nombres, calcul et résolution de problèmes", "Algèbre", "Algebra"],
+            ["FR-MA-6E-4", "Grandeurs et mesures", "Les longueurs", "Lengths"],
+            ["FR-MA-6E-5", "Grandeurs et mesures", "Les aires", "Areas"],
+            ["FR-MA-6E-6", "Grandeurs et mesures", "Les volumes", "Volumes"],
+            ["FR-MA-6E-7", "Grandeurs et mesures", "Le repérage dans le temps et les durées", "Locating in time and durations"],
+            ["FR-MA-6E-8", "Espace et géométrie", "Étude de configurations planes", "Study of plane figures"],
+            ["FR-MA-6E-9", "Espace et géométrie", "La vision dans l’espace", "Seeing in space"],
+            ["FR-MA-6E-10", "Organisation et gestion de données et probabilités", "Organisation et gestion de données", "Organising and handling data"],
+            ["FR-MA-6E-11", "Organisation et gestion de données et probabilités", "Les probabilités", "Probability"],
+            ["FR-MA-6E-12", "La proportionnalité", "La proportionnalité", "Proportionality"],
+            ["FR-MA-6E-13", "Initiation à la pensée informatique", "Initiation à la pensée informatique", "Introduction to computational thinking"]
           ]
         },
         {
-          "subject": "science", "grade_min": 7, "grade_max": 8, "name": "Sciences, cycle 4 (5e-4e): physique-chimie, SVT, technologie",
+          "subject": "math",
+          "grade_min": 7,
+          "grade_max": 7,
+          "name": "Mathématiques, 5e",
+          "academic_year": "2026/2027",
+          "source_url": "https://sites.ac-corse.fr/maths/wp-content/uploads/sites/18/2026/03/Annexe-2-%E2%80%93-Programme-de-mathematiques-pour-le-cycle-4-480716-2.pdf",
+          "note": "Programme de mathématiques du cycle 4 (BO n° 10 du 5 mars 2026). New programme, in force from rentrée 2026. Official reference: BO n° 10 du 5 mars 2026, annexe 2 (arrêté reported as 18 février 2026, not verified in the official text). Confidence high. Programme is written per class; topics are the Cinquième sub-headings. Five domains: Nombres et calculs; Espace et géométrie; Organisation et gestion de données et probabilités; Proportionnalité, fonctions; La pensée informatique (no 5e sub-headings). Big change from the 2020 cycle 4 programme: there is no separate 'Grandeurs et mesures' domain, and 'Algorithmique et programmation' becomes 'La pensée informatique'. Text read from an academy-hosted copy of the official annexe (BO page blocked); one search summary listed five domains using the old 2020 names, which conflicts with this annexe; the annexe is trusted.",
           "topics": [
-            ["C4-PC-1", "Physique-chimie", "Organisation et transformations de la matière", "Organisation and transformations of matter"],
-            ["C4-PC-2", "Physique-chimie", "Mouvement et interactions", "Motion and interactions"],
-            ["C4-PC-3", "Physique-chimie", "L'énergie et ses conversions", "Energy and its conversions"],
-            ["C4-PC-4", "Physique-chimie", "Des signaux pour observer et communiquer", "Signals for observing and communicating"],
-            ["C4-SVT-1", "Sciences de la vie et de la Terre", "La planète Terre, l'environnement et l'action humaine", "Planet Earth, the environment and human action"],
-            ["C4-SVT-2", "Sciences de la vie et de la Terre", "Le vivant et son évolution", "Living things and evolution"],
-            ["C4-SVT-3", "Sciences de la vie et de la Terre", "Le corps humain et la santé", "The human body and health"],
-            ["C4-TE-1", "Technologie", "Design, innovation et créativité", "Design, innovation and creativity"],
-            ["C4-TE-2", "Technologie", "Les objets techniques, les services et les changements induits dans la société", "Technical objects, services and changes in society"],
-            ["C4-TE-3", "Technologie", "La modélisation et la simulation des objets et systèmes techniques", "Modelling and simulating technical systems"],
-            ["C4-TE-4", "Technologie", "L'informatique et la programmation", "Computing and programming"]
+            ["FR-MA-5E-1", "Nombres et calculs", "Opérations", "Operations"],
+            ["FR-MA-5E-2", "Nombres et calculs", "Nombres relatifs", "Signed (relative) numbers"],
+            ["FR-MA-5E-3", "Nombres et calculs", "Nombres rationnels", "Rational numbers"],
+            ["FR-MA-5E-4", "Nombres et calculs", "Puissances", "Powers"],
+            ["FR-MA-5E-5", "Nombres et calculs", "Calcul littéral et algébrique", "Literal and algebraic calculation"],
+            ["FR-MA-5E-6", "Espace et géométrie", "Repérage sur une droite et dans le plan", "Locating on a line and in the plane"],
+            ["FR-MA-5E-7", "Espace et géométrie", "Représentation de l’espace", "Representing space"],
+            ["FR-MA-5E-8", "Espace et géométrie", "Transformations", "Transformations"],
+            ["FR-MA-5E-9", "Espace et géométrie", "Angles", "Angles"],
+            ["FR-MA-5E-10", "Espace et géométrie", "Triangles", "Triangles"],
+            ["FR-MA-5E-11", "Espace et géométrie", "Parallélogrammes", "Parallelograms"],
+            ["FR-MA-5E-12", "Organisation et gestion de données et probabilités", "Statistiques", "Statistics"],
+            ["FR-MA-5E-13", "Organisation et gestion de données et probabilités", "Probabilités", "Probability"],
+            ["FR-MA-5E-14", "Proportionnalité, fonctions", "Proportionnalité", "Proportionality"],
+            ["FR-MA-5E-15", "Proportionnalité, fonctions", "Fonctions", "Functions"],
+            ["FR-MA-5E-16", "La pensée informatique", "La pensée informatique", "Computational thinking"]
+          ]
+        },
+        {
+          "subject": "math",
+          "grade_min": 8,
+          "grade_max": 8,
+          "name": "Mathématiques, 4e",
+          "academic_year": "2026/2027",
+          "source_url": "https://cache.media.education.gouv.fr/file/31/89/1/ensel714_annexe3_1312891.pdf",
+          "note": "Programme de mathématiques du cycle 4 (2015, version consolidée BO n° 31 du 30 juillet 2020). Previous programme still in force, in force from rentrée 2016 (consolidated version rentrée 2020); replaced in 4e at rentrée 2027. Official reference: Arrêté du 9 novembre 2015 modifié; version consolidée BO n° 31 du 30 juillet 2020 (annexe 3). Confidence high. Cycle-level text shared with 5e (old) and 3e; not written per class. Same five themes as the current french.json. Used in 4e until the end of 2026/27; the new 4e section of the BO n° 10 du 5 mars 2026 programme applies from rentrée 2027.",
+          "topics": [
+            ["FR-MA-4E-1", "Mathématiques", "Thème A – Nombres et calculs", "Numbers and calculation"],
+            ["FR-MA-4E-2", "Mathématiques", "Thème B – Organisation et gestion de données, fonctions", "Data handling and functions"],
+            ["FR-MA-4E-3", "Mathématiques", "Thème C – Grandeurs et mesures", "Quantities and measurement"],
+            ["FR-MA-4E-4", "Mathématiques", "Thème D – Espace et géométrie", "Space and geometry"],
+            ["FR-MA-4E-5", "Mathématiques", "Thème E – Algorithmique et programmation", "Algorithms and programming"]
+          ]
+        }
+      ]
+    },
+    {
+      "code": "fr-science",
+      "name": "Programmes de sciences de l'Éducation nationale (in force 2026/2027)",
+      "source_url": "https://www.education.gouv.fr/bo",
+      "confidence": "medium",
+      "note": "Programmes in force in the 2026/2027 school year, mapped as grade 2 = CE1, 3 = CE2, 4 = CM1, 5 = CM2, 6 = 6e, 7 = 5e, 8 = 4e. New programmes are written class by class, so each class has its own syllabus. Topics are the programme domains and main sub-headings in French, with English translations by us. Replaces the earlier unverified cycle-level entry (pre-2025 programmes). Re-check each September: maths 4e switches in 2027, science CE1, CE2, CM2 and 6e switch from 2027. Science: CE1 and CE2 'Questionner le monde' read from an academy copy of the 2020 text, and 5e and 4e physique-chimie and SVT 'not replaced' rests on finding no newer publication; treat both as medium confidence.",
+      "verified": {
+        "on": "2026-11-25",
+        "source": "Official programme PDFs on education.gouv.fr and cache.media.education.gouv.fr (BO pages blocked from our servers)",
+        "method": "CM1, CM2, 6e and technologie read from official texts; CE1, CE2 and cycle 4 physique-chimie and SVT from academy copies of official texts."
+      },
+      "grade_labels": {
+        "2": "CE1",
+        "3": "CE2",
+        "4": "CM1",
+        "5": "CM2",
+        "6": "6e",
+        "7": "5e",
+        "8": "4e"
+      },
+      "syllabi": [
+        {
+          "subject": "science",
+          "grade_min": 2,
+          "grade_max": 3,
+          "name": "Sciences, CE1-CE2: Questionner le monde, cycle 2",
+          "academic_year": "2026/2027",
+          "source_url": "https://www.education.gouv.fr/sites/default/files/document/annexe-1-programme-de-sciences-et-technologie-du-cycle-2-517289.pdf",
+          "note": "Questionner le monde, cycle 2 (arrêté du 9 novembre 2015 modifié, version BO n° 31 du 30 juillet 2020). Previous programme still in force, in force from rentrée 2016 (current version rentrée 2020); replaced in CE1 and CE2 at rentrée 2027. Official reference: Arrêté du 9 novembre 2015 modifié, annexe 1; version consolidée BO n° 31 du 30 juillet 2020. Confidence medium. Cycle-level text shared by CE1 and CE2. This programme WAS replaced: the new Programme de sciences et technologie du cycle 2 (BO n° 24 du 11 juin 2026) applies at rentrée 2026 in CP only, and in CE1 and CE2 at rentrée 2027. So in 2026/27 CE1 and CE2 still use the old text. The current french.json topics are correct for 2026/27 (fix the title of the third: the official text uses 'Les objets techniques.' with a full stop). Only the science part of Questionner le monde is listed; 'Questionner l’espace et le temps' is not science. For planning: the new cycle 2 domains are La matière, les mesures, l’électricité; Les êtres vivants dans leur environnement; Le corps humain et la santé; Les objets techniques au cœur de la société. Per-class sub-headings, CE1: Masse et volumes, États physiques de la matière, L’électricité; Nutrition des êtres vivants, Sens et perception chez les animaux, Observer et décrire son environnement proche, Agir pour protéger l’environnement; Alimentation, Croissance et mouvement, Santé et hygiène de vie; objets techniques (no sub-heading). CE2: Masse, volumes et mesure du temps, États physiques de la matière; Unité et diversité du vivant, Reproduction, croissance et développement, Locomotion chez les animaux, Observer et décrire son environnement proche, Agir pour protéger l’environnement; Croissance et mouvement, Santé et hygiène de vie; objets techniques (no sub-heading). Read from the image-only official PDF. Medium confidence because the 2020 QLM text comes from an academy extract, and the BO and Eduscol pages were blocked.",
+          "topics": [
+            ["FR-SC-C2-1", "Questionner le monde du vivant, de la matière et des objets", "Qu’est-ce que la matière ?", "What is matter?"],
+            ["FR-SC-C2-2", "Questionner le monde du vivant, de la matière et des objets", "Comment reconnaître le monde vivant ?", "How do we recognise the living world?"],
+            ["FR-SC-C2-3", "Questionner le monde du vivant, de la matière et des objets", "Les objets techniques. Qu’est-ce que c’est ? À quels besoins répondent-ils ? Comment fonctionnent-ils ?", "Technical objects: what they are, what needs they meet, how they work"]
+          ]
+        },
+        {
+          "subject": "science",
+          "grade_min": 4,
+          "grade_max": 4,
+          "name": "Sciences, CM1: sciences et technologie du cycle 3",
+          "academic_year": "2026/2027",
+          "source_url": "https://www.education.gouv.fr/sites/default/files/document/annexe-2-programme-de-sciences-et-technologie-du-cycle-3-519023.pdf",
+          "note": "Programme de sciences et technologie du cycle 3 (BO n° 24 du 11 juin 2026). New programme, in force from rentrée 2026. Official reference: BO n° 24 du 11 juin 2026 (NOR MENE2611650A), annexe 2; arrêté published in the JO of 9 June 2026 (arrêté date reported as 5 June 2026, not verified). Confidence high. Programme is written per class; topics are the CM1 sub-headings. Four domains replace the old four thématiques: La matière, les mouvements et les signaux; Les êtres vivants dans leur environnement; Le corps humain et la santé; Les objets techniques au cœur de la société. Note: in the official sommaire 'La Terre, une planète active' sits under 'Les êtres vivants dans leur environnement'. CM1 is the only grade 2 to 8 class on a new science programme in 2026/27.",
+          "topics": [
+            ["FR-SC-CM1-1", "La matière, les mouvements et les signaux", "États et constitution de la matière à l’échelle macroscopique", "States and make-up of matter at the macroscopic scale"],
+            ["FR-SC-CM1-2", "La matière, les mouvements et les signaux", "Différents types de mouvement", "Different types of motion"],
+            ["FR-SC-CM1-3", "La matière, les mouvements et les signaux", "Signaux", "Signals"],
+            ["FR-SC-CM1-4", "Les êtres vivants dans leur environnement", "Unité et diversité du vivant", "Unity and diversity of living things"],
+            ["FR-SC-CM1-5", "Les êtres vivants dans leur environnement", "Reproduction, croissance et développement", "Reproduction, growth and development"],
+            ["FR-SC-CM1-6", "Les êtres vivants dans leur environnement", "Les écosystèmes", "Ecosystems"],
+            ["FR-SC-CM1-7", "Les êtres vivants dans leur environnement", "La Terre, une planète active", "Earth, an active planet"],
+            ["FR-SC-CM1-8", "Le corps humain et la santé", "Le cerveau : introduction à quelques grandes fonctions", "The brain: introduction to some major functions"],
+            ["FR-SC-CM1-9", "Le corps humain et la santé", "Puberté et reproduction humaine", "Puberty and human reproduction"],
+            ["FR-SC-CM1-10", "Les objets techniques au cœur de la société", "Les objets techniques en réponse aux besoins des individus et de la société", "Technical objects that meet the needs of people and society"],
+            ["FR-SC-CM1-11", "Les objets techniques au cœur de la société", "Description du fonctionnement et de la constitution d’objets techniques", "Describing how technical objects work and are made"],
+            ["FR-SC-CM1-12", "Les objets techniques au cœur de la société", "Programmation d’objets techniques", "Programming technical objects"]
+          ]
+        },
+        {
+          "subject": "science",
+          "grade_min": 5,
+          "grade_max": 6,
+          "name": "Sciences, CM2-6e: sciences et technologie du cycle 3",
+          "academic_year": "2026/2027",
+          "source_url": "https://education.gouv.fr/sites/default/files/ensel-101_annexe_ok.pdf",
+          "note": "Programme de sciences et technologie du cycle 3 (version BO n° 25 du 22 juin 2023). Previous programme still in force, in force from rentrée 2023; replaced in CM2 and 6e at rentrée 2027 (6e date disputed, see notes). Official reference: BO n° 25 du 22 juin 2023, annexe (programme de sciences et technologie du cycle 3). Confidence high. Cycle-level text shared by CM2 and 6e (with separate 'fin de CM' and 'fin de sixième' expectations). The current french.json uses the 2015/2018 thématique names; the 2023 rewrite renamed two: 'Matériaux et objets techniques' became 'Les objets techniques au cœur de la société', and 'La planète Terre. Les êtres vivants dans leur environnement' became 'La Terre, une planète peuplée par des êtres vivants'. The preamble list writes the first as 'Matière, mouvement, énergie et information'; the section heading (used here) omits 'et'. Since 2023, technologie in 6e is taught inside this programme by the PC and SVT teachers (SNES; not a programme heading change). Replacement date: the JO quote (Café pédagogique) and ac-dijon give rentrée 2027 for CM2 and 6e; a SNES article from the CSE stage gives 6e at rentrée 2028. I trust the JO quote, but in either case 6e stays on this text in 2026/27.",
+          "topics": [
+            ["FR-SC-C3-1", "Sciences et technologie", "Matière, mouvement, énergie, information", "Matter, motion, energy, information"],
+            ["FR-SC-C3-2", "Sciences et technologie", "Le vivant, sa diversité et les fonctions qui le caractérisent", "Living things, their diversity and the functions that define them"],
+            ["FR-SC-C3-3", "Sciences et technologie", "Les objets techniques au cœur de la société", "Technical objects at the heart of society"],
+            ["FR-SC-C3-4", "Sciences et technologie", "La Terre, une planète peuplée par des êtres vivants", "Earth, a planet inhabited by living things"]
+          ]
+        },
+        {
+          "subject": "science",
+          "grade_min": 7,
+          "grade_max": 8,
+          "name": "Sciences, 5e-4e: Physique-chimie et SVT, cycle 4",
+          "academic_year": "2026/2027",
+          "source_url": "https://cache.media.education.gouv.fr/file/31/89/1/ensel714_annexe3_1312891.pdf",
+          "note": "Physique-chimie et SVT, cycle 4 (arrêté du 9 novembre 2015 modifié, version BO n° 31 du 30 juillet 2020). Previous programme still in force, in force from rentrée 2016 (current version rentrée 2020). Official reference: Arrêté du 9 novembre 2015 modifié; version consolidée BO n° 31 du 30 juillet 2020 (annexe 3). Confidence medium. Cycle-level text shared by 5e, 4e and 3e. Not replaced as of 2026-11-25 as far as can be checked: the CSP published a physique-chimie draft in July 2025, and cycle 4 PC, SVT and technologie drafts were in national consultation from 18 May to 19 June 2026 (SNES); no arrêté was found in any reachable source. Fix vs current french.json: the third PC theme is 'L’énergie, ses transferts et ses conversions' (french.json has 'L’énergie et ses conversions'). The PC introduction lists the second theme as 'Mouvements et interactions' while the section heading reads 'Mouvement et interactions'. Medium confidence only because a recent BO could not be checked directly (BO and Eduscol blocked).",
+          "topics": [
+            ["FR-SC-C4-1", "Physique-chimie", "Organisation et transformations de la matière", "Organisation and transformations of matter"],
+            ["FR-SC-C4-2", "Physique-chimie", "Mouvement et interactions", "Motion and interactions"],
+            ["FR-SC-C4-3", "Physique-chimie", "L’énergie, ses transferts et ses conversions", "Energy, its transfers and conversions"],
+            ["FR-SC-C4-4", "Physique-chimie", "Des signaux pour observer et communiquer", "Signals for observing and communicating"],
+            ["FR-SC-C4-5", "Sciences de la vie et de la Terre", "La planète Terre, l’environnement et l’action humaine", "Planet Earth, the environment and human action"],
+            ["FR-SC-C4-6", "Sciences de la vie et de la Terre", "Le vivant et son évolution", "Living things and evolution"],
+            ["FR-SC-C4-7", "Sciences de la vie et de la Terre", "Le corps humain et la santé", "The human body and health"]
+          ]
+        },
+        {
+          "subject": "science",
+          "grade_min": 7,
+          "grade_max": 8,
+          "name": "Sciences, 5e-4e: technologie du cycle 4",
+          "academic_year": "2026/2027",
+          "source_url": "https://www.education.gouv.fr/sites/default/files/ensel802_annexe.pdf",
+          "note": "Programme de technologie du cycle 4 (BO n° 9 du 29 février 2024). New programme, in force from rentrée 2024 (5e), rentrée 2025 (4e). Official reference: BO n° 9 du 29 février 2024 (NOR MENE2402802A), annexe. Confidence high. Cycle-level text shared by 5e, 4e and 3e (annual progression benchmarks exist but themes are shared). This replaced the 2015/2020 technologie programme; the four technologie themes in the current french.json (Design, innovation et créativité, etc.) are outdated for 5e and 4e. Theme titles are the section headings; the intro paragraph writes the first one as 'à découvrir et analyser' (without the second 'à').",
+          "topics": [
+            ["FR-SC-TE-1", "Technologie", "Les objets et les systèmes techniques : leurs usages et leurs interactions à découvrir et à analyser", "Technical objects and systems: discovering and analysing their uses and interactions"],
+            ["FR-SC-TE-2", "Technologie", "Structure, fonctionnement, comportement : des objets et des systèmes techniques à comprendre", "Structure, operation, behaviour: understanding technical objects and systems"],
+            ["FR-SC-TE-3", "Technologie", "Création, conception, réalisation, innovations : des objets à concevoir et à réaliser", "Creation, design, making, innovation: objects to design and build"]
           ]
         }
       ]

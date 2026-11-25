@@ -65,7 +65,7 @@ const ms = await one(`select count(distinct year)::int as n from curriculum_topi
 check(ms.n === 3, 'NGSS middle-school band expands to years 6, 7, and 8');
 
 const verified = (await db.query(`select code from curricula where verified_on is not null order by code`)).rows.map((r) => r.code);
-check(JSON.stringify(verified) === JSON.stringify(['eg-moe-textbooks', 'us-ccss-math', 'us-ngss']), `verified curricula: ${verified.join(', ') || 'none'}`);
+check(JSON.stringify(verified) === JSON.stringify(['eg-moe-textbooks', 'fr-math', 'fr-science', 'us-ccss-math', 'us-ngss']), `verified curricula: ${verified.join(', ') || 'none'}`);
 
 // National: real textbook syllabi replace placeholders, never duplicate them.
 const dup = await one(`select count(*)::int as n from (
@@ -109,6 +109,10 @@ check(d3.n === 12, `national grade 3 Discover has 12 chapters (got ${d3.n})`);
 
 const g3 = await one(`select topic from curriculum_topics_by_grade where year = 3 and topic_code = '3-LS2, 3-LS4'`);
 check(g3?.topic === 'Interdependent Relationships in Ecosystems: Environmental Impacts on Organisms', 'NGSS grade 3 topic uses the official name');
+
+const fr5e = await one(`select count(*)::int as n from curriculum_topics_by_grade
+                        where curriculum_code = 'fr-math' and year = 7 and strand ilike '%pensée informatique%'`);
+check(fr5e.n > 0, 'French 5e (grade 7) maths follows the 2026 programme, with the computational thinking domain');
 
 const french = await one(`select grade_label from curriculum_topics_by_grade where system_code = 'french' and year = 4 limit 1`);
 check(french?.grade_label === 'CM1', 'French grade 4 is labelled CM1');
