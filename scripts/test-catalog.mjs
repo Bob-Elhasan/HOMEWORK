@@ -78,12 +78,23 @@ check(ss5?.topic === 'عوامل قيام الحضارة المصرية القد
       && ss5.source_url.endsWith('Social_studies_prim5_t1.pdf'), 'national grade 5 social studies comes from the 2026/2027 Ministry book');
 
 const ar8 = await one(`select count(*)::int as n from curriculum_topics_by_grade
-                       where system_code = 'national' and year = 8 and subject_code = 'arabic' and curriculum_code = 'eg-moe-textbooks'`);
+                       where system_code = 'national' and year = 8 and subject_code = 'arabic' and curriculum_code = 'eg-moe-textbooks' and term = 1`);
 check(ar8.n === 24, `national grade 8 Arabic has the book's 24 topics (got ${ar8.n})`);
 
 const ar5 = await one(`select count(*)::int as n, min(academic_year) as y from curriculum_topics_by_grade
-                       where system_code = 'national' and year = 5 and subject_code = 'arabic'`);
+                       where system_code = 'national' and year = 5 and subject_code = 'arabic' and term = 1`);
 check(ar5.n === 23 && ar5.y === '2026/2027', `national grade 5 Arabic has the 2026/2027 book's 23 topics (got ${ar5.n})`);
+
+const arYears = (await db.query(`select distinct year from curriculum_topics_by_grade
+                                   where curriculum_code = 'eg-moe-textbooks' and subject_code = 'arabic' order by year`)).rows.map((r) => r.year);
+check(JSON.stringify(arYears) === JSON.stringify([2, 3, 4, 5, 6, 7, 8]), `national Arabic comes from Ministry books for every year 2-8 (has ${arYears.join(',')})`);
+
+const rel = (await db.query(`select subject_code, array_agg(distinct year order by year) as y from curriculum_topics_by_grade
+                              where subject_code like 'religion-%' group by subject_code order by subject_code`)).rows;
+check(rel.length === 2 && rel.every((r) => r.y.length >= 5), `religion: both Islamic and Christian tracks loaded (${rel.map((r) => r.subject_code + '=' + r.y.join(',')).join('  ')})`);
+
+const noUrl = await one(`select count(*)::int as n from syllabi where curriculum_code = 'eg-moe-textbooks' and (source_url is null or source_url not like 'https://elearnningcontent.blob.core.windows.net/%')`);
+check(noUrl.n === 0, 'every national textbook syllabus links to its Ministry book');
 
 const d3 = await one(`select count(*)::int as n from curriculum_topics_by_grade where year = 3 and subject_code = 'discover'`);
 check(d3.n === 12, `national grade 3 Discover has 12 chapters (got ${d3.n})`);

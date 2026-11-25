@@ -301,7 +301,7 @@ select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
   ) as v(ordinal, code, strand, title, title_en);
 
 -- eg-moe-textbooks
-insert into public.curricula (code, system_code, name, kind, confidence, source_url, note, verified_on, verified_source, verification_method) values ('eg-moe-textbooks', 'national', 'Egyptian MOE national curriculum, from official student books', 'standard', 'high', 'https://elearnningcontent.blob.core.windows.net/elearnningcontent/', 'Units and lessons copied from the contents pages of Ministry of Education and Technical Education student books hosted on the Ministry''s e-learning storage. Topic titles are the book''s own headings; English titles are our translations. Generic items (speaking practice, lesson and unit assessments, reviews) are left out.', '2026-11-24', 'https://elearnningcontent.blob.core.windows.net/elearnningcontent/', 'Read from the contents page of each linked Ministry student book; cover checked for Ministry branding, grade, and academic year.');
+insert into public.curricula (code, system_code, name, kind, confidence, source_url, note, verified_on, verified_source, verification_method) values ('eg-moe-textbooks', 'national', 'Egyptian MOE national curriculum, from official student books', 'standard', 'high', 'https://elearnningcontent.blob.core.windows.net/elearnningcontent/', 'Units and lessons copied from the contents pages of Ministry of Education and Technical Education student books hosted on the Ministry''s e-learning storage. Topic titles are the book''s own headings, with the book''s own spelling; English titles are our translations. Generic items (speaking practice, self-assessment, lesson and unit assessments, reviews, practice repeats of an earlier topic, projects) are left out. Term 2 books are the 2025/2026 editions, the latest available. Book links come from data/catalog/sources/moe-book-links.csv.', '2026-11-24', 'https://elearnningcontent.blob.core.windows.net/elearnningcontent/', 'Read from the contents page of each linked Ministry student book; cover checked for Ministry branding, grade, and academic year.');
 insert into public.grade_labels (curriculum_code, grade, label) values
   ('eg-moe-textbooks', 2, 'Primary 2'),
   ('eg-moe-textbooks', 3, 'Primary 3'),
@@ -310,6 +310,122 @@ insert into public.grade_labels (curriculum_code, grade, label) values
   ('eg-moe-textbooks', 6, 'Primary 6'),
   ('eg-moe-textbooks', 7, 'Preparatory 1'),
   ('eg-moe-textbooks', 8, 'Preparatory 2');
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe-textbooks', 'arabic', 2, 2, 'Arabic Language (اللغة العربية), Primary 2, Term 2', 2, '2025/2026', 'https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary2/Term2/StudentBook/Arabic_Prim2_T2.pdf') returning id)
+insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
+select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
+    (1, 'AR2-T2-U1-L1', 'الوحدة الأولى: أحب من حولي', 'لوحتي', 'My Painting (listening)'),
+    (2, 'AR2-T2-U1-L2-R', 'الوحدة الأولى: أحب من حولي', 'زارتني فراشة', 'A Butterfly Visited Me (reading)'),
+    (3, 'AR2-T2-U1-L2-G', 'الوحدة الأولى: أحب من حولي', 'ضمائر الغائب', 'Third-person pronouns (styles and structures)'),
+    (4, 'AR2-T2-U1-L2-S', 'الوحدة الأولى: أحب من حولي', 'التاء المربوطة والتاء المفتوحة', 'Tied ta'' (ta marbuta) and open ta'' (spelling)'),
+    (5, 'AR2-T2-U1-L2-W', 'الوحدة الأولى: أحب من حولي', 'كتابة لافتة', 'Writing a sign'),
+    (6, 'AR2-T2-U1-L3-R', 'الوحدة الأولى: أحب من حولي', 'القطة والمطر', 'The Cat and the Rain (reading)'),
+    (7, 'AR2-T2-U1-L3-G', 'الوحدة الأولى: أحب من حولي', 'أسلوب النداء', 'The vocative style'),
+    (8, 'AR2-T2-U1-L4', 'الوحدة الأولى: أحب من حولي', 'بالفرشاة والألوان', 'With the Brush and Colours (song/poem)'),
+    (9, 'AR2-T2-U2-L1', 'الوحدة الثانية: في مدرستي', 'الماء نعمة', 'Water Is a Blessing (listening)'),
+    (10, 'AR2-T2-U2-L2-R', 'الوحدة الثانية: في مدرستي', 'ابحثوا معي', 'Search with Me (reading)'),
+    (11, 'AR2-T2-U2-L2-G', 'الوحدة الثانية: في مدرستي', 'أسلوب التعجب', 'The exclamation style'),
+    (12, 'AR2-T2-U2-L2-S', 'الوحدة الثانية: في مدرستي', 'الشدة مع التنوين', 'Shadda with tanween (spelling)'),
+    (13, 'AR2-T2-U2-L2-W', 'الوحدة الثانية: في مدرستي', 'كتابة وصف سلوك', 'Writing a description of a behaviour'),
+    (14, 'AR2-T2-U2-L3-R', 'الوحدة الثانية: في مدرستي', 'السادس من أكتوبر', 'The Sixth of October (reading)'),
+    (15, 'AR2-T2-U2-L3-G', 'الوحدة الثانية: في مدرستي', 'أسلوب الاستفهام (أين - متى - كيف - لماذا)', 'The interrogative style (where, when, how, why)'),
+    (16, 'AR2-T2-U2-L4', 'الوحدة الثانية: في مدرستي', 'جيشي بطل', 'My Army Is a Hero (song/poem)'),
+    (17, 'AR2-T2-U3-L1', 'الوحدة الثالثة: أماكن جميلة', 'في الحديقة', 'In the Garden (listening)'),
+    (18, 'AR2-T2-U3-L2-R', 'الوحدة الثالثة: أماكن جميلة', 'رحلة لحديقة الحيوان', 'A Trip to the Zoo (reading)'),
+    (19, 'AR2-T2-U3-L2-G', 'الوحدة الثالثة: أماكن جميلة', 'حروف الجر (من - إلى - في)', 'Prepositions (from, to, in)'),
+    (20, 'AR2-T2-U3-L3-R', 'الوحدة الثالثة: أماكن جميلة', 'عش جميل', 'A Beautiful Nest (reading)'),
+    (21, 'AR2-T2-U3-L3-G', 'الوحدة الثالثة: أماكن جميلة', 'حروف العطف (و - أو)', 'Conjunctions (and, or)'),
+    (22, 'AR2-T2-U3-L4', 'الوحدة الثالثة: أماكن جميلة', 'رأيت في الحديقة', 'I Saw in the Garden (song/poem)')
+  ) as v(ordinal, code, strand, title, title_en);
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe-textbooks', 'discover', 2, 2, 'Discover (اكتشف), Primary 2', NULL, '2025/2026', 'https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary2/Term2/StudentBook/Discovery_AR_prim2_TR1_2.pdf') returning id)
+insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
+select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
+    (1, 'D2-A1-C1', 'المحور الأول: من أكون؟ | Term 1', 'يوم في حياتي', 'A Day in My Life'),
+    (2, 'D2-A1-C2', 'المحور الأول: من أكون؟ | Term 1', 'أعتني بنفسي', 'I Take Care of Myself'),
+    (3, 'D2-A1-C3', 'المحور الأول: من أكون؟ | Term 1', 'عندما أكبر', 'When I Grow Up'),
+    (4, 'D2-A2-C1', 'المحور الثاني: العالم من حولي | Term 1', 'ماذا ترى في السماء ليلاً', 'What Do You See in the Sky at Night'),
+    (5, 'D2-A2-C2', 'المحور الثاني: العالم من حولي | Term 1', 'أساعد بيئتي الطبيعية', 'I Help My Natural Environment'),
+    (6, 'D2-A2-C3', 'المحور الثاني: العالم من حولي | Term 1', 'تصميمات تذكارية', 'Commemorative Designs'),
+    (7, 'D2-A3-C1', 'المحور الثالث: كيف يعمل العالم؟ | Term 2', 'النيل الذي أعرفه', 'The Nile I Know'),
+    (8, 'D2-A3-C2', 'المحور الثالث: كيف يعمل العالم؟ | Term 2', 'المُدن والسُّكان على ضفاف النيل', 'Cities and Population on the Banks of the Nile'),
+    (9, 'D2-A3-C3', 'المحور الثالث: كيف يعمل العالم؟ | Term 2', 'الحياة على ضفاف النيل', 'Life on the Banks of the Nile'),
+    (10, 'D2-A4-C1', 'المحور الرابع: التواصل | Term 2', 'التواصل في مجتمعنا', 'Communication in Our Community'),
+    (11, 'D2-A4-C2', 'المحور الرابع: التواصل | Term 2', 'التعبير عن الثقافات', 'Expressing Cultures'),
+    (12, 'D2-A4-C3', 'المحور الرابع: التواصل | Term 2', 'أدوات التواصل', 'Communication Tools')
+  ) as v(ordinal, code, strand, title, title_en);
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe-textbooks', 'religion-christian', 2, 2, 'Christian Religious Education (التربية المسيحية), Primary 2, Term 2', 2, '2025/2026', 'https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary2/Term2/StudentBook/CH_Prim2_T2_.pdf') returning id)
+insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
+select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
+    (1, 'RC2-T2-U1-L1', 'الوحدة الأولى: الرب راعي', 'العقيدة: قوَّة كلمة الله', 'Doctrine: The power of the word of God'),
+    (2, 'RC2-T2-U1-L2', 'الوحدة الأولى: الرب راعي', 'المحفوظات: (صلاة الشكر جزء ٤) - (بعض الآيات الذهبية)', 'Memorisation: (Prayer of Thanksgiving, part 4) - (Some golden verses)'),
+    (3, 'RC2-T2-U1-L3', 'الوحدة الأولى: الرب راعي', 'العبادة: مَلاكي الحارِس', 'Worship: My guardian angel'),
+    (4, 'RC2-T2-U1-L4', 'الوحدة الأولى: الرب راعي', 'شخصيات كتابية: أبينا يعقوب – التَّوأمان', 'Biblical figures: Our father Jacob - The twins'),
+    (5, 'RC2-T2-U1-L5', 'الوحدة الأولى: الرب راعي', 'شخصيات تاريخية: القديسة بربارة والقديسة يوليانا', 'Historical figures: Saint Barbara and Saint Juliana'),
+    (6, 'RC2-T2-U1-L6', 'الوحدة الأولى: الرب راعي', 'القيم والأخلاق: آدابُ الكَنيسَة – الأَصدِقاءُ الثَّلاثَة', 'Values and ethics: Church etiquette - The three friends'),
+    (7, 'RC2-T2-U2-L1', 'الوحدة الثانية: الرب قريب', 'العقيدة: مَعْجِزَةُ صيد السمك', 'Doctrine: The miracle of the catch of fish'),
+    (8, 'RC2-T2-U2-L2', 'الوحدة الثانية: الرب قريب', 'المحفوظات: (مرقس ١٠ : ١٣-١٦) - صلاة - (بعض الآيات الذهبية)', 'Memorisation: (Mark 10:13-16) - A prayer - (Some golden verses)'),
+    (9, 'RC2-T2-U2-L3', 'الوحدة الثانية: الرب قريب', 'العبادة: الكنيسة تصلي من أجل بطرس الرسول', 'Worship: The Church prays for Peter the Apostle'),
+    (10, 'RC2-T2-U2-L4', 'الوحدة الثانية: الرب قريب', 'شخصيات كتابية: أَبينا يَعقوب - صِراعٌ مَعَ الله', 'Biblical figures: Our father Jacob - Wrestling with God'),
+    (11, 'RC2-T2-U2-L5', 'الوحدة الثانية: الرب قريب', 'شخصيات تاريخية: القديس مارمينا', 'Historical figures: Saint Mina (Mar Mina)'),
+    (12, 'RC2-T2-U2-L6', 'الوحدة الثانية: الرب قريب', 'القيم والأخلاق: الصَّبْر - الأنبا أَنْطونيوس فِي البَرِّيَّة', 'Values and ethics: Patience - Anba Antony in the wilderness'),
+    (13, 'RC2-T2-U3-L1', 'الوحدة الثالثة: الرب يسمعنا', 'العقيدة: انتهار الريح', 'Doctrine: Rebuking the wind'),
+    (14, 'RC2-T2-U3-L2', 'الوحدة الثالثة: الرب يسمعنا', 'المحفوظات: (صلاة قبل وبعد تناول الطعام) - (بعض الآيات الذهبية)', 'Memorisation: (Prayer before and after eating) - (Some golden verses)'),
+    (15, 'RC2-T2-U3-L3', 'الوحدة الثالثة: الرب يسمعنا', 'العبادة: تيموثاوس يكرز بالانجيل', 'Worship: Timothy preaches the Gospel'),
+    (16, 'RC2-T2-U3-L4', 'الوحدة الثالثة: الرب يسمعنا', 'شخصيات كتابية: يعقوب : العودة إلى أبيه', 'Biblical figures: Jacob: The return to his father'),
+    (17, 'RC2-T2-U3-L5', 'الوحدة الثالثة: الرب يسمعنا', 'شخصيات تاريخية: طابيثا', 'Historical figures: Tabitha'),
+    (18, 'RC2-T2-U3-L6', 'الوحدة الثالثة: الرب يسمعنا', 'القيم والأخلاق: الصلاة من اجل الأخرين - بولس وسيلا في السجن', 'Values and ethics: Praying for others - Paul and Silas in prison')
+  ) as v(ordinal, code, strand, title, title_en);
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe-textbooks', 'religion-islamic', 2, 2, 'Islamic Religious Education (التربية الإسلامية), Primary 2, Term 2', 2, '2025/2026', 'https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary2/Term2/StudentBook/islamic_prim2_tr2.pdf') returning id)
+insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
+select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
+    (1, 'RI2-T2-U1-L1', 'الوحدة الأولى: الصلاة عماد الدين', 'اللَّه تعالى (العليم)', '[Doctrine] God the Exalted (Al-Alim, the All-Knowing)'),
+    (2, 'RI2-T2-U1-L2', 'الوحدة الأولى: الصلاة عماد الدين', 'سورة الليل (تلاوة وحفظ وتفسير)', '[Quran and tafsir] Surat Al-Layl (recitation, memorisation and explanation)'),
+    (3, 'RI2-T2-U1-L3', 'الوحدة الأولى: الصلاة عماد الدين', 'من سور التلاوة والحفظ (سورة الشمس)', '[Quran and tafsir] From the surahs for recitation and memorisation (Surat Ash-Shams)'),
+    (4, 'RI2-T2-U1-L4', 'الوحدة الأولى: الصلاة عماد الدين', 'كيف أصلي؟', '[Acts of worship] How do I pray?'),
+    (5, 'RI2-T2-U1-L5', 'الوحدة الأولى: الصلاة عماد الدين', 'أساليب قريش في محاربة الدعوة', '[Seerah and figures] The methods of Quraysh in opposing the call (to Islam)'),
+    (6, 'RI2-T2-U1-L6', 'الوحدة الأولى: الصلاة عماد الدين', 'نبيٌّ وملِكٌ ومعجزات عظيمة', '[Seerah and figures] A prophet, a king, and great miracles'),
+    (7, 'RI2-T2-U1-L7', 'الوحدة الأولى: الصلاة عماد الدين', 'آداب المسجد', '[Values and morals] Etiquette of the mosque'),
+    (8, 'RI2-T2-U2-L1', 'الوحدة الثانية: الصبر خُلُق الأنبياء والصالحين', 'اللَّه تعالى (العظيم)', '[Doctrine] God the Exalted (Al-Azim, the Magnificent)'),
+    (9, 'RI2-T2-U2-L2', 'الوحدة الثانية: الصبر خُلُق الأنبياء والصالحين', 'سورة (البلد) تلاوة وحفظ وتفسير أول (٥) آيات', '[Quran and tafsir] Surat Al-Balad: recitation, memorisation and explanation of the first 5 verses'),
+    (10, 'RI2-T2-U2-L3', 'الوحدة الثانية: الصبر خُلُق الأنبياء والصالحين', 'سورة (البلد) تلاوة وحفظ الآيات (٦ - ٢٠)', '[Quran and tafsir] Surat Al-Balad: recitation and memorisation of verses 6-20'),
+    (11, 'RI2-T2-U2-L4', 'الوحدة الثانية: الصبر خُلُق الأنبياء والصالحين', 'صلاة الجماعة', '[Acts of worship] Congregational prayer'),
+    (12, 'RI2-T2-U2-L5', 'الوحدة الثانية: الصبر خُلُق الأنبياء والصالحين', 'الهجرة إلى الحبشة', '[Seerah and figures] The migration to Abyssinia'),
+    (13, 'RI2-T2-U2-L6', 'الوحدة الثانية: الصبر خُلُق الأنبياء والصالحين', 'سيدنا أيوب عليه السلام', '[Seerah and figures] Prophet Ayyub (Job), peace be upon him'),
+    (14, 'RI2-T2-U2-L7', 'الوحدة الثانية: الصبر خُلُق الأنبياء والصالحين', 'الصبر', '[Values and morals] Patience'),
+    (15, 'RI2-T2-U3-L1', 'الوحدة الثالثة: الدعاء عبادة', 'اللَّه تعالى (الغفَّار)', '[Doctrine] God the Exalted (Al-Ghaffar, the Ever-Forgiving)'),
+    (16, 'RI2-T2-U3-L2', 'الوحدة الثالثة: الدعاء عبادة', 'سورة (الفجر) تلاوة وحفظ وتفسير أول ٥ آيات', '[Quran and tafsir] Surat Al-Fajr: recitation, memorisation and explanation of the first 5 verses'),
+    (17, 'RI2-T2-U3-L3', 'الوحدة الثالثة: الدعاء عبادة', 'سورة (الفجر) تلاوة وحفظ الآيات (٦ - ٣٠)', '[Quran and tafsir] Surat Al-Fajr: recitation and memorisation of verses 6-30'),
+    (18, 'RI2-T2-U3-L4', 'الوحدة الثالثة: الدعاء عبادة', 'صلاة السنن الرواتب', '[Acts of worship] The regular Sunnah prayers (as-sunan ar-rawatib)'),
+    (19, 'RI2-T2-U3-L5', 'الوحدة الثالثة: الدعاء عبادة', 'المقاطعة ورحلة الرسول ﷺ إلى الطائف', '[Seerah and figures] The boycott and the Messenger''s (peace be upon him) journey to Ta''if'),
+    (20, 'RI2-T2-U3-L6', 'الوحدة الثالثة: الدعاء عبادة', 'سيدنا يونس عليه السلام', '[Seerah and figures] Prophet Yunus (Jonah), peace be upon him'),
+    (21, 'RI2-T2-U3-L7', 'الوحدة الثالثة: الدعاء عبادة', 'الدعاء', '[Values and morals] Supplication (du''a)')
+  ) as v(ordinal, code, strand, title, title_en);
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe-textbooks', 'arabic', 3, 3, 'Arabic Language (اللغة العربية), Primary 3, Term 2', 2, '2025/2026', 'https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary3/Term2/StudentBook/Arabic_Prim3_TR2.pdf') returning id)
+insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
+select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
+    (1, 'AR3-T2-U1-L1', 'الوحدة الأولى: قصص من بلادي', 'قرية الجمال', 'The Village of Beauty (listening)'),
+    (2, 'AR3-T2-U1-L2-R', 'الوحدة الأولى: قصص من بلادي', 'للمساعدة قواعد', 'Helping Has Rules (reading)'),
+    (3, 'AR3-T2-U1-L2-G', 'الوحدة الأولى: قصص من بلادي', 'أنواع الجمع', 'Types of plural'),
+    (4, 'AR3-T2-U1-L2-S', 'الوحدة الأولى: قصص من بلادي', 'من علامات الترقيم (النقطة - علامة التعجب - علامة الاستفهام)', 'Some punctuation marks (full stop, exclamation mark, question mark)'),
+    (5, 'AR3-T2-U1-L2-W', 'الوحدة الأولى: قصص من بلادي', 'كتابة قصة قصيرة', 'Writing a short story'),
+    (6, 'AR3-T2-U1-L3-R', 'الوحدة الأولى: قصص من بلادي', 'حكاية صورة', 'The Story of a Picture (reading)'),
+    (7, 'AR3-T2-U1-L3-G', 'الوحدة الأولى: قصص من بلادي', 'أنواع الكلمة (اسم - فعل - حرف)', 'Types of word (noun, verb, particle)'),
+    (8, 'AR3-T2-U1-L4', 'الوحدة الأولى: قصص من بلادي', 'أنا أساعد', 'I Help (song/poem)'),
+    (9, 'AR3-T2-U2-L1', 'الوحدة الثانية: أخلاق جميلة', 'نظارة مختار الجديدة', 'Mukhtar''s New Glasses (listening)'),
+    (10, 'AR3-T2-U2-L2-R', 'الوحدة الثانية: أخلاق جميلة', 'يوم أصدقاء البيئة', 'Friends of the Environment Day (reading)'),
+    (11, 'AR3-T2-U2-L2-G', 'الوحدة الثانية: أخلاق جميلة', 'أنواع الفعل', 'Types of verb'),
+    (12, 'AR3-T2-U2-L2-S', 'الوحدة الثانية: أخلاق جميلة', 'الهمزة المتطرفة بعد المد', 'Final hamza after a long vowel (spelling)'),
+    (13, 'AR3-T2-U2-L2-W', 'الوحدة الثانية: أخلاق جميلة', 'كتابة فقرة', 'Writing a paragraph'),
+    (14, 'AR3-T2-U2-L3-R', 'الوحدة الثانية: أخلاق جميلة', 'مع جدي وجدتي', 'With My Grandfather and Grandmother (reading)'),
+    (15, 'AR3-T2-U2-L3-G', 'الوحدة الثانية: أخلاق جميلة', 'الماضي والمضارع والأمر مع المذكر والمؤنث', 'Past, present and imperative verbs with masculine and feminine'),
+    (16, 'AR3-T2-U2-L4', 'الوحدة الثانية: أخلاق جميلة', 'أجمل الصفات', 'The Finest Qualities (song/poem)'),
+    (17, 'AR3-T2-U3-L1', 'الوحدة الثالثة: كل منا له دور', 'مشروعي مع أصدقائي', 'My Project with My Friends (listening)'),
+    (18, 'AR3-T2-U3-L2-R', 'الوحدة الثالثة: كل منا له دور', 'أنا مسئولة', 'I Am Responsible (reading)'),
+    (19, 'AR3-T2-U3-L2-G', 'الوحدة الثالثة: كل منا له دور', 'الجملة الاسمية والجملة الفعلية', 'The nominal sentence and the verbal sentence'),
+    (20, 'AR3-T2-U3-L2-S', 'الوحدة الثالثة: كل منا له دور', 'المقاطع الصوتية', 'Syllables (spelling)'),
+    (21, 'AR3-T2-U3-L3-R', 'الوحدة الثالثة: كل منا له دور', 'شكرًا معلمي.. شكرًا معلمتي', 'Thank You, My Teacher (reading)'),
+    (22, 'AR3-T2-U3-L3-G', 'الوحدة الثالثة: كل منا له دور', 'الأسماء الموصولة', 'Relative pronouns'),
+    (23, 'AR3-T2-U3-L4', 'الوحدة الثالثة: كل منا له دور', 'أبني وطني', 'I Build My Homeland (song/poem)')
+  ) as v(ordinal, code, strand, title, title_en);
 with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe-textbooks', 'discover', 3, 3, 'Discover (اكتشف), Primary 3', NULL, '2025/2026', 'https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary3/Term1/StudentBook/Discovery_AR_prim3_TR1_2.pdf') returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
@@ -325,6 +441,104 @@ select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (10, 'D3-A4-C1', 'المحور الرابع: التواصل (الروابط) | Term 2', 'الربط بين القوى', 'Connecting forces'),
     (11, 'D3-A4-C2', 'المحور الرابع: التواصل (الروابط) | Term 2', 'التواصل بين البشر', 'Communication between people'),
     (12, 'D3-A4-C3', 'المحور الرابع: التواصل (الروابط) | Term 2', 'التواصل الاجتماعي', 'Social communication')
+  ) as v(ordinal, code, strand, title, title_en);
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe-textbooks', 'religion-islamic', 3, 3, 'Islamic Religious Education (التربية الإسلامية), Primary 3, Term 2', 2, '2025/2026', 'https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary3/Term2/StudentBook/Islamic_prim3_Tr2.pdf') returning id)
+insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
+select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
+    (1, 'RI3-T2-U1-L1', 'الوحدة الأولى: العدل خُلُق المؤمن', 'أثر الإيمان باللَّه (تعالى)', '[Doctrine] The effect of faith in God (the Exalted)'),
+    (2, 'RI3-T2-U1-L2', 'الوحدة الأولى: العدل خُلُق المؤمن', 'سورة البروج (تلاوة وحفظ وتفسير)', '[Quran and tafsir] Surat Al-Buruj (recitation, memorisation and explanation)'),
+    (3, 'RI3-T2-U1-L3', 'الوحدة الأولى: العدل خُلُق المؤمن', 'آية الكرسي ( تلاوة وحفظ وتفسير)', '[Quran and tafsir] Ayat Al-Kursi, the Throne Verse (recitation, memorisation and explanation)'),
+    (4, 'RI3-T2-U1-L4', 'الوحدة الأولى: العدل خُلُق المؤمن', 'صلاة الاستخارة', '[Acts of worship] The prayer of seeking guidance (Salat al-Istikhara)'),
+    (5, 'RI3-T2-U1-L5', 'الوحدة الأولى: العدل خُلُق المؤمن', 'بيعة العقبة الأولى', '[Seerah and figures] The First Pledge of Al-Aqabah'),
+    (6, 'RI3-T2-U1-L6', 'الوحدة الأولى: العدل خُلُق المؤمن', 'عمر بن الخطاب رضي الله عنه', '[Seerah and figures] Umar ibn Al-Khattab, may God be pleased with him'),
+    (7, 'RI3-T2-U1-L7', 'الوحدة الأولى: العدل خُلُق المؤمن', 'العدل', '[Values and morals] Justice'),
+    (8, 'RI3-T2-U2-L1', 'الوحدة الثانية: نعمة الماء', 'الإيمان بالملائكة', '[Doctrine] Belief in the angels'),
+    (9, 'RI3-T2-U2-L2', 'الوحدة الثانية: نعمة الماء', 'سورة الانشقاق (تلاوة وحفظ وتفسير)', '[Quran and tafsir] Surat Al-Inshiqaq (recitation, memorisation and explanation)'),
+    (10, 'RI3-T2-U2-L3', 'الوحدة الثانية: نعمة الماء', 'خواتيم سورة البقرة (تلاوة وحفظ وتفسير)', '[Quran and tafsir] The closing verses of Surat Al-Baqarah (recitation, memorisation and explanation)'),
+    (11, 'RI3-T2-U2-L4', 'الوحدة الثانية: نعمة الماء', 'صلاة الاستسقاء', '[Acts of worship] The prayer for rain (Salat al-Istisqa)'),
+    (12, 'RI3-T2-U2-L5', 'الوحدة الثانية: نعمة الماء', 'بيعة العقبة الثانية', '[Seerah and figures] The Second Pledge of Al-Aqabah'),
+    (13, 'RI3-T2-U2-L6', 'الوحدة الثانية: نعمة الماء', 'سعد بن عبادة رضي الله عنه', '[Seerah and figures] Sa''d ibn Ubadah, may God be pleased with him'),
+    (14, 'RI3-T2-U2-L7', 'الوحدة الثانية: نعمة الماء', 'تقدير قطرة الماء', '[Values and morals] Valuing every drop of water'),
+    (15, 'RI3-T2-U3-L1', 'الوحدة الثالثة: إيمان وتضحية', 'وظيفة الملائكة', '[Doctrine] The role of the angels'),
+    (16, 'RI3-T2-U3-L2', 'الوحدة الثالثة: إيمان وتضحية', 'سورة المطففين (تلاوة وحفظ، وتفسير الآيات ١ : ٦)', '[Quran and tafsir] Surat Al-Mutaffifin (recitation and memorisation, and explanation of verses 1-6)'),
+    (17, 'RI3-T2-U3-L3', 'الوحدة الثالثة: إيمان وتضحية', 'الذِّكْر', '[Acts of worship] Remembrance of God (dhikr)'),
+    (18, 'RI3-T2-U3-L4', 'الوحدة الثالثة: إيمان وتضحية', 'هجرة النبي ﷺ إلى المدينة المنورة', '[Seerah and figures] The Prophet''s (peace be upon him) migration to Al-Madinah Al-Munawwarah'),
+    (19, 'RI3-T2-U3-L5', 'الوحدة الثالثة: إيمان وتضحية', 'أسماء بنت أبي بكر رضي الله عنهما', '[Seerah and figures] Asma bint Abi Bakr, may God be pleased with them both'),
+    (20, 'RI3-T2-U3-L6', 'الوحدة الثالثة: إيمان وتضحية', 'المساواة وعدم التمييز', '[Values and morals] Equality and non-discrimination')
+  ) as v(ordinal, code, strand, title, title_en);
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe-textbooks', 'arabic', 4, 4, 'Arabic Language (اللغة العربية), Primary 4, Term 2', 2, '2025/2026', 'https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary4/Term2/StudentBook/Arabic_prim4_TR2.pdf') returning id)
+insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
+select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
+    (1, 'AR4-T2-U1-L1', 'الوحدة الأولى: أخلاقي تصنع عالمي', 'نافذة الصداقة', 'The Window of Friendship (listening)'),
+    (2, 'AR4-T2-U1-L2-R', 'الوحدة الأولى: أخلاقي تصنع عالمي', 'هل فكرت قبل أن تنشر؟', 'Did You Think Before You Posted? (reading)'),
+    (3, 'AR4-T2-U1-L2-S', 'الوحدة الأولى: أخلاقي تصنع عالمي', 'الألف اللينة في الحروف', 'Soft alif (alif layyina) in particles (spelling)'),
+    (4, 'AR4-T2-U1-L2-W', 'الوحدة الأولى: أخلاقي تصنع عالمي', 'كتابة وصف حدث', 'Writing a description of an event'),
+    (5, 'AR4-T2-U1-L3-R', 'الوحدة الأولى: أخلاقي تصنع عالمي', 'كلمات تبني وكلمات تهدم', 'Words That Build and Words That Destroy (reading)'),
+    (6, 'AR4-T2-U1-L3-G', 'الوحدة الأولى: أخلاقي تصنع عالمي', 'الجملة الفعلية (الفعل - الفاعل)', 'The verbal sentence (verb, subject)'),
+    (7, 'AR4-T2-U1-L4', 'الوحدة الأولى: أخلاقي تصنع عالمي', 'مصر لنا منذ القدم', 'Egypt Has Been Ours Since Ancient Times (poetic text)'),
+    (8, 'AR4-T2-U2-L1', 'الوحدة الثانية: أحلم وأخطط', 'مصنع الأحلام', 'The Dream Factory (listening)'),
+    (9, 'AR4-T2-U2-L2-R', 'الوحدة الثانية: أحلم وأخطط', 'مدينة تُبنَى بالحلم', 'A City Built by a Dream (reading)'),
+    (10, 'AR4-T2-U2-L2-G', 'الوحدة الثانية: أحلم وأخطط', 'الفاعل (المفرد - جمع التكسير - جمع المؤنث السالم)', 'The subject (singular, broken plural, sound feminine plural)'),
+    (11, 'AR4-T2-U2-L2-S', 'الوحدة الثانية: أحلم وأخطط', 'الألف اللينة في الأسماء', 'Soft alif in nouns (spelling)'),
+    (12, 'AR4-T2-U2-L2-W', 'الوحدة الثانية: أحلم وأخطط', 'كتابة وصف مكان', 'Writing a description of a place'),
+    (13, 'AR4-T2-U2-L3-R', 'الوحدة الثانية: أحلم وأخطط', 'المحيطات تتحدث إلينا', 'The Oceans Speak to Us (reading)'),
+    (14, 'AR4-T2-U2-L3-G', 'الوحدة الثانية: أحلم وأخطط', 'الفاعل (المثنى - جمع المذكر السالم)', 'The subject (dual, sound masculine plural)'),
+    (15, 'AR4-T2-U2-L4', 'الوحدة الثانية: أحلم وأخطط', 'العلم طريق النجاح', 'Knowledge Is the Path to Success (poetic text)'),
+    (16, 'AR4-T2-U3-L1', 'الوحدة الثالثة: نعيش في سلام', 'مساحتي الشخصية', 'My Personal Space (listening)'),
+    (17, 'AR4-T2-U3-L2-R', 'الوحدة الثالثة: نعيش في سلام', 'مملكة اللون الواحد', 'The Kingdom of One Colour (reading)'),
+    (18, 'AR4-T2-U3-L2-G', 'الوحدة الثالثة: نعيش في سلام', 'إفراد الفعل مع فاعله (المفرد - المثنى - الجمع)', 'Keeping the verb singular with its subject (singular, dual, plural)'),
+    (19, 'AR4-T2-U3-L2-S', 'الوحدة الثالثة: نعيش في سلام', 'الألف اللينة في الأفعال', 'Soft alif in verbs (spelling)'),
+    (20, 'AR4-T2-U3-L3-R', 'الوحدة الثالثة: نعيش في سلام', 'هل وزعت السعادة على الآخرين اليوم؟', 'Did You Share Happiness with Others Today? (reading)'),
+    (21, 'AR4-T2-U3-L3-G', 'الوحدة الثالثة: نعيش في سلام', 'الضمائر', 'Pronouns'),
+    (22, 'AR4-T2-U3-L3-G2', 'الوحدة الثالثة: نعيش في سلام', 'الفاعل الضمير', 'The pronoun as subject'),
+    (23, 'AR4-T2-U3-L4', 'الوحدة الثالثة: نعيش في سلام', 'للجميع', 'For Everyone (poetic text)')
+  ) as v(ordinal, code, strand, title, title_en);
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe-textbooks', 'religion-christian', 4, 4, 'Christian Religious Education (التربية المسيحية), Primary 4, Term 2', 2, '2025/2026', 'https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary4/Term2/StudentBook/CH_Prim4_T2_.pdf') returning id)
+insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
+select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
+    (1, 'RC4-T2-U1-L1', 'الوحدة الأولى: الطاعة والشكر', 'العقيدة: اسحق رمز للسيد المسيح', 'Doctrine: Isaac, a symbol of the Lord Christ'),
+    (2, 'RC4-T2-U1-L2', 'الوحدة الأولى: الطاعة والشكر', 'المحفوظات: ( يوحنا ١٤ : ٢٦ - ٣١ ) - بعض الآيات الذهبية', 'Memorisation: (John 14:26-31) - Some golden verses'),
+    (3, 'RC4-T2-U1-L3', 'الوحدة الأولى: الطاعة والشكر', 'العبادة: المنّ والصخرة', 'Worship: The manna and the rock'),
+    (4, 'RC4-T2-U1-L4', 'الوحدة الأولى: الطاعة والشكر', 'شخصيات كتابية: راعوث', 'Biblical figures: Ruth'),
+    (5, 'RC4-T2-U1-L5', 'الوحدة الأولى: الطاعة والشكر', 'شخصيات تاريخية: البابا كيرلس الرابع – أبو الإصلاح', 'Historical figures: Pope Cyril IV - Father of Reform'),
+    (6, 'RC4-T2-U1-L6', 'الوحدة الأولى: الطاعة والشكر', 'القيم والأخلاق: الحيَّة النُّحاسيَّة – الشُّكر وعدم التَّذمُّر', 'Values and ethics: The bronze serpent - Thankfulness and not grumbling'),
+    (7, 'RC4-T2-U2-L1', 'الوحدة الثانية: الإيمان والقدوة', 'العقيدة: رموز الفداء في العهد القديم – خروف الفصح', 'Doctrine: Symbols of redemption in the Old Testament - The Passover lamb'),
+    (8, 'RC4-T2-U2-L2', 'الوحدة الثانية: الإيمان والقدوة', 'المحفوظات: ( لوقا ٩ : ١٠ - ١٧ ) - بعض الآيات الذهبية', 'Memorisation: (Luke 9:10-17) - Some golden verses'),
+    (9, 'RC4-T2-U2-L3', 'الوحدة الثانية: الإيمان والقدوة', 'العبادة: التناول - خميس العهد', 'Worship: Communion - Covenant Thursday (Maundy Thursday)'),
+    (10, 'RC4-T2-U2-L4', 'الوحدة الثانية: الإيمان والقدوة', 'شخصيات كتابية: صموئيل النّبيّ', 'Biblical figures: Samuel the prophet'),
+    (11, 'RC4-T2-U2-L5', 'الوحدة الثانية: الإيمان والقدوة', 'شخصيات تاريخية: الأنبا شَنُودَة رَئِيسُ المُتَوَحِّدِينَ', 'Historical figures: Anba Shenouda, head of the solitaries (the Archimandrite)'),
+    (12, 'RC4-T2-U2-L6', 'الوحدة الثانية: الإيمان والقدوة', 'القيم والأخلاق: الاستعانةُ بالله – بطرسُ يَمشي على الماءِ', 'Values and ethics: Seeking God''s help - Peter walks on water'),
+    (13, 'RC4-T2-U3-L1', 'الوحدة الثالثة: التضحية والعطاء', 'العقيدة: صَلْبُ الرَّبِّ يَسُوع', 'Doctrine: The crucifixion of the Lord Jesus'),
+    (14, 'RC4-T2-U3-L2', 'الوحدة الثالثة: التضحية والعطاء', 'المحفوظات: ( متى ٢٧ : ٥٠ - ٥٤ ) - كلمات السيد المسيح على الصليب - بعض الآيات الذهبية', 'Memorisation: (Matthew 27:50-54) - The words of the Lord Christ on the cross - Some golden verses'),
+    (15, 'RC4-T2-U3-L3', 'الوحدة الثالثة: التضحية والعطاء', 'العبادة: الصلاة – حَرْبُ عَمَالِيقَ', 'Worship: Prayer - The battle with Amalek'),
+    (16, 'RC4-T2-U3-L4', 'الوحدة الثالثة: التضحية والعطاء', 'شخصيات كتابية: شاولُ المَلِكُ', 'Biblical figures: King Saul'),
+    (17, 'RC4-T2-U3-L5', 'الوحدة الثالثة: التضحية والعطاء', 'شخصيات تاريخية: القديسة دميانة', 'Historical figures: Saint Demiana'),
+    (18, 'RC4-T2-U3-L6', 'الوحدة الثالثة: التضحية والعطاء', 'القيم والأخلاق: حب الوطن - أقباط في حب الوطن', 'Values and ethics: Love of the homeland - Copts in love of the homeland')
+  ) as v(ordinal, code, strand, title, title_en);
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe-textbooks', 'religion-islamic', 4, 4, 'Islamic Religious Education (التربية الإسلامية), Primary 4, Term 2', 2, '2025/2026', 'https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary4/Term2/StudentBook/Islamic_prim4_TR2.pdf') returning id)
+insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
+select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
+    (1, 'RI4-T2-U1-L1', 'الوحدة الأولى: الشُّكرُ للَّهِ عَلَى نِعَمِهِ', 'من معجزات الرسل', '[Doctrine] Some of the miracles of the messengers'),
+    (2, 'RI4-T2-U1-L2', 'الوحدة الأولى: الشُّكرُ للَّهِ عَلَى نِعَمِهِ', 'سورة النازعات (تلاوة وحفظ وتفسير)', '[Quran and tafsir] Surat An-Nazi''at (recitation, memorisation and explanation)'),
+    (3, 'RI4-T2-U1-L3', 'الوحدة الأولى: الشُّكرُ للَّهِ عَلَى نِعَمِهِ', 'من أحكام النون الساكنة والتنوين: الإدغام', '[Quran and tafsir] From the rules of the silent nun and tanween: Idgham (merging)'),
+    (4, 'RI4-T2-U1-L4', 'الوحدة الأولى: الشُّكرُ للَّهِ عَلَى نِعَمِهِ', 'الصدقة', '[Acts of worship] Voluntary charity (sadaqah)'),
+    (5, 'RI4-T2-U1-L5', 'الوحدة الأولى: الشُّكرُ للَّهِ عَلَى نِعَمِهِ', 'غزوة بدر الكبرى', '[Seerah and figures] The Great Battle of Badr'),
+    (6, 'RI4-T2-U1-L6', 'الوحدة الأولى: الشُّكرُ للَّهِ عَلَى نِعَمِهِ', 'علي بن أبي طالب رضي الله عنه', '[Seerah and figures] Ali ibn Abi Talib, may God be pleased with him'),
+    (7, 'RI4-T2-U1-L7', 'الوحدة الأولى: الشُّكرُ للَّهِ عَلَى نِعَمِهِ', 'الشكر', '[Values and morals] Gratitude'),
+    (8, 'RI4-T2-U2-L1', 'الوحدة الثانية: الاستعانةُ باللَّهِ (تعالى)', 'الرسول ﷺ خاتم الأنبياء والمرسلين', '[Doctrine] The Messenger (peace be upon him), the Seal of the Prophets and Messengers'),
+    (9, 'RI4-T2-U2-L2', 'الوحدة الثانية: الاستعانةُ باللَّهِ (تعالى)', 'سورة النبأ (تلاوة وحفظ وتفسير)', '[Quran and tafsir] Surat An-Naba (recitation, memorisation and explanation)'),
+    (10, 'RI4-T2-U2-L3', 'الوحدة الثانية: الاستعانةُ باللَّهِ (تعالى)', 'من أحكام النون الساكنة والتنوين: الإقلاب', '[Quran and tafsir] From the rules of the silent nun and tanween: Iqlab (conversion)'),
+    (11, 'RI4-T2-U2-L4', 'الوحدة الثانية: الاستعانةُ باللَّهِ (تعالى)', 'آداب الصدقة', '[Acts of worship] The etiquette of charity'),
+    (12, 'RI4-T2-U2-L5', 'الوحدة الثانية: الاستعانةُ باللَّهِ (تعالى)', 'غزوة أحد', '[Seerah and figures] The Battle of Uhud'),
+    (13, 'RI4-T2-U2-L6', 'الوحدة الثانية: الاستعانةُ باللَّهِ (تعالى)', 'حمزة بن عبد المطلب رضي الله عنه', '[Seerah and figures] Hamzah ibn Abd Al-Muttalib, may God be pleased with him'),
+    (14, 'RI4-T2-U2-L7', 'الوحدة الثانية: الاستعانةُ باللَّهِ (تعالى)', 'الاستعانة بالله', '[Values and morals] Seeking God''s help'),
+    (15, 'RI4-T2-U3-L1', 'الوحدة الثالثة: حُبُّ الوطنِ في حياةِ المُسلمِ', 'القرآن الكريم معجزة النبي ﷺ الخالدة', '[Doctrine] The Noble Quran, the everlasting miracle of the Prophet (peace be upon him)'),
+    (16, 'RI4-T2-U3-L2', 'الوحدة الثالثة: حُبُّ الوطنِ في حياةِ المُسلمِ', 'سورة المرسلات (تلاوة وحفظ وتفسير)', '[Quran and tafsir] Surat Al-Mursalat (recitation, memorisation and explanation)'),
+    (17, 'RI4-T2-U3-L3', 'الوحدة الثالثة: حُبُّ الوطنِ في حياةِ المُسلمِ', 'من أحكام النون الساكنة والتنوين: الإخفاء', '[Quran and tafsir] From the rules of the silent nun and tanween: Ikhfa (concealment)'),
+    (18, 'RI4-T2-U3-L4', 'الوحدة الثالثة: حُبُّ الوطنِ في حياةِ المُسلمِ', 'الفرق بين الزكاة والصدقة', '[Acts of worship] The difference between zakat and sadaqah'),
+    (19, 'RI4-T2-U3-L5', 'الوحدة الثالثة: حُبُّ الوطنِ في حياةِ المُسلمِ', 'غزوة الخندق (الأحزاب)', '[Seerah and figures] The Battle of the Trench (Al-Ahzab, the Confederates)'),
+    (20, 'RI4-T2-U3-L6', 'الوحدة الثالثة: حُبُّ الوطنِ في حياةِ المُسلمِ', 'سلمان الفارسي رضي الله عنه', '[Seerah and figures] Salman Al-Farisi, may God be pleased with him'),
+    (21, 'RI4-T2-U3-L7', 'الوحدة الثالثة: حُبُّ الوطنِ في حياةِ المُسلمِ', 'حب الوطن', '[Values and morals] Love of the homeland')
   ) as v(ordinal, code, strand, title, title_en);
 with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe-textbooks', 'arabic', 5, 5, 'Arabic Language (اللغة العربية), Primary 5, Term 1', 1, '2026/2027', 'https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026_2027/Primary/Primary5/Term1/StudentBook/Arabic_langugae_prim5_t1.pdf') returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
@@ -353,6 +567,79 @@ select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (22, 'AR5-T1-U3-L3-G', 'الوحدة الثالثة: جمال الاختلاف', 'القواعد النحوية: إعراب ظرفي الزمان والمكان', 'Grammar: parsing adverbs of time and place'),
     (23, 'AR5-T1-U3-L4', 'الوحدة الثالثة: جمال الاختلاف', 'النص الشعري: جمال التنوع', 'Poem: The beauty of diversity')
   ) as v(ordinal, code, strand, title, title_en);
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe-textbooks', 'arabic', 5, 5, 'Arabic Language (اللغة العربية), Primary 5, Term 2', 2, '2025/2026', 'https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary5/Term2/StudentBook/Arabic_prim5_TR2.pdf') returning id)
+insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
+select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
+    (1, 'AR5-T2-U1-L1', 'الوحدة الأولى: الاختيار والمسئولية', 'سطح ينير الحي', 'A Rooftop That Lights Up the Neighbourhood (listening)'),
+    (2, 'AR5-T2-U1-L2-R', 'الوحدة الأولى: الاختيار والمسئولية', 'أخلاقيات استخدام الإنترنت', 'Ethics of Internet Use (reading)'),
+    (3, 'AR5-T2-U1-L2-G', 'الوحدة الأولى: الاختيار والمسئولية', 'المفعول المطلق', 'The absolute object (maf''ul mutlaq)'),
+    (4, 'AR5-T2-U1-L2-S', 'الوحدة الأولى: الاختيار والمسئولية', 'الهمزة المتطرفة على الواو', 'Final hamza on waw (spelling)'),
+    (5, 'AR5-T2-U1-L2-W', 'الوحدة الأولى: الاختيار والمسئولية', 'كتابة لوحة إرشادية', 'Writing a guidance sign'),
+    (6, 'AR5-T2-U1-L3-R', 'الوحدة الأولى: الاختيار والمسئولية', 'أي الأنواع تُفضِّل؟', 'Which Kind Do You Prefer? (reading)'),
+    (7, 'AR5-T2-U1-L3-G', 'الوحدة الأولى: الاختيار والمسئولية', 'الاسم المجرور (المفرد - جمع التكسير - جمع المؤنث السالم)', 'The genitive noun (singular, broken plural, sound feminine plural)'),
+    (8, 'AR5-T2-U1-L4', 'الوحدة الأولى: الاختيار والمسئولية', 'الصحة عنوان الحياة', 'Health Is the Title of Life (poetic text)'),
+    (9, 'AR5-T2-U2-L1', 'الوحدة الثانية: أخلاقيات التواصل', 'مفاجأة لأختي', 'A Surprise for My Sister (listening)'),
+    (10, 'AR5-T2-U2-L2-R', 'الوحدة الثانية: أخلاقيات التواصل', 'هل أنت مستمع جيد؟', 'Are You a Good Listener? (reading)'),
+    (11, 'AR5-T2-U2-L2-G', 'الوحدة الثانية: أخلاقيات التواصل', 'الاسم المجرور (المثنى - جمع المذكر السالم)', 'The genitive noun (dual, sound masculine plural)'),
+    (12, 'AR5-T2-U2-L2-S', 'الوحدة الثانية: أخلاقيات التواصل', 'الهمزة المتطرفة على الياء', 'Final hamza on ya'' (spelling)'),
+    (13, 'AR5-T2-U2-L2-W', 'الوحدة الثانية: أخلاقيات التواصل', 'كتابة إعلان', 'Writing an advertisement/announcement'),
+    (14, 'AR5-T2-U2-L3-R', 'الوحدة الثانية: أخلاقيات التواصل', 'في مدرستنا ضيف جديد', 'A New Guest at Our School (reading)'),
+    (15, 'AR5-T2-U2-L3-G', 'الوحدة الثانية: أخلاقيات التواصل', 'المضاف والمضاف إليه', 'The governing noun and the genitive construct (idafa)'),
+    (16, 'AR5-T2-U2-L4', 'الوحدة الثانية: أخلاقيات التواصل', 'هيا نغني', 'Let''s Sing (poetic text)'),
+    (17, 'AR5-T2-U3-L1', 'الوحدة الثالثة: أنا وصورتي في أعين الآخرين', 'الشجاعة تبدأ بخطوة', 'Courage Begins with a Step (listening)'),
+    (18, 'AR5-T2-U3-L2-R', 'الوحدة الثالثة: أنا وصورتي في أعين الآخرين', 'شيء يخصُّنا ولا نستطيع رؤيته', 'Something That Belongs to Us but We Cannot See (reading)'),
+    (19, 'AR5-T2-U3-L2-G', 'الوحدة الثالثة: أنا وصورتي في أعين الآخرين', 'المضاف إليه (المفرد - جمع التكسير - جمع المؤنث السالم)', 'The genitive in idafa (singular, broken plural, sound feminine plural)'),
+    (20, 'AR5-T2-U3-L2-S', 'الوحدة الثالثة: أنا وصورتي في أعين الآخرين', 'تنوين الهمزة المتطرفة', 'Tanween on final hamza (spelling)'),
+    (21, 'AR5-T2-U3-L3-R', 'الوحدة الثالثة: أنا وصورتي في أعين الآخرين', 'هل أضفت شيئًا جيدًا لنفسك وللآخرين اليوم؟', 'Did You Add Something Good for Yourself and Others Today? (reading)'),
+    (22, 'AR5-T2-U3-L3-G', 'الوحدة الثالثة: أنا وصورتي في أعين الآخرين', 'المضاف إليه (المثنى - جمع المذكر السالم)', 'The genitive in idafa (dual, sound masculine plural)'),
+    (23, 'AR5-T2-U3-L4', 'الوحدة الثالثة: أنا وصورتي في أعين الآخرين', 'مسئوليتي أمانة', 'My Responsibility Is a Trust (poetic text)')
+  ) as v(ordinal, code, strand, title, title_en);
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe-textbooks', 'religion-christian', 5, 5, 'Christian Religious Education (التربية المسيحية), Primary 5, Term 2', 2, '2025/2026', 'https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary5/Term2/StudentBook/CH_Prim5_T2.pdf') returning id)
+insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
+select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
+    (1, 'RC5-T2-U1-L1', 'الوحدة الأولى: الطاعة والبركة', 'العقيدة: رِحلةُ الآلام: المَلِكُ المُنتصِر - أحدُ الشَّعانين', 'Doctrine: The journey of the Passion: The victorious King - Palm Sunday'),
+    (2, 'RC5-T2-U1-L2', 'الوحدة الأولى: الطاعة والبركة', 'المحفوظات: المحفوظات: يوحنا (١ : ١- ١٧ ) - بعض الآيات الذهبية', 'Memorisation: (John 1:1-17) - Some golden verses'),
+    (3, 'RC5-T2-U1-L3', 'الوحدة الأولى: الطاعة والبركة', 'العبادة: رِحلةُ الآلام: يومُ الإثنين – بيتُ الصَّلاةِ والتِّينةُ اليابِسَةُ', 'Worship: The journey of the Passion: Monday - The house of prayer and the withered fig tree'),
+    (4, 'RC5-T2-U1-L4', 'الوحدة الأولى: الطاعة والبركة', 'شخصيات كتابية: سليمان الحكيم: وِلادَتُهُ وحِكْمَتُهُ', 'Biblical figures: Solomon the Wise: His birth and his wisdom'),
+    (5, 'RC5-T2-U1-L5', 'الوحدة الأولى: الطاعة والبركة', 'شخصيات تاريخية: ليديا بائعة الارجوان', 'Historical figures: Lydia, the seller of purple'),
+    (6, 'RC5-T2-U1-L6', 'الوحدة الأولى: الطاعة والبركة', 'القيم والأخلاق: الشَّجَاعَة – بُطْرُس وَالْمُقْعَد', 'Values and ethics: Courage - Peter and the lame man'),
+    (7, 'RC5-T2-U2-L1', 'الوحدة الثانية: المحبة والتسامح', 'العقيدة: رحلة الآلام: يوم الثلاثاء – السيد المسيح المعلّم الصالح', 'Doctrine: The journey of the Passion: Tuesday - The Lord Christ, the Good Teacher'),
+    (8, 'RC5-T2-U2-L2', 'الوحدة الثانية: المحبة والتسامح', 'المحفوظات: (متى ٢٥ : ١ – ١٣) – بعض الآيات الذهبية', 'Memorisation: (Matthew 25:1-13) - Some golden verses'),
+    (9, 'RC5-T2-U2-L3', 'الوحدة الثانية: المحبة والتسامح', 'العبادة: رحلة الآلام: يومُ الأربعاء – ساكبةُ الطِّيب', 'Worship: The journey of the Passion: Wednesday - The woman who poured the perfume'),
+    (10, 'RC5-T2-U2-L4', 'الوحدة الثانية: المحبة والتسامح', 'شخصيات كتابية: سليمانُ الحكيمُ: من ملكِه لوفاتِه', 'Biblical figures: Solomon the Wise: From his reign to his death'),
+    (11, 'RC5-T2-U2-L5', 'الوحدة الثانية: المحبة والتسامح', 'شخصيات تاريخية: القدِّيسُ فِيلُوبَاتِير مَرقوريوس (أبو سيفين)', 'Historical figures: Saint Philopateer Mercurius (Abu Sefein)'),
+    (12, 'RC5-T2-U2-L6', 'الوحدة الثانية: المحبة والتسامح', 'القيم والأخلاق: الإخلاص - رحلة الآلام : خيانة يهوذا', 'Values and ethics: Faithfulness - The journey of the Passion: The betrayal of Judas'),
+    (13, 'RC5-T2-U3-L1', 'الوحدة الثالثة: الصليب والفرح', 'العقيدة: رِحْلَةُ الآلَامِ – الْمُحَاكَمَات – لَيْلَةُ الْجُمُعَةِ', 'Doctrine: The journey of the Passion - The trials - The night before Friday'),
+    (14, 'RC5-T2-U3-L2', 'الوحدة الثالثة: الصليب والفرح', 'المحفوظات: آيات مختارة عن الصليب - بعض الآيات الذهبية', 'Memorisation: Selected verses about the cross - Some golden verses'),
+    (15, 'RC5-T2-U3-L3', 'الوحدة الثالثة: الصليب والفرح', 'العبادة: رحلة الآلام: جمعةُ الصَّلبوت', 'Worship: The journey of the Passion: Good Friday (Friday of the Crucifixion)'),
+    (16, 'RC5-T2-U3-L4', 'الوحدة الثالثة: الصليب والفرح', 'شخصيات كتابية: رحبعام بن سليمان', 'Biblical figures: Rehoboam son of Solomon'),
+    (17, 'RC5-T2-U3-L5', 'الوحدة الثالثة: الصليب والفرح', 'شخصيات تاريخية: سِرُّ الْمَلِكَةِ هِيلَانَة', 'Historical figures: The secret of Queen Helena'),
+    (18, 'RC5-T2-U3-L6', 'الوحدة الثالثة: الصليب والفرح', 'القيم والأخلاق: الصَّبْرُ: القِدِّيسَة مَارِينَا – قَاهِرَة الشَّيْطَان', 'Values and ethics: Patience: Saint Marina - Conqueror of the devil')
+  ) as v(ordinal, code, strand, title, title_en);
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe-textbooks', 'religion-islamic', 5, 5, 'Islamic Religious Education (التربية الإسلامية), Primary 5, Term 2', 2, '2025/2026', 'https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary5/Term2/StudentBook/Islamic_prim5_Tr2.pdf') returning id)
+insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
+select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
+    (1, 'RI5-T2-U1-L1', 'الوحدة الأولى: القرآن والإيمان بالله (تعالى)', 'القرآن والإيمان باللَّه', '[Doctrine] The Quran and faith in God'),
+    (2, 'RI5-T2-U1-L2', 'الوحدة الأولى: القرآن والإيمان بالله (تعالى)', 'سورة (المزمل): تلاوة وحفظ وتفسير', '[Quran and tafsir] Surat Al-Muzzammil: recitation, memorisation and explanation'),
+    (3, 'RI5-T2-U1-L3', 'الوحدة الأولى: القرآن والإيمان بالله (تعالى)', '﴿وَرَتِّلِ ٱلْقُرْءَانَ تَرْتِيلًا﴾: أحرف القلقلة', '[Quran and tafsir] ''And recite the Quran with measured recitation'': The letters of qalqalah'),
+    (4, 'RI5-T2-U1-L4', 'الوحدة الأولى: القرآن والإيمان بالله (تعالى)', 'فضل الصوم', '[Acts of worship] The virtue of fasting'),
+    (5, 'RI5-T2-U1-L5', 'الوحدة الأولى: القرآن والإيمان بالله (تعالى)', 'غزوة مؤتة', '[Seerah and figures] The Battle of Mu''tah'),
+    (6, 'RI5-T2-U1-L6', 'الوحدة الأولى: القرآن والإيمان بالله (تعالى)', 'خالد بن الوليد رضي الله عنه', '[Seerah and figures] Khalid ibn Al-Walid, may God be pleased with him'),
+    (7, 'RI5-T2-U1-L7', 'الوحدة الأولى: القرآن والإيمان بالله (تعالى)', 'الشجاعة', '[Values and morals] Courage'),
+    (8, 'RI5-T2-U2-L1', 'الوحدة الثانية: القرآن يبني العقيدة', 'القرآن وعقيدة المؤمن', '[Doctrine] The Quran and the believer''s creed'),
+    (9, 'RI5-T2-U2-L2', 'الوحدة الثانية: القرآن يبني العقيدة', '(سورة الجن): تلاوة وحفظ وتفسير', '[Quran and tafsir] (Surat Al-Jinn): recitation, memorisation and explanation'),
+    (10, 'RI5-T2-U2-L3', 'الوحدة الثانية: القرآن يبني العقيدة', '﴿وَرَتِّلِ ٱلْقُرْءَانَ تَرْتِيلًا﴾: أحكام الميم والنون المشددتين', '[Quran and tafsir] ''And recite the Quran with measured recitation'': Rules of the doubled meem and nun'),
+    (11, 'RI5-T2-U2-L4', 'الوحدة الثانية: القرآن يبني العقيدة', 'أثر الصوم على سلوك المسلم', '[Acts of worship] The effect of fasting on a Muslim''s conduct'),
+    (12, 'RI5-T2-U2-L5', 'الوحدة الثانية: القرآن يبني العقيدة', 'نقض قريش لصلح الحديبية', '[Seerah and figures] Quraysh''s breaking of the Treaty of Hudaybiyyah'),
+    (13, 'RI5-T2-U2-L6', 'الوحدة الثانية: القرآن يبني العقيدة', 'عبد الله بن مسعود رضي الله عنه', '[Seerah and figures] Abdullah ibn Mas''ud, may God be pleased with him'),
+    (14, 'RI5-T2-U2-L7', 'الوحدة الثانية: القرآن يبني العقيدة', 'الإخلاص', '[Values and morals] Sincerity'),
+    (15, 'RI5-T2-U3-L1', 'الوحدة الثالثة: أثر الإيمان على سلوك المسلم', 'أثر الإيمان بالله ( تعالى )', '[Doctrine] The effect of faith in God (the Exalted)'),
+    (16, 'RI5-T2-U3-L2', 'الوحدة الثالثة: أثر الإيمان على سلوك المسلم', '(سورة نوح): تلاوة وحفظ وتفسير', '[Quran and tafsir] (Surat Nuh): recitation, memorisation and explanation'),
+    (17, 'RI5-T2-U3-L3', 'الوحدة الثالثة: أثر الإيمان على سلوك المسلم', 'زكاة الفطر', '[Acts of worship] Zakat al-Fitr'),
+    (18, 'RI5-T2-U3-L4', 'الوحدة الثالثة: أثر الإيمان على سلوك المسلم', 'فتح مكة', '[Seerah and figures] The conquest of Makkah'),
+    (19, 'RI5-T2-U3-L5', 'الوحدة الثالثة: أثر الإيمان على سلوك المسلم', 'بلال بن رباح رضي الله عنه', '[Seerah and figures] Bilal ibn Rabah, may God be pleased with him'),
+    (20, 'RI5-T2-U3-L6', 'الوحدة الثالثة: أثر الإيمان على سلوك المسلم', 'الصبر', '[Values and morals] Patience')
+  ) as v(ordinal, code, strand, title, title_en);
 with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe-textbooks', 'social-studies', 5, 5, 'Social Studies (الدراسات الاجتماعية), Primary 5, Term 1', 1, '2026/2027', 'https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026_2027/Primary/Primary5/Term1/StudentBook/Social_studies_prim5_t1.pdf') returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
@@ -367,6 +654,165 @@ select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (9, 'SS5-T1-U3-L1', 'الوحدة الثالثة: كنوز مصر', 'الثروة المعدنية ومصادر الطاقة', 'Mineral wealth and energy sources'),
     (10, 'SS5-T1-U3-L2', 'الوحدة الثالثة: كنوز مصر', 'موارد المياه', 'Water resources'),
     (11, 'SS5-T1-U3-L3', 'الوحدة الثالثة: كنوز مصر', 'المشروعات القومية (رؤية مصر للمستقبل)', 'National projects (Egypt''s vision for the future)')
+  ) as v(ordinal, code, strand, title, title_en);
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe-textbooks', 'arabic', 6, 6, 'Arabic Language (اللغة العربية), Primary 6, Term 2', 2, '2025/2026', 'https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary6/Term2/StudentBook/Arabic_prim6_TR2.pdf') returning id)
+insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
+select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
+    (1, 'AR6-T2-U1-L1', 'الوحدة الأولى: أنا ومصر.. قصة حضارة وهوية', 'صوتي من واحة سيوة', 'My Voice from Siwa Oasis (listening)'),
+    (2, 'AR6-T2-U1-L2-R', 'الوحدة الأولى: أنا ومصر.. قصة حضارة وهوية', 'رحلة إلى المتحف المصري الكبير', 'A Trip to the Grand Egyptian Museum (reading)'),
+    (3, 'AR6-T2-U1-L2-G', 'الوحدة الأولى: أنا ومصر.. قصة حضارة وهوية', 'النعت المفرد', 'The single-word adjective (na''t mufrad)'),
+    (4, 'AR6-T2-U1-L2-S', 'الوحدة الأولى: أنا ومصر.. قصة حضارة وهوية', 'الهمزة المتوسطة على السطر', 'Medial hamza on the line (spelling)'),
+    (5, 'AR6-T2-U1-L2-W', 'الوحدة الأولى: أنا ومصر.. قصة حضارة وهوية', 'تغيير حدث في قصة', 'Changing an event in a story'),
+    (6, 'AR6-T2-U1-L3-R', 'الوحدة الأولى: أنا ومصر.. قصة حضارة وهوية', 'أنا مصر', 'I Am Egypt (reading)'),
+    (7, 'AR6-T2-U1-L3-G', 'الوحدة الأولى: أنا ومصر.. قصة حضارة وهوية', 'الحال المفردة', 'The single-word circumstantial accusative (hal mufrada)'),
+    (8, 'AR6-T2-U1-L4', 'الوحدة الأولى: أنا ومصر.. قصة حضارة وهوية', 'مصر هي الدنيا', 'Egypt Is the World (poetic text)'),
+    (9, 'AR6-T2-U2-L1', 'الوحدة الثانية: قيم تبني الإنسان', 'يقظة الضمير', 'The Awakening of Conscience (listening)'),
+    (10, 'AR6-T2-U2-L2-R', 'الوحدة الثانية: قيم تبني الإنسان', 'الاستمرارية قوة', 'Persistence Is Strength (reading)'),
+    (11, 'AR6-T2-U2-L2-G', 'الوحدة الثانية: قيم تبني الإنسان', 'الفعل الصحيح الآخر والفعل المعتل الآخر', 'Verbs with a sound final letter and verbs with a weak final letter'),
+    (12, 'AR6-T2-U2-L2-G2', 'الوحدة الثانية: قيم تبني الإنسان', 'نصب الفعل المضارع', 'The subjunctive (nasb) of the present-tense verb'),
+    (13, 'AR6-T2-U2-L2-W', 'الوحدة الثانية: قيم تبني الإنسان', 'كتابة منشور', 'Writing a post/leaflet'),
+    (14, 'AR6-T2-U2-L3-R', 'الوحدة الثانية: قيم تبني الإنسان', 'قصة نجاح: د. مجدي يعقوب', 'A Success Story: Dr. Magdi Yacoub (reading)'),
+    (15, 'AR6-T2-U2-L3-G', 'الوحدة الثانية: قيم تبني الإنسان', 'جزم الفعل المضارع', 'The jussive (jazm) of the present-tense verb'),
+    (16, 'AR6-T2-U2-L4', 'الوحدة الثانية: قيم تبني الإنسان', 'مجد الوطن', 'The Glory of the Homeland (poetic text)'),
+    (17, 'AR6-T2-U3-L1', 'الوحدة الثالثة: العلم يصنع المستقبل', 'حلم صغير .. بجهاز ذكي', 'A Small Dream .. with a Smart Device (listening)'),
+    (18, 'AR6-T2-U3-L2-R', 'الوحدة الثالثة: العلم يصنع المستقبل', 'هنا تعلمت', 'Here I Learned (reading)'),
+    (19, 'AR6-T2-U3-L2-G', 'الوحدة الثالثة: العلم يصنع المستقبل', 'رفع الفعل المضارع', 'The indicative (raf'') of the present-tense verb'),
+    (20, 'AR6-T2-U3-L3-R', 'الوحدة الثالثة: العلم يصنع المستقبل', 'مستقبلي يبدأ من اليوم', 'My Future Starts Today (reading)'),
+    (21, 'AR6-T2-U3-L3-G', 'الوحدة الثالثة: العلم يصنع المستقبل', 'الأفعال الخمسة', 'The five verbs (al-af''al al-khamsa)'),
+    (22, 'AR6-T2-U3-L4', 'الوحدة الثالثة: العلم يصنع المستقبل', 'عليك بالعلم', 'Hold Fast to Knowledge (poetic text)')
+  ) as v(ordinal, code, strand, title, title_en);
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe-textbooks', 'religion-christian', 6, 6, 'Christian Religious Education (التربية المسيحية), Primary 6, Term 2', 2, '2025/2026', 'https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary6/Term2/StudentBook/CH_prim6_Tr2.pdf') returning id)
+insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
+select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
+    (1, 'RC6-T2-U1-L1', 'الوحدة الأولى: الإيمان وخدمة المجتمع', 'العقيدة: رِحْلَةُ الخَلَاصِ - الوَعْدُ بِالخَلَاص', 'Doctrine: The journey of salvation - The promise of salvation'),
+    (2, 'RC6-T2-U1-L2', 'الوحدة الأولى: الإيمان وخدمة المجتمع', 'المحفوظات: المزمور الأول - بعض الآيات الذهبية', 'Memorisation: Psalm 1 - Some golden verses'),
+    (3, 'RC6-T2-U1-L3', 'الوحدة الأولى: الإيمان وخدمة المجتمع', 'العبادة: التَّوْبَة - شاوُلُ الطَّرسُوسيُّ', 'Worship: Repentance - Saul of Tarsus'),
+    (4, 'RC6-T2-U1-L4', 'الوحدة الأولى: الإيمان وخدمة المجتمع', 'شخصيات كتابية: دانيالُ النَّبيُّ – الكِتابةُ على الحائِط', 'Biblical figures: Daniel the prophet - The writing on the wall'),
+    (5, 'RC6-T2-U1-L5', 'الوحدة الأولى: الإيمان وخدمة المجتمع', 'شخصيات تاريخية: يوحنا المعمدان', 'Historical figures: John the Baptist'),
+    (6, 'RC6-T2-U1-L6', 'الوحدة الأولى: الإيمان وخدمة المجتمع', 'القيم والأخلاق: المسيحية وَخِدْمَة المُجتَمَع', 'Values and ethics: Christianity and service to society'),
+    (7, 'RC6-T2-U2-L1', 'الوحدة الثانية: المحبة والخلاص', 'العقيدة: رحلة الخلاص - طريق وإتمام الخلاص', 'Doctrine: The journey of salvation - The way and fulfilment of salvation'),
+    (8, 'RC6-T2-U2-L2', 'الوحدة الثانية: المحبة والخلاص', 'المحفوظات: مزمور ٢٣ - بعض الآيات الذهبية', 'Memorisation: Psalm 23 - Some golden verses'),
+    (9, 'RC6-T2-U2-L3', 'الوحدة الثانية: المحبة والخلاص', 'العبادة: الصوم - السفينة المكسورة', 'Worship: Fasting - The broken ship'),
+    (10, 'RC6-T2-U2-L4', 'الوحدة الثانية: المحبة والخلاص', 'شخصيات كتابية: يُونانُ النَّبيُّ', 'Biblical figures: Jonah the prophet'),
+    (11, 'RC6-T2-U2-L5', 'الوحدة الثانية: المحبة والخلاص', 'شخصيات تاريخية: رحلة عبر الهولوغرام - القمص بيشوي كامل', 'Historical figures: A journey through the hologram - Hegumen Bishoy Kamel'),
+    (12, 'RC6-T2-U2-L6', 'الوحدة الثانية: المحبة والخلاص', 'القيم والأخلاق: حَيَاةُ الرِّضَا - الْبَابَا كِيرِلُّسَ السَّادِس', 'Values and ethics: A life of contentment - Pope Cyril VI'),
+    (13, 'RC6-T2-U3-L1', 'الوحدة الثالثة: القيامة والعطاء', 'العقيدة: رِحْلَةُ الْخَلَاصِ - فَرَحُ الْخَلَاصِ', 'Doctrine: The journey of salvation - The joy of salvation'),
+    (14, 'RC6-T2-U3-L2', 'الوحدة الثالثة: القيامة والعطاء', 'المحفوظات: بعض الآيات الذهبية', 'Memorisation: Some golden verses'),
+    (15, 'RC6-T2-U3-L3', 'الوحدة الثالثة: القيامة والعطاء', 'العبادة: الصلاة والصوم - سلطان السيد المسيح على الشياطين', 'Worship: Prayer and fasting - The authority of the Lord Christ over demons'),
+    (16, 'RC6-T2-U3-L4', 'الوحدة الثالثة: القيامة والعطاء', 'شخصيات كتابية: نحميا', 'Biblical figures: Nehemiah'),
+    (17, 'RC6-T2-U3-L5', 'الوحدة الثالثة: القيامة والعطاء', 'شخصيات تاريخية: نيقوديموس', 'Historical figures: Nicodemus'),
+    (18, 'RC6-T2-U3-L6', 'الوحدة الثالثة: القيامة والعطاء', 'القيم والأخلاق: التنافس في الخير - عملاق العطاء إبراهيم الجوهري', 'Values and ethics: Competing in doing good - The giant of giving, Ibrahim El-Gohary')
+  ) as v(ordinal, code, strand, title, title_en);
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe-textbooks', 'religion-islamic', 6, 6, 'Islamic Religious Education (التربية الإسلامية), Primary 6, Term 2', 2, '2025/2026', 'https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary6/Term2/StudentBook/islamic_prim6_tr2.pdf') returning id)
+insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
+select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
+    (1, 'RI6-T2-U1-L1', 'الوحدة الأولى: الإسلامُ وخدمةُ المجتمعِ', 'أثر الإيمان باليوم الآخر', '[Doctrine] The effect of belief in the Last Day'),
+    (2, 'RI6-T2-U1-L2', 'الوحدة الأولى: الإسلامُ وخدمةُ المجتمعِ', 'سورة الملك: الآيات من (١ - ١١) (تلاوة وحفظ وتفسير)', '[Quran and tafsir] Surat Al-Mulk: verses 1-11 (recitation, memorisation and explanation)'),
+    (3, 'RI6-T2-U1-L3', 'الوحدة الأولى: الإسلامُ وخدمةُ المجتمعِ', 'ورتل القرآن ترتيلًا: أنواع المدود (المد الأصلي)', '[Quran and tafsir] ''And recite the Quran with measured recitation'': Types of madd (the original madd)'),
+    (4, 'RI6-T2-U1-L4', 'الوحدة الأولى: الإسلامُ وخدمةُ المجتمعِ', 'العمرة', '[Acts of worship] Umrah'),
+    (5, 'RI6-T2-U1-L5', 'الوحدة الأولى: الإسلامُ وخدمةُ المجتمعِ', 'حجة الوداع', '[Seerah and figures] The Farewell Pilgrimage'),
+    (6, 'RI6-T2-U1-L6', 'الوحدة الأولى: الإسلامُ وخدمةُ المجتمعِ', 'الإمام الليث بن سعد رحمه الله', '[Seerah and figures] Imam Al-Layth ibn Sa''d, may God have mercy on him'),
+    (7, 'RI6-T2-U1-L7', 'الوحدة الأولى: الإسلامُ وخدمةُ المجتمعِ', 'خدمة المجتمع', '[Values and morals] Serving the community'),
+    (8, 'RI6-T2-U2-L1', 'الوحدة الثانية: الرِّضا في حياةِ المسلمِ', 'الإيمان بالقضاء والقدر', '[Doctrine] Belief in divine decree and destiny'),
+    (9, 'RI6-T2-U2-L2', 'الوحدة الثانية: الرِّضا في حياةِ المسلمِ', 'سورة الملك: الآيات من (١٢ - ٢٢) (تلاوة وحفظ وتفسير)', '[Quran and tafsir] Surat Al-Mulk: verses 12-22 (recitation, memorisation and explanation)'),
+    (10, 'RI6-T2-U2-L3', 'الوحدة الثانية: الرِّضا في حياةِ المسلمِ', 'ورتل القرآن ترتيلًا: أنواع المدود (المد الفرعي)', '[Quran and tafsir] ''And recite the Quran with measured recitation'': Types of madd (the secondary madd)'),
+    (11, 'RI6-T2-U2-L4', 'الوحدة الثانية: الرِّضا في حياةِ المسلمِ', 'فضل الحج', '[Acts of worship] The virtue of Hajj'),
+    (12, 'RI6-T2-U2-L5', 'الوحدة الثانية: الرِّضا في حياةِ المسلمِ', 'وفاة النبي ﷺ', '[Seerah and figures] The passing of the Prophet (peace be upon him)'),
+    (13, 'RI6-T2-U2-L6', 'الوحدة الثانية: الرِّضا في حياةِ المسلمِ', 'الإمام محمد بن إدريس الشافعي رحمه الله', '[Seerah and figures] Imam Muhammad ibn Idris Al-Shafi''i, may God have mercy on him'),
+    (14, 'RI6-T2-U2-L7', 'الوحدة الثانية: الرِّضا في حياةِ المسلمِ', 'الرضا', '[Values and morals] Contentment'),
+    (15, 'RI6-T2-U3-L1', 'الوحدة الثالثة: أثرُ العبادةِ في سلوكِ المسلمِ', 'أثر الإيمان بالقضاء والقدر', '[Doctrine] The effect of belief in divine decree and destiny'),
+    (16, 'RI6-T2-U3-L2', 'الوحدة الثالثة: أثرُ العبادةِ في سلوكِ المسلمِ', 'سورة الملك: الآيات من (٢٣ - ٣٠) (تلاوة وحفظ وتفسير)', '[Quran and tafsir] Surat Al-Mulk: verses 23-30 (recitation, memorisation and explanation)'),
+    (17, 'RI6-T2-U3-L3', 'الوحدة الثالثة: أثرُ العبادةِ في سلوكِ المسلمِ', 'أثر الحج في الفرد والمجتمع', '[Acts of worship] The effect of Hajj on the individual and society'),
+    (18, 'RI6-T2-U3-L4', 'الوحدة الثالثة: أثرُ العبادةِ في سلوكِ المسلمِ', 'النبي ﷺ القدوة الحسنة', '[Seerah and figures] The Prophet (peace be upon him), the good example'),
+    (19, 'RI6-T2-U3-L5', 'الوحدة الثالثة: أثرُ العبادةِ في سلوكِ المسلمِ', 'الإمام أحمد بن حنبل رحمه الله', '[Seerah and figures] Imam Ahmad ibn Hanbal, may God have mercy on him'),
+    (20, 'RI6-T2-U3-L6', 'الوحدة الثالثة: أثرُ العبادةِ في سلوكِ المسلمِ', 'التنافس في الخيرات', '[Values and morals] Competing in good deeds')
+  ) as v(ordinal, code, strand, title, title_en);
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe-textbooks', 'arabic', 7, 7, 'Arabic Language (اللغة العربية), Preparatory 1, Term 2', 2, '2025/2026', 'https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory1/Term2/StudentBook/Arabic_Prep1_SB_T2.pdf') returning id)
+insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
+select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
+    (1, 'AR7-T2-U1-L1', 'الوحدة الأولى: حماية الوطن', 'الوعي حماية', 'Awareness Is Protection (listening text)'),
+    (2, 'AR7-T2-U1-L2-R', 'الوحدة الأولى: حماية الوطن', 'الجوهرة المصرية... الشهيد محمد أبو شقرة', 'The Egyptian Jewel... the Martyr Mohamed Abu Shaqra (reading)'),
+    (3, 'AR7-T2-U1-L2-G', 'الوحدة الأولى: حماية الوطن', 'الأفعال المتعدية لمفعولين ليس أصلهما المبتدأ والخبر', 'Verbs taking two objects that are not originally subject and predicate'),
+    (4, 'AR7-T2-U1-L2-S', 'الوحدة الأولى: حماية الوطن', 'كتابة الهمزة على السطر', 'Writing hamza on the line (spelling)'),
+    (5, 'AR7-T2-U1-L2-W', 'الوحدة الأولى: حماية الوطن', 'كتابة تلخيص قصة', 'Writing a story summary'),
+    (6, 'AR7-T2-U1-L3-R', 'الوحدة الأولى: حماية الوطن', 'حصن مصر المائي : السد العالي', 'Egypt''s Water Fortress: the High Dam (reading)'),
+    (7, 'AR7-T2-U1-L3-G', 'الوحدة الأولى: حماية الوطن', 'الفعل المبني للمعلوم، والفعل المبني للمجهول', 'The active verb and the passive verb'),
+    (8, 'AR7-T2-U1-L4', 'الوحدة الأولى: حماية الوطن', 'مصر يا جنة الدنيا', 'Egypt, O Paradise of the World (poetic text, by Mahmoud Hassan Ismail)'),
+    (9, 'AR7-T2-U2-L1', 'الوحدة الثانية: مفاتيح النجاح', 'ريادة الأعمال', 'Entrepreneurship (listening text)'),
+    (10, 'AR7-T2-U2-L2-R', 'الوحدة الثانية: مفاتيح النجاح', 'جابر بن حيان وثقافة النجاح', 'Jabir ibn Hayyan and the Culture of Success (reading)'),
+    (11, 'AR7-T2-U2-L2-G', 'الوحدة الثانية: مفاتيح النجاح', 'الفاعل ونائب الفاعل', 'The subject and the deputy subject (of passive verbs)'),
+    (12, 'AR7-T2-U2-L2-S', 'الوحدة الثانية: مفاتيح النجاح', 'علامات الترقيم', 'Punctuation marks (spelling/orthography)'),
+    (13, 'AR7-T2-U2-L2-W', 'الوحدة الثانية: مفاتيح النجاح', 'كتابة رسالة بالبريد الإلكتروني', 'Writing an email message'),
+    (14, 'AR7-T2-U2-L3-R', 'الوحدة الثانية: مفاتيح النجاح', 'طريق النجاح', 'The Road to Success (reading)'),
+    (15, 'AR7-T2-U2-L3-G', 'الوحدة الثانية: مفاتيح النجاح', 'الحال الجملة', 'The circumstantial clause (hal as a sentence)'),
+    (16, 'AR7-T2-U2-L4', 'الوحدة الثانية: مفاتيح النجاح', 'الشباب', 'Youth (poetic text, by Hafez Ibrahim)'),
+    (17, 'AR7-T2-U3-L1', 'الوحدة الثالثة: عالمي الرقمي', 'الألعاب الإلكترونية بين المتعة والضوابط', 'Electronic Games Between Fun and Rules (listening text)'),
+    (18, 'AR7-T2-U3-L2-R', 'الوحدة الثالثة: عالمي الرقمي', 'الذكاء الاصطناعي ... أخلاقياته واستخداماته', 'Artificial Intelligence ... Its Ethics and Uses (reading)'),
+    (19, 'AR7-T2-U3-L2-G', 'الوحدة الثالثة: عالمي الرقمي', 'الحال شبه الجملة', 'The circumstantial phrase (hal as a semi-sentence)'),
+    (20, 'AR7-T2-U3-L3-R', 'الوحدة الثالثة: عالمي الرقمي', 'تعلمت من وقت الفراغ', 'I Learned from Free Time (reading, by al-Aqqad)'),
+    (21, 'AR7-T2-U3-L4', 'الوحدة الثالثة: عالمي الرقمي', 'العلم في الظلمات نور', 'Knowledge Is Light in the Darkness (poetic text, by Maruf al-Rusafi)')
+  ) as v(ordinal, code, strand, title, title_en);
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe-textbooks', 'religion-christian', 7, 7, 'Christian Religious Education (التربية المسيحية), Preparatory 1, Term 2', 2, '2025/2026', 'https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory1/Term2/StudentBook/CH_PE1_T2.pdf') returning id)
+insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
+select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
+    (1, 'RC7-T2-U1-L1', 'الوحدة الأولى: نبوات وشخصيات', 'العقيدة: نُبُوَّاتٌ عن السَّيِّدِ المَسِيحِ في العَهْدِ القَدِيمِ', 'Doctrine: Prophecies about the Lord Christ in the Old Testament'),
+    (2, 'RC7-T2-U1-L2', 'الوحدة الأولى: نبوات وشخصيات', 'المحفوظات: بعض النبوات - بعض الآيات الذهبية', 'Memorisation: Some prophecies - Some golden verses'),
+    (3, 'RC7-T2-U1-L3', 'الوحدة الأولى: نبوات وشخصيات', 'العبادة: رموز السيد المسيح في العهد القديم : (١) الشخصيات', 'Worship: Symbols of the Lord Christ in the Old Testament: (1) Persons'),
+    (4, 'RC7-T2-U1-L4', 'الوحدة الأولى: نبوات وشخصيات', 'شخصيات كتابية: الآباء إبراهيم و إسحاق', 'Biblical figures: The patriarchs Abraham and Isaac'),
+    (5, 'RC7-T2-U1-L5', 'الوحدة الأولى: نبوات وشخصيات', 'شخصيات تاريخية: بُطْرُسُ الرَّسُول', 'Historical figures: Peter the Apostle'),
+    (6, 'RC7-T2-U1-L6', 'الوحدة الأولى: نبوات وشخصيات', 'القيم والأخلاق: الحلم وتجنب الغضب في حياة وتعاليم السيد المسيح', 'Values and ethics: Forbearance and avoiding anger in the life and teachings of the Lord Christ'),
+    (7, 'RC7-T2-U2-L1', 'الوحدة الثانية: أسس الإيمان: النبوة والقدوة', 'العقيدة: مِنَ المِيلادِ إلَى البِشَارَةِ', 'Doctrine: From the Nativity to the preaching'),
+    (8, 'RC7-T2-U2-L2', 'الوحدة الثانية: أسس الإيمان: النبوة والقدوة', 'المحفوظات: بعض الآيات الذهبية', 'Memorisation: Some golden verses'),
+    (9, 'RC7-T2-U2-L3', 'الوحدة الثانية: أسس الإيمان: النبوة والقدوة', 'العبادة: رموز السيد المسيح في العهد القديم', 'Worship: Symbols of the Lord Christ in the Old Testament'),
+    (10, 'RC7-T2-U2-L4', 'الوحدة الثانية: أسس الإيمان: النبوة والقدوة', 'شخصيات كتابية: أبينا يَعقوب', 'Biblical figures: Our father Jacob'),
+    (11, 'RC7-T2-U2-L5', 'الوحدة الثانية: أسس الإيمان: النبوة والقدوة', 'شخصيات تاريخية: بولس الرسول', 'Historical figures: Paul the Apostle'),
+    (12, 'RC7-T2-U2-L6', 'الوحدة الثانية: أسس الإيمان: النبوة والقدوة', 'القيم والأخلاق: التوكل والتواكل : حياةُ القِدِّيسِ أَرسانِيُوس', 'Values and ethics: Trust (in God) versus passive dependence: The life of Saint Arsenius'),
+    (13, 'RC7-T2-U3-L1', 'الوحدة الثالثة: التوبة وخوف الله', 'العقيدة: الميلاد والتجسّد', 'Doctrine: The Nativity and the Incarnation'),
+    (14, 'RC7-T2-U3-L2', 'الوحدة الثالثة: التوبة وخوف الله', 'المحفوظات: ( أمثال ٣ – ٣ : ١٠ ) - بعض الآيات الذهبية', 'Memorisation: (Proverbs 3:3-10, as printed ''٣ – ٣ : ١٠'') - Some golden verses'),
+    (15, 'RC7-T2-U3-L3', 'الوحدة الثالثة: التوبة وخوف الله', 'العبادة: التوبة في تعاليم السيد المسيح', 'Worship: Repentance in the teachings of the Lord Christ'),
+    (16, 'RC7-T2-U3-L4', 'الوحدة الثالثة: التوبة وخوف الله', 'شخصيات كتابية: يُوسُفَ ابْنُ يَعْقُوبَ', 'Biblical figures: Joseph son of Jacob'),
+    (17, 'RC7-T2-U3-L5', 'الوحدة الثالثة: التوبة وخوف الله', 'شخصيات تاريخية: مار مرقس ومدرسة الإسكندريّة', 'Historical figures: Saint Mark and the School of Alexandria'),
+    (18, 'RC7-T2-U3-L6', 'الوحدة الثالثة: التوبة وخوف الله', 'القيم والأخلاق: مُرَاقَبَةُ اللهِ لِلسُّلُوك – القِدِّيسُ مَكَارِيُوسُ الكَبِير', 'Values and ethics: God watching over our conduct - Saint Macarius the Great')
+  ) as v(ordinal, code, strand, title, title_en);
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe-textbooks', 'religion-islamic', 7, 7, 'Islamic Religious Education (التربية الإسلامية), Preparatory 1, Term 2', 2, '2025/2026', 'https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory1/Term2/StudentBook/Islamic_prp1_Tr2.pdf') returning id)
+insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
+select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
+    (1, 'RI7-T2-U1-L1', 'الوحدة الأولى: الحِلمُ والرحمةُ', 'العقيدة: من أسماء الله الحسنى (الحليم)', 'Doctrine: From the Beautiful Names of God (Al-Halim, the Forbearing)'),
+    (2, 'RI7-T2-U1-L2', 'الوحدة الأولى: الحِلمُ والرحمةُ', 'القرآن والتفسير: سورة الطلاق (٨- ١٢) تلاوة وحفظ وتفسير', 'Quran and tafsir: Surat At-Talaq (verses 8-12): recitation, memorisation and explanation'),
+    (3, 'RI7-T2-U1-L3', 'الوحدة الأولى: الحِلمُ والرحمةُ', 'من أحكام التجويد: مخارج الحروف من اللسان', 'From the rules of tajweed: Points of articulation of letters from the tongue'),
+    (4, 'RI7-T2-U1-L4', 'الوحدة الأولى: الحِلمُ والرحمةُ', 'العبادات: من مسائل الزكاة', 'Acts of worship: Some issues of zakat'),
+    (5, 'RI7-T2-U1-L5', 'الوحدة الأولى: الحِلمُ والرحمةُ', 'السير والشخصيات: رحمة النبي ﷺ بالأسرى في غزوة بدر', 'Seerah and figures: The Prophet''s (peace be upon him) mercy towards the captives at the Battle of Badr'),
+    (6, 'RI7-T2-U1-L6', 'الوحدة الأولى: الحِلمُ والرحمةُ', 'أسس اختيار الخلفاء الراشدين رضي الله عنهم', '[Seerah and figures] The bases for choosing the Rightly Guided Caliphs, may God be pleased with them'),
+    (7, 'RI7-T2-U1-L7', 'الوحدة الأولى: الحِلمُ والرحمةُ', 'القيم والأخلاق: الحلم', 'Values and morals: Forbearance'),
+    (8, 'RI7-T2-U2-L1', 'الوحدة الثانية: تكريمُ اللَّهِ (تعالَى) للإنسانِ', 'العقيدة: تكريم الله (تعالى) للإنسان', 'Doctrine: God''s (the Exalted) honouring of the human being'),
+    (9, 'RI7-T2-U2-L2', 'الوحدة الثانية: تكريمُ اللَّهِ (تعالَى) للإنسانِ', 'القرآن والتفسير: سورة التغابن (١- ١٠) تلاوة وحفظ وتفسير', 'Quran and tafsir: Surat At-Taghabun (verses 1-10): recitation, memorisation and explanation'),
+    (10, 'RI7-T2-U2-L3', 'الوحدة الثانية: تكريمُ اللَّهِ (تعالَى) للإنسانِ', 'من أحكام التجويد مخارج الحروف من الشفتين والخيشوم', 'From the rules of tajweed: Points of articulation of letters from the lips and the nasal cavity'),
+    (11, 'RI7-T2-U2-L4', 'الوحدة الثانية: تكريمُ اللَّهِ (تعالَى) للإنسانِ', 'العبادات: من مسائل الصيام', 'Acts of worship: Some issues of fasting'),
+    (12, 'RI7-T2-U2-L5', 'الوحدة الثانية: تكريمُ اللَّهِ (تعالَى) للإنسانِ', 'السير والشخصيات: حرص الرسول ﷺ على السلام', 'Seerah and figures: The Messenger''s (peace be upon him) keenness on peace'),
+    (13, 'RI7-T2-U2-L6', 'الوحدة الثانية: تكريمُ اللَّهِ (تعالَى) للإنسانِ', 'الخلفاء الراشدون رضي الله عنهم والفتوحات الإسلامية', '[Seerah and figures] The Rightly Guided Caliphs, may God be pleased with them, and the Islamic conquests'),
+    (14, 'RI7-T2-U2-L7', 'الوحدة الثانية: تكريمُ اللَّهِ (تعالَى) للإنسانِ', 'القيم والأخلاق: التوكل على الله (تعالى)', 'Values and morals: Reliance on God (the Exalted)'),
+    (15, 'RI7-T2-U3-L1', 'الوحدة الثالثة: الإيمانُ ومراقبةُ اللَّهِ (تعالَى)', 'العقيدة: الإيمان باليوم الآخر', 'Doctrine: Belief in the Last Day'),
+    (16, 'RI7-T2-U3-L2', 'الوحدة الثالثة: الإيمانُ ومراقبةُ اللَّهِ (تعالَى)', 'القرآن والتفسير: سورة التغابن (١١- ١٨) تلاوة وحفظ وتفسير', 'Quran and tafsir: Surat At-Taghabun (verses 11-18): recitation, memorisation and explanation'),
+    (17, 'RI7-T2-U3-L3', 'الوحدة الثالثة: الإيمانُ ومراقبةُ اللَّهِ (تعالَى)', 'من أحكام التجويد: من صفات الحروف الأساسية: الهمس، والجهر', 'From the rules of tajweed: Some basic characteristics of letters: whispering (hams) and voicing (jahr)'),
+    (18, 'RI7-T2-U3-L4', 'الوحدة الثالثة: الإيمانُ ومراقبةُ اللَّهِ (تعالَى)', 'العبادات: من مسائل الحج', 'Acts of worship: Some issues of Hajj'),
+    (19, 'RI7-T2-U3-L5', 'الوحدة الثالثة: الإيمانُ ومراقبةُ اللَّهِ (تعالَى)', 'السير والشخصيات: مواقف من سيرة الرسول ﷺ', 'Seerah and figures: Episodes from the life of the Messenger (peace be upon him)'),
+    (20, 'RI7-T2-U3-L6', 'الوحدة الثالثة: الإيمانُ ومراقبةُ اللَّهِ (تعالَى)', 'قادة الفتح العظام من الصحابة', '[Seerah and figures] The great leaders of the conquests among the Companions'),
+    (21, 'RI7-T2-U3-L7', 'الوحدة الثالثة: الإيمانُ ومراقبةُ اللَّهِ (تعالَى)', 'القيم والأخلاق: مراقبة الله (تعالى)', 'Values and morals: Being mindful that God (the Exalted) is watching')
+  ) as v(ordinal, code, strand, title, title_en);
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe-textbooks', 'social-studies', 7, 7, 'Social Studies (الدراسات الاجتماعية), Preparatory 1, Term 2', 2, NULL, 'https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory1/Term2/StudentBook/Social_prp1_Tr2.pdf') returning id)
+insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
+select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
+    (1, 'SS7-T2-U1-L1', 'الوحدة الأولى: سكان قارة إفريقيا', 'نمو وتوزيع سكان قارة إفريقيا', 'Growth and Distribution of the Population of the African Continent'),
+    (2, 'SS7-T2-U1-L2', 'الوحدة الأولى: سكان قارة إفريقيا', 'خصائص سكان قارة إفريقيا', 'Characteristics of the Population of the African Continent'),
+    (3, 'SS7-T2-U2-L1', 'الوحدة الثانية: علاقة مصر بإفريقيا في عهد محمد علي وخلفائه', 'الدور الحضاري لمصر في قارة إفريقيا في عهد محمد علي', 'Egypt''s Civilizational Role in the African Continent in the Era of Muhammad Ali'),
+    (4, 'SS7-T2-U2-L2', 'الوحدة الثانية: علاقة مصر بإفريقيا في عهد محمد علي وخلفائه', 'الدور الحضاري لمصر في قارة إفريقيا في عهد خلفاء محمد علي', 'Egypt''s Civilizational Role in the African Continent in the Era of Muhammad Ali''s Successors'),
+    (5, 'SS7-T2-U3-L1', 'الوحدة الثالثة: الأنشطة الاقتصادية ودورها في التنمية المستدامة بإفريقيا', 'الزراعة والثروة الحيوانية والسمكية في إفريقيا', 'Agriculture, Livestock and Fisheries in Africa'),
+    (6, 'SS7-T2-U3-L2', 'الوحدة الثالثة: الأنشطة الاقتصادية ودورها في التنمية المستدامة بإفريقيا', 'التعدين والطاقة والصناعة في إفريقيا', 'Mining, Energy and Industry in Africa'),
+    (7, 'SS7-T2-U3-L3', 'الوحدة الثالثة: الأنشطة الاقتصادية ودورها في التنمية المستدامة بإفريقيا', 'السياحة ومواقع التراث العالمي في إفريقيا', 'Tourism and World Heritage Sites in Africa'),
+    (8, 'SS7-T2-U3-L4', 'الوحدة الثالثة: الأنشطة الاقتصادية ودورها في التنمية المستدامة بإفريقيا', 'النقل والتجارة في إفريقيا', 'Transport and Trade in Africa'),
+    (9, 'SS7-T2-U4-L1', 'الوحدة الرابعة: استعمار إفريقيا ودور مصر الداعم لحركات التحرر', 'التوسع الاستعماري الأوروبي في إفريقيا', 'European Colonial Expansion in Africa'),
+    (10, 'SS7-T2-U4-L2', 'الوحدة الرابعة: استعمار إفريقيا ودور مصر الداعم لحركات التحرر', 'إفريقيا من الاستعمار إلى التحرر', 'Africa from Colonialism to Liberation'),
+    (11, 'SS7-T2-U4-L3', 'الوحدة الرابعة: استعمار إفريقيا ودور مصر الداعم لحركات التحرر', 'مصر والمنظمات الإقليمية في إفريقيا', 'Egypt and Regional Organizations in Africa')
   ) as v(ordinal, code, strand, title, title_en);
 with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe-textbooks', 'arabic', 8, 8, 'Arabic Language (اللغة العربية), Preparatory 2, Term 1', 1, '2025/2026', 'https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory2/Term1/StudentBook/Arabic_Prep2_SB_T1.pdf') returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
@@ -396,6 +842,46 @@ select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (23, 'AR8-T1-U3-L3-G', 'الوحدة الثالثة: علم وقيم', 'القواعد النحوية: مراجعة على دروس النحو المقررة', 'Grammar: review of the term''s grammar lessons'),
     (24, 'AR8-T1-U3-L4', 'الوحدة الثالثة: علم وقيم', 'نص شعري: الكد سبيل المعالي (الإمام الشافعي)', 'Poem: Toil is the path to glory (Imam al-Shafi''i)')
   ) as v(ordinal, code, strand, title, title_en);
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe-textbooks', 'arabic', 8, 8, 'Arabic Language (اللغة العربية), Preparatory 2, Term 2', 2, '2025/2026', 'https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory2/Term2/StudentBook/Arabic_prep2_Tr2.pdf') returning id)
+insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
+select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
+    (1, 'AR8-T2-U1-L1', 'الوحدة الأولى: هويتي في عالم متغير', 'الهوية والعالمية', 'Identity and Globalism (listening text)'),
+    (2, 'AR8-T2-U1-L2-R', 'الوحدة الأولى: هويتي في عالم متغير', 'البطل الإنسان الشهيد .. إبراهيم الرفاعي', 'The Hero, the Human, the Martyr .. Ibrahim El-Refaey (reading)'),
+    (3, 'AR8-T2-U1-L2-G', 'الوحدة الأولى: هويتي في عالم متغير', 'أسلوب النداء', 'The vocative style'),
+    (4, 'AR8-T2-U1-L2-S', 'الوحدة الأولى: هويتي في عالم متغير', 'همزة القطع، وألف الوصل', 'Hamzat al-qat'' (disjunctive hamza) and alif al-wasl (connective alif)'),
+    (5, 'AR8-T2-U1-L2-W', 'الوحدة الأولى: هويتي في عالم متغير', 'كتابة مقابلة شخصية', 'Writing a personal interview'),
+    (6, 'AR8-T2-U1-L3-R', 'الوحدة الأولى: هويتي في عالم متغير', 'شريان العالم : قناة السويس', 'The Artery of the World: the Suez Canal (reading)'),
+    (7, 'AR8-T2-U1-L3-G', 'الوحدة الأولى: هويتي في عالم متغير', 'التمييز وأنواعه', 'The specification (tamyiz) and its types'),
+    (8, 'AR8-T2-U1-L4', 'الوحدة الأولى: هويتي في عالم متغير', 'صناع المجد', 'Makers of Glory (poetic text, by Ibrahim Nagi)'),
+    (9, 'AR8-T2-U2-L1', 'الوحدة الثانية: لغتنا العربية وهويتنا المصرية', 'اللغة والهوية', 'Language and Identity (listening text)'),
+    (10, 'AR8-T2-U2-L2-R', 'الوحدة الثانية: لغتنا العربية وهويتنا المصرية', 'عالمية اللغة العربية', 'The Universality of the Arabic Language (reading)'),
+    (11, 'AR8-T2-U2-L2-G', 'الوحدة الثانية: لغتنا العربية وهويتنا المصرية', 'تمييز العدد', 'The specification of numbers (tamyiz al-''adad)'),
+    (12, 'AR8-T2-U2-L2-S', 'الوحدة الثانية: لغتنا العربية وهويتنا المصرية', 'حروف تنطق ولا تكتب', 'Letters that are pronounced but not written'),
+    (13, 'AR8-T2-U2-L2-W', 'الوحدة الثانية: لغتنا العربية وهويتنا المصرية', 'كتابة تلخيص مقال', 'Writing an article summary'),
+    (14, 'AR8-T2-U2-L3-R', 'الوحدة الثانية: لغتنا العربية وهويتنا المصرية', 'من كنوز لغتي: البحر', 'From the Treasures of My Language: The Sea (reading, by Tawfiq al-Hakim)'),
+    (15, 'AR8-T2-U2-L4', 'الوحدة الثانية: لغتنا العربية وهويتنا المصرية', 'لا تلمني في هواها', 'Do Not Blame Me for Loving Her (poetic text, by Halim Dammous)'),
+    (16, 'AR8-T2-U3-L1', 'الوحدة الثالثة: حقوقي وواجباتي', 'البيروني ... عطاء بلا حدود', 'Al-Biruni ... Giving Without Limits (listening text)'),
+    (17, 'AR8-T2-U3-L2-R', 'الوحدة الثالثة: حقوقي وواجباتي', 'الحقوق والواجبات', 'Rights and Duties (reading)'),
+    (18, 'AR8-T2-U3-L2-G', 'الوحدة الثالثة: حقوقي وواجباتي', 'كم الاستفهامية وكم الخبرية', 'Interrogative kam and declarative kam'),
+    (19, 'AR8-T2-U3-L2-S', 'الوحدة الثالثة: حقوقي وواجباتي', 'حروف تكتب ولا تنطق', 'Letters that are written but not pronounced'),
+    (20, 'AR8-T2-U3-L3-R', 'الوحدة الثالثة: حقوقي وواجباتي', 'قيم الرياضة: ممارسة وتشجيعا', 'The Values of Sport: Practice and Support (reading)'),
+    (21, 'AR8-T2-U3-L4', 'الوحدة الثالثة: حقوقي وواجباتي', 'أخي', 'My Brother (poetic text, by Ali Mahmoud Taha)')
+  ) as v(ordinal, code, strand, title, title_en);
+with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe-textbooks', 'social-studies', 8, 8, 'Social Studies (الدراسات الاجتماعية), Preparatory 2, Term 2', 2, '2025/2026', 'https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory2/Term2/StudentBook/Social_prp2_T2.pdf') returning id)
+insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
+select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
+    (1, 'SS8-T2-U1-L1', 'الوحدة الأولى: سكان قارتي آسيا وأوروبا', 'نمو وتوزيع سكان قارتي آسيا وأوروبا', 'Growth and Distribution of the Population of the Continents of Asia and Europe'),
+    (2, 'SS8-T2-U1-L2', 'الوحدة الأولى: سكان قارتي آسيا وأوروبا', 'خصائص سكان قارتي آسيا وأوروبا', 'Characteristics of the Population of the Continents of Asia and Europe'),
+    (3, 'SS8-T2-U2-L1', 'الوحدة الثانية: مصر من الفتح الإسلامي حتى عصر الدول المستقلة', 'أحوال مصر بعد الفتح الإسلامي', 'Conditions in Egypt after the Islamic Conquest'),
+    (4, 'SS8-T2-U2-L2', 'الوحدة الثانية: مصر من الفتح الإسلامي حتى عصر الدول المستقلة', 'الملامح الحضارية لبعض الدول المستقلة في مصر (الطولونية والإخشيدية والفاطمية)', 'Civilizational Features of Some Independent States in Egypt (Tulunid, Ikhshidid and Fatimid)'),
+    (5, 'SS8-T2-U2-L3', 'الوحدة الثانية: مصر من الفتح الإسلامي حتى عصر الدول المستقلة', 'الملامح الحضارية لبعض الدول المستقلة في مصر (الأيوبية والمملوكية)', 'Civilizational Features of Some Independent States in Egypt (Ayyubid and Mamluk)'),
+    (6, 'SS8-T2-U3-L1', 'الوحدة الثالثة: الأنشطة الاقتصادية في قارتي آسيا وأوروبا', 'النشاط الزراعي في قارتي آسيا وأوروبا', 'Agricultural Activity in the Continents of Asia and Europe'),
+    (7, 'SS8-T2-U3-L2', 'الوحدة الثالثة: الأنشطة الاقتصادية في قارتي آسيا وأوروبا', 'النشاط الصناعي والتجاري في قارتي آسيا وأوروبا', 'Industrial and Commercial Activity in the Continents of Asia and Europe'),
+    (8, 'SS8-T2-U3-L3', 'الوحدة الثالثة: الأنشطة الاقتصادية في قارتي آسيا وأوروبا', 'النشاط السياحي في قارتي آسيا وأوروبا', 'Tourism Activity in the Continents of Asia and Europe'),
+    (9, 'SS8-T2-U3-L4', 'الوحدة الثالثة: الأنشطة الاقتصادية في قارتي آسيا وأوروبا', 'بعض المنظمات الإقليمية في قارتي آسيا وأوروبا', 'Some Regional Organizations in the Continents of Asia and Europe'),
+    (10, 'SS8-T2-U4-L1', 'الوحدة الرابعة: مصر من الحكم العثماني حتى الحملة الفرنسية', 'مصر تحت الحكم العثماني', 'Egypt under Ottoman Rule'),
+    (11, 'SS8-T2-U4-L2', 'الوحدة الرابعة: مصر من الحكم العثماني حتى الحملة الفرنسية', 'الحملة الفرنسية على مصر', 'The French Campaign on Egypt')
+  ) as v(ordinal, code, strand, title, title_en);
 
 -- eg-moe
 insert into public.curricula (code, system_code, name, kind, confidence, source_url, note, verified_on, verified_source, verification_method) values ('eg-moe', 'national', 'Egyptian MOE national curriculum, strand placeholders (not yet sourced)', 'strand_placeholder', 'low', 'https://moe.gov.eg/', 'Strand-level placeholders for grades whose Ministry student books have not been read yet. Replace each with an eg-moe-textbooks syllabus once its book is sourced.', NULL, NULL, NULL);
@@ -407,67 +893,6 @@ insert into public.grade_labels (curriculum_code, grade, label) values
   ('eg-moe', 6, 'Primary 6'),
   ('eg-moe', 7, 'Preparatory 1'),
   ('eg-moe', 8, 'Preparatory 2');
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe', 'arabic', 2, 2, 'Arabic Language (اللغة العربية), Primary 2', NULL, NULL, NULL) returning id)
-insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
-select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
-    (1, 'AR-LS', 'Language skills', 'الاستماع والتحدث', 'Listening and speaking'),
-    (2, 'AR-RD', 'Language skills', 'القراءة والفهم', 'Reading and comprehension'),
-    (3, 'AR-TX', 'Literature', 'النصوص والمحفوظات', 'Texts and recitation'),
-    (4, 'AR-GR', 'Language structure', 'النحو والصرف', 'Grammar and morphology'),
-    (5, 'AR-SP', 'Language structure', 'الإملاء', 'Spelling'),
-    (6, 'AR-HW', 'Writing', 'الخط', 'Handwriting'),
-    (7, 'AR-WR', 'Writing', 'التعبير', 'Composition')
-  ) as v(ordinal, code, strand, title, title_en);
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe', 'arabic', 3, 3, 'Arabic Language (اللغة العربية), Primary 3', NULL, NULL, NULL) returning id)
-insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
-select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
-    (1, 'AR-LS', 'Language skills', 'الاستماع والتحدث', 'Listening and speaking'),
-    (2, 'AR-RD', 'Language skills', 'القراءة والفهم', 'Reading and comprehension'),
-    (3, 'AR-TX', 'Literature', 'النصوص والمحفوظات', 'Texts and recitation'),
-    (4, 'AR-GR', 'Language structure', 'النحو والصرف', 'Grammar and morphology'),
-    (5, 'AR-SP', 'Language structure', 'الإملاء', 'Spelling'),
-    (6, 'AR-HW', 'Writing', 'الخط', 'Handwriting'),
-    (7, 'AR-WR', 'Writing', 'التعبير', 'Composition')
-  ) as v(ordinal, code, strand, title, title_en);
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe', 'arabic', 4, 4, 'Arabic Language (اللغة العربية), Primary 4', NULL, NULL, NULL) returning id)
-insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
-select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
-    (1, 'AR-LS', 'Language skills', 'الاستماع والتحدث', 'Listening and speaking'),
-    (2, 'AR-RD', 'Language skills', 'القراءة والفهم', 'Reading and comprehension'),
-    (3, 'AR-TX', 'Literature', 'النصوص والمحفوظات', 'Texts and recitation'),
-    (4, 'AR-GR', 'Language structure', 'النحو والصرف', 'Grammar and morphology'),
-    (5, 'AR-SP', 'Language structure', 'الإملاء', 'Spelling'),
-    (6, 'AR-HW', 'Writing', 'الخط', 'Handwriting'),
-    (7, 'AR-WR', 'Writing', 'التعبير', 'Composition')
-  ) as v(ordinal, code, strand, title, title_en);
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe', 'arabic', 6, 6, 'Arabic Language (اللغة العربية), Primary 6', NULL, NULL, NULL) returning id)
-insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
-select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
-    (1, 'AR-LS', 'Language skills', 'الاستماع والتحدث', 'Listening and speaking'),
-    (2, 'AR-RD', 'Language skills', 'القراءة والفهم', 'Reading and comprehension'),
-    (3, 'AR-TX', 'Literature', 'النصوص والمحفوظات', 'Texts and recitation'),
-    (4, 'AR-GR', 'Language structure', 'النحو والصرف', 'Grammar and morphology'),
-    (5, 'AR-SP', 'Language structure', 'الإملاء', 'Spelling'),
-    (6, 'AR-HW', 'Writing', 'الخط', 'Handwriting'),
-    (7, 'AR-WR', 'Writing', 'التعبير', 'Composition')
-  ) as v(ordinal, code, strand, title, title_en);
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe', 'arabic', 7, 7, 'Arabic Language (اللغة العربية), Preparatory 1', NULL, NULL, NULL) returning id)
-insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
-select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
-    (1, 'AR-LS', 'Language skills', 'الاستماع والتحدث', 'Listening and speaking'),
-    (2, 'AR-RD', 'Language skills', 'القراءة والفهم', 'Reading and comprehension'),
-    (3, 'AR-TX', 'Literature', 'النصوص والمحفوظات', 'Texts and recitation'),
-    (4, 'AR-GR', 'Language structure', 'النحو والصرف', 'Grammar and morphology'),
-    (5, 'AR-SP', 'Language structure', 'الإملاء', 'Spelling'),
-    (6, 'AR-HW', 'Writing', 'الخط', 'Handwriting'),
-    (7, 'AR-WR', 'Writing', 'التعبير', 'Composition')
-  ) as v(ordinal, code, strand, title, title_en);
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe', 'discover', 2, 2, 'Discover (اكتشف), Primary 2', NULL, NULL, NULL) returning id)
-insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
-select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
-    (1, 'D-ME', 'Discover', 'أنا ومجتمعي', 'Me and my community'),
-    (2, 'D-EG', 'Discover', 'بلدي مصر', 'My country, Egypt')
-  ) as v(ordinal, code, strand, title, title_en);
 with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe', 'social-studies', 4, 4, 'Social Studies (الدراسات الاجتماعية), Primary 4', NULL, NULL, NULL) returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
@@ -476,20 +901,6 @@ select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (3, 'SS-CI', 'Social studies', 'التربية الوطنية والمواطنة', 'Civics and citizenship')
   ) as v(ordinal, code, strand, title, title_en);
 with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe', 'social-studies', 6, 6, 'Social Studies (الدراسات الاجتماعية), Primary 6', NULL, NULL, NULL) returning id)
-insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
-select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
-    (1, 'SS-GE', 'Social studies', 'الجغرافيا', 'Geography'),
-    (2, 'SS-HI', 'Social studies', 'التاريخ', 'History'),
-    (3, 'SS-CI', 'Social studies', 'التربية الوطنية والمواطنة', 'Civics and citizenship')
-  ) as v(ordinal, code, strand, title, title_en);
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe', 'social-studies', 7, 7, 'Social Studies (الدراسات الاجتماعية), Preparatory 1', NULL, NULL, NULL) returning id)
-insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
-select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
-    (1, 'SS-GE', 'Social studies', 'الجغرافيا', 'Geography'),
-    (2, 'SS-HI', 'Social studies', 'التاريخ', 'History'),
-    (3, 'SS-CI', 'Social studies', 'التربية الوطنية والمواطنة', 'Civics and citizenship')
-  ) as v(ordinal, code, strand, title, title_en);
-with s as (insert into public.syllabi (curriculum_code, subject_code, grade_min, grade_max, name, term, academic_year, source_url) values ('eg-moe', 'social-studies', 8, 8, 'Social Studies (الدراسات الاجتماعية), Preparatory 2', NULL, NULL, NULL) returning id)
 insert into public.topics (syllabus_id, ordinal, code, strand, title, title_en)
 select s.id, v.ordinal, v.code, v.strand, v.title, v.title_en from s, (values
     (1, 'SS-GE', 'Social studies', 'الجغرافيا', 'Geography'),
