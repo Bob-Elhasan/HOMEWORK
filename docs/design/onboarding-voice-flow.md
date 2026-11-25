@@ -1,6 +1,6 @@
 # Onboarding: Meeting Ibi (voice-first)
 
-Status: draft for review by `product-designer`, `child-development-specialist`, grade heads, `course-designer-ethics`, `security-privacy-engineer`, and `legal-compliance-advisor`.
+Status: **reviewed by the academic council on 2026-11-25: approved with changes.** This draft is superseded where it conflicts with the decision in [`docs/school/council/2026-11-25-onboarding-voice-flow.md`](../school/council/2026-11-25-onboarding-voice-flow.md) (honest AI identity, no streaks, placement by age band, time caps, safety flags). `product-designer` revises this document; design starts after the council's four blockers are done.
 
 ## Goal
 In the first minutes, the child meets a character who becomes their study companion, by voice, with no forms. By the end, the tutor knows the child's curriculum, roughly where they stand in one subject, and how well it can hear them, and the child has had their first "I got it myself" moment.
