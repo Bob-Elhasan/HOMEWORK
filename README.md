@@ -4,7 +4,7 @@ An immersive AI tutor for students in grades 2-8. The tutor talks with the child
 
 Current status: **Phase 0 (foundations)**. The full roadmap is in [`docs/product-plan.md`](docs/product-plan.md).
 
-The team is twelve Claude Code agents, from tech lead to QA. See [`docs/team/README.md`](docs/team/README.md) for the roster, ownership, and how work flows between them.
+The team is thirty-one Claude Code agents across product, design, learning, wellbeing, AI, engineering, safety, and partnerships. See [`docs/team/README.md`](docs/team/README.md) for the roster, ownership, and how work flows between them.
 
 ## Stack
 
