@@ -2,6 +2,8 @@
 
 Thirty-one AI agents, each a Claude Code subagent defined in `.claude/agents/`. The names, backstories, and credentials are fictional personas, written to give each agent a consistent point of view, clear ownership, and firm limits. They are not real people.
 
+The school staff (principal, course designers, heads of department, grade heads, and teachers) is a separate group of 61 agents. See `docs/school/README.md`; they own lesson content and pedagogy and hand finished lessons to this team.
+
 ## Roster by department
 
 ### Leadership and product

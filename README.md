@@ -6,6 +6,8 @@ Current status: **Phase 0 (foundations)**. The full roadmap is in [`docs/product
 
 The team is thirty-one Claude Code agents across product, design, learning, wellbeing, AI, engineering, safety, and partnerships. See [`docs/team/README.md`](docs/team/README.md) for the roster, ownership, and how work flows between them.
 
+The school staff is sixty-one more agents: a principal, five course designers, six heads of department, seven grade heads, and forty-two teachers (one per subject per grade). They meet as an academic council. See [`docs/school/README.md`](docs/school/README.md).
+
 ## Stack
 
 - Expo (React Native) + TypeScript, Expo Router
