@@ -1,0 +1,28 @@
+{
+  "expo": {
+    "name": "Study Companion",
+    "slug": "study-companion",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "scheme": "studycompanion",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": false,
+    "splash": {
+      "backgroundColor": "#F7F5FF"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.studycompanion.app"
+    },
+    "android": {
+      "package": "com.studycompanion.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#F7F5FF"
+      }
+    },
+    "plugins": ["expo-router", "expo-font"],
+    "experiments": {
+      "typedRoutes": false
+    }
+  }
+}

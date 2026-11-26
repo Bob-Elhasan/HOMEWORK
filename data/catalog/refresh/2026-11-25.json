@@ -1,0 +1,271 @@
+{
+ "date": "2026-11-25",
+ "thresholds": {
+  "same": 0.8,
+  "changed": 0.55
+ },
+ "incoming_links_added": 0,
+ "results": [
+  {
+   "syllabus": "Arabic Language (اللغة العربية), Primary 2, Term 2",
+   "subject": "arabic",
+   "grade": 2,
+   "term": 2,
+   "academic_year": "2025/2026",
+   "source_url": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary2/Term2/StudentBook/Arabic_Prim2_T2.pdf",
+   "findings": []
+  },
+  {
+   "syllabus": "Discover (اكتشف), Primary 2",
+   "subject": "discover",
+   "grade": 2,
+   "term": null,
+   "academic_year": "2025/2026",
+   "source_url": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary2/Term2/StudentBook/Discovery_AR_prim2_TR1_2.pdf",
+   "findings": []
+  },
+  {
+   "syllabus": "Christian Religious Education (التربية المسيحية), Primary 2, Term 2",
+   "subject": "religion-christian",
+   "grade": 2,
+   "term": 2,
+   "academic_year": "2025/2026",
+   "source_url": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary2/Term2/StudentBook/CH_Prim2_T2_.pdf",
+   "findings": []
+  },
+  {
+   "syllabus": "Islamic Religious Education (التربية الإسلامية), Primary 2, Term 1",
+   "subject": "religion-islamic",
+   "grade": 2,
+   "term": 1,
+   "academic_year": "2026/2027",
+   "source_url": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026_2027/Primary/Primary2/Term1/StudentBook/Islamic_religion_prim2_t1.pdf",
+   "findings": []
+  },
+  {
+   "syllabus": "Islamic Religious Education (التربية الإسلامية), Primary 2, Term 2",
+   "subject": "religion-islamic",
+   "grade": 2,
+   "term": 2,
+   "academic_year": "2025/2026",
+   "source_url": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary2/Term2/StudentBook/islamic_prim2_tr2.pdf",
+   "findings": []
+  },
+  {
+   "syllabus": "Arabic Language (اللغة العربية), Primary 3, Term 2",
+   "subject": "arabic",
+   "grade": 3,
+   "term": 2,
+   "academic_year": "2025/2026",
+   "source_url": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary3/Term2/StudentBook/Arabic_Prim3_TR2.pdf",
+   "findings": []
+  },
+  {
+   "syllabus": "Discover (اكتشف), Primary 3",
+   "subject": "discover",
+   "grade": 3,
+   "term": null,
+   "academic_year": "2025/2026",
+   "source_url": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary3/Term1/StudentBook/Discovery_AR_prim3_TR1_2.pdf",
+   "findings": []
+  },
+  {
+   "syllabus": "Christian Religious Education (التربية المسيحية), Primary 3, Term 1",
+   "subject": "religion-christian",
+   "grade": 3,
+   "term": 1,
+   "academic_year": "2026/2027",
+   "source_url": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026_2027/Primary/Primary3/Term1/StudentBook/Cristian_religion_prim3_t1.pdf",
+   "findings": []
+  },
+  {
+   "syllabus": "Islamic Religious Education (التربية الإسلامية), Primary 3, Term 2",
+   "subject": "religion-islamic",
+   "grade": 3,
+   "term": 2,
+   "academic_year": "2025/2026",
+   "source_url": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary3/Term2/StudentBook/Islamic_prim3_Tr2.pdf",
+   "findings": []
+  },
+  {
+   "syllabus": "Arabic Language (اللغة العربية), Primary 4, Term 2",
+   "subject": "arabic",
+   "grade": 4,
+   "term": 2,
+   "academic_year": "2025/2026",
+   "source_url": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary4/Term2/StudentBook/Arabic_prim4_TR2.pdf",
+   "findings": []
+  },
+  {
+   "syllabus": "Christian Religious Education (التربية المسيحية), Primary 4, Term 2",
+   "subject": "religion-christian",
+   "grade": 4,
+   "term": 2,
+   "academic_year": "2025/2026",
+   "source_url": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary4/Term2/StudentBook/CH_Prim4_T2_.pdf",
+   "findings": []
+  },
+  {
+   "syllabus": "Islamic Religious Education (التربية الإسلامية), Primary 4, Term 2",
+   "subject": "religion-islamic",
+   "grade": 4,
+   "term": 2,
+   "academic_year": "2025/2026",
+   "source_url": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary4/Term2/StudentBook/Islamic_prim4_TR2.pdf",
+   "findings": []
+  },
+  {
+   "syllabus": "Social Studies (الدراسات الاجتماعية), Primary 4, Term 1",
+   "subject": "social-studies",
+   "grade": 4,
+   "term": 1,
+   "academic_year": "2026/2027",
+   "source_url": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026_2027/Primary/Primary4/Term1/StudentBook/Social_studies_prim4_t1.pdf",
+   "findings": []
+  },
+  {
+   "syllabus": "Arabic Language (اللغة العربية), Primary 5, Term 1",
+   "subject": "arabic",
+   "grade": 5,
+   "term": 1,
+   "academic_year": "2026/2027",
+   "source_url": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026_2027/Primary/Primary5/Term1/StudentBook/Arabic_langugae_prim5_t1.pdf",
+   "findings": []
+  },
+  {
+   "syllabus": "Arabic Language (اللغة العربية), Primary 5, Term 2",
+   "subject": "arabic",
+   "grade": 5,
+   "term": 2,
+   "academic_year": "2025/2026",
+   "source_url": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary5/Term2/StudentBook/Arabic_prim5_TR2.pdf",
+   "findings": []
+  },
+  {
+   "syllabus": "Christian Religious Education (التربية المسيحية), Primary 5, Term 2",
+   "subject": "religion-christian",
+   "grade": 5,
+   "term": 2,
+   "academic_year": "2025/2026",
+   "source_url": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary5/Term2/StudentBook/CH_Prim5_T2.pdf",
+   "findings": []
+  },
+  {
+   "syllabus": "Islamic Religious Education (التربية الإسلامية), Primary 5, Term 2",
+   "subject": "religion-islamic",
+   "grade": 5,
+   "term": 2,
+   "academic_year": "2025/2026",
+   "source_url": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary5/Term2/StudentBook/Islamic_prim5_Tr2.pdf",
+   "findings": []
+  },
+  {
+   "syllabus": "Social Studies (الدراسات الاجتماعية), Primary 5, Term 1",
+   "subject": "social-studies",
+   "grade": 5,
+   "term": 1,
+   "academic_year": "2026/2027",
+   "source_url": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026_2027/Primary/Primary5/Term1/StudentBook/Social_studies_prim5_t1.pdf",
+   "findings": []
+  },
+  {
+   "syllabus": "Arabic Language (اللغة العربية), Primary 6, Term 2",
+   "subject": "arabic",
+   "grade": 6,
+   "term": 2,
+   "academic_year": "2025/2026",
+   "source_url": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary6/Term2/StudentBook/Arabic_prim6_TR2.pdf",
+   "findings": []
+  },
+  {
+   "syllabus": "Christian Religious Education (التربية المسيحية), Primary 6, Term 2",
+   "subject": "religion-christian",
+   "grade": 6,
+   "term": 2,
+   "academic_year": "2025/2026",
+   "source_url": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary6/Term2/StudentBook/CH_prim6_Tr2.pdf",
+   "findings": []
+  },
+  {
+   "syllabus": "Islamic Religious Education (التربية الإسلامية), Primary 6, Term 2",
+   "subject": "religion-islamic",
+   "grade": 6,
+   "term": 2,
+   "academic_year": "2025/2026",
+   "source_url": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary6/Term2/StudentBook/islamic_prim6_tr2.pdf",
+   "findings": []
+  },
+  {
+   "syllabus": "Social Studies (الدراسات الاجتماعية), Primary 6, Term 1",
+   "subject": "social-studies",
+   "grade": 6,
+   "term": 1,
+   "academic_year": "2026/2027",
+   "source_url": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026_2027/Primary/Primary6/Term1/StudentBook/Social_Studies_Primary6_T1.pdf",
+   "findings": []
+  },
+  {
+   "syllabus": "Arabic Language (اللغة العربية), Preparatory 1, Term 2",
+   "subject": "arabic",
+   "grade": 7,
+   "term": 2,
+   "academic_year": "2025/2026",
+   "source_url": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory1/Term2/StudentBook/Arabic_Prep1_SB_T2.pdf",
+   "findings": []
+  },
+  {
+   "syllabus": "Christian Religious Education (التربية المسيحية), Preparatory 1, Term 2",
+   "subject": "religion-christian",
+   "grade": 7,
+   "term": 2,
+   "academic_year": "2025/2026",
+   "source_url": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory1/Term2/StudentBook/CH_PE1_T2.pdf",
+   "findings": []
+  },
+  {
+   "syllabus": "Islamic Religious Education (التربية الإسلامية), Preparatory 1, Term 2",
+   "subject": "religion-islamic",
+   "grade": 7,
+   "term": 2,
+   "academic_year": "2025/2026",
+   "source_url": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory1/Term2/StudentBook/Islamic_prp1_Tr2.pdf",
+   "findings": []
+  },
+  {
+   "syllabus": "Social Studies (الدراسات الاجتماعية), Preparatory 1, Term 2",
+   "subject": "social-studies",
+   "grade": 7,
+   "term": 2,
+   "academic_year": null,
+   "source_url": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory1/Term2/StudentBook/Social_prp1_Tr2.pdf",
+   "findings": []
+  },
+  {
+   "syllabus": "Arabic Language (اللغة العربية), Preparatory 2, Term 1",
+   "subject": "arabic",
+   "grade": 8,
+   "term": 1,
+   "academic_year": "2025/2026",
+   "source_url": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory2/Term1/StudentBook/Arabic_Prep2_SB_T1.pdf",
+   "findings": []
+  },
+  {
+   "syllabus": "Arabic Language (اللغة العربية), Preparatory 2, Term 2",
+   "subject": "arabic",
+   "grade": 8,
+   "term": 2,
+   "academic_year": "2025/2026",
+   "source_url": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory2/Term2/StudentBook/Arabic_prep2_Tr2.pdf",
+   "findings": []
+  },
+  {
+   "syllabus": "Social Studies (الدراسات الاجتماعية), Preparatory 2, Term 2",
+   "subject": "social-studies",
+   "grade": 8,
+   "term": 2,
+   "academic_year": "2025/2026",
+   "source_url": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory2/Term2/StudentBook/Social_prp2_T2.pdf",
+   "findings": []
+  }
+ ]
+}

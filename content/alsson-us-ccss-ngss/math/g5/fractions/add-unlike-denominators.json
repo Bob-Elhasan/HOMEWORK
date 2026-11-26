@@ -1,0 +1,48 @@
+{
+  "id": "ma.g5.fractions.add-unlike",
+  "curriculum": "alsson-us-ccss-ngss",
+  "subject": "math",
+  "grade": 5,
+  "status": "draft",
+  "learning_objectives": [
+    {
+      "text": "Add two fractions with unlike denominators by rewriting them with a common denominator.",
+      "source_outcomes": ["CCSS.MATH.CONTENT.5.NF.A.1"]
+    }
+  ],
+  "skills": ["ma.g5.fractions.common-denominator", "ma.g5.fractions.equivalent"],
+  "explain": "Fractions can only be combined when they name the same size of piece. Before adding, ask: what is one piece of each fraction, and can both be cut into the same size pieces? Use a number line or a bar model to show the two pieces, then find a size both denominators divide into.",
+  "scenes": [],
+  "images": [],
+  "demos": [
+    {
+      "id": "demo.fraction-bars",
+      "predict_first": "Before you split the bars, predict: will the total be more than one whole, or less?"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "think_prompt": "Ana ate 2/3 of a pizza and then 1/4 of the same pizza. What fraction did she eat altogether?",
+      "rubric": [
+        "States that the two denominators must match before adding.",
+        "Finds a common denominator that both 3 and 4 divide into.",
+        "Rewrites both fractions with that denominator and adds the numerators.",
+        "Simplifies the result if possible, or explains why it is already simplest."
+      ],
+      "answer_key": "11/12",
+      "hints": [
+        "Can you add 2 thirds and 1 fourth directly, or do they name different size pieces?",
+        "Think about a number that both 3 and 4 divide into evenly. How could you cut thirds and fourths into the same size pieces?",
+        "Try a different case first: 1/2 + 1/3. Rewrite both with denominator 6, then add. Now do the same steps with 2/3 and 1/4."
+      ]
+    }
+  ],
+  "misconceptions": [
+    {
+      "wrong_idea": "Adding fractions means adding the numerators and the denominators, so 2/3 + 1/4 = 3/7.",
+      "exposing_question": "If you ate 2 thirds of a pizza, and then 1 fourth of a pizza, could the total be less than 1 half? Check 3/7 against that."
+    }
+  ],
+  "explain_back": "In your own words, explain why you cannot add 2/3 and 1/4 by adding the tops and the bottoms."
+}
